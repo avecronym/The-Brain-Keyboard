@@ -9,7 +9,7 @@ Once you're ready, follow the steps below and start making note(s) of anything i
 
 - ## Search ^oyt0v
 	- Ctrl + S - Open Search Bar
-	- Click on 🔍in Folder Tab - Search for File (Bartender)
+	- Click on 🔍 in Folder Tab - Search for File (Bartender)
 		- *Search any file within the folder tab.*
 			- Use *'* at the start for an exact match
 	- line:() - Search a Hotkey
@@ -29,6 +29,7 @@ Once you're ready, follow the steps below and start making note(s) of anything i
 		- *Allows for precise searching throughout the vault.*
 	- Ctrl + Shift + A - Switch between Vaults (Quick Switcher++: Open in Vaults Mode)
 		- *Switch between one vault to another*
+	- Ctrl + , - Open Settings Page
 		- [[#^022xq|^022xq]]
 
 - ## Bulletpoints ^022xq
