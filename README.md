@@ -4,10 +4,6 @@
 
 ![avecronym-obsidian-vault](https://github.com/user-attachments/assets/c8207af1-5b91-4842-a3bb-49dbc7060e1c)
 
-### Video Showcase here: 
-1. https://www.youtube.com/watch?v=y1dbwSbXggg
-2. https://www.youtube.com/watch?v=6d2M9K9gluA
-
 My approach to learning the world around us.
 
 ## Every Core/Community Plugin I used:
