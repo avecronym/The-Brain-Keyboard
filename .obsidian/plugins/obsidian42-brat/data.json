@@ -1,13 +1,8 @@
 {
   "pluginList": [
-    "Mara-Li/obsidian-bartender"
+    "jemstelos/obsidian-media-notes"
   ],
-  "pluginSubListFrozenVersion": [
-    {
-      "repo": "Mara-Li/obsidian-bartender",
-      "version": "0.5.18"
-    }
-  ],
+  "pluginSubListFrozenVersion": [],
   "themesList": [],
   "updateAtStartup": true,
   "updateThemesAtStartup": true,

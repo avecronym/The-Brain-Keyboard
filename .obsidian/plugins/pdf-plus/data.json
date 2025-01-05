@@ -291,6 +291,7 @@
   "enableBibInEmbed": false,
   "enableBibInHoverPopover": false,
   "enableBibInCanvas": true,
+  "citationIdPatterns": "^cite.\n^bib\\d+$",
   "copyAsSingleLine": true,
   "removeWhitespaceBetweenCJChars": true,
   "dummyFileFolderPath": "",

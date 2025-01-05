@@ -1,10 +1,4 @@
 {
-  "attachmentFolderPath": "./",
-  "promptDelete": false,
-  "showUnsupportedFiles": false,
-  "userIgnoreFilters": [],
-  "alwaysUpdateLinks": true,
-  "newFileLocation": "current",
-  "defaultViewMode": "preview",
-  "tabSize": 3
+  "tabSize": 3,
+  "promptDelete": false
 }

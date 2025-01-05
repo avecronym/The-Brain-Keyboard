@@ -1,72 +1,20 @@
 {
   "main": {
-    "id": "ca9353b28dd4b60a",
+    "id": "311b2741dbea9230",
     "type": "split",
     "children": [
       {
-        "id": "f2fd214498f8682c",
+        "id": "6320fada79263908",
         "type": "tabs",
         "children": [
           {
-            "id": "c6e0379c2905c9cc",
+            "id": "087e13375bfc09be",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Hotkeys/Hotkeys.md",
-                "mode": "preview",
-                "backlinks": false,
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Hotkeys"
-            }
-          },
-          {
-            "id": "5e971f643890184a",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Hotkeys/Hotkeys.canvas",
-                "viewState": {
-                  "x": 690,
-                  "y": 1220,
-                  "zoom": -1.7310498706917863
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "Hotkeys"
-            }
-          },
-          {
-            "id": "740b2d873ba3566d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Hotkeys/Functional Thinking/Functional Thinking.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Functional Thinking"
-            }
-          },
-          {
-            "id": "737831465e1a2df1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Hotkeys/Functional Thinking/N-grams.md",
-                "mode": "preview",
-                "backlinks": false,
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "N-grams"
+              "type": "home-tab-view",
+              "state": {},
+              "icon": "search",
+              "title": "Home tab"
             }
           }
         ]
@@ -75,15 +23,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "1ebae25cc0237518",
+    "id": "61a6b2c9b0e70e8b",
     "type": "split",
     "children": [
       {
-        "id": "22b8943531892c2f",
+        "id": "b0f1835026ee1d33",
         "type": "tabs",
         "children": [
           {
-            "id": "3a15a4909eb5d885",
+            "id": "e36193b1bf640488",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -95,7 +43,7 @@
             }
           },
           {
-            "id": "6e7ef11076437bbe",
+            "id": "676f64f8422870cb",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -103,7 +51,7 @@
                 "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
-                "collapseAll": true,
+                "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
               },
@@ -112,37 +60,32 @@
             }
           },
           {
-            "id": "2a39137ed5ed643c",
+            "id": "2b971b08fa7651f8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Hotkeys/Hotkeys.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              },
+              "type": "keyboard-shortcuts-visualization",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Hotkeys"
+              "title": "Keyboard Shortcuts"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 253.50260543823242
+    "width": 463.5
   },
   "right": {
-    "id": "928828d8e1fbdcae",
+    "id": "b30a97f3b22fae80",
     "type": "split",
     "children": [
       {
-        "id": "170be7010bdaa992",
+        "id": "a44404398bbc8090",
         "type": "tabs",
-        "dimension": 41.63934426229508,
+        "dimension": 45.44573643410852,
         "children": [
           {
-            "id": "b9b716556fa1e2c5",
+            "id": "ac5b1ee7e2060644",
             "type": "leaf",
             "state": {
               "type": "Strange New Worlds",
@@ -152,21 +95,7 @@
             }
           },
           {
-            "id": "cf11b36feb4dbe72",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "Hotkeys/Hotkeys.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links from Hotkeys"
-            }
-          },
-          {
-            "id": "d25f189bf97ced8a",
+            "id": "8d94c90c6e5cf899",
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -183,16 +112,44 @@
               "icon": "links-coming-in",
               "title": "Backlinks for Hotkeys"
             }
+          },
+          {
+            "id": "05742e3382813a66",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "8df80e72c3976c0b",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
-        "id": "99c351cf80722fbe",
+        "id": "1ef827e5f1acc3e9",
         "type": "tabs",
-        "dimension": 58.36065573770492,
+        "dimension": 54.55426356589148,
         "children": [
           {
-            "id": "ac1f7c362e663277",
+            "id": "4f6531ab3d9fa46d",
             "type": "leaf",
             "state": {
               "type": "map-of-content",
@@ -205,79 +162,52 @@
       }
     ],
     "direction": "horizontal",
-    "width": 331.5
+    "width": 461.5
   },
   "left-ribbon": {
     "hiddenItems": {
-      "workspaces:Manage workspace layouts": false,
-      "darlal-switcher-plus:Open in Vaults Mode": false,
-      "command-palette:Open command palette": false,
+      "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "daily-notes:Open today's daily note": false,
+      "command-palette:Open command palette": false,
       "obsidian42-brat:BRAT": false,
-      "omnisearch:Omnisearch": false,
-      "obsidian-wordy:Wordy view": false,
+      "edit-history:Open edit history": false,
+      "media-extended:Open media": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
       "pdf-plus:PDF++: Toggle auto-focus": false,
       "pdf-plus:PDF++: Toggle auto-paste": false,
-      "obisidian-note-linker:Note Linker": false,
-      "edit-history:Open edit history": false,
-      "surfing:surfing-bookmark-manager": false,
-      "media-extended:Open media": false,
+      "darlal-switcher-plus:Open in Vaults Mode": false,
+      "obsidian-wordy:Wordy view": false,
       "map-of-content:Update Map of Content": false
     }
   },
-  "active": "c6e0379c2905c9cc",
+  "active": "087e13375bfc09be",
   "lastOpenFiles": [
-    "sync.ffs_lock",
-    "Hotkeys/Hotkeys.canvas",
-    "Hotkeys/Functional Thinking/Functional Thinking.md",
-    "Hotkeys/Functional Thinking/N-grams.md",
     "Hotkeys/Hotkeys.md",
-    "Hotkeys/Hotkeys/2024-ave.png.~tmp",
-    "Hotkeys/Untitled.md",
-    "Hotkeys/Untitled.md.edtz",
-    "sync.ffs_db.f090.ffs_tmp",
-    "sync.ffs_db.7c52.ffs_tmp",
-    "Hotkeys/Functional Thinking/Untitled.canvas",
-    "Hotkeys/Functional Thinking/Untitled.md",
-    "Hotkeys/Functional Thinking/Untitled.md.edtz",
-    "Hotkeys/Functional Thinking/Functional Thinking.md.edtz",
+    "Hotkeys/Hotkeys.canvas",
     "Untitled.md",
     "Untitled.md.edtz",
+    "Hotkeys/Search 🔍.md",
+    "Hotkeys/Search 🔍/mpc-be64_izzVAr4dEL.png",
+    "Hotkeys/Search 🔍",
+    "Hotkeys/Search 🔍.md.edtz",
+    "-  Search 🔍 ^oyt0v.md",
+    "-  Search 🔍 ^oyt0v.md.edtz",
     "Untitled 1.md",
     "Untitled 1.md.edtz",
-    "ssstwitter.com_1729472490983.mp4",
-    "ssstwitter.com_1729472490983.mp4.md",
-    "Untitled/file-${filenameMMDDHHmmssSSS}.png",
-    "Media Note - 2024-06-30 17-52-40/2024-06-30 17-52-40PT31M0.559S.png",
-    "Media Note - 2024-06-30 17-52-40.md",
-    "Untitled.canvas",
-    "Media Note - 3-Minute Mental Hack to Take Control of Your Subconscious.md",
-    "Untitled/Untitled.md",
-    "Untitled/Untitled 1.md",
-    "Hotkeys/Hotkeys/make these new hotkeys to replace collect attachments plugins and others because its too fucking buggy for me.png",
-    "Hotkeys/Hotkeys/2024-ave.png",
+    "Hotkeys/Functional Thinking/Functional Thinking.md",
+    "Hotkeys/Functional Thinking/N-grams.md",
     "Hotkeys/Hotkeys/2023_Obsidian_logo_optimized.png",
-    ".Hotkeys/2024-ave.png",
-    ".Hotkeys/make these new hotkeys to replace collect attachments plugins and others because its too fucking buggy for me.png",
-    "Hotkeys/assets/Hotkeys/make these new hotkeys to replace collect attachments plugins and others because its too fucking buggy for me.png",
-    "Hotkeys/.png",
-    "Hotkeys/Hotkeys/Hotkeys/IMG-20241020005829633.png",
-    "Untitled/Untitled.canvas",
-    "Hotkeys/Hotkeys.canvas.md",
-    "Hotkeys (664657)/Hotkeys (664657).md",
-    "Untitled/Untitled 3.md",
-    "Untitled/Untitled 2.md",
-    "n/n.md",
-    "n/Untitled.md",
-    "n/Untitled 1.md",
-    "n/Untitled 2.md",
-    "n/Untitled 3.md",
-    "n/Untitled 4.md",
-    "n/Untitled 5.md",
-    "n/Untitled 6.md",
-    "n/Untitled 7.md",
-    "tested/tested.canvas"
+    "Hotkeys/Hotkeys/2024-ave.png",
+    "Transforms/Transforms.md",
+    "Transforms",
+    "Hotkeys/Hotkeys/obsidian-icon.svg",
+    "Hotkeys/Hotkeys/Unconfirmed 217575.crdownload",
+    "Video. Reverend Kristin Michael Hayter's 'Saved!' takes concept album to a new level.md",
+    "Video. Reverend Kristin Michael Hayter's 'Saved!' takes concept album to a new level.md.edtz",
+    "Welcome.md",
+    "Hotkeys/Hotkeys",
+    "Hotkeys/Functional Thinking/N-grams.md.edtz"
   ]
 }
