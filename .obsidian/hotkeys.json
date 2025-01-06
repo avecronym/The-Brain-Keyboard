@@ -595,15 +595,7 @@
       "key": "J"
     }
   ],
-  "quick-explorer:go-prev": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "ArrowUp"
-    }
-  ],
+  "quick-explorer:go-prev": [],
   "quick-explorer:go-next": [],
   "quick-explorer:go-first": [],
   "quick-explorer:go-last": [],
@@ -756,6 +748,24 @@
         "Shift"
       ],
       "key": "K"
+    }
+  ],
+  "obsidian-local-file-interface-plugin:local-file-interface-import": [
+    {
+      "modifiers": [
+        "Mod",
+        "Alt"
+      ],
+      "key": "I"
+    }
+  ],
+  "obsidian-local-file-interface-plugin:local-file-interface-export": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "I"
     }
   ]
 }

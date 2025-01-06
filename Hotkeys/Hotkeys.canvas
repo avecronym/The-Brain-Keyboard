@@ -1,64 +1,43 @@
 {
-  "nodes": [
-    {
-      "id": "Predicate.md",
-      "type": "file",
-      "file": "Hotkeys/Functional Thinking/N-grams.md",
-      "styleAttributes": {},
-      "x": 800,
-      "y": 1400,
-      "width": 500,
-      "height": 1000,
-      "color": "3"
-    },
-    {
-      "id": "Functional Thinking.md",
-      "type": "file",
-      "file": "Hotkeys/Functional Thinking/Functional Thinking.md",
-      "styleAttributes": {},
-      "x": 80,
-      "y": 1400,
-      "width": 500,
-      "height": 1000,
-      "color": "5"
-    },
-    {
-      "id": "Hotkeys.md",
-      "type": "file",
-      "file": "Hotkeys/Hotkeys.md",
-      "styleAttributes": {},
-      "x": 400,
-      "y": 40,
-      "width": 540,
-      "height": 1200,
-      "color": "1"
-    }
-  ],
-  "edges": [
-    {
-      "id": "d8a7f385535920d9",
-      "fromNode": "Functional Thinking.md",
-      "fromSide": "right",
-      "toNode": "Predicate.md",
-      "toSide": "left",
-      "fromEnd": "arrow"
-    },
-    {
-      "id": "087cce488a0c6ee7",
-      "fromNode": "Predicate.md",
-      "fromSide": "top",
-      "toNode": "Hotkeys.md",
-      "toSide": "bottom",
-      "fromEnd": "arrow"
-    },
-    {
-      "id": "6acc243aee98e1f0",
-      "fromNode": "Hotkeys.md",
-      "fromSide": "bottom",
-      "toNode": "Functional Thinking.md",
-      "toSide": "top",
-      "fromEnd": "arrow"
-    }
-  ],
-  "metadata": {}
+	"nodes":[
+		{
+			"id":"Predicate.md",
+			"type":"file",
+			"file":"Hotkeys/Functional Thinking/N-grams.md",
+			"styleAttributes":{},
+			"x":800,
+			"y":1400,
+			"width":500,
+			"height":1000,
+			"color":"3"
+		},
+		{
+			"id":"Functional Thinking.md",
+			"type":"file",
+			"file":"Hotkeys/Functional Thinking/Functional Thinking.md",
+			"styleAttributes":{},
+			"x":80,
+			"y":1400,
+			"width":500,
+			"height":1000,
+			"color":"5"
+		},
+		{
+			"id":"Hotkeys.md",
+			"type":"file",
+			"file":"Hotkeys/Hotkeys.md",
+			"styleAttributes":{},
+			"x":400,
+			"y":40,
+			"width":540,
+			"height":1200,
+			"color":"1"
+		}
+	],
+	"edges":[
+		{"id":"d8a7f385535920d9","fromNode":"Functional Thinking.md","fromSide":"right","toNode":"Predicate.md","toSide":"left","fromEnd":"arrow"},
+		{"id":"087cce488a0c6ee7","fromNode":"Predicate.md","fromSide":"top","toNode":"Hotkeys.md","toSide":"bottom","fromEnd":"arrow"},
+		{"id":"6acc243aee98e1f0","fromNode":"Hotkeys.md","fromSide":"bottom","toNode":"Functional Thinking.md","toSide":"top","fromEnd":"arrow"}
+	],
+	"metadata":{}
 }

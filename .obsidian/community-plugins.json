@@ -43,5 +43,7 @@
   "obsidian-wordy",
   "obsidian42-strange-new-worlds",
   "obsidian-reveal-active-file",
-  "keyboard-analyzer"
+  "keyboard-analyzer",
+  "obsidian-local-file-interface-plugin",
+  "hotkey-helper"
 ]

@@ -8,7 +8,7 @@
   "duplicateNameSeparator": " ",
   "jpegQuality": 0.8,
   "keepEmptyAttachmentFolders": false,
-  "pastedFileName": "file-${filenameMMDDHHmmssSSS}",
+  "pastedFileName": "",
   "renameAttachmentsOnDragAndDrop": false,
   "renameCollectedFiles": true,
   "renameOnlyImages": false,
