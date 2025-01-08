@@ -767,5 +767,23 @@
       ],
       "key": "I"
     }
+  ],
+  "obsidian-reminder-plugin:scan-reminders": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "B"
+    }
+  ],
+  "obsidian-reminder-plugin:show-reminders": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "B"
+    }
   ]
 }
