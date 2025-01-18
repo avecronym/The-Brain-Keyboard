@@ -183,3 +183,5 @@ var FileChuckerSettingsTab = class extends import_obsidian.PluginSettingTab {
     });
   }
 };
+
+/* nosourcemap */

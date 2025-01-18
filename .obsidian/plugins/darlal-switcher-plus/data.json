@@ -29,11 +29,14 @@
   ],
   "limit": 50,
   "includeSidePanelViewTypes": [
-    "file-explorer"
+    "backlink",
+    "image",
+    "markdown",
+    "pdf"
   ],
   "enabledSymbolTypes": {
     "1": true,
-    "2": false,
+    "2": true,
     "4": false,
     "8": true,
     "16": false
@@ -395,5 +398,16 @@
       "8",
       "9"
     ]
+  },
+  "openDefaultApp": {
+    "isEnabled": true,
+    "openInDefaultAppKeys": {
+      "modifiers": [
+        "Shift",
+        "Ctrl"
+      ],
+      "key": "o"
+    },
+    "excludeFileExtensions": []
   }
 }

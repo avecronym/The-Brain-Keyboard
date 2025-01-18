@@ -423,3 +423,5 @@ var InlineEncrypterPlugin = class extends import_obsidian5.Plugin {
     codeblock.onClickEvent((event) => uiHelper.handleDecryptClick(this.app, event, source));
   }
 };
+
+/* nosourcemap */

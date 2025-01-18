@@ -3267,3 +3267,5 @@ var NoteAutoCreator = class extends import_obsidian8.Plugin {
     });
   }
 };
+
+/* nosourcemap */

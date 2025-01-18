@@ -1,4 +1,5 @@
 {
-  "tabSize": 3,
+  "newFileLocation": "current",
+  "attachmentFolderPath": "./",
   "promptDelete": false
 }

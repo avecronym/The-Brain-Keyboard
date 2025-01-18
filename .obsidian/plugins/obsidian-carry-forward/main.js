@@ -389,3 +389,5 @@ var CarryForwardSettingTab = class extends import_obsidian.PluginSettingTab {
     });
   }
 };
+
+/* nosourcemap */

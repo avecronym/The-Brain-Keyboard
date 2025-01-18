@@ -190,3 +190,5 @@ var CanvaSearchSettingTab = class extends import_obsidian.PluginSettingTab {
     });
   }
 };
+
+/* nosourcemap */

@@ -1,0 +1,64 @@
+{
+  "onboardingNotices": {
+    "welcomeNoticeRead": true,
+    "lastVersionNoticeRead": "0.2.0"
+  },
+  "settingsVersion": "0.1.0",
+  "access": {
+    "replaceNewTab": true,
+    "enableRibbonIcon": true,
+    "enableCommand": true,
+    "launchFolder": "/"
+  },
+  "useAliases": true,
+  "showStateMenu": false,
+  "loopStatesWhenCycling": true,
+  "folders": {
+    "defaultView": "Small"
+  },
+  "states": {
+    "visible": [
+      {
+        "name": "Idea",
+        "defaultView": "Small Cards",
+        "link": true
+      },
+      {
+        "name": "Shortlisted",
+        "defaultView": "Small Cards",
+        "link": true
+      },
+      {
+        "name": "Drafting",
+        "defaultView": "Detailed Cards",
+        "link": true
+      },
+      {
+        "name": "Focus",
+        "defaultView": "Simple Cards",
+        "link": true
+      },
+      {
+        "name": "Final",
+        "defaultView": "Small Cards",
+        "link": true
+      }
+    ],
+    "hidden": [
+      {
+        "name": "Archived",
+        "defaultView": "Small Cards",
+        "link": true
+      },
+      {
+        "name": "Cancelled",
+        "defaultView": "Detailed Cards",
+        "link": true
+      }
+    ]
+  },
+  "stateless": {
+    "name": "",
+    "defaultView": "List"
+  }
+}

@@ -4,9 +4,9 @@
   "runInBackground": true,
   "hideTaskbarIcon": false,
   "createTrayIcon": true,
-  "trayIconImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAA4VBMVEVHcExzSMtpQL2wkPCheuukgO6+o/OLb9prPMl/VNS1k/hkMshnN8WeeOy3m/GYbe+rifCifOt4UsfKr/zUw/fayfx3Tcu7n/JWJq6IWuWOY+RhOLV1RdKofvtpPb2vjvCoh+6ScNmtiOy/p/KlguZWIMTXxP+MYt9hMMVZIse5k/u1lvKsi++KWut7U81/VdJbMq6dduzKtPW6m/jErPSZcOuHXdpTKalDGZmYdd2fcfvSvfusivFvRMSUZ+9zTrywif9MI59sONWki9fl2P6Sc9G3oePPsv9RKKOIX97HqP+XVIiiAAAAPnRSTlMA/v78EP79A/79/vgmXP33bkD8/v3/VKsX/rj7OP1G2rfDHPFK/iegkqn1koXf6XL//////////////////neypnkAAADNSURBVBjTRY/XeoJAEIUHWNhdymJBsCUmahK7S7ODmmJ7/wcSdI3nYi7+75yZMwC5MIwGVjafGoa63fwnGHkXxtIxEgSDd9S0TW1Vx8KCOuUo8lN7VbxZMHwGQRDFsf9iCdBdO+vI99VdQYB+zXECVVX1txxgMI2P5W8l3CiKni/B0Ps2yOHnb8lY2EJZpGoQQuaLxX7LNKWdAZNIksRPnM9L5cIt4lJKOW/ISfIurrjxjMuJVKKv9+4YrEkjobMzRY/noGo2p3X7KzdcAfxzE+KE9YKlAAAAAElFTkSuQmCC",
+  "trayIconImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAA81BMVEVHcEyyk/Gjfu3Xxvm4nPF9UtSYb+uHbdW/h/ahdut1S8qrifC2kvtnN8VuRcKgfOtsP8N2UcCgee1jMcmifOzIsffTv/uZd+6+pfK7n/JWJq6IWuWOY+R1RdKZbPGjf+ytiOyujvCofvuCWdWwkPGoheyScNezlPCMYt9hMMWlguZmNcdWIMRZIsfXxPiDWNaAV9CYcem1lvKKWuusi+9/VdJ7U81eNbNrPchbMq7Lt/WcdezErPSWddm9oPVmPbpTKapDGZlOJaJ0R83Jqv+6mfqHXN2Zavewif+idvy3oeNsONWki9bl2P7Psv+SZuqIYdhXwpESAAAAPHRSTlMA/v7+/v7+AwEQ/f77Jv1AS/7/+1n8/gf2qxf+uDj1cBza/fT3t8NsoJJK8f6pJ/1XYZLfhXLp9/////7TNpxHAAAA00lEQVQY0zVP51oCQQzM1eQqvRdFsQAWsO5epaOA4vs/jbcLzL9MpnwDkIEI3twJIJxAAC8rpds5M4S1xlJXNq+WeElB47eeOK1Nu4bH26pXoig8mN85aSJ4qgRBZJrhVVkSSMNqNYjCovp1QZKAx5amBarquDdCgeCVHuIfLXEUxRUhCINdiW33cazrq56VFTdHjLHpbDYv6En/Msvw2MJe8Dnn08LyTlryxrPBeZr67JaQROrY/OOpb9tG/rgGofzx6Rvr9fV5DELT67y3u/dC8A9ZwBdde94ZnAAAAABJRU5ErkJggg==",
   "trayIconTooltip": "{{vault}}",
   "toggleWindowFocusHotkey": "",
-  "quickNoteDateFormat": "YYYY-MM-DD",
+  "quickNoteDateFormat": "",
   "quickNoteHotkey": ""
 }

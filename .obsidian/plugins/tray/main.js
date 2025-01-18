@@ -487,3 +487,5 @@ class TrayPlugin extends obsidian.Plugin {
   }
 }
 module.exports = TrayPlugin;
+
+/* nosourcemap */

@@ -9,13 +9,13 @@
   "excludeFolders": [],
   "whitelistFolders": [],
   "showDeleteConfirmation": true,
-  "underlineFolder": false,
+  "underlineFolder": true,
   "stopWhitespaceCollapsing": true,
   "underlineFolderInPath": true,
   "openFolderNoteOnClickInPath": true,
   "openInNewTab": false,
   "folderNoteName": "{{folder_name}}",
-  "folderNoteType": ".ask",
+  "folderNoteType": ".md",
   "disableFolderHighlighting": false,
   "newFolderNoteName": "{{folder_name}}",
   "storageLocation": "insideFolder",
@@ -26,15 +26,14 @@
     "folderPath": "",
     "title": "{{folderName}} overview",
     "showTitle": false,
-    "depth": 6,
+    "depth": 3,
     "includeTypes": [
       "folder",
-      "markdown",
-      "canvas"
+      "markdown"
     ],
     "style": "list",
     "disableFileTag": false,
-    "sortBy": "modified",
+    "sortBy": "name",
     "sortByAsc": true,
     "showEmptyFolders": false,
     "onlyIncludeSubfolders": false,
@@ -49,7 +48,7 @@
     "explorer": true,
     "path": true
   },
-  "settingsTab": "general",
+  "settingsTab": "file_explorer",
   "supportedFileTypes": [
     "md",
     "canvas"
