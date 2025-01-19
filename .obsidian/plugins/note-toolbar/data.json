@@ -26,6 +26,44 @@
       ],
       "items": [
         {
+          "uuid": "96440742-1894-41d6-99ec-1511d6277929",
+          "label": "",
+          "icon": "lucide-dot-square",
+          "link": "Cycle bullet/checkbox",
+          "linkAttr": {
+            "commandId": "editor:cycle-list-checklist",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Add Bullet Point",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
           "uuid": "f48a8d8c-7fd1-4ce5-be0b-86d6ff566066",
           "label": "",
           "icon": "lucide-notebook-pen",
@@ -73,7 +111,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Lock to hide a bullet point",
+          "tooltip": "Lock to hide a bullet point (Inline Encrypter)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -111,7 +149,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Unlock to show a hidden bullet point",
+          "tooltip": "Unlock to show a hidden bullet point (Inline Encrypter)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -149,7 +187,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Create and Carry Link anywhere",
+          "tooltip": "Create and Carry Link anywhere (Carry-Forward)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -187,7 +225,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Links every note inside Main Folder Note",
+          "tooltip": "Link every note inside a Folder Note",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -225,7 +263,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Turn a Bullet Point into a Note",
+          "tooltip": "Turn a Bullet Point into a Note (Note Refactor)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -263,7 +301,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Note becomes a folder",
+          "tooltip": "Turn note into folder note (Folder notes)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -301,7 +339,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Combine Notes into One",
+          "tooltip": "Combine Notes into One (Note composer)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -415,7 +453,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Screenshot of a part of a video",
+          "tooltip": "Screenshot a part of a video (Media Extended)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -491,7 +529,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Open Video File",
+          "tooltip": "Open Video File (Media Extended)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -719,7 +757,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Note to Canvas Map",
+          "tooltip": "Turn Note into Canvas (Link Exploder)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -757,7 +795,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Paste URL without naming",
+          "tooltip": "Paste URL without naming (Paste Link)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -995,7 +1033,7 @@
           }
         }
       },
-      "updated": "2025-01-18T08:23:31.115Z"
+      "updated": "2025-01-19T05:22:58.217Z"
     }
   ],
   "version": 20240727.1,

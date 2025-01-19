@@ -32,5 +32,6 @@
   "obsidian-local-file-interface-plugin",
   "map-of-content",
   "tray",
-  "obsidian-outliner"
+  "obsidian-outliner",
+  "better-search-views"
 ]
