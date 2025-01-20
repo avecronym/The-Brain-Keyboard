@@ -17,7 +17,6 @@
   "darlal-switcher-plus",
   "persistent-links",
   "search-on-internet",
-  "obsidian-image-toolkit",
   "obsidian-custom-attachment-location",
   "obsidian-style-settings",
   "oz-clear-unused-images",
@@ -33,5 +32,6 @@
   "map-of-content",
   "tray",
   "obsidian-outliner",
-  "better-search-views"
+  "better-search-views",
+  "image-converter"
 ]

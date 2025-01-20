@@ -26,21 +26,13 @@
       "key": "I"
     }
   ],
-  "editor:cycle-list-checklist": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "A"
-    }
-  ],
   "editor:toggle-bold": [],
   "markdown:toggle-preview": [
     {
       "modifiers": [
-        "Alt"
+        "Mod"
       ],
-      "key": "W"
+      "key": "R"
     }
   ],
   "obsidian-carry-forward:carry-line-forward-link-only": [
@@ -48,7 +40,7 @@
       "modifiers": [
         "Alt"
       ],
-      "key": "A"
+      "key": "W"
     }
   ],
   "editor:toggle-bullet-list": [
@@ -455,9 +447,9 @@
   "workspace:new-tab": [
     {
       "modifiers": [
-        "Alt"
+        "Mod"
       ],
-      "key": "N"
+      "key": "T"
     }
   ],
   "file-explorer:new-file": [
@@ -466,6 +458,12 @@
         "Mod"
       ],
       "key": "M"
+    },
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "N"
     }
   ],
   "canvas:new-file": [
@@ -474,6 +472,12 @@
         "Alt"
       ],
       "key": "M"
+    },
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "N"
     }
   ],
   "editor:swap-line-up": [
@@ -525,6 +529,14 @@
         "Mod"
       ],
       "key": "P"
+    }
+  ],
+  "editor:cycle-list-checklist": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "A"
     }
   ]
 }
