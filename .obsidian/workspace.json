@@ -28,7 +28,7 @@
               "type": "markdown",
               "state": {
                 "file": "Hotkeys/Functional Thinking.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -43,9 +43,9 @@
               "state": {
                 "file": "Hotkeys/Hotkeys.canvas",
                 "viewState": {
-                  "x": 899.9106084484733,
-                  "y": 230.43693094361618,
-                  "zoom": -0.48112010509780945
+                  "x": 907.4204858400378,
+                  "y": 180.74578453445733,
+                  "zoom": -0.93574252982543
                 }
               },
               "icon": "lucide-layout-dashboard",
@@ -62,6 +62,19 @@
               },
               "icon": "align-vertical-justify-start",
               "title": "Browse"
+            }
+          },
+          {
+            "id": "5c953ee2e06a681c",
+            "type": "leaf",
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "about:blank",
+                "mode": "blank"
+              },
+              "icon": "globe-2",
+              "title": "New web viewer"
             }
           }
         ]
@@ -83,7 +96,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": true
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -218,12 +232,15 @@
   },
   "active": "918eac179fd01aa4",
   "lastOpenFiles": [
-    "Untitled.md",
-    "Untitled/mpc-be64_54fVKh2gG1-1.png",
-    "Untitled",
     "Hotkeys/Hotkeys.md",
     "Hotkeys/Hotkeys.canvas",
     "Hotkeys/Functional Thinking.md",
+    "Hotkeys/Untitled.md",
+    "sync.ffs_db.8cfa.ffs_tmp",
+    "sync.ffs_lock",
+    "Untitled.md",
+    "Untitled/mpc-be64_54fVKh2gG1-1.png",
+    "Untitled",
     "Untitled/mpc-be64_54fVKh2gG1-1.png",
     "Untitled/EUIe1OjU4AMas46.png",
     "Untitled/GTeF9c_bEAAx9gb_cropped-1.png",
@@ -231,11 +248,9 @@
     "EjrJt8PU0AEKdiN.png",
     "Untitled/GWtUQHrXEAA0lJI_cropped (1).png",
     "sync.ffs_db.b10d.ffs_tmp",
-    "sync.ffs_lock",
     "Untitled.canvas",
     "Hotkeys/Hotkeys/2025-ave-vault.png",
     "Hotkeys/Hotkeys",
-    "Hotkeys/Untitled.md",
     "Hotkeys",
     "2025-ave-vault.png",
     "vault.md",

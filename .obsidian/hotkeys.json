@@ -228,22 +228,6 @@
     }
   ],
   "editor:insert-link": [],
-  "media-extended:login": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "J"
-    }
-  ],
-  "search-on-internet:search-on-internet": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "J"
-    }
-  ],
   "obsidian-custom-attachment-location:collect-attachments-current-note": [
     {
       "modifiers": [
@@ -537,6 +521,40 @@
         "Alt"
       ],
       "key": "A"
+    }
+  ],
+  "webviewer:open": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "J"
+    }
+  ],
+  "webviewer:save-to-vault": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "J"
+    }
+  ],
+  "webviewer:search": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "J"
+    }
+  ],
+  "webviewer:open-history": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "J"
     }
   ]
 }

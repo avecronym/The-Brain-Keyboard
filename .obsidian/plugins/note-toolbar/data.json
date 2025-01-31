@@ -330,6 +330,82 @@
           }
         },
         {
+          "uuid": "3e395992-d93b-415f-8e9f-ae69f379a57a",
+          "label": "Move Note to (Move current file to another folder)",
+          "icon": "lucide-folder-up",
+          "link": "Move current file to another folder",
+          "linkAttr": {
+            "commandId": "file-explorer:move-file",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "743af5ad-e008-4752-92b6-8032933928a6",
+          "label": "Move Note to new/another folder (File Chucker)",
+          "icon": "lucide-folder-up",
+          "link": "File Chucker: Move to new or existing folder",
+          "linkAttr": {
+            "commandId": "file-chucker:move-to-new-or-existing-folder",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
           "uuid": "494e0b04-fa98-4cd7-a4a9-da36c87d41e9",
           "label": "",
           "icon": "lucide-file-stack",
@@ -1019,21 +1095,21 @@
       "position": {
         "desktop": {
           "allViews": {
-            "position": "fabl"
+            "position": "fabr"
           }
         },
         "mobile": {
           "allViews": {
-            "position": "fabl"
+            "position": "fabr"
           }
         },
         "tablet": {
           "allViews": {
-            "position": "fabl"
+            "position": "fabr"
           }
         }
       },
-      "updated": "2025-01-19T05:22:58.217Z"
+      "updated": "2025-01-31T04:50:49.997Z"
     }
   ],
   "version": 20240727.1,
