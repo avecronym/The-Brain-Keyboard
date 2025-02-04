@@ -22,30 +22,16 @@
             }
           },
           {
-            "id": "5fac246faa59e4cb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Hotkeys/Functional Thinking.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Functional Thinking"
-            }
-          },
-          {
-            "id": "deb352e8dbcdaedd",
+            "id": "8dcfab2b333cf525",
             "type": "leaf",
             "state": {
               "type": "canvas",
               "state": {
                 "file": "Hotkeys/Hotkeys.canvas",
                 "viewState": {
-                  "x": 907.4204858400378,
-                  "y": 180.74578453445733,
-                  "zoom": -0.93574252982543
+                  "x": 899.9988078091228,
+                  "y": 230.49878015121018,
+                  "zoom": -0.2529865688017435
                 }
               },
               "icon": "lucide-layout-dashboard",
@@ -53,7 +39,7 @@
             }
           },
           {
-            "id": "5f6b057f35ccd4af",
+            "id": "f53efd06a86f0139",
             "type": "leaf",
             "state": {
               "type": "card-browser-view",
@@ -65,7 +51,7 @@
             }
           },
           {
-            "id": "5c953ee2e06a681c",
+            "id": "8a5dfbda3579ca29",
             "type": "leaf",
             "state": {
               "type": "webviewer",
@@ -118,6 +104,16 @@
               },
               "icon": "lucide-search",
               "title": "Search"
+            }
+          },
+          {
+            "id": "3bcac4f4f86be0b7",
+            "type": "leaf",
+            "state": {
+              "type": "webviewer-history",
+              "state": {},
+              "icon": "lucide-clock",
+              "title": "Web history"
             }
           }
         ]
@@ -227,18 +223,27 @@
       "darlal-switcher-plus:Open in Vaults Mode": false,
       "oz-clear-unused-images:Clear Unused Images": false,
       "project-browser:Open project browser": false,
+      "templates:Insert template": false,
       "map-of-content:Update Map of Content": false
     }
   },
   "active": "918eac179fd01aa4",
   "lastOpenFiles": [
-    "Hotkeys/Hotkeys.md",
     "Hotkeys/Hotkeys.canvas",
+    "Hotkeys/Hotkeys.md",
+    "Untitled.md",
     "Hotkeys/Functional Thinking.md",
+    "Media Note - _MARETU_ ビノミ (Binomi_Binomial_Taste of Beauty) ft. 初音ミク English Subs.md",
+    "Trauma, Abuse, & Lingua Ignota.md",
+    "Templates/YouTube URL to Media Note.md",
+    "Templates/Templates.md",
+    "Templates/Embed Link.md",
+    "Templates",
+    "Video. Jamaicans Anonymous (Comedy Sketch).md",
+    "Crayon Shin-chan.md",
     "Hotkeys/Untitled.md",
     "sync.ffs_db.8cfa.ffs_tmp",
     "sync.ffs_lock",
-    "Untitled.md",
     "Untitled/mpc-be64_54fVKh2gG1-1.png",
     "Untitled",
     "Untitled/mpc-be64_54fVKh2gG1-1.png",
@@ -267,13 +272,6 @@
     "2025-01-18 14.md",
     "2025-01-18 13.md",
     "2025-01-18 12.md",
-    "2025-01-18 11.md",
-    "2025-01-18 10.md",
-    "2025-01-18 9.md",
-    "2025-01-18 8.md",
-    "2025-01-18 7.md",
-    "2025-01-18 6.md",
-    "2025-01-18 5.md",
     "what.canvas",
     "y2meta.net_stan-twitter-whoever-you-are-thank-you.mp4"
   ]

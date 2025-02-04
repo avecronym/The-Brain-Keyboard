@@ -539,7 +539,7 @@
       "key": "J"
     }
   ],
-  "webviewer:search": [
+  "webviewer:open-history": [
     {
       "modifiers": [
         "Alt",
@@ -548,7 +548,7 @@
       "key": "J"
     }
   ],
-  "webviewer:open-history": [
+  "insert-template": [
     {
       "modifiers": [
         "Alt",

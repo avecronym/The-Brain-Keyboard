@@ -2,7 +2,7 @@
   "seekSeconds": 10,
   "verticalPlayerHeight": 40,
   "horizontalPlayerWidth": 40,
-  "defaultSplitMode": "Vertical",
+  "defaultSplitMode": "Horizontal",
   "pauseOnTimestampInsert": false,
   "displayProgressBar": true,
   "displayTimestamp": true,
@@ -15,6 +15,21 @@
       "mediaLink": "https://www.youtube.com/watch?v=rr364wVTHYY&t=336",
       "lastUpdated": "2025-01-18T06:02:39.741Z",
       "lastTimestampSeconds": 730.130055
+    },
+    "NI8SuEFv-gg": {
+      "mediaLink": "https://www.youtube.com/watch?v=NI8SuEFv-gg&t=478",
+      "lastUpdated": "2025-01-31T05:41:38.032Z",
+      "lastTimestampSeconds": 485
+    },
+    "1KAdvYW1aFI": {
+      "mediaLink": "https://www.youtube.com/watch?v=1KAdvYW1aFI&t=3257s",
+      "lastUpdated": "2025-02-01T06:36:58.637Z",
+      "lastTimestampSeconds": 3534.398246
+    },
+    "WbuPVokJOcU": {
+      "mediaLink": "https://www.youtube.com/watch?v=WbuPVokJOcU",
+      "lastUpdated": "2025-02-01T06:36:58.637Z",
+      "lastTimestampSeconds": 7
     }
   }
 }

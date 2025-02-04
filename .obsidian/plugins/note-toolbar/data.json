@@ -102,6 +102,158 @@
           }
         },
         {
+          "uuid": "fb9ba588-0fff-4c20-a85b-ba1d92afd247",
+          "label": "",
+          "icon": "lucide-link-2",
+          "link": "Carry-Forward: Copy link to line (default link text)",
+          "linkAttr": {
+            "commandId": "obsidian-carry-forward:carry-line-forward-link-only",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Create and Carry Link anywhere (Carry-Forward)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "ded3c569-a86b-4947-851b-36277291aaf7",
+          "label": "",
+          "icon": "lucide-clipboard-paste",
+          "link": "Templates: Insert template",
+          "linkAttr": {
+            "commandId": "insert-template",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Insert Template",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "cf8cda1e-ec7c-4f88-9291-533f939096a8",
+          "label": "",
+          "icon": "lucide-images",
+          "link": "Add embed",
+          "linkAttr": {
+            "commandId": "editor:insert-embed",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Add Embed Link",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "8500792b-3f9f-46e9-bdc4-cec52bfd6ab2",
+          "label": "",
+          "icon": "lucide-grab",
+          "link": "Custom Attachment Location: Collect attachments in current note",
+          "linkAttr": {
+            "commandId": "obsidian-custom-attachment-location:collect-attachments-current-note",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Collect and move images or files in a note to another place (Custom Attachment Location)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
           "uuid": "e2bf922a-db92-4543-b5fa-f914b83f3af6",
           "label": "",
           "icon": "lucide-lock-keyhole",
@@ -150,44 +302,6 @@
             "type": "command"
           },
           "tooltip": "Unlock to show a hidden bullet point (Inline Encrypter)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "uuid": "fb9ba588-0fff-4c20-a85b-ba1d92afd247",
-          "label": "",
-          "icon": "lucide-link-2",
-          "link": "Carry-Forward: Copy link to line (default link text)",
-          "linkAttr": {
-            "commandId": "obsidian-carry-forward:carry-line-forward-link-only",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Create and Carry Link anywhere (Carry-Forward)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -331,7 +445,7 @@
         },
         {
           "uuid": "3e395992-d93b-415f-8e9f-ae69f379a57a",
-          "label": "Move Note to (Move current file to another folder)",
+          "label": "",
           "icon": "lucide-folder-up",
           "link": "Move current file to another folder",
           "linkAttr": {
@@ -339,7 +453,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "",
+          "tooltip": "Move Note to (Move current file to another folder)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -369,7 +483,7 @@
         },
         {
           "uuid": "743af5ad-e008-4752-92b6-8032933928a6",
-          "label": "Move Note to new/another folder (File Chucker)",
+          "label": "",
           "icon": "lucide-folder-up",
           "link": "File Chucker: Move to new or existing folder",
           "linkAttr": {
@@ -377,7 +491,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "",
+          "tooltip": "Move Note to new/another folder (File Chucker)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -644,44 +758,6 @@
             "type": "command"
           },
           "tooltip": "Open the Web (Media Extended)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "uuid": "ded3c569-a86b-4947-851b-36277291aaf7",
-          "label": "",
-          "icon": "lucide-globe",
-          "link": "Search on Internet: Perform search",
-          "linkAttr": {
-            "commandId": "search-on-internet:search-on-internet",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Open the Web (Search on Internet)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -1109,7 +1185,7 @@
           }
         }
       },
-      "updated": "2025-01-31T04:50:49.997Z"
+      "updated": "2025-02-04T05:31:23.813Z"
     }
   ],
   "version": 20240727.1,
