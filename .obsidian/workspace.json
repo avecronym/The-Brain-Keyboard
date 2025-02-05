@@ -208,7 +208,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -229,8 +230,8 @@
   },
   "active": "918eac179fd01aa4",
   "lastOpenFiles": [
-    "Hotkeys/Hotkeys.canvas",
     "Hotkeys/Hotkeys.md",
+    "Hotkeys/Hotkeys.canvas",
     "Untitled.md",
     "Hotkeys/Functional Thinking.md",
     "Media Note - _MARETU_ ビノミ (Binomi_Binomial_Taste of Beauty) ft. 初音ミク English Subs.md",

@@ -35,7 +35,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Add Bullet Point",
+          "tooltip": "Add Bullet Point (Alt+A)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -73,7 +73,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Write a Diary Entry or Timestamp a Note and/or Card",
+          "tooltip": "Write a Diary Entry or Timestamp a Note and/or Card (Ctrl + E)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -111,7 +111,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Create and Carry Link anywhere (Carry-Forward)",
+          "tooltip": "Create and Carry Link anywhere (Carry-Forward) (Alt + W)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -149,7 +149,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Insert Template",
+          "tooltip": "Insert Template (Alt + Shift + J)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -225,7 +225,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Collect and move images or files in a note to another place (Custom Attachment Location)",
+          "tooltip": "Collect and move images or files in a note to another place (Custom Attachment Location) (Alt + Shift + Q)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -263,7 +263,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Lock to hide a bullet point (Inline Encrypter)",
+          "tooltip": "Lock to hide a bullet point (Inline Encrypter) (Ctrl + Shift + S)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -301,7 +301,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Unlock to show a hidden bullet point (Inline Encrypter)",
+          "tooltip": "Unlock to show a hidden bullet point (Inline Encrypter) (Ctrl + Alt + S)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -339,7 +339,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Link every note inside a Folder Note",
+          "tooltip": "Link every note inside a Folder Note (Ctrl + D)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -377,7 +377,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Turn a Bullet Point into a Note (Note Refactor)",
+          "tooltip": "Turn a Bullet Point into a Note (Note Refactor) (Ctrl + Alt + A)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -415,7 +415,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Turn note into folder note (Folder notes)",
+          "tooltip": "Turn note into folder note (Folder notes) (Alt + D)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -453,7 +453,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Move Note to (Move current file to another folder)",
+          "tooltip": "Move Note to (Move current file to another folder) (Ctrl + Q)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -491,7 +491,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Move Note to new/another folder (File Chucker)",
+          "tooltip": "Move Note to new/another folder (File Chucker) (Alt + Q)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -529,7 +529,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Combine Notes into One (Note composer)",
+          "tooltip": "Combine Notes into One (Note composer) (Alt + Shift + A)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -567,7 +567,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Timestamp (Media Extended)",
+          "tooltip": "Timestamp (Media Extended) (Ctrl + S)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -605,7 +605,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Timestamp for YouTube videos (Media Notes)",
+          "tooltip": "Timestamp for YouTube videos (Media Notes) (Alt + S)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -643,7 +643,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Screenshot a part of a video (Media Extended)",
+          "tooltip": "Screenshot a part of a video (Media Extended) (Alt + Shift + S)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -681,7 +681,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Copy Obsidian URL",
+          "tooltip": "Copy Obsidian URL (Ctrl + Alt + Shift + A)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -719,7 +719,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Open Video File (Media Extended)",
+          "tooltip": "Open Video File (Media Extended) (Ctrl + K)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -751,13 +751,13 @@
           "uuid": "3a4b41e4-8f2f-491b-bb03-efdc602456f1",
           "label": "",
           "icon": "lucide-globe",
-          "link": "Media Extended: Login website",
+          "link": "Web viewer: Open web viewer",
           "linkAttr": {
-            "commandId": "media-extended:login",
+            "commandId": "webviewer:open",
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Open the Web (Media Extended)",
+          "tooltip": "Open the Web (Web Viewer) (Ctrl + J)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -795,7 +795,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "PDF Opener",
+          "tooltip": "PDF Opener (Alt + K)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -833,7 +833,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Link to File Outside Vault",
+          "tooltip": "Link to File Outside Vault (Ctrl + Alt + K)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -871,7 +871,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Import Files (Local File Interface)",
+          "tooltip": "Import Files (Local File Interface) (Alt + Shift + K)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -909,7 +909,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Turn Note into Canvas (Link Exploder)",
+          "tooltip": "Turn Note into Canvas (Link Exploder) (Ctrl + Alt + E)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -947,7 +947,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Paste URL without naming (Paste Link)",
+          "tooltip": "Paste URL without naming (Paste Link) (Alt + P)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -985,7 +985,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Change Note's Status",
+          "tooltip": "Change Note's Status (Ctrl + Alt + P)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -1023,7 +1023,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Relaunch Vault",
+          "tooltip": "Relaunch Vault (Alt + O)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -1061,7 +1061,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Switch between one Vault to another",
+          "tooltip": "Switch between one Vault to another (Ctrl + Alt + O)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -1099,7 +1099,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Open Sandbox Vault",
+          "tooltip": "Open Sandbox Vault (Ctrl + Shift + O)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -1137,7 +1137,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Close Vault",
+          "tooltip": "Close Vault (Ctrl + O)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -1185,7 +1185,7 @@
           }
         }
       },
-      "updated": "2025-02-04T05:31:23.813Z"
+      "updated": "2025-02-05T06:54:30.255Z"
     }
   ],
   "version": 20240727.1,
