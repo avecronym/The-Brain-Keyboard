@@ -216,6 +216,44 @@
           }
         },
         {
+          "uuid": "86b7334f-4838-416a-878e-26f6fc25be4e",
+          "label": "",
+          "icon": "lucide-pin",
+          "link": "Toggle pin",
+          "linkAttr": {
+            "commandId": "workspace:toggle-pin",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Pin Note (Toggle Pin) (Alt + R)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
           "uuid": "8500792b-3f9f-46e9-bdc4-cec52bfd6ab2",
           "label": "",
           "icon": "lucide-grab",
@@ -1185,7 +1223,7 @@
           }
         }
       },
-      "updated": "2025-02-05T06:54:30.255Z"
+      "updated": "2025-02-05T07:28:41.429Z"
     }
   ],
   "version": 20240727.1,

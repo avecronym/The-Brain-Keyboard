@@ -2,8 +2,8 @@
   "defaultVolume": 80,
   "devices": [],
   "defaultMxLinkClick": {
-    "click": null,
-    "alt": null
+    "click": "split",
+    "alt": "split-horizontal"
   },
   "linkHandler": {
     "mx-embed": [

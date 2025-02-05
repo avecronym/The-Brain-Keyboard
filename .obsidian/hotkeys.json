@@ -556,5 +556,13 @@
       ],
       "key": "J"
     }
+  ],
+  "workspace:toggle-pin": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "R"
+    }
   ]
 }
