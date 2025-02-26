@@ -102,6 +102,44 @@
           }
         },
         {
+          "uuid": "478ad057-a3cd-4414-bcc0-99d3f61fac1d",
+          "label": "",
+          "icon": "lucide-layout-list",
+          "link": "Task Board: Add new task in current file",
+          "linkAttr": {
+            "commandId": "task-board:add-new-task",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Add Bullet Point(s)/Checkboxe(s) to Kanban (Task Board) (Alt + Shift + D)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
           "uuid": "fb9ba588-0fff-4c20-a85b-ba1d92afd247",
           "label": "",
           "icon": "lucide-link-2",
@@ -340,6 +378,44 @@
             "type": "command"
           },
           "tooltip": "Unlock to show a hidden bullet point (Inline Encrypter) (Ctrl + Alt + S)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "05cde82c-a584-4646-ad8d-89b25c7ab690",
+          "label": "",
+          "icon": "lucide-folder-kanban",
+          "link": "Task Board: Open task board",
+          "linkAttr": {
+            "commandId": "task-board:open-task-board",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open task board (Task Board) (Ctrl + Alt + N)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -1014,16 +1090,16 @@
           }
         },
         {
-          "uuid": "7e30a740-cde7-45a9-9095-94f65879a15c",
+          "uuid": "b036ec82-f888-4f70-b8f6-0bebf5dfddeb",
           "label": "",
-          "icon": "lucide-notebook-pen",
-          "link": "Project Browser: Toggle state menu",
+          "icon": "lucide-folder-tree",
+          "link": "Project Browser: Open",
           "linkAttr": {
-            "commandId": "project-browser:toggle-state-menu",
+            "commandId": "project-browser:open-project-browser",
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Change Note's Status (Ctrl + Alt + P)",
+          "tooltip": "Open Vault Menu (Project Browser) (Ctrl + Alt + P)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -1209,7 +1285,7 @@
       "position": {
         "desktop": {
           "allViews": {
-            "position": "fabr"
+            "position": "top"
           }
         },
         "mobile": {
@@ -1223,7 +1299,7 @@
           }
         }
       },
-      "updated": "2025-02-05T07:28:41.429Z"
+      "updated": "2025-02-26T06:42:45.409Z"
     }
   ],
   "version": 20240727.1,

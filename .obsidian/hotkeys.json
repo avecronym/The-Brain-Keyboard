@@ -506,15 +506,7 @@
       "key": "ArrowRight"
     }
   ],
-  "project-browser:toggle-state-menu": [
-    {
-      "modifiers": [
-        "Alt",
-        "Mod"
-      ],
-      "key": "P"
-    }
-  ],
+  "project-browser:toggle-state-menu": [],
   "editor:cycle-list-checklist": [
     {
       "modifiers": [
@@ -563,6 +555,33 @@
         "Alt"
       ],
       "key": "R"
+    }
+  ],
+  "task-board:open-task-board": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "N"
+    }
+  ],
+  "task-board:add-new-task": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "D"
+    }
+  ],
+  "project-browser:open-project-browser": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "P"
     }
   ]
 }

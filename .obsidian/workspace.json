@@ -39,18 +39,6 @@
             }
           },
           {
-            "id": "f53efd06a86f0139",
-            "type": "leaf",
-            "state": {
-              "type": "card-browser-view",
-              "state": {
-                "path": "Hotkeys"
-              },
-              "icon": "align-vertical-justify-start",
-              "title": "Browse"
-            }
-          },
-          {
             "id": "8a5dfbda3579ca29",
             "type": "leaf",
             "state": {
@@ -61,6 +49,16 @@
               },
               "icon": "globe-2",
               "title": "New web viewer"
+            }
+          },
+          {
+            "id": "2fd060611dc1cb19",
+            "type": "leaf",
+            "state": {
+              "type": "task-board-view",
+              "state": {},
+              "icon": "brick-wall",
+              "title": "Task Board"
             }
           }
         ]
@@ -216,6 +214,8 @@
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
+      "task-board:Open task board": false,
+      "project-browser:Open project browser": false,
       "command-palette:Open command palette": false,
       "media-extended:Open media": false,
       "pdf-plus:PDF++: Toggle auto-copy": false,
@@ -223,22 +223,23 @@
       "pdf-plus:PDF++: Toggle auto-paste": false,
       "darlal-switcher-plus:Open in Vaults Mode": false,
       "oz-clear-unused-images:Clear Unused Images": false,
-      "project-browser:Open project browser": false,
       "templates:Insert template": false,
-      "map-of-content:Update Map of Content": false
+      "map-of-content:Update Map of Content": false,
+      "notes-explorer:Notes Explorer": false
     }
   },
   "active": "918eac179fd01aa4",
   "lastOpenFiles": [
-    "sync.ffs_lock",
-    "Hotkeys/Hotkeys.md",
     "Hotkeys/Hotkeys.canvas",
+    "Hotkeys/Hotkeys.md",
+    "Templates/Templates.md",
     "Untitled.md",
     "Hotkeys/Functional Thinking.md",
+    "sync.ffs_db.51b6.ffs_tmp",
+    "sync.ffs_lock",
     "Media Note - _MARETU_ ビノミ (Binomi_Binomial_Taste of Beauty) ft. 初音ミク English Subs.md",
     "Trauma, Abuse, & Lingua Ignota.md",
     "Templates/YouTube URL to Media Note.md",
-    "Templates/Templates.md",
     "Templates/Embed Link.md",
     "Templates",
     "Video. Jamaicans Anonymous (Comedy Sketch).md",
