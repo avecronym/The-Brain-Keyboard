@@ -52,13 +52,15 @@
             }
           },
           {
-            "id": "2fd060611dc1cb19",
+            "id": "dd9de038f059f19c",
             "type": "leaf",
             "state": {
-              "type": "task-board-view",
-              "state": {},
-              "icon": "brick-wall",
-              "title": "Task Board"
+              "type": "card-browser-view",
+              "state": {
+                "path": "/"
+              },
+              "icon": "align-vertical-justify-start",
+              "title": "Browse"
             }
           }
         ]
@@ -224,22 +226,21 @@
       "darlal-switcher-plus:Open in Vaults Mode": false,
       "oz-clear-unused-images:Clear Unused Images": false,
       "templates:Insert template": false,
-      "map-of-content:Update Map of Content": false,
-      "notes-explorer:Notes Explorer": false
+      "map-of-content:Update Map of Content": false
     }
   },
   "active": "918eac179fd01aa4",
   "lastOpenFiles": [
-    "Hotkeys/Hotkeys.canvas",
+    "sync.ffs_lock",
+    "Hotkeys/Functional Thinking.md",
     "Hotkeys/Hotkeys.md",
+    "Hotkeys/Hotkeys.canvas",
+    "Templates/YouTube URL to Media Note.md",
     "Templates/Templates.md",
     "Untitled.md",
-    "Hotkeys/Functional Thinking.md",
     "sync.ffs_db.51b6.ffs_tmp",
-    "sync.ffs_lock",
     "Media Note - _MARETU_ ビノミ (Binomi_Binomial_Taste of Beauty) ft. 初音ミク English Subs.md",
     "Trauma, Abuse, & Lingua Ignota.md",
-    "Templates/YouTube URL to Media Note.md",
     "Templates/Embed Link.md",
     "Templates",
     "Video. Jamaicans Anonymous (Comedy Sketch).md",

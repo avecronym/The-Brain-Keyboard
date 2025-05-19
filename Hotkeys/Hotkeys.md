@@ -1,4 +1,4 @@
-# Introducing The Brain’s Keyboard - A Vault Made by avecronym
+# The Brain’s Keyboard - A Vault Made by avecronym
 [![[2025-ave-vault.png]]](<Hotkeys.canvas>)
 #### Updated as of: January 31st, 2025
 

@@ -23,7 +23,6 @@
   "obsidian-smart-typography",
   "url-into-selection",
   "obsidian-reminder-plugin",
-  "keyboard-analyzer",
   "note-toolbar",
   "obsidian-local-file-interface-plugin",
   "map-of-content",
@@ -32,6 +31,6 @@
   "better-search-views",
   "image-converter",
   "obsidian-image-toolkit",
-  "task-board",
-  "project-browser"
+  "project-browser",
+  "task-list-kanban"
 ]
