@@ -11,12 +11,13 @@
             "id": "4332d7f28d16b896",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "markdown",
               "state": {
-                "file": "Hotkeys/Hotkeys.base",
-                "viewName": "Table"
+                "file": "Hotkeys/Hotkeys.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-layout-list",
+              "icon": "lucide-file",
               "title": "Hotkeys"
             }
           },
@@ -199,7 +200,7 @@
             "state": {
               "type": "footnotes",
               "state": {
-                "file": "Hotkeys/Hotkeys.base"
+                "file": "Hotkeys/Hotkeys.md"
               },
               "icon": "lucide-file-signature",
               "title": "Footnotes"
@@ -237,7 +238,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Hotkeys/Hotkeys.base",
+                "file": "Hotkeys/Hotkeys.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -271,21 +272,22 @@
   },
   "active": "4332d7f28d16b896",
   "lastOpenFiles": [
+    "Templates/Templates.md",
     "Hotkeys/Hotkeys.md",
     "Hotkeys/Hotkeys.base",
+    "Templates/YouTube URL to Media Note.md",
+    "Templates/Embed Link.md",
+    "Templates",
+    "Hotkeys/Hotkeys.canvas",
     "one more time/one more time.md",
     "one more time/mpc-be64_r0rdoJEkwu.mp4",
     "one more time",
     "one more time.md",
-    "Hotkeys/Hotkeys.canvas",
     "breakcore/breakcore.md",
     "breakcore/mpc-be64_r0rdoJEkwu.mp4",
     "breakcore",
     "Hotkeys/Functional Thinking.md",
-    "Templates/Templates.md",
     "Hotkeys/2025-ave-vault.png",
-    "Templates/YouTube URL to Media Note.md",
-    "Templates/Embed Link.md",
     "nene-chan/nene-chan.md",
     "nene-chan/Untitled.base",
     "nene-chan/mpc-be64_n1uxSRv9ip.png",
@@ -302,7 +304,6 @@
     "tst 2/tst 1/Screenshot_21.png",
     "chikn is here",
     "Hotkeys/Hotkeys/Hotkeys.md",
-    "Hotkeys/Hotkeys",
     "tst 2/tst 1.md",
     "tst 2/tst 2.md",
     "fellow bunch/fellow bunch.md",

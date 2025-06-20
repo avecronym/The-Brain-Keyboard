@@ -18,15 +18,15 @@
     "new-toolbar-mapping": true
   },
   "recentFiles": [
-    "Hotkeys/Hotkeys.base",
     "Hotkeys/Hotkeys.md",
+    "Templates/Templates.md",
+    "Hotkeys/Hotkeys.base",
+    "Hotkeys/Hotkeys.canvas",
     "one more time/one more time.md",
     "mpc-be64_r0rdoJEkwu.mp4",
     "Untitled.md",
-    "Hotkeys/Hotkeys.canvas",
     "breakcore/breakcore.md",
     "Hotkeys/Functional Thinking.md",
-    "Templates/Templates.md",
     "Hotkeys/2025-ave-vault.png"
   ],
   "ribbonAction": "toolbar",
