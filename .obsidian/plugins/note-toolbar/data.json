@@ -1,6 +1,6 @@
 {
   "debugEnabled": false,
-  "emptyViewToolbar": null,
+  "emptyViewToolbar": "46da96a4-76b7-4736-ae56-f18d663244dd",
   "export": {
     "includeIcons": true,
     "replaceVars": true,
@@ -14,32 +14,24 @@
     }
   ],
   "icon": "circle-ellipsis",
+  "keepPropsState": false,
   "onboarding": {
     "new-toolbar-mapping": true
   },
-  "recentFiles": [
-    "Hotkeys/Hotkeys.md",
-    "Templates/Templates.md",
-    "Hotkeys/Hotkeys.base",
-    "Hotkeys/Hotkeys.canvas",
-    "one more time/one more time.md",
-    "mpc-be64_r0rdoJEkwu.mp4",
-    "Untitled.md",
-    "breakcore/breakcore.md",
-    "Hotkeys/Functional Thinking.md",
-    "Hotkeys/2025-ave-vault.png"
-  ],
   "ribbonAction": "toolbar",
   "scriptingEnabled": false,
   "showEditInFabMenu": false,
+  "showLaunchpad": false,
   "showToolbarIn": {
-    "audio": false,
-    "canvas": false,
-    "image": false,
-    "pdf": false,
-    "video": false
+    "audio": true,
+    "canvas": true,
+    "image": true,
+    "pdf": true,
+    "video": true,
+    "bases": true
   },
-  "showToolbarInFileMenu": false,
+  "showToolbarInFileMenu": true,
+  "showToolbarInOther": "graph ",
   "toolbarProp": "notetoolbar",
   "toolbars": [
     {
@@ -47,59 +39,21 @@
       "customClasses": "",
       "defaultStyles": [
         "even",
-        "sticky"
+        "sticky",
+        "wide"
       ],
       "items": [
         {
           "uuid": "96440742-1894-41d6-99ec-1511d6277929",
           "label": "",
-          "icon": "lucide-dot-square",
+          "icon": "lucide-check-circle",
           "link": "Cycle bullet/checkbox",
           "linkAttr": {
             "commandId": "editor:cycle-list-checklist",
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Add Bullet Point (Alt+A)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          },
-          "inGallery": false
-        },
-        {
-          "uuid": "fb9ba588-0fff-4c20-a85b-ba1d92afd247",
-          "label": "",
-          "icon": "lucide-link-2",
-          "link": "Carry-Forward: Copy link to line (default link text)",
-          "linkAttr": {
-            "commandId": "obsidian-carry-forward:carry-line-forward-link-only",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Create and Carry Link anywhere (Carry-Forward) (Alt + W)",
+          "tooltip": "Add Bullet Point or Checkbox (Alt + A)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -138,7 +92,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Write a Diary Entry or Timestamp a Note and/or Card (Ctrl + E)",
+          "tooltip": "Write a Diary Entry or Timestamp a Note and/or Card (Alt + W)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -166,6 +120,205 @@
             }
           },
           "inGallery": false
+        },
+        {
+          "uuid": "fb9ba588-0fff-4c20-a85b-ba1d92afd247",
+          "label": "",
+          "icon": "lucide-link-2",
+          "link": "Carry-Forward: Copy link to line (default link text)",
+          "linkAttr": {
+            "commandId": "obsidian-carry-forward:carry-line-forward-link-only",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Create and Carry Link anywhere (Carry-Forward) (Alt + E)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false
+        },
+        {
+          "uuid": "f4b72072-9aa6-452b-ba24-1a0bb80226f1",
+          "hasCommand": false,
+          "icon": "lucide-link-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Create List of Notes: List files and folders",
+          "linkAttr": {
+            "commandId": "create-note-list:create-note-list-files-folders",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Link every note (and folder) (Create List of Notes) (Ctrl + L)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "1a16eb61-9d2a-4a51-a83c-ef195299da18",
+          "hasCommand": false,
+          "icon": "lucide-link-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Better File Link: Add File Link",
+          "linkAttr": {
+            "commandId": "obsidian-file-link:add-file-link",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Link Media File(s) (Better File Link) (Alt + L)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "6b2035c0-565f-4488-859b-13a94b1fc718",
+          "hasCommand": false,
+          "icon": "lucide-link-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Folder notes: Insert folder overview",
+          "linkAttr": {
+            "commandId": "folder-notes:insert-folder-overview-fn",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Link both Notes and Media Files (Folder Notes) (Ctrl + Alt + L)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "b031eab9-bae7-42e3-b3cb-2b97262ad3e2",
+          "hasCommand": false,
+          "icon": "lucide-highlighter",
+          "inGallery": false,
+          "label": "",
+          "link": "PDF++: Copy link to selection or annotation",
+          "linkAttr": {
+            "commandId": "pdf-plus:copy-link-to-selection",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Copy link to selection (PDF++) (Ctrl + Shift + K)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
         },
         {
           "uuid": "88c97415-3df8-445f-bda0-4b20b2eea261",
@@ -328,6 +481,45 @@
           }
         },
         {
+          "uuid": "d993dc15-0f18-4fec-afa7-1e5622f7efbb",
+          "label": "",
+          "icon": "lucide-folder-edit",
+          "link": "Folder notes: Create folder note with a new folder for the active note in the current folder",
+          "linkAttr": {
+            "commandId": "folder-notes:create-folder-note",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Turn into folder note (Folder notes) (Alt + D)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false
+        },
+        {
           "uuid": "ded3c569-a86b-4947-851b-36277291aaf7",
           "label": "",
           "icon": "lucide-clipboard-paste",
@@ -337,7 +529,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Insert Template (Alt + Shift + J)",
+          "tooltip": "Insert Template (Alt + T)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -446,45 +638,6 @@
           }
         },
         {
-          "uuid": "86b7334f-4838-416a-878e-26f6fc25be4e",
-          "label": "",
-          "icon": "lucide-pin",
-          "link": "Toggle pin",
-          "linkAttr": {
-            "commandId": "workspace:toggle-pin",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Pin Note (Toggle Pin) (Alt + R)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          },
-          "inGallery": false
-        },
-        {
           "uuid": "e2bf922a-db92-4543-b5fa-f914b83f3af6",
           "label": "",
           "icon": "lucide-lock-keyhole",
@@ -563,45 +716,6 @@
           "inGallery": false
         },
         {
-          "uuid": "d993dc15-0f18-4fec-afa7-1e5622f7efbb",
-          "label": "",
-          "icon": "lucide-folder-edit",
-          "link": "Folder notes: Create folder note with a new folder for the active note in the current folder",
-          "linkAttr": {
-            "commandId": "folder-notes:create-folder-note",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Turn note into folder note (Folder notes) (Alt + D)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          },
-          "inGallery": false
-        },
-        {
           "uuid": "8500792b-3f9f-46e9-bdc4-cec52bfd6ab2",
           "label": "",
           "icon": "lucide-clipboard-copy",
@@ -612,45 +726,6 @@
             "type": "command"
           },
           "tooltip": "Collect images or files for a note (Consistent Attachments and Links) (Alt + Shift + Q)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          },
-          "inGallery": false
-        },
-        {
-          "uuid": "68bfd36a-9ad3-4e7b-a11d-7f80f0f78639",
-          "label": "",
-          "icon": "lucide-folder-git",
-          "link": "Folder notes: Insert folder overview",
-          "linkAttr": {
-            "commandId": "folder-notes:insert-folder-overview-fn",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Link every note inside a Folder Note (Ctrl + D)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -797,6 +872,86 @@
           "inGallery": false
         },
         {
+          "uuid": "08bdd6d1-0216-4b65-8f23-b067a7904b89",
+          "hasCommand": false,
+          "icon": "lucide-file-search",
+          "inGallery": false,
+          "label": "",
+          "link": "File Cooker: Move files in searchresults to ...",
+          "linkAttr": {
+            "commandId": "obsidian-file-cooker:move-files-in-searchresults-to",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Move multiple files from Search Bar (File Cooker) (Ctrl + Alt + Q)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "7efc9bf7-8b52-4de2-9fd5-bc25774f915e",
+          "hasCommand": false,
+          "icon": "lucide-file-stack",
+          "inGallery": false,
+          "label": "",
+          "link": "Make a copy of the current file",
+          "linkAttr": {
+            "commandId": "file-explorer:duplicate-file",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Duplicate the active file (Alt + Shift + D)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
           "uuid": "494e0b04-fa98-4cd7-a4a9-da36c87d41e9",
           "label": "",
           "icon": "lucide-file-stack",
@@ -836,16 +991,18 @@
           "inGallery": false
         },
         {
-          "uuid": "befcca06-5a26-4766-b4bf-8e420ae20e33",
+          "uuid": "a78d34f5-2f45-4698-9038-186c29d679b0",
+          "hasCommand": false,
+          "icon": "lucide-file-up",
+          "inGallery": false,
           "label": "",
-          "icon": "lucide-camera",
-          "link": "Media Extended: Take timestamp",
+          "link": "Map of Content: Update Map of Content",
           "linkAttr": {
-            "commandId": "media-extended:take-timestamp",
+            "commandId": "map-of-content:rebuild-map-of-content",
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Timestamp (Media Extended) (Ctrl + S)",
+          "tooltip": "Update Leading Note in Folder (Map of Content)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -871,125 +1028,7 @@
                 ]
               }
             }
-          },
-          "inGallery": false
-        },
-        {
-          "uuid": "3c4051f6-71a8-48cd-be2f-4d1fcf398ab9",
-          "label": "",
-          "icon": "lucide-youtube",
-          "link": "Media Notes: Insert Timestamp",
-          "linkAttr": {
-            "commandId": "media-notes:insert-media-timestamp",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Timestamp for YouTube videos (Media Notes) (Alt + S)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          },
-          "inGallery": false
-        },
-        {
-          "uuid": "41cdc0a8-1338-4a77-8805-2875f5c896e4",
-          "label": "",
-          "icon": "lucide-camera",
-          "link": "Media Extended: Save screenshot in media note",
-          "linkAttr": {
-            "commandId": "media-extended:save-screenshot-media-note",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Screenshot a part of a video (Media Extended) (Alt + Shift + S)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          },
-          "inGallery": false
-        },
-        {
-          "uuid": "5e49b880-ba44-4f3b-89bc-4ab67193bd36",
-          "label": "",
-          "icon": "lucide-external-link",
-          "link": "Copy Obsidian URL",
-          "linkAttr": {
-            "commandId": "workspace:copy-url",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Copy Obsidian URL (Ctrl + Alt + Shift + A)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          },
-          "inGallery": false
+          }
         },
         {
           "uuid": "7481b3cc-8eec-4c72-af00-786049f9932e",
@@ -1072,7 +1111,7 @@
         {
           "uuid": "3a4b41e4-8f2f-491b-bb03-efdc602456f1",
           "label": "",
-          "icon": "lucide-globe",
+          "icon": "lucide-app-window",
           "link": "Web viewer: Open web viewer",
           "linkAttr": {
             "commandId": "webviewer:open",
@@ -1111,7 +1150,7 @@
         {
           "uuid": "72d131dc-7532-4565-9e8e-da3d743f9b32",
           "hasCommand": false,
-          "icon": "lucide-app-window",
+          "icon": "lucide-search",
           "inGallery": false,
           "label": "",
           "link": "Web viewer: Search the web",
@@ -1151,7 +1190,7 @@
         {
           "uuid": "9b4e5471-815e-4f84-b087-38cb77cf8bd3",
           "label": "",
-          "icon": "lucide-file-archive",
+          "icon": "lucide-book-marked",
           "link": "PDF++: Create dummy file for external PDF",
           "linkAttr": {
             "commandId": "pdf-plus:create-dummy",
@@ -1188,16 +1227,94 @@
           "inGallery": false
         },
         {
-          "uuid": "69cdd03c-8f12-46ee-94ff-339db331e225",
+          "uuid": "befcca06-5a26-4766-b4bf-8e420ae20e33",
           "label": "",
-          "icon": "lucide-file-json-2",
-          "link": "Better File Link: Add File Link",
+          "icon": "lucide-camera",
+          "link": "Media Extended: Take timestamp",
           "linkAttr": {
-            "commandId": "obsidian-file-link:add-file-link",
+            "commandId": "media-extended:take-timestamp",
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Link to File Outside Vault (Ctrl + Alt + K)",
+          "tooltip": "Timestamp (Media Extended) (Ctrl + S)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false
+        },
+        {
+          "uuid": "41cdc0a8-1338-4a77-8805-2875f5c896e4",
+          "label": "",
+          "icon": "lucide-camera",
+          "link": "Media Extended: Save screenshot in media note",
+          "linkAttr": {
+            "commandId": "media-extended:save-screenshot-media-note",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Screenshot a part of a video (Media Extended) (Alt + Shift + S)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false
+        },
+        {
+          "uuid": "3c4051f6-71a8-48cd-be2f-4d1fcf398ab9",
+          "label": "",
+          "icon": "lucide-youtube",
+          "link": "",
+          "linkAttr": {
+            "commandId": "",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Timestamp for YouTube videos (Media Notes) (Alt + S)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -1345,6 +1462,46 @@
           }
         },
         {
+          "uuid": "7aafd4e5-e0f1-4dc0-8fc0-bac6092557a9",
+          "hasCommand": false,
+          "icon": "broken-link",
+          "inGallery": false,
+          "label": "",
+          "link": "Persistent Links: Repair links in file",
+          "linkAttr": {
+            "commandId": "persistent-links:persistent-links:repair-links-in-file",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Repair links in file (Persistent Links)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
           "uuid": "567914ab-ad93-4369-9a1b-27b5e0e1af8c",
           "hasCommand": false,
           "icon": "lucide-wrench",
@@ -1385,6 +1542,45 @@
           }
         },
         {
+          "uuid": "82fe3abf-7729-479b-b632-fc10b5ffe683",
+          "label": "",
+          "icon": "lucide-vault",
+          "link": "Open sandbox vault",
+          "linkAttr": {
+            "commandId": "app:open-sandbox-vault",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Sandbox Vault (Alt + Shift + O)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false
+        },
+        {
           "uuid": "047fec51-f526-44f2-8823-9f41b99be6a3",
           "hasCommand": false,
           "icon": "lucide-wallpaper",
@@ -1396,7 +1592,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Change Vault Theme (Alt + Shift + O)",
+          "tooltip": "Change Vault Theme (Ctrl + Shift + O)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -1435,45 +1631,6 @@
             "type": "command"
           },
           "tooltip": "Switch between one Vault to another (Ctrl + Alt + O)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          },
-          "inGallery": false
-        },
-        {
-          "uuid": "82fe3abf-7729-479b-b632-fc10b5ffe683",
-          "label": "",
-          "icon": "lucide-vault",
-          "link": "Open sandbox vault",
-          "linkAttr": {
-            "commandId": "app:open-sandbox-vault",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Open Sandbox Vault (Ctrl + Shift + O)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -1600,9 +1757,21 @@
           }
         }
       },
-      "updated": "2025-06-20T04:59:06.489Z"
+      "updated": "2025-06-20T20:17:04.866Z"
     }
   ],
   "version": 20250313.1,
-  "whatsnew_version": "1.23"
+  "whatsnew_version": "1.24",
+  "recentFiles": [
+    "Hotkeys/Hotkeys.md",
+    "Templates/Templates.md",
+    "Hotkeys/Functional Thinking.md",
+    "Hotkeys/Hotkeys.base",
+    "Untitled/Untitled 1 1 1 1.md",
+    "Untitled/Untitled.md",
+    "Untitled/Untitled 1 1 1.md",
+    "Untitled 2.md",
+    "Untitled/Untitled 1.md",
+    "Untitled/Untitled 1 1.md"
+  ]
 }

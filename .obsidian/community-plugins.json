@@ -1,8 +1,6 @@
 [
   "obsidian-carry-forward",
   "obsidian-file-cooker",
-  "media-extended",
-  "media-notes",
   "simple-canvasearch",
   "link-exploder",
   "nldates-obsidian",
@@ -31,8 +29,9 @@
   "image-converter",
   "obsidian-image-toolkit",
   "project-browser",
-  "task-list-kanban",
   "obsidian-languagetool-plugin",
   "multi-properties",
-  "consistent-attachments-and-links"
+  "consistent-attachments-and-links",
+  "create-note-list",
+  "media-extended"
 ]

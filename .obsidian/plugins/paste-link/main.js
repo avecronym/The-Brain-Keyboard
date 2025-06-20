@@ -27,7 +27,7 @@ __export(main_exports, {
   default: () => PasteLinkPlugin
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian5 = require("obsidian");
+var import_obsidian6 = require("obsidian");
 
 // src/settings/defaults.ts
 var DEFAULT_SETTINGS = {
@@ -38,7 +38,7 @@ var DEFAULT_SETTINGS = {
 };
 
 // src/settings/setting-tab.ts
-var import_obsidian2 = require("obsidian");
+var import_obsidian5 = require("obsidian");
 
 // src/settings/regex.ts
 var import_obsidian = require("obsidian");
@@ -77,6 +77,11 @@ var RegexSetting = class extends import_obsidian.Setting {
         plugin.settings.pageTitleRegexes[index][1] = value;
         await plugin.saveSettings();
       }).inputEl.addClass(CLASS_NAMES.regexInput)
+    ).addText(
+      (cb) => cb.setValue(regexes[2]).setPlaceholder("Template").onChange(async (value) => {
+        plugin.settings.pageTitleRegexes[index][2] = value;
+        await plugin.saveSettings();
+      }).inputEl.addClass(CLASS_NAMES.regexInput)
     ).addExtraButton(
       (cb) => cb.setIcon("move-up").setDisabled(index === 0).onClick(async () => {
         moveElementUp(plugin.settings.pageTitleRegexes, index);
@@ -106,84 +111,25 @@ var RegexSetting = class extends import_obsidian.Setting {
   }
 };
 
-// src/settings/setting-tab.ts
-var PasteLinkPluginSettingTab = class extends import_obsidian2.PluginSettingTab {
-  constructor(app, plugin) {
-    super(app, plugin);
-    this.plugin = plugin;
-  }
-  display() {
-    this.containerEl.empty();
-    new import_obsidian2.Setting(this.containerEl).setName("Override paste handler").setDesc(
-      "Override Obsidian's default paste handler so that links are automatically inserted on system paste"
-    ).addToggle(
-      (toggle) => toggle.setValue(this.plugin.settings.overridePasteHandler).onChange(async (value) => {
-        this.plugin.settings.overridePasteHandler = value;
-        await this.plugin.saveSettings();
-        new import_obsidian2.Notice(
-          "Paste handler settings changed. Restart Obsidian."
-        );
-      })
-    );
-    new import_obsidian2.Setting(this.containerEl).setName("Fetch page titles on paste").setDesc(
-      "Attempt to fetch page titles from HTTP URLs on paste when paste handler is overridden"
-    ).addToggle(
-      (toggle) => toggle.setValue(this.plugin.settings.fetchPageTitle).onChange(async (value) => {
-        this.plugin.settings.fetchPageTitle = value;
-        await this.plugin.saveSettings();
-      })
-    );
-    new import_obsidian2.Setting(this.containerEl).setName("Fetch page timeout").setDesc(
-      "How many milliseconds to wait to fetch page titles before timing out"
-    ).addText(
-      (cb) => cb.setValue(
-        this.plugin.settings.fetchPageTitleTimeout.toString()
-      ).onChange(async (value) => {
-        const asNumber = Number(value);
-        if (isNaN(asNumber) || asNumber < 0)
-          return;
-        this.plugin.settings.fetchPageTitleTimeout = asNumber;
-        await this.plugin.saveSettings();
-      })
-    );
-    new import_obsidian2.Setting(this.containerEl).setName("Page title regexes").setDesc(
-      "Regular expressions used to clean page titles before pasting (see documentation)"
-    ).setHeading();
-    this.plugin.settings.pageTitleRegexes.forEach(
-      (regexes, index) => new RegexSetting(
-        this.plugin,
-        this,
-        this.containerEl,
-        regexes,
-        index
-      )
-    );
-    new import_obsidian2.Setting(this.containerEl).addExtraButton(
-      (cb) => cb.setIcon("circle-plus").onClick(async () => {
-        this.plugin.settings.pageTitleRegexes.push([]);
-        await this.plugin.saveSettings();
-        this.display();
-      })
-    );
-  }
-};
-
-// src/try-fetch-title.ts
+// src/settings/url-check.ts
 var import_obsidian4 = require("obsidian");
 
-// src/url-handlers.ts
+// src/try-fetch-title.ts
 var import_obsidian3 = require("obsidian");
+
+// src/url-handlers.ts
+var import_obsidian2 = require("obsidian");
 var specialHandlers = {
   // reddit posts
   ["^https?://(?:www\\.)?(?:old\\.)?reddit\\.com/r/[^/]+/comments/[^/]+/?.*"]: async (url) => {
-    const response = await (0, import_obsidian3.requestUrl)(
+    const response = await (0, import_obsidian2.requestUrl)(
       url.href.replace(/(\?|$)/, ".json$1")
     );
     return response.json[0].data.children[0].data.title;
   },
   // subreddits
   ["^https?://(?:www\\.)?(?:old\\.)?reddit\\.com/r/[^/]+/?.*"]: async (url) => {
-    const response = await (0, import_obsidian3.requestUrl)(
+    const response = await (0, import_obsidian2.requestUrl)(
       url.href.replace(/(\?|$)/, "/about.json$1")
     );
     return response.json.data.title;
@@ -196,45 +142,181 @@ var getSpecialUrlHandler = (url) => {
   )) == null ? void 0 : _a[1];
 };
 var defaultUrlHandler = async (url) => {
-  const response = await (0, import_obsidian3.requestUrl)({
+  const response = await (0, import_obsidian2.requestUrl)({
     url: url.href,
     headers: {
       Accept: "text/html",
       // pretend to be desktop chrome to increase odds of getting a full title
-      "User-Agent": `Mozilla/5.0 (${import_obsidian3.Platform.isMacOS ? "Macintosh; Intel Mac OS X 10_15_7" : import_obsidian3.Platform.isWin ? "Windows NT 10.0; Win64; x64" : "X11; Linux x86_64"}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36`
+      "User-Agent": `Mozilla/5.0 (${import_obsidian2.Platform.isMacOS ? "Macintosh; Intel Mac OS X 10_15_7" : import_obsidian2.Platform.isWin ? "Windows NT 10.0; Win64; x64" : "X11; Linux x86_64"}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36`
     }
   });
   return new DOMParser().parseFromString(response.text, "text/html").title;
 };
 
 // src/utils/clean-title.ts
-var cleanTitle = (rawTitle, regex) => {
-  var _a, _b;
-  return ((_b = (_a = rawTitle.match(new RegExp(regex))) == null ? void 0 : _a[1]) == null ? void 0 : _b.trim()) || rawTitle.trim();
+var cleanTitle = (rawTitle, regex, template) => {
+  var _a;
+  const match = rawTitle.match(new RegExp(regex));
+  if (!match)
+    return rawTitle.trim();
+  if (template)
+    return template.replace(/\$(\d+)/g, (_, index) => {
+      const groupIndex = parseInt(index, 10);
+      return match[groupIndex] || "";
+    });
+  return ((_a = match[1]) == null ? void 0 : _a.trim()) || rawTitle.trim();
 };
 var clean_title_default = cleanTitle;
 
 // src/try-fetch-title.ts
 var tryFetchTitle = async (url, regexes) => {
-  var _a;
-  if (!["http:", "https:"].includes(url.protocol))
-    return;
-  new import_obsidian4.Notice(`Attempting to fetch title from ${url.href}`);
   let title;
-  const handler = getSpecialUrlHandler(url);
-  if (handler) {
-    try {
-      title = await handler(url);
-    } catch (_) {
+  if (["http:", "https:"].includes(url.protocol)) {
+    new import_obsidian3.Notice(`Attempting to fetch title from ${url.href}`);
+    const handler = getSpecialUrlHandler(url);
+    if (handler) {
+      try {
+        title = await handler(url);
+      } catch (_) {
+      }
     }
+    title != null ? title : title = await defaultUrlHandler(url);
+  } else {
+    title = url.href;
   }
-  title != null ? title : title = await defaultUrlHandler(url);
-  const regex = ((_a = regexes.find(
+  const match = regexes.find(
     ([pageRegex]) => new RegExp(pageRegex).test(url.href)
-  )) == null ? void 0 : _a[1]) || "";
-  return clean_title_default(title, regex);
+  );
+  if (match) {
+    const [, regex, template] = match;
+    return clean_title_default(title, regex, template);
+  } else {
+    return title;
+  }
 };
 var try_fetch_title_default = tryFetchTitle;
+
+// src/utils/to-url.ts
+var toUrl = (str) => {
+  if (str.includes("\n"))
+    return null;
+  try {
+    return new URL(str);
+  } catch (e) {
+    return null;
+  }
+};
+var to_url_default = toUrl;
+
+// src/settings/url-check.ts
+var UrlCheckSetting = class extends import_obsidian4.Setting {
+  constructor(plugin, containerEl) {
+    super(containerEl);
+    this._url = "";
+    this.urlEl = containerEl.createEl("p");
+    this.titleEl = containerEl.createEl("p");
+    this.url = "";
+    this.title = "";
+    this.setName("Check URL").setHeading().setDesc(
+      "Check the provided URL against the configured page title regexes"
+    ).addText(
+      (text) => text.setPlaceholder("URL").onChange((value) => this._url = value)
+    ).addButton(
+      (button) => button.setButtonText("Check").setCta().onClick(async () => {
+        if (!this.url) {
+          this.url = "";
+          this.title = "";
+          return;
+        }
+        const url = to_url_default(this.url);
+        if (!url) {
+          this.url = "invalid";
+          this.title = "";
+          return;
+        }
+        this.url = url.href;
+        const title = await try_fetch_title_default(
+          url,
+          plugin.settings.pageTitleRegexes
+        );
+        this.title = title || "";
+      })
+    );
+  }
+  get url() {
+    return this._url;
+  }
+  set url(url) {
+    this._url = url;
+    this.urlEl.innerHTML = `URL: ${url || "empty"}`;
+  }
+  set title(title) {
+    this.titleEl.innerHTML = `Title: ${title || "empty"}`;
+  }
+};
+
+// src/settings/setting-tab.ts
+var PasteLinkPluginSettingTab = class extends import_obsidian5.PluginSettingTab {
+  constructor(app, plugin) {
+    super(app, plugin);
+    this.plugin = plugin;
+  }
+  display() {
+    this.containerEl.empty();
+    new import_obsidian5.Setting(this.containerEl).setName("Override paste handler").setDesc(
+      "Override Obsidian's default paste handler so that links are automatically inserted on system paste"
+    ).addToggle(
+      (toggle) => toggle.setValue(this.plugin.settings.overridePasteHandler).onChange(async (value) => {
+        this.plugin.settings.overridePasteHandler = value;
+        await this.plugin.saveSettings();
+        new import_obsidian5.Notice(
+          "Paste handler settings changed. Restart Obsidian."
+        );
+      })
+    );
+    new import_obsidian5.Setting(this.containerEl).setName("Fetch page titles on paste").setDesc(
+      "Attempt to fetch page titles from URLs on paste when paste handler is overridden"
+    ).addToggle(
+      (toggle) => toggle.setValue(this.plugin.settings.fetchPageTitle).onChange(async (value) => {
+        this.plugin.settings.fetchPageTitle = value;
+        await this.plugin.saveSettings();
+      })
+    );
+    new import_obsidian5.Setting(this.containerEl).setName("Fetch page timeout").setDesc(
+      "How many milliseconds to wait to fetch page titles before timing out"
+    ).addText(
+      (cb) => cb.setValue(
+        this.plugin.settings.fetchPageTitleTimeout.toString()
+      ).onChange(async (value) => {
+        const asNumber = Number(value);
+        if (isNaN(asNumber) || asNumber < 0)
+          return;
+        this.plugin.settings.fetchPageTitleTimeout = asNumber;
+        await this.plugin.saveSettings();
+      })
+    );
+    new import_obsidian5.Setting(this.containerEl).setName("Page title regexes").setDesc(
+      "Regular expressions used to clean page titles before pasting (see documentation)"
+    ).setHeading();
+    this.plugin.settings.pageTitleRegexes.forEach(
+      (regexes, index) => new RegexSetting(
+        this.plugin,
+        this,
+        this.containerEl,
+        regexes,
+        index
+      )
+    );
+    new import_obsidian5.Setting(this.containerEl).addExtraButton(
+      (cb) => cb.setIcon("circle-plus").onClick(async () => {
+        this.plugin.settings.pageTitleRegexes.push([]);
+        await this.plugin.saveSettings();
+        this.display();
+      })
+    );
+    new UrlCheckSetting(this.plugin, this.containerEl);
+  }
+};
 
 // src/utils/is-cursor-in-link.ts
 var isCursorInLink = (cursor, line) => {
@@ -265,20 +347,8 @@ var makeLink = (title, content) => {
 };
 var make_link_default = makeLink;
 
-// src/utils/to-url.ts
-var toUrl = (str) => {
-  if (str.includes("\n"))
-    return null;
-  try {
-    return new URL(str);
-  } catch (e) {
-    return null;
-  }
-};
-var to_url_default = toUrl;
-
 // src/main.ts
-var _PasteLinkPlugin = class extends import_obsidian5.Plugin {
+var _PasteLinkPlugin = class extends import_obsidian6.Plugin {
   insertIntoSelection(editor, link) {
     editor.replaceSelection(link);
     if (link.startsWith("[]")) {
@@ -348,7 +418,7 @@ var _PasteLinkPlugin = class extends import_obsidian5.Plugin {
     const content = await navigator.clipboard.readText();
     const url = to_url_default(content);
     if (!url) {
-      new import_obsidian5.Notice(
+      new import_obsidian6.Notice(
         `Failed to convert clipboard content to URL: ${content}`
       );
       return;
@@ -359,7 +429,7 @@ var _PasteLinkPlugin = class extends import_obsidian5.Plugin {
     const content = await navigator.clipboard.readText();
     const url = to_url_default(content);
     if (!url) {
-      new import_obsidian5.Notice(
+      new import_obsidian6.Notice(
         `Failed to convert clipboard content to URL: ${content}`
       );
       return;
@@ -397,7 +467,7 @@ var _PasteLinkPlugin = class extends import_obsidian5.Plugin {
           key: "v",
           modifiers: [
             "Shift",
-            import_obsidian5.Platform.isMacOS || import_obsidian5.Platform.isIosApp ? "Meta" : "Ctrl"
+            import_obsidian6.Platform.isMacOS || import_obsidian6.Platform.isIosApp ? "Meta" : "Ctrl"
           ]
         }
       ],

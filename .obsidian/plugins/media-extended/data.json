@@ -10,6 +10,12 @@
       {
         "protocol": "https:",
         "hostname": "www.youtube.com",
+        "pathname": "/watch",
+        "port": ""
+      },
+      {
+        "protocol": "https:",
+        "hostname": "www.youtube.com",
         "port": ""
       }
     ],
@@ -19,13 +25,13 @@
   },
   "speedStep": 0.1,
   "loadStrategy": "eager",
-  "timestampTemplate": "\n- {{TIMESTAMP}} ",
+  "timestampTemplate": "\n- [ ] {{TIMESTAMP}} ",
   "screenshotTemplate": "\n- !{{SCREENSHOT}} {{TIMESTAMP}} ",
   "screenshotEmbedTemplate": "{{TITLE}}{{DURATION}}|50",
   "insertBefore": false,
   "timestampOffset": 0,
   "biliDefaultQuality": 80,
-  "screenshotFormat": "image/webp",
+  "screenshotFormat": "image/png",
   "enableSubtitle": false,
   "urlMappingData": []
 }

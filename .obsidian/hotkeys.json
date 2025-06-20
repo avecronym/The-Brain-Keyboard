@@ -40,16 +40,7 @@
       "modifiers": [
         "Alt"
       ],
-      "key": "W"
-    }
-  ],
-  "editor:toggle-bullet-list": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "A"
+      "key": "E"
     }
   ],
   "note-refactor-obsidian:app:extract-selection-content-only": [],
@@ -70,16 +61,6 @@
     }
   ],
   "editor:toggle-italics": [],
-  "workspace:copy-url": [
-    {
-      "modifiers": [
-        "Alt",
-        "Mod",
-        "Shift"
-      ],
-      "key": "A"
-    }
-  ],
   "inline-encrypter:encrypt": [
     {
       "modifiers": [
@@ -101,9 +82,9 @@
   "nldates-obsidian:nlp-now": [
     {
       "modifiers": [
-        "Mod"
+        "Alt"
       ],
-      "key": "E"
+      "key": "W"
     }
   ],
   "editor:delete-paragraph": [],
@@ -116,14 +97,6 @@
       "key": "W"
     }
   ],
-  "obsidian-file-cooker:Add-selection-to": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "E"
-    }
-  ],
   "link-exploder:link-exploder-canvas-builder": [
     {
       "modifiers": [
@@ -133,36 +106,10 @@
       "key": "E"
     }
   ],
-  "folder-notes:insert-folder-overview-fn": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "D"
-    }
-  ],
   "folder-notes:create-folder-note": [
     {
       "modifiers": [
         "Alt"
-      ],
-      "key": "D"
-    }
-  ],
-  "folder-notes:create-folder-note-from-selected-text": [
-    {
-      "modifiers": [
-        "Alt",
-        "Mod"
-      ],
-      "key": "D"
-    }
-  ],
-  "folder-notes:delete-folder-note-for-current-folder": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
       ],
       "key": "D"
     }
@@ -201,15 +148,6 @@
       "key": "Q"
     }
   ],
-  "obsidian-file-cooker:add-files-in-searchresults-to-canvas": [
-    {
-      "modifiers": [
-        "Alt",
-        "Shift"
-      ],
-      "key": "F"
-    }
-  ],
   "media-extended:open-media-switcher": [
     {
       "modifiers": [
@@ -222,10 +160,9 @@
   "obsidian-file-link:add-file-link": [
     {
       "modifiers": [
-        "Alt",
-        "Mod"
+        "Alt"
       ],
-      "key": "K"
+      "key": "L"
     }
   ],
   "paste-link:paste-as-plain-text": [
@@ -300,7 +237,7 @@
   "theme:switch": [
     {
       "modifiers": [
-        "Alt",
+        "Mod",
         "Shift"
       ],
       "key": "O"
@@ -309,29 +246,13 @@
   "app:open-sandbox-vault": [
     {
       "modifiers": [
-        "Mod",
+        "Alt",
         "Shift"
       ],
       "key": "O"
     }
   ],
-  "persistent-links:persistent-links:repair-links-in-file": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "L"
-    }
-  ],
   "editor:toggle-checklist-status": [],
-  "map-of-content:rebuild-map-of-content": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "L"
-    }
-  ],
   "obsidian-outliner:fold": [],
   "obsidian-outliner:move-list-item-down": [
     {
@@ -505,22 +426,12 @@
       "key": "J"
     }
   ],
-  "webviewer:open-history": [
-    {
-      "modifiers": [
-        "Alt",
-        "Mod"
-      ],
-      "key": "J"
-    }
-  ],
   "insert-template": [
     {
       "modifiers": [
-        "Alt",
-        "Shift"
+        "Alt"
       ],
-      "key": "J"
+      "key": "T"
     }
   ],
   "workspace:toggle-pin": [
@@ -615,6 +526,32 @@
         "Shift"
       ],
       "key": "A"
+    }
+  ],
+  "create-note-list:create-note-list-files-folders": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "L"
+    }
+  ],
+  "folder-notes:insert-folder-overview-fn": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "L"
+    }
+  ],
+  "file-explorer:duplicate-file": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "D"
     }
   ]
 }

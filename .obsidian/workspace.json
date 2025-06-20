@@ -11,18 +11,17 @@
             "id": "4332d7f28d16b896",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "Hotkeys/Hotkeys.md",
-                "mode": "source",
-                "source": false
+                "file": "Hotkeys/Hotkeys.base",
+                "viewName": "Table"
               },
-              "icon": "lucide-file",
+              "icon": "lucide-layout-list",
               "title": "Hotkeys"
             }
           },
           {
-            "id": "51cf48a7c642e1c1",
+            "id": "4ec01454927f2dfd",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -33,20 +32,6 @@
               },
               "icon": "lucide-file",
               "title": "Hotkeys"
-            }
-          },
-          {
-            "id": "00646674eff4f718",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Hotkeys/Functional Thinking.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Functional Thinking"
             }
           },
           {
@@ -64,20 +49,17 @@
             }
           },
           {
-            "id": "40945f04f0d54fe6",
+            "id": "00646674eff4f718",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Hotkeys/Hotkeys.canvas",
-                "viewState": {
-                  "x": 900,
-                  "y": 230.5,
-                  "zoom": -0.20419836808359135
-                }
+                "file": "Hotkeys/Functional Thinking.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "Hotkeys"
+              "icon": "lucide-file",
+              "title": "Functional Thinking"
             }
           },
           {
@@ -92,8 +74,38 @@
               "icon": "globe-2",
               "title": "New web viewer"
             }
+          },
+          {
+            "id": "40945f04f0d54fe6",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "Hotkeys/Hotkeys.canvas",
+                "viewState": {
+                  "x": 900,
+                  "y": 211.75045151230344,
+                  "zoom": -0.20419836808359135
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Hotkeys"
+            }
+          },
+          {
+            "id": "8297d7c609bd9b5b",
+            "type": "leaf",
+            "state": {
+              "type": "card-browser-view",
+              "state": {
+                "path": "/"
+              },
+              "icon": "align-vertical-justify-start",
+              "title": "Browse"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -150,7 +162,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 332.5026054382324
+    "width": 320.5026054382324
   },
   "right": {
     "id": "f9f4603b38a69ba0",
@@ -168,16 +180,6 @@
               "state": {},
               "icon": "stacked-levels",
               "title": "Map of Content"
-            }
-          },
-          {
-            "id": "c56412c7d2edae05",
-            "type": "leaf",
-            "state": {
-              "type": "reminder-list",
-              "state": {},
-              "icon": "clock",
-              "title": "Reminders"
             }
           },
           {
@@ -205,9 +207,19 @@
               "icon": "lucide-file-signature",
               "title": "Footnotes"
             }
+          },
+          {
+            "id": "738f40043faf868e",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {},
+              "icon": "clock",
+              "title": "Reminders"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       },
       {
         "id": "1f95aafeca48ef66",
@@ -251,7 +263,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 298.5
+    "width": 311.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -270,54 +282,55 @@
       "map-of-content:Update Map of Content": false
     }
   },
-  "active": "4332d7f28d16b896",
+  "active": "4ec01454927f2dfd",
   "lastOpenFiles": [
+    "sync.ffs_db.d9e9.ffs_tmp",
+    "sync.ffs_lock",
     "Templates/Templates.md",
     "Hotkeys/Hotkeys.md",
     "Hotkeys/Hotkeys.base",
-    "Templates/YouTube URL to Media Note.md",
-    "Templates/Embed Link.md",
-    "Templates",
-    "Hotkeys/Hotkeys.canvas",
-    "one more time/one more time.md",
-    "one more time/mpc-be64_r0rdoJEkwu.mp4",
-    "one more time",
-    "one more time.md",
-    "breakcore/breakcore.md",
-    "breakcore/mpc-be64_r0rdoJEkwu.mp4",
-    "breakcore",
     "Hotkeys/Functional Thinking.md",
+    "Hotkeys/Hotkeys.canvas",
+    "Untitled.md",
+    "The Functional Thinking framework is your guiding principle! Once you're ready, use the note toolbar above and the ^1qixhtable below to begin your journey!.md",
     "Hotkeys/2025-ave-vault.png",
-    "nene-chan/nene-chan.md",
-    "nene-chan/Untitled.base",
+    "mpc-be64_HmjuS6pjVU.mp4",
+    "Templates/YouTube URL to Media Note.md",
+    "Media Note - mpc-be64_HmjuS6pjVU.md",
+    "Untitled 2/Untitled 1 1 1 1.md",
+    "Untitled 2/Untitled.md",
+    "Untitled 2/Untitled 1 1 1.md",
+    "Untitled 2/Untitled 2.md",
+    "Untitled 2",
+    "Untitled 2/Untitled 1.md",
+    "Untitled 2/Untitled 1 1.md",
+    "Untitled 2/Untitled 1 1 1 2.md",
+    "Untitled",
+    "three/three.md",
+    "three",
+    "Untitled 1 1 1 1 1.md",
+    "Untitled 1 1 1 1.md",
+    "Untitled 1 1 1.md",
+    "Untitled 1 1.md",
+    "Untitled 1.md",
+    "Untitled.base",
+    "Bitwig_Studio_RoImy1qmRz.mp4",
+    "mpc-be64_HmjuS6pjVU/mpc-be64_HmjuS6pjVU.mp4",
+    "mpc-be64_HmjuS6pjVU/mpc-be64_HmjuS6pjVU.md",
+    "mpc-be64_HmjuS6pjVU",
+    "Untitled/Untitled 8.md",
+    "Untitled/Untitled 6.md",
+    "Untitled/Untitled 7.md",
+    "Untitled/- Untitled 1.md",
     "nene-chan/mpc-be64_n1uxSRv9ip.png",
     "nene-chan/thorium_NobQS4Wmuf.png",
     "nene-chan/thorium_t6jnrYk27d.png",
     "nene-chan/thorium_SEEjYNFIX4.png",
     "nene-chan/thorium_MbFnSvVMaT.png",
     "nene-chan/unknown.png",
-    "nene-chan",
-    "chikn is here/chikn is here.md",
     "tst 2/Screenshot_21.png",
-    "tst 2/tst 1/tst 1.md",
-    "tst 2/tst 1",
     "tst 2/tst 1/Screenshot_21.png",
-    "chikn is here",
-    "Hotkeys/Hotkeys/Hotkeys.md",
-    "tst 2/tst 1.md",
-    "tst 2/tst 2.md",
-    "fellow bunch/fellow bunch.md",
     "fellow bunch/thorium_t6jnrYk27d.png",
-    "Untitled/Untitled.md",
-    "mpc-be64_HmjuS6pjVU/mpc-be64_HmjuS6pjVU.md",
-    "file/file.md",
-    "Bitwig_Studio_RoImy1qmRz/Bitwig_Studio_RoImy1qmRz.md",
-    "Bitwig_Studio_RoImy1qmRz/Untitled.md",
-    "Bitwig_Studio_pMOcrPFRax.md",
-    "mpc-be64_LCUtrdvT3R/mpc-be64_LCUtrdvT3R/Untitled.md",
-    "mpc-be64_LCUtrdvT3R.md",
-    "Screenshot_19/Screenshot_19.md",
-    "2025-ave-vault.md",
     "Untitled.canvas",
     "what.canvas"
   ]

@@ -69,7 +69,9 @@ var DEFAULT_SETTINGS = {
   templateTriggerSymbol: "$",
   defaultTemplaterTemplate: "",
   quickAddTriggerSymbol: "\u20AC",
-  defaultQuickAddTemplate: ""
+  defaultQuickAddTemplate: "",
+  enabledFolders: [],
+  triggerHeaderAsAliasSymbol: "!"
 };
 
 // src/settings/SettingTab.ts
@@ -121,6 +123,9 @@ var ObsidianFolderPath = class extends ObsidianPath {
       return true;
     }
     return path.VaultPath.toLowerCase().startsWith(this.VaultPath.toLowerCase());
+  }
+  isDescendantOf(path) {
+    return path.isAncestorOf(this);
   }
 };
 
@@ -1898,6 +1903,7 @@ var SettingTab = class extends import_obsidian3.PluginSettingTab {
     this.addSuggestNonExistingNotesSetting(containerEl);
     this.addRelativePathsSetting(containerEl);
     this.addFolderSearchTriggerSetting(containerEl);
+    this.addHeaderAsAliasTriggerSetting(containerEl);
     if (this.configStore.templaterIsEnabled) {
       this.addTemplaterTriggerSetting(containerEl);
       this.addDefaultTemplaterTemplateSetting(containerEl);
@@ -1907,6 +1913,7 @@ var SettingTab = class extends import_obsidian3.PluginSettingTab {
       this.addDefaultQuickAddTemplateSetting(containerEl);
     }
     this.addRelativeTopFolderSetting(containerEl);
+    this.addEnabledFoldersSetting(containerEl);
   }
   addSuggestionTriggerSetting(containerEl) {
     const trigger = new import_obsidian3.Setting(containerEl).setName("Trigger for link insertion").setDesc("The text string that will trigger link selection.").setTooltip('The string can contain multiple symbols such as @@ Avoid using characters / strings you often use while writing or that might be used by Obsidian or by other plugins to trigger actions. Some examples of strings to avoid: "[", "|", "#"');
@@ -1914,6 +1921,13 @@ var SettingTab = class extends import_obsidian3.PluginSettingTab {
       this.removeValidationWarning(component, trigger);
       this.warnIfTriggerIsProblematic(value, trigger, component);
       this.plugin.settings.triggerSymbol = value;
+      yield this.plugin.saveSettings();
+    })));
+  }
+  addHeaderAsAliasTriggerSetting(containerEl) {
+    const trigger = new import_obsidian3.Setting(containerEl).setName("Trigger for using header as alias").setDesc("The text string that will trigger using a header as alias for the inserted link.").setTooltip("The string can contain only a single symbol such as ! ");
+    trigger.addText((component) => component.setValue(this.plugin.settings.triggerHeaderAsAliasSymbol).onChange((value) => __async(this, null, function* () {
+      this.plugin.settings.triggerHeaderAsAliasSymbol = value;
       yield this.plugin.saveSettings();
     })));
   }
@@ -1927,42 +1941,92 @@ var SettingTab = class extends import_obsidian3.PluginSettingTab {
     pathCollection[fromIndex] = otherPath;
   }
   addRelativeTopFolderSetting(containerEl) {
-    containerEl.createEl("h2", { text: "Relative top folders" });
+    const folderSelectionSettingConfig = {
+      headerText: "Relative top folders",
+      descriptionContent: {
+        intro: [
+          "Add folder names or paths to folders here if you want to filter suggestions when inserting new links. ",
+          "The filtering is activated when inserting a link in a note that has any of the specified folders in its folder tree. ",
+          "Only suggestions for notes that also have the same folder in their folder tree are shown."
+        ],
+        example: [
+          'If you are inserting a link in "folder1/folder2/note.md" and you have configured "folder1" as a relative top folder, then you will only get suggestions for other notes descending from folder 1.'
+        ],
+        outro: [
+          "The folder names are checked in prioritized order. ",
+          'If both "folder1/folder2" and "folder1" are defined as relative top folders, ',
+          'then "folder1/folder2" is used as the relative top folder if the path to the note is "folder1/folder2/note". ',
+          'If the path to the note is "folder1/my note", then "folder1" is used as the top folder.'
+        ]
+      },
+      enablePrioritization: true,
+      descriptionForAddNewButton: "Add new relative top folder",
+      pathCollection: this.plugin.settings.relativeTopFolders
+    };
+    this.addSettingForSelectingFolders(containerEl, folderSelectionSettingConfig);
+  }
+  addEnabledFoldersSetting(containerEl) {
+    const folderSelectionSettingConfig = {
+      headerText: "Enabled folders",
+      descriptionContent: {
+        intro: [
+          "Add paths to folders here if you only want the plugin to be enabled in specific folders. ",
+          "The plugin will only be active in notes that are descendants of the folders given here. ",
+          "If you leave this empty, the plugin will be active in all folders."
+        ],
+        example: [
+          'If you use the link insertion trigger symbol in "folder1/folder2/note.md" and you have configured "folder1" as an enabled folder then suggestions for links will be shown. ',
+          "However, if you have not configured folder1 as an enabled folder then the trigger symbol is handled as normal text and no suggestions are shown."
+        ],
+        outro: [
+          "If you only want to see suggestions for notes in enabled folders, then you should also add the folders you want to be enabled as relative top folders."
+        ]
+      },
+      enablePrioritization: false,
+      descriptionForAddNewButton: "Add new enabled folder",
+      pathCollection: this.plugin.settings.enabledFolders
+    };
+    this.addSettingForSelectingFolders(containerEl, folderSelectionSettingConfig);
+  }
+  addSettingForSelectingFolders(containerEl, folderSettingConfig) {
+    containerEl.createEl("h2", { text: folderSettingConfig.headerText });
     const description = document.createDocumentFragment();
-    description.append("Add folder names or paths to folders here if you want to filter suggestions when inserting new links. ", "The filtering is activated when inserting a link in a note that has any of the specified folders in its folder tree. ", "Only suggestions for notes that also have the same folder in their folder tree are shown.", description.createEl("br"), description.createEl("br"), description.createEl("strong", { text: "Example " }), description.createEl("br"), 'If you are inserting a link in "folder1/folder2/note.md" and you have configured "folder1" as a relative top folder, then you will only get suggestions for other notes descending from folder 1.', description.createEl("br"), description.createEl("br"), "The folder names are checked in prioritized order. ", 'If both "folder1/folder2" and "folder1" are defined as relative top folders, ', 'then "folder1/folder2" is used as the relative top folder if the path to the note is "folder1/folder2/note". ', 'If the path to the note is "folder1/my note", then "folder1" is used as the top folder.');
+    description.append(...folderSettingConfig.descriptionContent.intro, description.createEl("br"), description.createEl("br"), description.createEl("strong", { text: "Example " }), description.createEl("br"), ...folderSettingConfig.descriptionContent.example, description.createEl("br"), description.createEl("br"), ...folderSettingConfig.descriptionContent.outro);
     new import_obsidian3.Setting(containerEl).setDesc(description);
-    const folderPaths = this.plugin.settings.relativeTopFolders;
-    new import_obsidian3.Setting(containerEl).setName("Add New").setDesc("Add new relative top folder").addButton((button) => {
+    new import_obsidian3.Setting(containerEl).setName("Add New").setDesc(folderSettingConfig.descriptionForAddNewButton).addButton((button) => {
       button.setButtonText("+").setCta().onClick(() => __async(this, null, function* () {
-        folderPaths.push(new ObsidianFolderPath(""));
+        folderSettingConfig.pathCollection.push(new ObsidianFolderPath(""));
         yield this.plugin.saveSettings();
         this.display();
       }));
     });
-    folderPaths.forEach((folderPath, index) => {
+    folderSettingConfig.pathCollection.forEach((folderPath, index) => {
       let searchComponent;
-      new import_obsidian3.Setting(containerEl).addSearch((cb) => {
+      const setting = new import_obsidian3.Setting(containerEl).addSearch((cb) => {
         searchComponent = cb;
         cb.setPlaceholder("Folder name or path").setValue(folderPath.VaultPath).onChange((newValue) => __async(this, null, function* () {
-          folderPaths[index] = new ObsidianFolderPath(newValue);
+          folderSettingConfig.pathCollection[index] = new ObsidianFolderPath(newValue);
           yield this.plugin.saveSettings();
         }));
       }).addExtraButton((cb) => cb.setIcon("search").setTooltip("Search for specific folder").onClick(() => {
         new FolderSuggest(this.app, searchComponent.inputEl);
         searchComponent.inputEl.select();
       })).addExtraButton((cb) => cb.setIcon("cross").setTooltip("Delete").onClick(() => __async(this, null, function* () {
-        folderPaths.splice(index, 1);
-        yield this.plugin.saveSettings();
-        this.display();
-      }))).addExtraButton((cb) => cb.setIcon("down-chevron-glyph").setTooltip("Decrease priority").onClick(() => __async(this, null, function* () {
-        this.moveFolderPath(folderPaths, index, index + 1);
-        yield this.plugin.saveSettings();
-        this.display();
-      }))).addExtraButton((cb) => cb.setIcon("up-chevron-glyph").setTooltip("Increase priority").onClick(() => __async(this, null, function* () {
-        this.moveFolderPath(folderPaths, index, index - 1);
+        folderSettingConfig.pathCollection.splice(index, 1);
         yield this.plugin.saveSettings();
         this.display();
       })));
+      if (folderSettingConfig.enablePrioritization) {
+        setting.addExtraButton((cb) => cb.setIcon("down-chevron-glyph").setTooltip("Decrease priority").onClick(() => __async(this, null, function* () {
+          this.moveFolderPath(folderSettingConfig.pathCollection, index, index + 1);
+          yield this.plugin.saveSettings();
+          this.display();
+        }))).addExtraButton((cb) => cb.setIcon("up-chevron-glyph").setTooltip("Increase priority").onClick(() => __async(this, null, function* () {
+          this.moveFolderPath(folderSettingConfig.pathCollection, index, index - 1);
+          yield this.plugin.saveSettings();
+          this.display();
+        })));
+      }
     });
   }
   addSuggestNonExistingNotesSetting(containerEl) {
@@ -1978,7 +2042,7 @@ var SettingTab = class extends import_obsidian3.PluginSettingTab {
     })));
   }
   addTemplaterTriggerSetting(containerEl) {
-    new import_obsidian3.Setting(containerEl).setName("Trigger for executing Templater templates").setDesc("The text string that will trigger execution of a Tempalter template. Leave empty if you don't need the ability to trigger Templater templates").addText((component) => component.setValue(this.plugin.settings.templateTriggerSymbol).onChange((value) => __async(this, null, function* () {
+    new import_obsidian3.Setting(containerEl).setName("Trigger for executing Templater templates").setDesc("The text string that will trigger execution of a Templater template. Leave empty if you don't need the ability to trigger Templater templates").addText((component) => component.setValue(this.plugin.settings.templateTriggerSymbol).onChange((value) => __async(this, null, function* () {
       this.plugin.settings.templateTriggerSymbol = value;
       yield this.plugin.saveSettings();
     })));
@@ -2093,7 +2157,7 @@ var ObsidianInterop = class {
     });
   }
   getFile(filePath, currentFile) {
-    return this.getFile(filePath, currentFile);
+    return this.fileSystem.getFile(filePath, currentFile);
   }
   createFolderIfNeeded(creationCommand) {
     return __async(this, null, function* () {
@@ -2166,13 +2230,13 @@ var ObsidianInterop = class {
 };
 
 // src/core/paths/ObsidianFilePath.ts
-var ObsidianFilePath = class extends ObsidianPath {
+var _ObsidianFilePath = class extends ObsidianPath {
   get IsRoot() {
     return this.VaultPath === "" || this.VaultPath === "/";
   }
   constructor(path) {
     const fullPath = path.trim();
-    const { vaultPath, folderPath, title, extension, fileNameWithPossibleExtension } = ObsidianFilePath.extractPathParts(fullPath);
+    const { vaultPath, folderPath, title, extension, fileNameWithPossibleExtension } = _ObsidianFilePath.extractPathParts(fullPath);
     super(vaultPath, title);
     this.FolderPath = new ObsidianFolderPath(folderPath);
     this.Extension = extension;
@@ -2185,11 +2249,40 @@ var ObsidianFilePath = class extends ObsidianPath {
     const fileNameStartsAt = vaultPath.lastIndexOf("/");
     const [folderPath, fileNameWithPossibleExtension] = fileNameStartsAt === -1 ? ["", vaultPath] : [vaultPath.slice(0, fileNameStartsAt), vaultPath.slice(fileNameStartsAt + 1)];
     const extensionStartsAt = fileNameWithPossibleExtension.lastIndexOf(".");
-    const title = extensionStartsAt === -1 ? fileNameWithPossibleExtension : fileNameWithPossibleExtension.slice(0, extensionStartsAt);
     const extension = extensionStartsAt !== -1 ? fileNameWithPossibleExtension.slice(extensionStartsAt + 1) : "";
-    return { vaultPath, folderPath, title, extension, fileNameWithPossibleExtension };
+    const includeExtensionInTitle = !this.supportedFileTypes.has(extension);
+    const title = extensionStartsAt === -1 || includeExtensionInTitle ? fileNameWithPossibleExtension : fileNameWithPossibleExtension.slice(0, extensionStartsAt);
+    const extensionToUse = includeExtensionInTitle ? "" : extension;
+    return { vaultPath, folderPath, title, extension: extensionToUse, fileNameWithPossibleExtension };
   }
 };
+var ObsidianFilePath = _ObsidianFilePath;
+ObsidianFilePath.supportedFileTypes = new Set([
+  "md",
+  "base",
+  "canvas",
+  "avif",
+  "bmp",
+  "gif",
+  "jpeg",
+  "jpg",
+  "png",
+  "svg",
+  "webp",
+  "flac",
+  "m4a",
+  "mp3",
+  "ogg",
+  "wav",
+  "webm",
+  "3gp",
+  "mkv",
+  "mov",
+  "mp4",
+  "ogv",
+  "webm",
+  "pdf"
+]);
 
 // src/core/suggestions/FileSuggestion.ts
 var FileSuggestion = class {
@@ -2231,6 +2324,12 @@ var SuggestionRenderer = class {
       cls: "suggestion-note",
       text: params.note
     });
+    if (params.fileTag) {
+      el.createDiv({
+        cls: "nav-file-tag",
+        text: params.fileTag
+      });
+    }
     if (params.flair) {
       const aux = el.createDiv({
         cls: "suggestion-aux"
@@ -2275,7 +2374,8 @@ var ExistingNoteSuggestion = class extends NoteSuggestion {
   render(el) {
     SuggestionRenderer.RenderSuggestion(el, {
       content: this.Title,
-      note: this.FolderPath + "/"
+      note: this.FolderPath + "/",
+      fileTag: this.Path.Extension
     });
   }
 };
@@ -2628,15 +2728,26 @@ var HeaderSuggestion = class {
 
 // src/core/suggestionCollection/HeaderSuggestionCollector.ts
 var HeaderSuggestionCollector = class {
-  constructor(metadataCollection) {
+  constructor(metadataCollection, settings) {
     this.metadataCollection = metadataCollection;
+    this.headerAsAliasTrigger = settings.triggerHeaderAsAliasSymbol;
   }
   getSuggestions(headerQuery, noteSuggestion) {
     const [query, alias] = headerQuery.split("|");
     const lowerCaseQuery = query.toLowerCase();
     const headersInNote = this.metadataCollection.getHeadersIn(noteSuggestion.Path.VaultPath);
-    const aliasToUse = noteSuggestion.Alias ? noteSuggestion.Alias : alias;
-    return headersInNote.filter((h) => h.heading.toLowerCase().includes(lowerCaseQuery)).map((h) => new HeaderSuggestion(h.heading, h.level, aliasToUse, noteSuggestion));
+    let aliasToUse = noteSuggestion.Alias ? noteSuggestion.Alias : alias;
+    let validHeaders = headersInNote.filter((h) => h.heading.toLowerCase().includes(lowerCaseQuery));
+    let headerCanBeUsedAsAlias = false;
+    if (validHeaders.length === 0 && query.endsWith(this.headerAsAliasTrigger)) {
+      const queryWithoutBang = lowerCaseQuery.slice(0, query.length - 1);
+      validHeaders = headersInNote.filter((h) => h.heading.toLowerCase().includes(queryWithoutBang));
+      headerCanBeUsedAsAlias = true;
+    }
+    if (headerCanBeUsedAsAlias && validHeaders.length === 1 && !alias) {
+      aliasToUse = validHeaders[0].heading;
+    }
+    return validHeaders.map((h) => new HeaderSuggestion(h.heading, h.level, aliasToUse, noteSuggestion));
   }
 };
 
@@ -2902,7 +3013,7 @@ var SuggestionCollector = class {
     const quickaddConfig = new QuickAddTemplateConfig(interOp, settings);
     this.templaterTemplateSuggestionCollector = new TemplateSuggestionCollector(interOp, interOp, settings, templaterConfig);
     this.quickaddTemplateSuggestionCollector = new TemplateSuggestionCollector(interOp, interOp, settings, quickaddConfig);
-    this.headerSuggestionCollector = new HeaderSuggestionCollector(interOp);
+    this.headerSuggestionCollector = new HeaderSuggestionCollector(interOp, settings);
     this.folderSuggestionCollector = new FolderSuggestionCollector(interOp);
     this.combinedSuggestionCollector = new NoteAndFolderSuggestionCollector(interOp, settings);
     this.fileSystem = interOp;
@@ -3008,6 +3119,13 @@ var LinkSuggestor = class {
     return this.suggestionsCollector.getSuggestions(context);
   }
   onTrigger(cursor, editor, file) {
+    const pathToFile = new ObsidianFilePath(file.path);
+    if (this.settings.enabledFolders.length > 0) {
+      const enablePlugin = this.settings.enabledFolders.find((enabledFolder) => enabledFolder.isAncestorOf(pathToFile)) != void 0;
+      if (!enablePlugin) {
+        return null;
+      }
+    }
     const line = editor.getLine(cursor.line);
     this.currentTrigger = extractSuggestionTrigger(line, cursor, this.settings.triggerSymbol);
     return this.currentTrigger;
