@@ -1,9 +1,9 @@
 # The Brain's Keyboard
 
-## The ultimate [Obsidian](https://obsidian.md/) PKM system built for Multipotentialites!
+## The ultimate [Obsidian](https://obsidian.md/) PKM system built for creatives, by creatives!
 
-![obsidian-ave-jan-31st-2025](https://github.com/user-attachments/assets/c94a8f82-f77a-4021-90f3-58fa5af74bc7)
+![Obsidian_iRUZur0bzT](https://github.com/user-attachments/assets/2a4b6bd2-e9ff-4212-beac-bd0ddaf759ef)
 
-My approach to learning the world around us.
+Our approach to learning the world around us.
 
-Enjoy. I wish you the very best of luck!
+Enjoy. We wish you the very best of luck!
