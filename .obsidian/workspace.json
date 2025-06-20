@@ -4,11 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "cb56ae3a308283df",
+        "id": "b01c7aa9470b9a86",
         "type": "tabs",
         "children": [
           {
-            "id": "918eac179fd01aa4",
+            "id": "4332d7f28d16b896",
+            "type": "leaf",
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "Hotkeys/Hotkeys.base",
+                "viewName": "Table"
+              },
+              "icon": "lucide-layout-list",
+              "title": "Hotkeys"
+            }
+          },
+          {
+            "id": "51cf48a7c642e1c1",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -22,16 +35,44 @@
             }
           },
           {
-            "id": "8dcfab2b333cf525",
+            "id": "00646674eff4f718",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Hotkeys/Functional Thinking.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Functional Thinking"
+            }
+          },
+          {
+            "id": "b332e5b7857afc34",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Templates/Templates.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Templates"
+            }
+          },
+          {
+            "id": "40945f04f0d54fe6",
             "type": "leaf",
             "state": {
               "type": "canvas",
               "state": {
                 "file": "Hotkeys/Hotkeys.canvas",
                 "viewState": {
-                  "x": 899.9988078091228,
-                  "y": 230.49878015121018,
-                  "zoom": -0.2529865688017435
+                  "x": 900,
+                  "y": 230.5,
+                  "zoom": -0.20419836808359135
                 }
               },
               "icon": "lucide-layout-dashboard",
@@ -39,7 +80,7 @@
             }
           },
           {
-            "id": "8a5dfbda3579ca29",
+            "id": "3f826c0ba4b5b774",
             "type": "leaf",
             "state": {
               "type": "webviewer",
@@ -49,18 +90,6 @@
               },
               "icon": "globe-2",
               "title": "New web viewer"
-            }
-          },
-          {
-            "id": "dd9de038f059f19c",
-            "type": "leaf",
-            "state": {
-              "type": "card-browser-view",
-              "state": {
-                "path": "/"
-              },
-              "icon": "align-vertical-justify-start",
-              "title": "Browse"
             }
           }
         ]
@@ -120,7 +149,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 253.50260543823242
+    "width": 332.5026054382324
   },
   "right": {
     "id": "f9f4603b38a69ba0",
@@ -163,8 +192,21 @@
               "icon": "lucide-archive",
               "title": "All properties"
             }
+          },
+          {
+            "id": "0691ed5313ce86e6",
+            "type": "leaf",
+            "state": {
+              "type": "footnotes",
+              "state": {
+                "file": "Hotkeys/Hotkeys.base"
+              },
+              "icon": "lucide-file-signature",
+              "title": "Footnotes"
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       },
       {
         "id": "1f95aafeca48ef66",
@@ -176,7 +218,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Hotkeys/Hotkeys.md",
+                "file": "Hotkeys/Hotkeys.base",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -195,7 +237,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Hotkeys/Hotkeys.md",
+                "file": "Hotkeys/Hotkeys.base",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -208,15 +250,13 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 298.5
   },
   "left-ribbon": {
     "hiddenItems": {
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
-      "task-board:Open task board": false,
       "project-browser:Open project browser": false,
       "command-palette:Open command palette": false,
       "media-extended:Open media": false,
@@ -229,53 +269,55 @@
       "map-of-content:Update Map of Content": false
     }
   },
-  "active": "918eac179fd01aa4",
+  "active": "4332d7f28d16b896",
   "lastOpenFiles": [
-    "sync.ffs_lock",
-    "Hotkeys/Functional Thinking.md",
     "Hotkeys/Hotkeys.md",
+    "Hotkeys/Hotkeys.base",
+    "one more time/one more time.md",
+    "one more time/mpc-be64_r0rdoJEkwu.mp4",
+    "one more time",
+    "one more time.md",
     "Hotkeys/Hotkeys.canvas",
-    "Templates/YouTube URL to Media Note.md",
+    "breakcore/breakcore.md",
+    "breakcore/mpc-be64_r0rdoJEkwu.mp4",
+    "breakcore",
+    "Hotkeys/Functional Thinking.md",
     "Templates/Templates.md",
-    "Untitled.md",
-    "sync.ffs_db.51b6.ffs_tmp",
-    "Media Note - _MARETU_ ビノミ (Binomi_Binomial_Taste of Beauty) ft. 初音ミク English Subs.md",
-    "Trauma, Abuse, & Lingua Ignota.md",
+    "Hotkeys/2025-ave-vault.png",
+    "Templates/YouTube URL to Media Note.md",
     "Templates/Embed Link.md",
-    "Templates",
-    "Video. Jamaicans Anonymous (Comedy Sketch).md",
-    "Crayon Shin-chan.md",
-    "Hotkeys/Untitled.md",
-    "sync.ffs_db.8cfa.ffs_tmp",
-    "Untitled/mpc-be64_54fVKh2gG1-1.png",
-    "Untitled",
-    "Untitled/mpc-be64_54fVKh2gG1-1.png",
-    "Untitled/EUIe1OjU4AMas46.png",
-    "Untitled/GTeF9c_bEAAx9gb_cropped-1.png",
-    "Untitled/Ekj0kQvVcAA-8EL.jpg",
-    "EjrJt8PU0AEKdiN.png",
-    "Untitled/GWtUQHrXEAA0lJI_cropped (1).png",
-    "sync.ffs_db.b10d.ffs_tmp",
-    "Untitled.canvas",
-    "Hotkeys/Hotkeys/2025-ave-vault.png",
+    "nene-chan/nene-chan.md",
+    "nene-chan/Untitled.base",
+    "nene-chan/mpc-be64_n1uxSRv9ip.png",
+    "nene-chan/thorium_NobQS4Wmuf.png",
+    "nene-chan/thorium_t6jnrYk27d.png",
+    "nene-chan/thorium_SEEjYNFIX4.png",
+    "nene-chan/thorium_MbFnSvVMaT.png",
+    "nene-chan/unknown.png",
+    "nene-chan",
+    "chikn is here/chikn is here.md",
+    "tst 2/Screenshot_21.png",
+    "tst 2/tst 1/tst 1.md",
+    "tst 2/tst 1",
+    "tst 2/tst 1/Screenshot_21.png",
+    "chikn is here",
+    "Hotkeys/Hotkeys/Hotkeys.md",
     "Hotkeys/Hotkeys",
-    "Hotkeys",
-    "2025-ave-vault.png",
-    "vault.md",
-    "2025-01-18 24.md",
-    "2025-01-18 23.md",
-    "2025-01-18 22.md",
-    "2025-01-18 21.md",
-    "2025-01-18 20.md",
-    "2025-01-18 19.md",
-    "2025-01-18 18.md",
-    "2025-01-18 17.md",
-    "2025-01-18 16.md",
-    "2025-01-18 15.md",
-    "2025-01-18 14.md",
-    "2025-01-18 13.md",
-    "2025-01-18 12.md",
-    "what.canvas",
-    "y2meta.net_stan-twitter-whoever-you-are-thank-you.mp4"
+    "tst 2/tst 1.md",
+    "tst 2/tst 2.md",
+    "fellow bunch/fellow bunch.md",
+    "fellow bunch/thorium_t6jnrYk27d.png",
+    "Untitled/Untitled.md",
+    "mpc-be64_HmjuS6pjVU/mpc-be64_HmjuS6pjVU.md",
+    "file/file.md",
+    "Bitwig_Studio_RoImy1qmRz/Bitwig_Studio_RoImy1qmRz.md",
+    "Bitwig_Studio_RoImy1qmRz/Untitled.md",
+    "Bitwig_Studio_pMOcrPFRax.md",
+    "mpc-be64_LCUtrdvT3R/mpc-be64_LCUtrdvT3R/Untitled.md",
+    "mpc-be64_LCUtrdvT3R.md",
+    "Screenshot_19/Screenshot_19.md",
+    "2025-ave-vault.md",
+    "Untitled.canvas",
+    "what.canvas"
   ]
 }

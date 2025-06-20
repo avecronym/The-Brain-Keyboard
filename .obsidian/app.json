@@ -2,5 +2,8 @@
   "newFileLocation": "current",
   "attachmentFolderPath": "./",
   "promptDelete": false,
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "propertiesInDocument": "visible",
+  "defaultViewMode": "source",
+  "focusNewTab": false
 }

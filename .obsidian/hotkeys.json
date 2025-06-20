@@ -2,9 +2,9 @@
   "global-search:open": [
     {
       "modifiers": [
-        "Mod"
+        "Alt"
       ],
-      "key": "I"
+      "key": "F"
     }
   ],
   "file-explorer:new-file-in-new-pane": [],
@@ -21,9 +21,9 @@
   "editor:open-search": [
     {
       "modifiers": [
-        "Alt"
+        "Mod"
       ],
-      "key": "I"
+      "key": "F"
     }
   ],
   "editor:toggle-bold": [],
@@ -53,15 +53,6 @@
     }
   ],
   "note-refactor-obsidian:app:extract-selection-content-only": [],
-  "editor:insert-embed": [
-    {
-      "modifiers": [
-        "Alt",
-        "Shift"
-      ],
-      "key": "A"
-    }
-  ],
   "media-extended:take-timestamp": [
     {
       "modifiers": [
@@ -198,7 +189,7 @@
         "Alt",
         "Mod"
       ],
-      "key": "I"
+      "key": "F"
     }
   ],
   "obsidian-file-cooker:move-files-in-searchresults-to": [
@@ -216,7 +207,7 @@
         "Alt",
         "Shift"
       ],
-      "key": "I"
+      "key": "F"
     }
   ],
   "media-extended:open-media-switcher": [
@@ -228,15 +219,6 @@
     }
   ],
   "editor:insert-link": [],
-  "obsidian-custom-attachment-location:collect-attachments-current-note": [
-    {
-      "modifiers": [
-        "Alt",
-        "Shift"
-      ],
-      "key": "Q"
-    }
-  ],
   "obsidian-file-link:add-file-link": [
     {
       "modifiers": [
@@ -523,14 +505,6 @@
       "key": "J"
     }
   ],
-  "webviewer:save-to-vault": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "J"
-    }
-  ],
   "webviewer:open-history": [
     {
       "modifiers": [
@@ -582,6 +556,65 @@
         "Mod"
       ],
       "key": "P"
+    }
+  ],
+  "bases:new-file": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "B"
+    }
+  ],
+  "bases:insert": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "B"
+    }
+  ],
+  "bases:copy-table": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "B"
+    }
+  ],
+  "webviewer:search": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "J"
+    }
+  ],
+  "note-toolbar:toggle-properties": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": ";"
+    }
+  ],
+  "consistent-attachments-and-links:collect-attachments-current-note": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "Q"
+    }
+  ],
+  "obsidian-binary-file-manager-plugin:binary-file-manager-manual-detection": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "A"
     }
   ]
 }

@@ -16,7 +16,6 @@
   "file-chucker",
   "darlal-switcher-plus",
   "persistent-links",
-  "obsidian-custom-attachment-location",
   "obsidian-style-settings",
   "oz-clear-unused-images",
   "obsidian-hover-editor",
@@ -32,5 +31,8 @@
   "image-converter",
   "obsidian-image-toolkit",
   "project-browser",
-  "task-list-kanban"
+  "task-list-kanban",
+  "obsidian-languagetool-plugin",
+  "multi-properties",
+  "consistent-attachments-and-links"
 ]

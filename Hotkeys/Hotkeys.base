@@ -1,0 +1,15 @@
+formulas: {}
+views:
+  - type: table
+    name: Table
+    filters:
+      or:
+        - file.path.contains("md")
+    order:
+      - file.name
+    sort:
+      - column: note.test 1
+        direction: DESC
+    columnSize:
+      note.test 1: 111
+      note.test 2: 126

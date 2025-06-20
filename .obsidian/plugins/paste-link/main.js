@@ -200,8 +200,6 @@ var defaultUrlHandler = async (url) => {
     url: url.href,
     headers: {
       Accept: "text/html",
-      // assume title is in first 8kb
-      Range: "bytes=0-8000",
       // pretend to be desktop chrome to increase odds of getting a full title
       "User-Agent": `Mozilla/5.0 (${import_obsidian3.Platform.isMacOS ? "Macintosh; Intel Mac OS X 10_15_7" : import_obsidian3.Platform.isWin ? "Windows NT 10.0; Win64; x64" : "X11; Linux x86_64"}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36`
     }
@@ -240,10 +238,12 @@ var try_fetch_title_default = tryFetchTitle;
 
 // src/utils/is-cursor-in-link.ts
 var isCursorInLink = (cursor, line) => {
-  const regex = /\[(.*?)\]\((.*?)\)/g;
+  const regex = /\[([^\[\]]*?)\]\(([^()]*?)\)/g;
   let match;
   while ((match = regex.exec(line)) !== null) {
-    if (cursor.ch > match.index && cursor.ch < regex.lastIndex) {
+    const linkStart = match.index;
+    const linkEnd = match.index + match[0].length;
+    if (cursor.ch > linkStart && cursor.ch < linkEnd) {
       return true;
     }
   }

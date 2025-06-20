@@ -9,12 +9,28 @@ var obsidian = require('obsidian');
 var fs = require('fs');
 var path = require('path');
 
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+function _interopNamespace(e) {
+    if (e && e.__esModule) return e;
+    var n = Object.create(null);
+    if (e) {
+        Object.keys(e).forEach(function (k) {
+            if (k !== 'default') {
+                var d = Object.getOwnPropertyDescriptor(e, k);
+                Object.defineProperty(n, k, d.get ? d : {
+                    enumerable: true,
+                    get: function () { return e[k]; }
+                });
+            }
+        });
+    }
+    n["default"] = e;
+    return Object.freeze(n);
+}
 
-var fs__default = /*#__PURE__*/_interopDefaultLegacy(fs);
-var path__default = /*#__PURE__*/_interopDefaultLegacy(path);
+var fs__namespace = /*#__PURE__*/_interopNamespace(fs);
+var path__namespace = /*#__PURE__*/_interopNamespace(path);
 
-/*! *****************************************************************************
+/******************************************************************************
 Copyright (c) Microsoft Corporation.
 
 Permission to use, copy, modify, and/or distribute this software for any
@@ -28,7 +44,7 @@ LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
-/* global Reflect, Promise */
+/* global Reflect, Promise, SuppressedError, Symbol, Iterator */
 
 var extendStatics = function(d, b) {
     extendStatics = Object.setPrototypeOf ||
@@ -56,12 +72,12 @@ function __awaiter(thisArg, _arguments, P, generator) {
 }
 
 function __generator(thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
+    return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -83,32 +99,36 @@ function __generator(thisArg, body) {
     }
 }
 
+typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
+    var e = new Error(message);
+    return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
+};
+
 var DEFAULT_SETTINGS = {
     linkPrefix: "",
     showFileEnding: false,
     linkFolder: false,
-    embedFile: false,
-    shortLinks: false
+    embedFile: false
 };
 var SUPPORTED_EMBED_FILE_TYPES = [
-    "md",
-    "png",
-    "jpg",
-    "jpeg",
-    "gif",
-    "bmp",
-    "svg",
-    "mp3",
-    "webm",
-    "wav",
-    "m4a",
-    "ogg",
-    "3gp",
-    "flac",
-    "mp4",
-    "webm",
-    "ogv",
-    "pdf",
+    ".md",
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".gif",
+    ".bmp",
+    ".svg",
+    ".mp3",
+    ".webm",
+    ".wav",
+    ".m4a",
+    ".ogg",
+    ".3gp",
+    ".flac",
+    ".mp4",
+    ".webm",
+    ".ogv",
+    ".pdf",
 ];
 
 var FileLinkSettingTab = /** @class */ (function (_super) {
@@ -196,98 +216,63 @@ var FileLinkSettingTab = /** @class */ (function (_super) {
                 });
             }); });
         });
-        new obsidian.Setting(containerEl)
-            .setName("Use short links")
-            .setDesc("Use short links instead of long links.")
-            .addToggle(function (toggle) {
-            return toggle.setValue(_this.plugin.settings.shortLinks).onChange(function () { return __awaiter(_this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0:
-                            this.plugin.settings.shortLinks = toggle.getValue();
-                            return [4 /*yield*/, this.plugin.saveSettings()];
-                        case 1:
-                            _a.sent();
-                            return [2 /*return*/];
-                    }
-                });
-            }); });
-        });
     };
     return FileLinkSettingTab;
 }(obsidian.PluginSettingTab));
 
 var FileEmbeder = /** @class */ (function () {
-    function FileEmbeder(attachementFolder, basePath, settings) {
-        this.attachementFolder = attachementFolder;
-        this.basePath = basePath;
+    function FileEmbeder(settings) {
         this.settings = settings;
     }
-    FileEmbeder.prototype.embedFile = function (file) {
-        var _a;
-        var fileType = (_a = file.name.split(".").pop()) !== null && _a !== void 0 ? _a : "";
-        if (SUPPORTED_EMBED_FILE_TYPES.contains(fileType)) {
-            if (!this.attachementFolder) {
-                this.attachementFolder = "";
-            }
-            //@ts-ignore
-            this.copyFile(file.path, this.basePath + "/" + this.attachementFolder);
+    FileEmbeder.prototype.getEmbedMarkdownLink = function (filePath) {
+        var ext = this.getPathInformation(filePath).ext;
+        if (!SUPPORTED_EMBED_FILE_TYPES.includes(ext)) {
+            new obsidian.Notice("Files of this type are not supported for embedding in Obsidian.");
         }
-        else {
-            new obsidian.Notice("This file type (" + fileType + ") is not supported for embed.");
+        return "!" + this.getMarkdownLink(filePath, false);
+    };
+    FileEmbeder.prototype.copyFile = function (sourcePath, targetDir) {
+        try {
+            fs__namespace.mkdirSync(targetDir, { recursive: true });
+            var filename = path__namespace.basename(sourcePath);
+            var destPath = path__namespace.join(targetDir, filename);
+            fs__namespace.copyFileSync(sourcePath, destPath);
+            return destPath;
+        }
+        catch (err) {
+            console.error("Copy failed:", err);
+            throw new Error("File copy failed: ".concat(err.message));
         }
     };
-    FileEmbeder.prototype.embedLinkFor = function (file) {
-        var filename = this.pathInfo(file).filename;
-        return "![[" + filename + "]]";
+    FileEmbeder.prototype.getPathInformation = function (filePath) {
+        var normalizedPath = path__namespace.normalize(filePath);
+        var parsedPath = path__namespace.parse(normalizedPath);
+        return {
+            fullPath: normalizedPath,
+            dir: parsedPath.dir,
+            filename: parsedPath.base,
+            name: parsedPath.name,
+            ext: parsedPath.ext
+        };
     };
-    FileEmbeder.prototype.copyFile = function (file, dir2) {
-        var f = path__default['default'].basename(file);
-        var source = fs__default['default'].createReadStream(file);
-        var dest = fs__default['default'].createWriteStream(path__default['default'].resolve(dir2, f));
-        source.pipe(dest);
-        source.on("end", function () {
-            console.log("Succesfully copied");
-        });
-        source.on("error", function (err) {
-            console.log(err);
-        });
-    };
-    FileEmbeder.prototype.pathInfo = function (file) {
-        var _a;
-        //@ts-ignore
-        var path = file.path;
-        var pathComponents = path.split("/");
-        if (path.contains("\\")) {
-            pathComponents = path.split("\\");
-        }
-        var filename = (_a = pathComponents.pop()) !== null && _a !== void 0 ? _a : "";
-        return { path: path, pathComponents: pathComponents, filename: filename };
-    };
-    FileEmbeder.prototype.linkFor = function (file, printPrefix) {
-        var _a = this.pathInfo(file), path = _a.path, pathComponents = _a.pathComponents, linkName = _a.filename;
-        var prefixString = "";
-        if (!this.settings.showFileEnding) {
-            var filenameComponents = linkName.split(".");
-            filenameComponents.pop();
-            linkName = filenameComponents.join(".");
-        }
+    FileEmbeder.prototype.getMarkdownLink = function (filePath, printPrefix) {
+        var pathInfo = this.getPathInformation(filePath);
+        var prefix = printPrefix ? this.settings.linkPrefix : "";
+        var linkText = pathInfo.name;
         if (this.settings.linkFolder) {
-            linkName = pathComponents[pathComponents.length - 1]; // .peek()
-            path = pathComponents.join("/");
+            linkText = pathInfo.dir;
         }
-        if (printPrefix) {
-            prefixString = this.settings.linkPrefix;
+        if (this.settings.showFileEnding) {
+            linkText = pathInfo.filename;
         }
-        if (this.settings.shortLinks) {
-            return prefixString + "[" + linkName + "](<file:///" + path + ">)\n";
-        }
-        return (prefixString +
-            "[" +
-            linkName +
-            "](file:///" +
-            encodeURIComponent(path) +
-            ")\n");
+        var linkPath = this.settings.linkFolder
+            ? pathInfo.dir
+            : pathInfo.fullPath;
+        return this.formatMarkdownLink(prefix, linkText, linkPath);
+    };
+    FileEmbeder.prototype.formatMarkdownLink = function (prefix, text, path) {
+        var space = prefix && prefix !== "!" ? " " : "";
+        return "".concat(prefix).concat(space, "[").concat(text, "](<file:///").concat(path, ">)\n");
     };
     return FileEmbeder;
 }());
@@ -296,106 +281,161 @@ var FileLinkModal = /** @class */ (function (_super) {
     __extends(FileLinkModal, _super);
     function FileLinkModal(app, plugin) {
         var _this = _super.call(this, app) || this;
+        _this.filePaths = [];
         _this.plugin = plugin;
         return _this;
     }
     FileLinkModal.prototype.onOpen = function () {
-        var _this = this;
-        var contentEl = this.contentEl;
-        contentEl.createEl("h2", { text: "Select files:" });
-        var input = contentEl.createEl("input", {
-            type: "file",
-            attr: { multiple: "" }
-        });
-        contentEl.createEl("br");
-        contentEl.createEl("br");
-        var checkboxEmbed = contentEl.createEl("input", {
-            type: "checkbox",
-            attr: { id: "embed" }
-        });
-        contentEl.createEl("label", { text: "Embed file", attr: { "for": "embed" } });
-        contentEl.createEl("br");
-        var checkboxFileFolder = contentEl.createEl("input", {
-            type: "checkbox",
-            attr: { id: "file-folder" }
-        });
-        contentEl.createEl("label", {
-            text: "Link folder",
-            attr: { "for": "file-folder" }
-        });
-        contentEl.createEl("br");
-        var checkboxFileEnding = contentEl.createEl("input", {
-            type: "checkbox",
-            attr: { id: "file-ending" }
-        });
-        contentEl.createEl("label", {
-            text: "Show file extension",
-            attr: { "for": "file-ending" }
-        });
-        contentEl.createEl("br");
-        var checkboxShortLink = contentEl.createEl("input", {
-            type: "checkbox",
-            attr: { id: "short-link" }
-        });
-        contentEl.createEl("label", {
-            text: "Use short links",
-            attr: { "for": "short-link" }
-        });
-        contentEl.createEl("br");
-        contentEl.createEl("br");
-        contentEl.createEl("br");
-        checkboxFileEnding.checked = this.plugin.settings.showFileEnding;
-        checkboxFileFolder.checked = this.plugin.settings.linkFolder;
-        checkboxEmbed.checked = this.plugin.settings.embedFile;
-        checkboxShortLink.checked = this.plugin.settings.shortLinks;
-        var button = contentEl.createEl("button", { text: "Add file link" });
-        button.addEventListener("click", function () {
-            var embedFile = checkboxEmbed.checked;
-            var fileList = input.files;
-            if (fileList) {
-                var files_1 = Array.from(fileList);
-                _this.plugin.settings.linkFolder = checkboxFileFolder.checked;
-                _this.plugin.settings.showFileEnding = checkboxFileEnding.checked;
-                _this.plugin.settings.embedFile = embedFile;
-                _this.plugin.settings.shortLinks = checkboxShortLink.checked;
-                //@ts-ignore
-                var attachementFolder = _this.app.vault.config.attachmentFolderPath;
-                //@ts-ignore
-                var basePath = _this.app.vault.adapter.basePath;
-                var fe_1 = new FileEmbeder(attachementFolder, basePath, _this.plugin.settings);
-                if (embedFile) {
-                    files_1.forEach(function (file) {
-                        fe_1.embedFile(file);
-                        var embedLinkToFile = fe_1.embedLinkFor(file);
-                        _this.addAtCursor(embedLinkToFile);
+        return __awaiter(this, void 0, void 0, function () {
+            var contentEl, mainContainer, fileSelectionSection, fileButton, checkboxContainer, createCheckboxGroup, checkboxEmbed, checkboxFileFolder, checkboxFileEnding, buttonContainer, submitButton;
+            var _this = this;
+            return __generator(this, function (_a) {
+                contentEl = this.contentEl;
+                mainContainer = contentEl.createEl("div", {
+                    cls: "bfl-container"
+                });
+                fileSelectionSection = mainContainer.createEl("div", {
+                    cls: "bfl-selection-section"
+                });
+                fileButton = fileSelectionSection.createEl("button", {
+                    text: "Select files",
+                    cls: "mod-cta"
+                });
+                this.selectedFilesDiv = fileSelectionSection.createEl("div", {
+                    cls: "bfl-selected-files"
+                });
+                this.displaySelectedFiles([]);
+                checkboxContainer = mainContainer.createEl("div", {
+                    cls: "bfl-checkbox-container"
+                });
+                createCheckboxGroup = function (id, label, initialValue) {
+                    var wrapper = checkboxContainer.createEl("div", {
+                        cls: "bfl-checkbox-group"
                     });
-                }
-                else {
-                    var linkString_1 = "";
-                    files_1.forEach(function (file) {
-                        if (files_1.length != 1) {
-                            linkString_1 = linkString_1 + fe_1.linkFor(file, true);
+                    var checkbox = wrapper.createEl("input", {
+                        type: "checkbox",
+                        attr: {
+                            id: id,
+                            style: "margin: 0;"
+                        }
+                    });
+                    wrapper.createEl("label", {
+                        text: label,
+                        attr: {
+                            "for": id,
+                            style: "margin: 0; user-select: none;"
+                        }
+                    });
+                    checkbox.checked = initialValue;
+                    return checkbox;
+                };
+                checkboxEmbed = createCheckboxGroup("embed", "Embed file", this.plugin.settings.embedFile);
+                checkboxFileFolder = createCheckboxGroup("file-folder", "Link folder", this.plugin.settings.linkFolder);
+                checkboxFileEnding = createCheckboxGroup("file-ending", "Show file extension", this.plugin.settings.showFileEnding);
+                buttonContainer = mainContainer.createEl("div", {
+                    cls: "button-container",
+                    attr: {
+                        style: "margin-top: 5px;"
+                    }
+                });
+                submitButton = buttonContainer.createEl("button", {
+                    text: "Add file link",
+                    cls: "mod-cta"
+                });
+                fileButton.addEventListener("click", function () { return __awaiter(_this, void 0, void 0, function () {
+                    var d, result, error_1;
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0:
+                                d = require("electron").remote.dialog;
+                                _a.label = 1;
+                            case 1:
+                                _a.trys.push([1, 3, , 4]);
+                                return [4 /*yield*/, d.showOpenDialog({
+                                        properties: ["openFile", "multiSelections"],
+                                        filters: [{ name: "All Files", extensions: ["*"] }]
+                                    })];
+                            case 2:
+                                result = _a.sent();
+                                if (!result.canceled && result.filePaths.length > 0) {
+                                    this.filePaths = result.filePaths;
+                                    this.displaySelectedFiles(this.filePaths);
+                                }
+                                return [3 /*break*/, 4];
+                            case 3:
+                                error_1 = _a.sent();
+                                new obsidian.Notice("Error selecting files: " + error_1.message);
+                                return [3 /*break*/, 4];
+                            case 4: return [2 /*return*/];
+                        }
+                    });
+                }); });
+                submitButton.addEventListener("click", function () {
+                    if (_this.filePaths.length > 0) {
+                        // Update settings
+                        _this.plugin.settings.linkFolder = checkboxFileFolder.checked;
+                        _this.plugin.settings.showFileEnding = checkboxFileEnding.checked;
+                        _this.plugin.settings.embedFile = checkboxEmbed.checked;
+                        var fe_1 = new FileEmbeder(_this.plugin.settings);
+                        if (checkboxEmbed.checked) {
+                            _this.filePaths.forEach(function (file) {
+                                var embedMarkdownLink = fe_1.getEmbedMarkdownLink(file);
+                                _this.addAtCursor(embedMarkdownLink);
+                            });
                         }
                         else {
-                            linkString_1 = linkString_1 + fe_1.linkFor(file, false);
+                            var linkString_1 = "";
+                            _this.filePaths.forEach(function (file) {
+                                linkString_1 += fe_1.getMarkdownLink(file, _this.filePaths.length > 1);
+                            });
+                            _this.addAtCursor(linkString_1);
                         }
-                    });
-                    _this.addAtCursor(linkString_1);
+                        _this.close();
+                        new obsidian.Notice("Added ".concat(_this.filePaths.length, " file link(s)"));
+                    }
+                    else {
+                        new obsidian.Notice("No files selected");
+                    }
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    FileLinkModal.prototype.displaySelectedFiles = function (files) {
+        this.selectedFilesDiv.empty();
+        if (files.length === 0) {
+            this.selectedFilesDiv.createEl("p", {
+                text: "No files selected",
+                cls: "no-files-message",
+                attr: {
+                    style: "color: var(--text-muted); font-style: italic; margin: 0; padding: 8px;"
                 }
-                _this.close();
-                new obsidian.Notice("Added File Link");
+            });
+            return;
+        }
+        var fileList = this.selectedFilesDiv.createEl("ul", {
+            cls: "selected-files-list",
+            attr: {
+                style: "list-style: none; padding: 0; margin: 0;"
             }
-            else {
-                new obsidian.Notice("No files selected");
-            }
+        });
+        files.forEach(function (filePath) {
+            var fileName = filePath.split(/[\\/]/).pop() || filePath;
+            fileList.createEl("li", {
+                text: fileName,
+                cls: "selected-file-item",
+                attr: {
+                    style: "padding: 4px 8px; border-bottom: 1px solid var(--background-modifier-border);"
+                }
+            });
         });
     };
     FileLinkModal.prototype.addAtCursor = function (s) {
-        var mdView = this.app.workspace.getActiveViewOfType(obsidian.MarkdownView);
-        if (mdView) {
-            var doc = mdView.editor;
-            var currentLine = doc.getCursor();
-            doc.replaceRange(s, currentLine, currentLine);
+        var markdownView = this.app.workspace.getActiveViewOfType(obsidian.MarkdownView);
+        if (markdownView) {
+            var editor = markdownView.editor;
+            var currentLine = editor.getCursor();
+            editor.replaceRange(s, currentLine, currentLine);
         }
     };
     FileLinkModal.prototype.onClose = function () {

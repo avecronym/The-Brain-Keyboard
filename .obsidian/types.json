@@ -3,6 +3,11 @@
     "aliases": "aliases",
     "cssclasses": "multitext",
     "tags": "tags",
-    "media_link": "text"
+    "media_link": "text",
+    "test 1": "text",
+    "test 2": "multitext",
+    "test 3": "checkbox",
+    "test 4": "checkbox",
+    "test 5": "checkbox"
   }
 }
