@@ -1,0 +1,17 @@
+filters:
+  and:
+    - file.ext == "md"
+    - or:
+        - file.inFolder(this.file.folder)
+        - or:
+            - file.folder.contains()
+            - file.name.contains()
+views:
+  - type: table
+    name: Table
+    filters:
+      and:
+        - '!file.folder.contains("")'
+        - '!file.name.contains("")'
+    columnSize:
+      file.name: 192

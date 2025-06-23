@@ -33,5 +33,6 @@
   "multi-properties",
   "consistent-attachments-and-links",
   "create-note-list",
-  "media-extended"
+  "media-extended",
+  "copy-note"
 ]

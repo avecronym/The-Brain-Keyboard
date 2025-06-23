@@ -1,6 +1,6 @@
 # The Brain’s Keyboard - A Vault Made by avecronym
 [![[2025-ave-vault.png|178x210]]](<Hotkeys.canvas>)
-### Updated as of: June 20th, 2025
+### Updated as of: June 23th, 2025
 
 The [[Functional Thinking]] framework is your guiding principle! Once you're ready, use the **note toolbar** above and the [[#^1qixh|table]] below to begin your journey!
 

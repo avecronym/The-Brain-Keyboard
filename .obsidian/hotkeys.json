@@ -122,14 +122,6 @@
       "key": "Q"
     }
   ],
-  "file-chucker:move-to-new-or-existing-folder": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "Q"
-    }
-  ],
   "simple-canvasearch:open-canvasearch-modal": [
     {
       "modifiers": [
@@ -137,15 +129,6 @@
         "Mod"
       ],
       "key": "F"
-    }
-  ],
-  "obsidian-file-cooker:move-files-in-searchresults-to": [
-    {
-      "modifiers": [
-        "Alt",
-        "Mod"
-      ],
-      "key": "Q"
     }
   ],
   "media-extended:open-media-switcher": [
@@ -208,7 +191,15 @@
       "key": "K"
     }
   ],
-  "switcher:open": [],
+  "switcher:open": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "Q"
+    }
+  ],
   "darlal-switcher-plus:switcher-plus:open-vaults": [
     {
       "modifiers": [
@@ -548,10 +539,21 @@
   "file-explorer:duplicate-file": [
     {
       "modifiers": [
-        "Alt",
-        "Shift"
+        "Alt"
+      ],
+      "key": "Q"
+    }
+  ],
+  "folder-notes:create-folder-note-for-current-folder": [
+    {
+      "modifiers": [
+        "Mod"
       ],
       "key": "D"
     }
-  ]
+  ],
+  "templater-obsidian:create-new-note-from-template": [],
+  "templater-obsidian:replace-in-file-templater": [],
+  "templater-obsidian:insert-templater": [],
+  "templater-obsidian:jump-to-next-cursor-location": []
 }

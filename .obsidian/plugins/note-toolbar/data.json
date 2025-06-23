@@ -520,6 +520,47 @@
           "inGallery": false
         },
         {
+          "uuid": "3be81624-5ed2-4cd3-9bf5-aa230f035fe0",
+          "hasCommand": false,
+          "icon": "lucide-folder-pen",
+          "inGallery": false,
+          "label": "",
+          "link": "Folder notes: Create markdown folder note for current folder of active note",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "folder-notes:create-folder-note-for-current-folder",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Create Note for Folder Note (Folder Note) (Ctrl + D)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
           "uuid": "ded3c569-a86b-4947-851b-36277291aaf7",
           "label": "",
           "icon": "lucide-clipboard-paste",
@@ -794,9 +835,88 @@
           "inGallery": false
         },
         {
+          "uuid": "08bdd6d1-0216-4b65-8f23-b067a7904b89",
+          "hasCommand": false,
+          "icon": "lucide-file-search",
+          "inGallery": false,
+          "label": "",
+          "link": "Quick switcher: Open quick switcher",
+          "linkAttr": {
+            "commandId": "switcher:open",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Quick Switcher (Quick switcher) (Ctrl + Alt + Q)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "743af5ad-e008-4752-92b6-8032933928a6",
+          "label": "",
+          "icon": "lucide-copy",
+          "link": "Make a copy of the current file",
+          "linkAttr": {
+            "commandId": "file-explorer:duplicate-file",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Make a copy of the current file (Alt + Q)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false
+        },
+        {
           "uuid": "3e395992-d93b-415f-8e9f-ae69f379a57a",
           "label": "",
-          "icon": "lucide-file-symlink",
+          "icon": "lucide-file-up",
           "link": "Move current file to another folder",
           "linkAttr": {
             "commandId": "file-explorer:move-file",
@@ -831,85 +951,6 @@
             }
           },
           "inGallery": false
-        },
-        {
-          "uuid": "743af5ad-e008-4752-92b6-8032933928a6",
-          "label": "",
-          "icon": "lucide-file-symlink",
-          "link": "File Chucker: Move to new or existing folder",
-          "linkAttr": {
-            "commandId": "file-chucker:move-to-new-or-existing-folder",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Move Note to new/another folder (File Chucker) (Alt + Q)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          },
-          "inGallery": false
-        },
-        {
-          "uuid": "08bdd6d1-0216-4b65-8f23-b067a7904b89",
-          "hasCommand": false,
-          "icon": "lucide-file-search",
-          "inGallery": false,
-          "label": "",
-          "link": "File Cooker: Move files in searchresults to ...",
-          "linkAttr": {
-            "commandId": "obsidian-file-cooker:move-files-in-searchresults-to",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Move multiple files from Search Bar (File Cooker) (Ctrl + Alt + Q)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
         },
         {
           "uuid": "7efc9bf7-8b52-4de2-9fd5-bc25774f915e",
@@ -1757,7 +1798,7 @@
           }
         }
       },
-      "updated": "2025-06-20T20:17:04.866Z"
+      "updated": "2025-06-23T04:27:05.685Z"
     }
   ],
   "version": 20250313.1,

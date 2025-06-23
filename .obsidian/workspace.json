@@ -8,20 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "4332d7f28d16b896",
-            "type": "leaf",
-            "state": {
-              "type": "bases",
-              "state": {
-                "file": "Hotkeys/Hotkeys.base",
-                "viewName": "Table"
-              },
-              "icon": "lucide-layout-list",
-              "title": "Hotkeys"
-            }
-          },
-          {
-            "id": "4ec01454927f2dfd",
+            "id": "8297d7c609bd9b5b",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -35,17 +22,16 @@
             }
           },
           {
-            "id": "b332e5b7857afc34",
+            "id": "017b923b2262462b",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "Templates/Templates.md",
-                "mode": "source",
-                "source": false
+                "file": "Hotkeys/Templates/Matrix.base",
+                "viewName": "Table"
               },
-              "icon": "lucide-file",
-              "title": "Templates"
+              "icon": "lucide-layout-list",
+              "title": "Matrix"
             }
           },
           {
@@ -83,9 +69,9 @@
               "state": {
                 "file": "Hotkeys/Hotkeys.canvas",
                 "viewState": {
-                  "x": 900,
-                  "y": 211.75045151230344,
-                  "zoom": -0.20419836808359135
+                  "x": 900.0956513032827,
+                  "y": 211.23401476011995,
+                  "zoom": -0.5669933468436427
                 }
               },
               "icon": "lucide-layout-dashboard",
@@ -93,7 +79,7 @@
             }
           },
           {
-            "id": "8297d7c609bd9b5b",
+            "id": "b332e5b7857afc34",
             "type": "leaf",
             "state": {
               "type": "card-browser-view",
@@ -104,8 +90,7 @@
               "title": "Browse"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -279,58 +264,58 @@
       "darlal-switcher-plus:Open in Vaults Mode": false,
       "oz-clear-unused-images:Clear Unused Images": false,
       "templates:Insert template": false,
+      "file-tree-alternative:File Tree Alternative Plugin": false,
       "map-of-content:Update Map of Content": false
     }
   },
-  "active": "4ec01454927f2dfd",
+  "active": "3da241e8f59edca8",
   "lastOpenFiles": [
-    "sync.ffs_db.d9e9.ffs_tmp",
     "sync.ffs_lock",
-    "Templates/Templates.md",
-    "Hotkeys/Hotkeys.md",
-    "Hotkeys/Hotkeys.base",
-    "Hotkeys/Functional Thinking.md",
     "Hotkeys/Hotkeys.canvas",
+    "Hotkeys/Hotkeys.md",
+    "Hotkeys/Templates/Matrix.base",
+    "Hotkeys/Functional Thinking.md",
+    "Hotkeys/Templates/Templates.md",
+    "Matrix 1.base",
+    "Matrix 1/Matrix 1.md",
+    "Matrix 1/Matrix 1.base",
+    "Matrix 1",
+    "Hotkeys/Templates/Matrix 1 1.base",
+    "New one cunt/Matrix 1.base",
+    "New one cunt",
+    "Matrix 1 1.base",
+    "Hotkeys/2025-ave-vault.png",
+    "Hotkeys/Templates/Untitled.base",
+    "Hotkeys/Templates/Untitled 1.base",
+    "Hotkeys/Templates/Matrix-1.png",
+    "Hotkeys/Templates/Untitled.md",
+    "Hotkeys/Templates/Matrix-2.png",
+    "Hotkeys/Templates/CopyNoteToFolder.tpl.md",
+    "Templates 1/Matrix-2.png",
+    "Templates 1/Matrix-1.png",
+    "Templates 1/Embed Link.md",
+    "Templates 1/Templates.md",
+    "Animuuu/love me tender/heart-throbbing madness.md",
+    "Animuuu/love me tender/love me tender.md",
+    "Animuuu/i love you dearly.md",
+    "Untitled/Untitled.md",
+    "Untitled/Untitled 1.md",
+    "Untitled/Untitled 2.md",
+    "Untitled/Untitled 3.md",
+    "Untitled/Untitled 4.md",
+    "Untitled/Untitled 5.md",
+    "Templates/Matrix.md",
+    "Hotkeys/Templates/Embed Link.md",
+    "Templates/YouTube URL to Media Note.md",
     "Untitled.md",
     "The Functional Thinking framework is your guiding principle! Once you're ready, use the note toolbar above and the ^1qixhtable below to begin your journey!.md",
-    "Hotkeys/2025-ave-vault.png",
-    "mpc-be64_HmjuS6pjVU.mp4",
-    "Templates/YouTube URL to Media Note.md",
     "Media Note - mpc-be64_HmjuS6pjVU.md",
     "Untitled 2/Untitled 1 1 1 1.md",
     "Untitled 2/Untitled.md",
-    "Untitled 2/Untitled 1 1 1.md",
-    "Untitled 2/Untitled 2.md",
-    "Untitled 2",
-    "Untitled 2/Untitled 1.md",
-    "Untitled 2/Untitled 1 1.md",
-    "Untitled 2/Untitled 1 1 1 2.md",
-    "Untitled",
-    "three/three.md",
-    "three",
-    "Untitled 1 1 1 1 1.md",
-    "Untitled 1 1 1 1.md",
-    "Untitled 1 1 1.md",
-    "Untitled 1 1.md",
-    "Untitled 1.md",
-    "Untitled.base",
-    "Bitwig_Studio_RoImy1qmRz.mp4",
-    "mpc-be64_HmjuS6pjVU/mpc-be64_HmjuS6pjVU.mp4",
-    "mpc-be64_HmjuS6pjVU/mpc-be64_HmjuS6pjVU.md",
-    "mpc-be64_HmjuS6pjVU",
-    "Untitled/Untitled 8.md",
-    "Untitled/Untitled 6.md",
-    "Untitled/Untitled 7.md",
-    "Untitled/- Untitled 1.md",
     "nene-chan/mpc-be64_n1uxSRv9ip.png",
     "nene-chan/thorium_NobQS4Wmuf.png",
     "nene-chan/thorium_t6jnrYk27d.png",
     "nene-chan/thorium_SEEjYNFIX4.png",
-    "nene-chan/thorium_MbFnSvVMaT.png",
-    "nene-chan/unknown.png",
-    "tst 2/Screenshot_21.png",
-    "tst 2/tst 1/Screenshot_21.png",
-    "fellow bunch/thorium_t6jnrYk27d.png",
     "Untitled.canvas",
     "what.canvas"
   ]
