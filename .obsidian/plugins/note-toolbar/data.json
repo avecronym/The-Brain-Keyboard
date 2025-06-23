@@ -44,6 +44,87 @@
       ],
       "items": [
         {
+          "uuid": "d2428897-fa94-4ed8-8aef-22bc17631c1b",
+          "hasCommand": false,
+          "icon": "lucide-search-slash",
+          "inGallery": false,
+          "label": "",
+          "link": "Note Toolbar: Open: Ave's Tools",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "note-toolbar:open-toolbar-46da96a4-76b7-4736-ae56-f18d663244dd",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Toolbar Menu (Note Toolbar) (Ctrl + M)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "b661574a-b1f6-4acc-a6fa-5ae8a414286a",
+          "hasCommand": false,
+          "icon": "lucide-terminal",
+          "inGallery": false,
+          "label": "",
+          "link": "Command palette: Open command palette",
+          "linkAttr": {
+            "commandId": "command-palette:open",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Command Palette (Ctrl + P)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
           "uuid": "96440742-1894-41d6-99ec-1511d6277929",
           "label": "",
           "icon": "lucide-check-circle-2",
@@ -1503,87 +1584,6 @@
             }
           },
           "inGallery": false
-        },
-        {
-          "uuid": "d2428897-fa94-4ed8-8aef-22bc17631c1b",
-          "hasCommand": false,
-          "icon": "lucide-search-slash",
-          "inGallery": false,
-          "label": "",
-          "link": "Note Toolbar: Open: Ave's Tools",
-          "linkAttr": {
-            "commandCheck": false,
-            "commandId": "note-toolbar:open-toolbar-46da96a4-76b7-4736-ae56-f18d663244dd",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Open Toolbar Menu (Note Toolbar) (Ctrl + M)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "uuid": "b661574a-b1f6-4acc-a6fa-5ae8a414286a",
-          "hasCommand": false,
-          "icon": "lucide-terminal",
-          "inGallery": false,
-          "label": "",
-          "link": "Command palette: Open command palette",
-          "linkAttr": {
-            "commandId": "command-palette:open",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Open Command Palette (Ctrl + P)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
         },
         {
           "uuid": "047fec51-f526-44f2-8823-9f41b99be6a3",
