@@ -125,6 +125,45 @@
           }
         },
         {
+          "uuid": "b036ec82-f888-4f70-b8f6-0bebf5dfddeb",
+          "label": "",
+          "icon": "lucide-folder-tree",
+          "link": "Project Browser: Open",
+          "linkAttr": {
+            "commandId": "project-browser:open-project-browser",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Vault Menu (Project Browser) (Ctrl + Alt + P)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false
+        },
+        {
           "uuid": "96440742-1894-41d6-99ec-1511d6277929",
           "label": "",
           "icon": "lucide-check-circle-2",
@@ -1518,45 +1557,6 @@
             "type": "command"
           },
           "tooltip": "Import Files (Local File Interface) (Alt + Shift + K)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          },
-          "inGallery": false
-        },
-        {
-          "uuid": "b036ec82-f888-4f70-b8f6-0bebf5dfddeb",
-          "label": "",
-          "icon": "lucide-folder-tree",
-          "link": "Project Browser: Open",
-          "linkAttr": {
-            "commandId": "project-browser:open-project-browser",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Open Vault Menu (Project Browser) (Ctrl + Alt + P)",
           "visibility": {
             "desktop": {
               "allViews": {

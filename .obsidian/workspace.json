@@ -147,7 +147,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 320.5026054382324
+    "width": 342.5026054382324
   },
   "right": {
     "id": "f9f4603b38a69ba0",
@@ -260,8 +260,9 @@
   "active": "8297d7c609bd9b5b",
   "lastOpenFiles": [
     "sync.ffs_lock",
-    "Hotkeys/Hotkeys.canvas",
     "Hotkeys/Hotkeys.md",
+    "sync.ffs_db.4b31.ffs_tmp",
+    "Hotkeys/Hotkeys.canvas",
     "Templates 1/Templates.md",
     "Templates 1/Embed Link.md",
     "Templates 1/Matrix.base",
@@ -278,7 +279,6 @@
     "Matrix 1/Matrix 1.md",
     "Matrix 1/Matrix 1.base",
     "Matrix 1",
-    "Hotkeys/Templates/Matrix 1 1.base",
     "Hotkeys/2025-ave-vault.png",
     "Hotkeys/Templates/Matrix-1.png",
     "Hotkeys/Templates/Untitled.md",
