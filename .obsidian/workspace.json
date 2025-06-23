@@ -70,8 +70,8 @@
                 "file": "Hotkeys/Hotkeys.canvas",
                 "viewState": {
                   "x": 900.0956513032827,
-                  "y": 211.23401476011995,
-                  "zoom": -0.5669933468436427
+                  "y": 326.0450650787295,
+                  "zoom": -0.8447711135835236
                 }
               },
               "icon": "lucide-layout-dashboard",
@@ -192,16 +192,6 @@
               "icon": "lucide-file-signature",
               "title": "Footnotes"
             }
-          },
-          {
-            "id": "738f40043faf868e",
-            "type": "leaf",
-            "state": {
-              "type": "reminder-list",
-              "state": {},
-              "icon": "clock",
-              "title": "Reminders"
-            }
           }
         ],
         "currentTab": 2
@@ -264,17 +254,18 @@
       "darlal-switcher-plus:Open in Vaults Mode": false,
       "oz-clear-unused-images:Clear Unused Images": false,
       "templates:Insert template": false,
-      "file-tree-alternative:File Tree Alternative Plugin": false,
       "map-of-content:Update Map of Content": false
     }
   },
-  "active": "3da241e8f59edca8",
+  "active": "8297d7c609bd9b5b",
   "lastOpenFiles": [
     "sync.ffs_lock",
-    "Hotkeys/Hotkeys.canvas",
+    "Hotkeys/Untitled.md",
     "Hotkeys/Hotkeys.md",
-    "Hotkeys/Templates/Matrix.base",
+    "Hotkeys/Hotkeys.canvas",
     "Hotkeys/Functional Thinking.md",
+    "Hotkeys/Templates/Matrix.base",
+    "sync.ffs_db.9ed4.ffs_tmp",
     "Hotkeys/Templates/Templates.md",
     "Matrix 1.base",
     "Matrix 1/Matrix 1.md",
@@ -285,8 +276,6 @@
     "New one cunt",
     "Matrix 1 1.base",
     "Hotkeys/2025-ave-vault.png",
-    "Hotkeys/Templates/Untitled.base",
-    "Hotkeys/Templates/Untitled 1.base",
     "Hotkeys/Templates/Matrix-1.png",
     "Hotkeys/Templates/Untitled.md",
     "Hotkeys/Templates/Matrix-2.png",
@@ -311,7 +300,6 @@
     "The Functional Thinking framework is your guiding principle! Once you're ready, use the note toolbar above and the ^1qixhtable below to begin your journey!.md",
     "Media Note - mpc-be64_HmjuS6pjVU.md",
     "Untitled 2/Untitled 1 1 1 1.md",
-    "Untitled 2/Untitled.md",
     "nene-chan/mpc-be64_n1uxSRv9ip.png",
     "nene-chan/thorium_NobQS4Wmuf.png",
     "nene-chan/thorium_t6jnrYk27d.png",

@@ -1,0 +1,17 @@
+:root {
+	--checkbox-marker-mid-color: var(--checkbox-3-state);
+	--checkbox-marker-mid-color-hover: var(--checkbox-3-state-accent);
+}
+
+input[type="checkbox"][data-task="/"] {
+	background-color: var(--checkbox-marker-mid-color);
+	border-color: var(--checkbox-marker-mid-color);
+}
+input[type="checkbox"][data-task="/"]:after {
+	background-color: var(--checkbox-marker-mid-color);
+	-webkit-mask-image: url('data:image/svg+xml; utf8, <svg width="12px" height="10px" viewBox="0 0 12 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-4.000000, -6.000000)" fill="%23000000"></g></g></svg>');
+}
+input[type="checkbox"][data-task="/"]:hover {
+	background-color: var(--checkbox-marker-mid-color-hover);
+	border-color: var(--checkbox-marker-mid-color-hover);
+}

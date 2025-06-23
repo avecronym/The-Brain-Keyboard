@@ -19,7 +19,6 @@
   "obsidian-hover-editor",
   "obsidian-smart-typography",
   "url-into-selection",
-  "obsidian-reminder-plugin",
   "note-toolbar",
   "obsidian-local-file-interface-plugin",
   "map-of-content",
@@ -34,5 +33,6 @@
   "consistent-attachments-and-links",
   "create-note-list",
   "media-extended",
-  "copy-note"
+  "copy-note",
+  "obsidian-checkbox3states-plugin"
 ]

@@ -47,7 +47,7 @@
   "media-extended:take-timestamp": [
     {
       "modifiers": [
-        "Mod"
+        "Alt"
       ],
       "key": "S"
     }
@@ -243,7 +243,14 @@
       "key": "O"
     }
   ],
-  "editor:toggle-checklist-status": [],
+  "editor:toggle-checklist-status": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "S"
+    }
+  ],
   "obsidian-outliner:fold": [],
   "obsidian-outliner:move-list-item-down": [
     {
@@ -331,12 +338,6 @@
     }
   ],
   "file-explorer:new-file": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "M"
-    },
     {
       "modifiers": [
         "Mod"
@@ -555,5 +556,22 @@
   "templater-obsidian:create-new-note-from-template": [],
   "templater-obsidian:replace-in-file-templater": [],
   "templater-obsidian:insert-templater": [],
-  "templater-obsidian:jump-to-next-cursor-location": []
+  "templater-obsidian:jump-to-next-cursor-location": [],
+  "obsidian-reminder-plugin:toggle-checklist-status": [
+    {
+      "modifiers": [
+        "Meta",
+        "Shift"
+      ],
+      "key": "Enter"
+    }
+  ],
+  "note-toolbar:open-toolbar-46da96a4-76b7-4736-ae56-f18d663244dd": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "M"
+    }
+  ]
 }

@@ -46,7 +46,7 @@
         {
           "uuid": "96440742-1894-41d6-99ec-1511d6277929",
           "label": "",
-          "icon": "lucide-check-circle",
+          "icon": "lucide-check-circle-2",
           "link": "Cycle bullet/checkbox",
           "linkAttr": {
             "commandId": "editor:cycle-list-checklist",
@@ -83,9 +83,50 @@
           "inGallery": false
         },
         {
+          "uuid": "b4a6d083-e59b-4f85-9217-26b71e769868",
+          "hasCommand": false,
+          "icon": "lucide-check-square-2",
+          "inGallery": false,
+          "label": "",
+          "link": "",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Toggle checkbox status (Ctrl + S)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
           "uuid": "f48a8d8c-7fd1-4ce5-be0b-86d6ff566066",
           "label": "",
-          "icon": "lucide-notebook-pen",
+          "icon": "lucide-feather",
           "link": "Natural Language Dates: Insert the current date and time",
           "linkAttr": {
             "commandId": "nldates-obsidian:nlp-now",
@@ -281,9 +322,49 @@
           }
         },
         {
+          "uuid": "7aafd4e5-e0f1-4dc0-8fc0-bac6092557a9",
+          "hasCommand": false,
+          "icon": "broken-link",
+          "inGallery": false,
+          "label": "",
+          "link": "Persistent Links: Repair links in file",
+          "linkAttr": {
+            "commandId": "persistent-links:persistent-links:repair-links-in-file",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Repair links in file (Persistent Links)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
           "uuid": "b031eab9-bae7-42e3-b3cb-2b97262ad3e2",
           "hasCommand": false,
-          "icon": "lucide-highlighter",
+          "icon": "lucide-file-symlink",
           "inGallery": false,
           "label": "",
           "link": "PDF++: Copy link to selection or annotation",
@@ -323,7 +404,7 @@
         {
           "uuid": "88c97415-3df8-445f-bda0-4b20b2eea261",
           "hasCommand": false,
-          "icon": "lucide-file-check",
+          "icon": "lucide-table-properties",
           "inGallery": false,
           "label": "",
           "link": "Add file property",
@@ -1270,14 +1351,14 @@
         {
           "uuid": "befcca06-5a26-4766-b4bf-8e420ae20e33",
           "label": "",
-          "icon": "lucide-camera",
+          "icon": "lucide-youtube",
           "link": "Media Extended: Take timestamp",
           "linkAttr": {
             "commandId": "media-extended:take-timestamp",
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Timestamp (Media Extended) (Ctrl + S)",
+          "tooltip": "Timestamp (Media Extended) (Alt + S)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -1317,45 +1398,6 @@
             "type": "command"
           },
           "tooltip": "Screenshot a part of a video (Media Extended) (Alt + Shift + S)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          },
-          "inGallery": false
-        },
-        {
-          "uuid": "3c4051f6-71a8-48cd-be2f-4d1fcf398ab9",
-          "label": "",
-          "icon": "lucide-youtube",
-          "link": "",
-          "linkAttr": {
-            "commandId": "",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Timestamp for YouTube videos (Media Notes) (Alt + S)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -1463,9 +1505,50 @@
           "inGallery": false
         },
         {
-          "uuid": "b661574a-b1f6-4acc-a6fa-5ae8a414286a",
+          "uuid": "d2428897-fa94-4ed8-8aef-22bc17631c1b",
           "hasCommand": false,
           "icon": "lucide-search-slash",
+          "inGallery": false,
+          "label": "",
+          "link": "Note Toolbar: Open: Ave's Tools",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "note-toolbar:open-toolbar-46da96a4-76b7-4736-ae56-f18d663244dd",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Toolbar Menu (Note Toolbar) (Ctrl + M)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "b661574a-b1f6-4acc-a6fa-5ae8a414286a",
+          "hasCommand": false,
+          "icon": "lucide-terminal",
           "inGallery": false,
           "label": "",
           "link": "Command palette: Open command palette",
@@ -1503,18 +1586,18 @@
           }
         },
         {
-          "uuid": "7aafd4e5-e0f1-4dc0-8fc0-bac6092557a9",
+          "uuid": "047fec51-f526-44f2-8823-9f41b99be6a3",
           "hasCommand": false,
-          "icon": "broken-link",
+          "icon": "lucide-wallpaper",
           "inGallery": false,
           "label": "",
-          "link": "Persistent Links: Repair links in file",
+          "link": "Change theme",
           "linkAttr": {
-            "commandId": "persistent-links:persistent-links:repair-links-in-file",
+            "commandId": "theme:switch",
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Repair links in file (Persistent Links)",
+          "tooltip": "Change Vault Theme (Ctrl + Shift + O)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -1620,46 +1703,6 @@
             }
           },
           "inGallery": false
-        },
-        {
-          "uuid": "047fec51-f526-44f2-8823-9f41b99be6a3",
-          "hasCommand": false,
-          "icon": "lucide-wallpaper",
-          "inGallery": false,
-          "label": "",
-          "link": "Change theme",
-          "linkAttr": {
-            "commandId": "theme:switch",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Change Vault Theme (Ctrl + Shift + O)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
         },
         {
           "uuid": "3291abea-2007-4a73-9176-c3c3d5e24091",
@@ -1789,16 +1832,17 @@
         },
         "mobile": {
           "allViews": {
-            "position": "fabr"
+            "position": "top"
           }
         },
         "tablet": {
           "allViews": {
-            "position": "fabr"
+            "position": "top"
           }
         }
       },
-      "updated": "2025-06-23T04:27:05.685Z"
+      "updated": "2025-06-23T15:18:03.492Z",
+      "hasCommand": true
     }
   ],
   "version": 20250313.1,
