@@ -573,5 +573,14 @@
       ],
       "key": "M"
     }
+  ],
+  "notes-explorer:view-in-main-window": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "P"
+    }
   ]
 }

@@ -5,7 +5,7 @@
   },
   "settingsVersion": "0.1.0",
   "access": {
-    "replaceNewTab": false,
+    "replaceNewTab": true,
     "enableRibbonIcon": true,
     "enableCommand": true,
     "launchFolder": "/"

@@ -28,10 +28,11 @@
     "image": true,
     "pdf": true,
     "video": true,
-    "bases": true
+    "bases": true,
+    "kanban": true
   },
   "showToolbarInFileMenu": true,
-  "showToolbarInOther": "graph ",
+  "showToolbarInOther": "graph notes-explorer card-browser-view mx-url-video",
   "toolbarProp": "notetoolbar",
   "toolbars": [
     {
@@ -85,6 +86,86 @@
           }
         },
         {
+          "uuid": "c7ef506b-5033-4f3c-b567-0f406065ab51",
+          "hasCommand": false,
+          "icon": "lucide-folder-search-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Notes Explorer: Open in main window",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "notes-explorer:view-in-main-window",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Main Window (Notes Explorer) (Alt + Shift + P)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "b036ec82-f888-4f70-b8f6-0bebf5dfddeb",
+          "label": "",
+          "icon": "lucide-text-search",
+          "link": "Project Browser: Open",
+          "linkAttr": {
+            "commandId": "project-browser:open-project-browser",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Vault Menu (Project Browser) (Ctrl + Alt + P)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false
+        },
+        {
           "uuid": "b661574a-b1f6-4acc-a6fa-5ae8a414286a",
           "hasCommand": false,
           "icon": "lucide-terminal",
@@ -123,45 +204,6 @@
               }
             }
           }
-        },
-        {
-          "uuid": "b036ec82-f888-4f70-b8f6-0bebf5dfddeb",
-          "label": "",
-          "icon": "lucide-folder-tree",
-          "link": "Project Browser: Open",
-          "linkAttr": {
-            "commandId": "project-browser:open-project-browser",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Open Vault Menu (Project Browser) (Ctrl + Alt + P)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          },
-          "inGallery": false
         },
         {
           "uuid": "96440742-1894-41d6-99ec-1511d6277929",
@@ -999,7 +1041,7 @@
         {
           "uuid": "dea0ebcb-e86d-444e-a867-8e05114a2fd4",
           "label": "",
-          "icon": "lucide-sticky-note",
+          "icon": "lucide-file-plus",
           "link": "Note Refactor: Extract selection to new note - first line as file name",
           "linkAttr": {
             "commandId": "note-refactor-obsidian:app:extract-selection-first-line",
@@ -1078,7 +1120,7 @@
         {
           "uuid": "743af5ad-e008-4752-92b6-8032933928a6",
           "label": "",
-          "icon": "lucide-copy",
+          "icon": "lucide-copy-plus",
           "link": "Make a copy of the current file",
           "linkAttr": {
             "commandId": "file-explorer:duplicate-file",
@@ -1156,7 +1198,7 @@
         {
           "uuid": "7efc9bf7-8b52-4de2-9fd5-bc25774f915e",
           "hasCommand": false,
-          "icon": "lucide-file-stack",
+          "icon": "lucide-copy-plus",
           "inGallery": false,
           "label": "",
           "link": "Make a copy of the current file",
@@ -1841,7 +1883,7 @@
           }
         }
       },
-      "updated": "2025-06-23T15:18:03.492Z",
+      "updated": "2025-06-25T02:30:43.906Z",
       "hasCommand": true
     }
   ],

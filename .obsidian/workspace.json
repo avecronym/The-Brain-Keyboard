@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "8297d7c609bd9b5b",
+            "id": "2529ce47acafa705",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -22,16 +22,27 @@
             }
           },
           {
-            "id": "017b923b2262462b",
+            "id": "b768984378b5cf3c",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "markdown",
               "state": {
-                "file": "Hotkeys/Templates/Matrix.base",
-                "viewName": "Table"
+                "file": "Hotkeys/Templates/Matrix/Matrix.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-layout-list",
+              "icon": "lucide-file",
               "title": "Matrix"
+            }
+          },
+          {
+            "id": "915bc05a2b4adb08",
+            "type": "leaf",
+            "state": {
+              "type": "notes-explorer",
+              "state": {},
+              "icon": "book-copy",
+              "title": "Notes explorer"
             }
           },
           {
@@ -41,7 +52,7 @@
               "type": "markdown",
               "state": {
                 "file": "Hotkeys/Functional Thinking.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -54,28 +65,12 @@
             "state": {
               "type": "webviewer",
               "state": {
-                "url": "about:blank",
-                "mode": "blank"
+                "url": "https://obsidian.md/",
+                "title": "Obsidian - Sharpen your thinking",
+                "mode": "webview"
               },
               "icon": "globe-2",
-              "title": "New web viewer"
-            }
-          },
-          {
-            "id": "40945f04f0d54fe6",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Hotkeys/Hotkeys.canvas",
-                "viewState": {
-                  "x": 900.0956513032827,
-                  "y": 326.0450650787295,
-                  "zoom": -0.8447711135835236
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "Hotkeys"
+              "title": "Obsidian - Sharpen your thinking"
             }
           },
           {
@@ -88,6 +83,23 @@
               },
               "icon": "align-vertical-justify-start",
               "title": "Browse"
+            }
+          },
+          {
+            "id": "e644cd302b9de46f",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "Hotkeys/Hotkeys.canvas",
+                "viewState": {
+                  "x": 900,
+                  "y": 230.5,
+                  "zoom": -0.4315188729168915
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Hotkeys"
             }
           }
         ]
@@ -142,82 +154,6 @@
               "icon": "lucide-clock",
               "title": "Web history"
             }
-          }
-        ]
-      }
-    ],
-    "direction": "horizontal",
-    "width": 342.5026054382324
-  },
-  "right": {
-    "id": "f9f4603b38a69ba0",
-    "type": "split",
-    "children": [
-      {
-        "id": "8b1483cc47849cbe",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "888ada0306bbd90a",
-            "type": "leaf",
-            "state": {
-              "type": "map-of-content",
-              "state": {},
-              "icon": "stacked-levels",
-              "title": "Map of Content"
-            }
-          },
-          {
-            "id": "3e2e4d49da0bf18c",
-            "type": "leaf",
-            "state": {
-              "type": "all-properties",
-              "state": {
-                "sortOrder": "frequency",
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-archive",
-              "title": "All properties"
-            }
-          },
-          {
-            "id": "0691ed5313ce86e6",
-            "type": "leaf",
-            "state": {
-              "type": "footnotes",
-              "state": {
-                "file": "Hotkeys/Hotkeys.md"
-              },
-              "icon": "lucide-file-signature",
-              "title": "Footnotes"
-            }
-          }
-        ],
-        "currentTab": 2
-      },
-      {
-        "id": "1f95aafeca48ef66",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "7c1609b4d8c2c847",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "Hotkeys/Hotkeys.base",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks for Hotkeys"
-            }
           },
           {
             "id": "9cf6314b819970a1",
@@ -232,13 +168,83 @@
               "icon": "links-going-out",
               "title": "Outgoing links from Hotkeys"
             }
+          },
+          {
+            "id": "7c1609b4d8c2c847",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Hotkeys/Hotkeys.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Hotkeys"
+            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 311.5
+    "width": 269.5026054382324
+  },
+  "right": {
+    "id": "f9f4603b38a69ba0",
+    "type": "split",
+    "children": [
+      {
+        "id": "8b1483cc47849cbe",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "30b67d148d7a92a7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Hotkeys/Templates/Templates.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Templates"
+            }
+          },
+          {
+            "id": "888ada0306bbd90a",
+            "type": "leaf",
+            "state": {
+              "type": "map-of-content",
+              "state": {},
+              "icon": "stacked-levels",
+              "title": "Map of Content"
+            }
+          },
+          {
+            "id": "fe9dbaa2560d7e77",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 312.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -254,35 +260,42 @@
       "darlal-switcher-plus:Open in Vaults Mode": false,
       "oz-clear-unused-images:Clear Unused Images": false,
       "templates:Insert template": false,
-      "map-of-content:Update Map of Content": false
+      "map-of-content:Update Map of Content": false,
+      "notes-explorer:Notes explorer": false
     }
   },
-  "active": "8297d7c609bd9b5b",
+  "active": "2529ce47acafa705",
   "lastOpenFiles": [
     "sync.ffs_lock",
-    "Hotkeys/Hotkeys.md",
-    "sync.ffs_db.4b31.ffs_tmp",
     "Hotkeys/Hotkeys.canvas",
+    "Hotkeys/Functional Thinking.md",
+    "Hotkeys/Templates/Matrix/Matrix.md",
+    "Hotkeys/Hotkeys.md",
+    "Hotkeys/Templates/Templates.md",
+    "Hotkeys/Templates/Matrix",
+    "Hotkeys/Templates/Matrix/Matrix-1.png",
+    "Hotkeys/Templates/Matrix/Matrix.base",
+    "Hotkeys/Templates/Matrix 1.base",
+    "Hotkeys/Templates/Matrix 1 1.base",
+    "Hotkeys/Hotkeys 1.canvas",
+    "Hotkeys/Hotkeys 1.md",
+    "Untitled.md",
+    "Untitled 1.md",
+    "Hotkeys/Hotkeys 1 1.md",
+    "MeldaProduction Plugins Simplified Guide V5.pdf",
+    "sync.ffs_db.22ea.ffs_tmp",
+    "sync.ffs_db.4b31.ffs_tmp",
     "Templates 1/Templates.md",
     "Templates 1/Embed Link.md",
     "Templates 1/Matrix.base",
     "Templates 1/Matrix-2.png",
     "Templates 1/Matrix-1.png",
     "Templates 1",
-    "Hotkeys/Templates/Matrix.base",
-    "Hotkeys/Functional Thinking.md",
-    "sync.ffs_db.9389.ffs_tmp",
     "Hotkeys/Untitled.md",
-    "sync.ffs_db.9ed4.ffs_tmp",
-    "Hotkeys/Templates/Templates.md",
-    "Matrix 1.base",
     "Matrix 1/Matrix 1.md",
-    "Matrix 1/Matrix 1.base",
-    "Matrix 1",
     "Hotkeys/2025-ave-vault.png",
-    "Hotkeys/Templates/Matrix-1.png",
     "Hotkeys/Templates/Untitled.md",
-    "Hotkeys/Templates/Matrix-2.png",
+    "Hotkeys/Templates/Matrix/Matrix-2.png",
     "Hotkeys/Templates/CopyNoteToFolder.tpl.md",
     "Templates 1/Matrix-2.png",
     "Templates 1/Matrix-1.png",
@@ -297,11 +310,6 @@
     "Untitled/Untitled 3.md",
     "Untitled/Untitled 4.md",
     "Untitled/Untitled 5.md",
-    "Templates/Matrix.md",
-    "Hotkeys/Templates/Embed Link.md",
-    "Templates/YouTube URL to Media Note.md",
-    "Untitled.md",
-    "The Functional Thinking framework is your guiding principle! Once you're ready, use the note toolbar above and the ^1qixhtable below to begin your journey!.md",
     "nene-chan/mpc-be64_n1uxSRv9ip.png",
     "nene-chan/thorium_NobQS4Wmuf.png",
     "nene-chan/thorium_t6jnrYk27d.png",
