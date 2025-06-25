@@ -36,7 +36,7 @@
       "folder",
       "markdown"
     ],
-    "style": "list",
+    "style": "explorer",
     "disableFileTag": false,
     "sortBy": "name",
     "sortByAsc": true,

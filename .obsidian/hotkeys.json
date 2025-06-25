@@ -582,5 +582,14 @@
       ],
       "key": "P"
     }
+  ],
+  "folder-overview:insert-folder-overview": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "L"
+    }
   ]
 }

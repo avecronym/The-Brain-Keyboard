@@ -451,7 +451,7 @@
           "label": "",
           "link": "Folder notes: Insert folder overview",
           "linkAttr": {
-            "commandId": "folder-notes:insert-folder-overview-fn",
+            "commandId": "folder-notes:insert-folder-overview",
             "hasVars": false,
             "type": "command"
           },
@@ -1883,7 +1883,7 @@
           }
         }
       },
-      "updated": "2025-06-25T02:30:43.906Z",
+      "updated": "2025-06-25T03:52:45.848Z",
       "hasCommand": true
     }
   ],
