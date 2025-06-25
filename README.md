@@ -2,7 +2,7 @@
 
 ## The ultimate [Obsidian](https://obsidian.md/) PKM system built for creatives, by creatives!
 
-![2025-Ave-Vault-June](https://github.com/user-attachments/assets/c6b4095d-3fb2-434f-a9c1-56d873a11c6c)
+![obsidian-june-update-vault-avecronym-2025](https://github.com/user-attachments/assets/bbc1e427-7329-4aaa-a574-48c457e0c9d8)
 
 Our approach to learning the world around us.
 
