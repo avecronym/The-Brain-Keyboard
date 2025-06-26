@@ -22,27 +22,27 @@
             }
           },
           {
-            "id": "b768984378b5cf3c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Hotkeys/Templates/Matrix/Matrix.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Matrix"
-            }
-          },
-          {
-            "id": "80503bcb7c8cfb06",
+            "id": "86def5af613b2250",
             "type": "leaf",
             "state": {
               "type": "notes-explorer",
               "state": {},
               "icon": "book-copy",
               "title": "Notes explorer"
+            }
+          },
+          {
+            "id": "b768984378b5cf3c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Hotkeys/Templates/Matrix/Matrix.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Matrix"
             }
           },
           {
@@ -102,7 +102,8 @@
               "title": "Hotkeys"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -264,27 +265,26 @@
       "notes-explorer:Notes explorer": false
     }
   },
-  "active": "2529ce47acafa705",
+  "active": "86def5af613b2250",
   "lastOpenFiles": [
+    "Hotkeys/Templates/Templates.md",
+    "Hotkeys/Hotkeys.md",
+    "Hotkeys/Templates/Matrix/Matrix.md",
+    "sync.ffs_db.a479.ffs_tmp",
     "sync.ffs_lock",
     "sync.ffs_db.b076.ffs_tmp",
     "sync.ffs_db.20b9.ffs_tmp",
     "sync.ffs_db.68f9.ffs_tmp",
-    "Hotkeys/Templates/Templates.md",
     "Hotkeys/Matrix 1.base",
     "Hotkeys/Templates/Matrix/Matrix.base",
     "Hotkeys/Hotkeys.canvas",
-    "Hotkeys/Hotkeys.md",
     "Hotkeys/Templates/Matrix/Untitled/Untitled.md",
     "Hotkeys/Templates/Matrix/Untitled",
-    "Hotkeys/Templates/Matrix/Matrix.md",
     "Hotkeys/Templates/Matrix",
     "Hotkeys/Templates/Embed Link.md",
     "sync.ffs_db.a576.ffs_tmp",
     "Hotkeys/Functional Thinking.md",
     "Hotkeys/Templates/Matrix/Matrix-1.png",
-    "Hotkeys/Templates/Matrix 1.base",
-    "Hotkeys/Templates/Matrix 1 1.base",
     "Hotkeys/Hotkeys 1.canvas",
     "Hotkeys/Hotkeys 1.md",
     "Untitled.md",

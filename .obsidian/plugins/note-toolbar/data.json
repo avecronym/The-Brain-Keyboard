@@ -250,14 +250,14 @@
           "icon": "lucide-check-square-2",
           "inGallery": false,
           "label": "",
-          "link": "",
+          "link": "Toggle checkbox status",
           "linkAttr": {
             "commandCheck": false,
-            "commandId": "",
+            "commandId": "editor:toggle-checklist-status",
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Toggle checkbox status (Ctrl + S)",
+          "tooltip": "Toggle checkbox status (Alt + S)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -1513,14 +1513,14 @@
         {
           "uuid": "befcca06-5a26-4766-b4bf-8e420ae20e33",
           "label": "",
-          "icon": "lucide-youtube",
+          "icon": "lucide-timer",
           "link": "Media Extended: Take timestamp",
           "linkAttr": {
             "commandId": "media-extended:take-timestamp",
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Timestamp (Media Extended) (Alt + S)",
+          "tooltip": "Timestamp (Media Extended) (Ctrl + S)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -1883,7 +1883,7 @@
           }
         }
       },
-      "updated": "2025-06-25T03:52:45.848Z",
+      "updated": "2025-06-26T04:28:54.779Z",
       "hasCommand": true
     }
   ],

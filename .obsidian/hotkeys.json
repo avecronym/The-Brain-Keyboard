@@ -47,7 +47,7 @@
   "media-extended:take-timestamp": [
     {
       "modifiers": [
-        "Alt"
+        "Mod"
       ],
       "key": "S"
     }
@@ -246,7 +246,7 @@
   "editor:toggle-checklist-status": [
     {
       "modifiers": [
-        "Mod"
+        "Alt"
       ],
       "key": "S"
     }
