@@ -32,7 +32,7 @@
     "kanban": true
   },
   "showToolbarInFileMenu": true,
-  "showToolbarInOther": "graph notes-explorer card-browser-view mx-url-video",
+  "showToolbarInOther": "graph notes-explorer card-browser-view mx-url-video task-genius-view",
   "toolbarProp": "notetoolbar",
   "toolbars": [
     {
@@ -258,6 +258,252 @@
             "type": "command"
           },
           "tooltip": "Toggle checkbox status (Alt + S)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "11ab3c86-4643-41ed-a20e-2845324a6b8f",
+          "hasCommand": false,
+          "icon": "lucide-check-square-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Task Genius: Quick capture (Global)",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "obsidian-task-progress-bar:global-quick-capture",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Quickly Capture Checkbox (Task Genius) (Ctrl + B)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "1f6f5a63-61dc-4d68-b9f0-e65424ddcbd0",
+          "hasCommand": false,
+          "icon": "lucide-check-square-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Task Genius: Move task to another file",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "obsidian-task-progress-bar:move-task-to-file",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Move List of Tasks to Note (Task Genius) (Alt + B)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "3e14c7a9-5058-4a91-9144-afab95edb05e",
+          "hasCommand": false,
+          "icon": "lucide-check-square-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Task Genius: Move direct incomplete subtasks to another file",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "obsidian-task-progress-bar:move-direct-incompleted-subtasks-to-file",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Move Incomplete List of Tasks to Note (Task Genius) (Ctrl + Alt + B)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "6557f2e3-3b45-4080-b65b-6e0872c44601",
+          "hasCommand": false,
+          "icon": "lucide-check-square-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Task Genius: Open Task Genius view",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "obsidian-task-progress-bar:open-task-genius-view",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Task Genius View (Task Genius) (Ctrl + Shift + B)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "19d230db-d805-4601-b547-98ee369d3f48",
+          "hasCommand": false,
+          "icon": "lucide-check-square-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Task Genius: Refresh task index",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "obsidian-task-progress-bar:refresh-task-index",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Refresh List of Tasks (Task Genius)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "8e555bf3-34c7-43e4-afae-81f10a827349",
+          "hasCommand": false,
+          "icon": "lucide-check-square-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Task Genius: Force reindex all tasks",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "obsidian-task-progress-bar:force-reindex-tasks",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Hard Refresh List of All Tasks (Task Genius)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -644,86 +890,6 @@
           }
         },
         {
-          "uuid": "eb958a47-ec1b-427f-9c92-537d1245c123",
-          "hasCommand": false,
-          "icon": "lucide-clipboard-list",
-          "inGallery": false,
-          "label": "",
-          "link": "Bases: Create new base",
-          "linkAttr": {
-            "commandId": "bases:new-file",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Create New Base (Bases) (Ctrl + B)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "uuid": "7d3d0ce7-98d6-4e14-994c-b9c2ee844757",
-          "hasCommand": false,
-          "icon": "lucide-clipboard-type",
-          "inGallery": false,
-          "label": "",
-          "link": "Bases: Insert new base",
-          "linkAttr": {
-            "commandId": "bases:insert",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Insert New Base (Bases) (Alt + B)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
-        },
-        {
           "uuid": "d993dc15-0f18-4fec-afa7-1e5622f7efbb",
           "label": "",
           "icon": "lucide-folder-edit",
@@ -880,46 +1046,6 @@
             }
           },
           "inGallery": false
-        },
-        {
-          "uuid": "c507075a-93d7-45c8-9198-98e4a81794ea",
-          "hasCommand": false,
-          "icon": "lucide-clipboard-paste",
-          "inGallery": false,
-          "label": "",
-          "link": "Bases: Copy table to clipboard",
-          "linkAttr": {
-            "commandId": "bases:copy-table",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Copy table to clipboard (Bases) (Ctrl + Alt + B)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
         },
         {
           "uuid": "e2bf922a-db92-4543-b5fa-f914b83f3af6",
@@ -1883,7 +2009,7 @@
           }
         }
       },
-      "updated": "2025-06-26T04:28:54.779Z",
+      "updated": "2025-07-10T23:09:47.223Z",
       "hasCommand": true
     }
   ],

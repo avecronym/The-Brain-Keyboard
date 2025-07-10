@@ -461,31 +461,6 @@
       "key": "P"
     }
   ],
-  "bases:new-file": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "B"
-    }
-  ],
-  "bases:insert": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "B"
-    }
-  ],
-  "bases:copy-table": [
-    {
-      "modifiers": [
-        "Alt",
-        "Mod"
-      ],
-      "key": "B"
-    }
-  ],
   "webviewer:search": [
     {
       "modifiers": [
@@ -590,6 +565,49 @@
         "Mod"
       ],
       "key": "L"
+    }
+  ],
+  "obsidian-task-progress-bar:open-task-genius-view": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "B"
+    }
+  ],
+  "obsidian-task-progress-bar:global-quick-capture": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "B"
+    }
+  ],
+  "obsidian-task-progress-bar:move-task-to-file": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "B"
+    }
+  ],
+  "obsidian-task-progress-bar:force-reindex-tasks": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "B"
+    }
+  ],
+  "obsidian-task-progress-bar:move-direct-incompleted-subtasks-to-file": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "B"
     }
   ]
 }

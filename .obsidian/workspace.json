@@ -4,11 +4,23 @@
     "type": "split",
     "children": [
       {
-        "id": "b01c7aa9470b9a86",
+        "id": "b17755f2f8fee08e",
         "type": "tabs",
         "children": [
           {
-            "id": "2529ce47acafa705",
+            "id": "31dcdda9bc3acd8f",
+            "type": "leaf",
+            "state": {
+              "type": "card-browser-view",
+              "state": {
+                "path": "/"
+              },
+              "icon": "align-vertical-justify-start",
+              "title": "Browse"
+            }
+          },
+          {
+            "id": "83507d38494334e2",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -22,45 +34,7 @@
             }
           },
           {
-            "id": "86def5af613b2250",
-            "type": "leaf",
-            "state": {
-              "type": "notes-explorer",
-              "state": {},
-              "icon": "book-copy",
-              "title": "Notes explorer"
-            }
-          },
-          {
-            "id": "b768984378b5cf3c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Hotkeys/Templates/Matrix/Matrix.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Matrix"
-            }
-          },
-          {
-            "id": "00646674eff4f718",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Hotkeys/Functional Thinking.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Functional Thinking"
-            }
-          },
-          {
-            "id": "3f826c0ba4b5b774",
+            "id": "9f6b54cbbb60c823",
             "type": "leaf",
             "state": {
               "type": "webviewer",
@@ -71,35 +45,6 @@
               },
               "icon": "globe-2",
               "title": "Obsidian - Sharpen your thinking"
-            }
-          },
-          {
-            "id": "b332e5b7857afc34",
-            "type": "leaf",
-            "state": {
-              "type": "card-browser-view",
-              "state": {
-                "path": "/"
-              },
-              "icon": "align-vertical-justify-start",
-              "title": "Browse"
-            }
-          },
-          {
-            "id": "e644cd302b9de46f",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Hotkeys/Hotkeys.canvas",
-                "viewState": {
-                  "x": 900,
-                  "y": 230.5,
-                  "zoom": -0.4315188729168915
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "Hotkeys"
             }
           }
         ],
@@ -204,20 +149,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "30b67d148d7a92a7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Hotkeys/Templates/Templates.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Templates"
-            }
-          },
-          {
             "id": "888ada0306bbd90a",
             "type": "leaf",
             "state": {
@@ -240,12 +171,22 @@
               "icon": "lucide-archive",
               "title": "All properties"
             }
+          },
+          {
+            "id": "4e4a7215ac46703b",
+            "type": "leaf",
+            "state": {
+              "type": "tg-timeline-sidebar-view",
+              "state": {},
+              "icon": "calendar-clock",
+              "title": "Timeline"
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 312.5
+    "width": 321.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -262,28 +203,31 @@
       "oz-clear-unused-images:Clear Unused Images": false,
       "templates:Insert template": false,
       "map-of-content:Update Map of Content": false,
-      "notes-explorer:Notes explorer": false
+      "notes-explorer:Notes explorer": false,
+      "obsidian-task-progress-bar:Open Task Genius view": false
     }
   },
-  "active": "86def5af613b2250",
+  "active": "83507d38494334e2",
   "lastOpenFiles": [
-    "Hotkeys/Templates/Templates.md",
-    "Hotkeys/Hotkeys.md",
-    "Hotkeys/Templates/Matrix/Matrix.md",
-    "sync.ffs_db.a479.ffs_tmp",
     "sync.ffs_lock",
+    "Hotkeys/Hotkeys.md",
+    "Obsidian - Sharpen your thinking.md",
+    "Hotkeys/Templates/Matrix/Matrix.md",
+    "Hotkeys/Templates/Embed Link.md",
+    "Hotkeys/Templates/Templates.md",
+    "Hotkeys/2025-ave-vault.png",
+    "Hotkeys/Functional Thinking.md",
+    "Hotkeys/Hotkeys.canvas",
+    "Hotkeys/Templates/Matrix/Matrix.base",
+    "sync.ffs_db.a479.ffs_tmp",
     "sync.ffs_db.b076.ffs_tmp",
     "sync.ffs_db.20b9.ffs_tmp",
     "sync.ffs_db.68f9.ffs_tmp",
     "Hotkeys/Matrix 1.base",
-    "Hotkeys/Templates/Matrix/Matrix.base",
-    "Hotkeys/Hotkeys.canvas",
     "Hotkeys/Templates/Matrix/Untitled/Untitled.md",
     "Hotkeys/Templates/Matrix/Untitled",
     "Hotkeys/Templates/Matrix",
-    "Hotkeys/Templates/Embed Link.md",
     "sync.ffs_db.a576.ffs_tmp",
-    "Hotkeys/Functional Thinking.md",
     "Hotkeys/Templates/Matrix/Matrix-1.png",
     "Hotkeys/Hotkeys 1.canvas",
     "Hotkeys/Hotkeys 1.md",
@@ -296,7 +240,6 @@
     "Templates 1/Matrix-1.png",
     "Hotkeys/Untitled.md",
     "Matrix 1/Matrix 1.md",
-    "Hotkeys/2025-ave-vault.png",
     "Hotkeys/Templates/Untitled.md",
     "Hotkeys/Templates/Matrix/Matrix-2.png",
     "Hotkeys/Templates/CopyNoteToFolder.tpl.md",
@@ -310,7 +253,6 @@
     "Untitled/Untitled.md",
     "Untitled/Untitled 1.md",
     "Untitled/Untitled 2.md",
-    "Untitled/Untitled 3.md",
     "nene-chan/mpc-be64_n1uxSRv9ip.png",
     "nene-chan/thorium_NobQS4Wmuf.png",
     "nene-chan/thorium_t6jnrYk27d.png",
