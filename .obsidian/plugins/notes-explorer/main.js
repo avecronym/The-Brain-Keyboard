@@ -6642,7 +6642,7 @@ function create_else_block_2(ctx) {
       ctx2[5].cf.length > 0 || /*$searchFilters*/
       ctx2[5].nf.length > 0
     )
-      return create_if_block_6;
+      return create_if_block_7;
     return create_else_block_3;
   }
   let current_block_type = select_block_type_1(ctx, [-1, -1, -1]);
@@ -6677,7 +6677,7 @@ function create_else_block_2(ctx) {
     }
   };
 }
-function create_if_block_5(ctx) {
+function create_if_block_6(ctx) {
   let button;
   let button_class_value;
   let filtersPanelIcon_action;
@@ -6784,13 +6784,13 @@ function create_else_block_3(ctx) {
     }
   };
 }
-function create_if_block_6(ctx) {
+function create_if_block_7(ctx) {
   let t0;
   let div;
   let t1;
   let if_block = (
     /*$folderName*/
-    ctx[6].length > 0 && create_if_block_7(ctx)
+    ctx[6].length > 0 && create_if_block_8(ctx)
   );
   let each_value_5 = ensure_array_like(
     /*$searchFilters*/
@@ -6848,7 +6848,7 @@ function create_if_block_6(ctx) {
         if (if_block) {
           if_block.p(ctx2, dirty);
         } else {
-          if_block = create_if_block_7(ctx2);
+          if_block = create_if_block_8(ctx2);
           if_block.c();
           if_block.m(t0.parentNode, t0);
         }
@@ -6961,7 +6961,7 @@ function create_each_block_6(ctx) {
     }
   };
 }
-function create_if_block_7(ctx) {
+function create_if_block_8(ctx) {
   let div2;
   let div0;
   let t0_value = (
@@ -7324,7 +7324,7 @@ function create_else_block_12(ctx) {
     }
   };
 }
-function create_if_block_32(ctx) {
+function create_if_block_42(ctx) {
   let button0;
   let viewShareButtonIcon_action;
   let t0;
@@ -7338,7 +7338,7 @@ function create_if_block_32(ctx) {
   let dispose;
   let if_block = (
     /*$folderName*/
-    ctx[6].length > 0 && create_if_block_42(ctx)
+    ctx[6].length > 0 && create_if_block_5(ctx)
   );
   let each_value_3 = ensure_array_like(
     /*$searchFilters*/
@@ -7437,7 +7437,7 @@ function create_if_block_32(ctx) {
         if (if_block) {
           if_block.p(ctx2, dirty);
         } else {
-          if_block = create_if_block_42(ctx2);
+          if_block = create_if_block_5(ctx2);
           if_block.c();
           if_block.m(t3.parentNode, t3);
         }
@@ -7510,7 +7510,7 @@ function create_if_block_32(ctx) {
     }
   };
 }
-function create_if_block_42(ctx) {
+function create_if_block_5(ctx) {
   let div2;
   let div0;
   let t0_value = (
@@ -7868,7 +7868,7 @@ function create_else_block2(ctx) {
     }
   };
 }
-function create_if_block_22(ctx) {
+function create_if_block_32(ctx) {
   let div;
   return {
     c() {
@@ -7876,6 +7876,29 @@ function create_if_block_22(ctx) {
       div.innerHTML = `No files found !<br/><br/>Please check if you have applied any other
       filters and make sure the notes you are searching are not in the Excluded
       folders from setting.`;
+      attr(div, "class", "no-files-message");
+    },
+    m(target, anchor) {
+      insert(target, div, anchor);
+    },
+    p: noop,
+    i: noop,
+    o: noop,
+    d(detaching) {
+      if (detaching) {
+        detach(div);
+      }
+    }
+  };
+}
+function create_if_block_22(ctx) {
+  let div;
+  return {
+    c() {
+      div = element("div");
+      div.innerHTML = `No files found. <br/><br/>Verify your filters again and check if you
+      have applied any folder tag or search query and also make sure the notes
+      you are looking for are not in the Excluded folders in setting.`;
       attr(div, "class", "no-files-message");
     },
     m(target, anchor) {
@@ -7911,7 +7934,7 @@ function create_if_block_12(ctx) {
       t2 = text('". ');
       br0 = element("br");
       br1 = element("br");
-      t3 = text("Either the\n      folder is empty or you probably have added this folder or its parent\n      folder to excluded folder in settings.");
+      t3 = text("Either\n      the folder is empty or you probably have added this folder or its parent\n      folder to excluded folder in settings.");
       attr(div, "class", "no-files-message");
     },
     m(target, anchor) {
@@ -7939,24 +7962,22 @@ function create_if_block_12(ctx) {
   };
 }
 function create_if_block2(ctx) {
-  let div;
+  let div2;
   return {
     c() {
-      div = element("div");
-      div.innerHTML = `No files found. <br/><br/>Please check your search query again and also
-      make sure the notes you are searching are not in the Excluded folders from
-      setting.`;
-      attr(div, "class", "no-files-message");
+      div2 = element("div");
+      div2.innerHTML = `<div class="loading-spinner"></div> <div class="loading-message">Loading your files...</div>`;
+      attr(div2, "class", "loading-animation-and-message");
     },
     m(target, anchor) {
-      insert(target, div, anchor);
+      insert(target, div2, anchor);
     },
     p: noop,
     i: noop,
     o: noop,
     d(detaching) {
       if (detaching) {
-        detach(div);
+        detach(div2);
       }
     }
   };
@@ -8123,7 +8144,7 @@ function create_fragment2(ctx) {
       /*screenWidth*/
       ctx2[12] <= 1200
     )
-      return create_if_block_5;
+      return create_if_block_6;
     return create_else_block_2;
   }
   let current_block_type = select_block_type(ctx, [-1, -1, -1]);
@@ -8135,32 +8156,48 @@ function create_fragment2(ctx) {
       ctx2[5].cf.length > 0 || /*$searchFilters*/
       ctx2[5].nf.length > 0
     )
-      return create_if_block_32;
+      return create_if_block_42;
     return create_else_block_12;
   }
   let current_block_type_1 = select_block_type_2(ctx, [-1, -1, -1]);
   let if_block1 = current_block_type_1(ctx);
-  const if_block_creators = [create_if_block2, create_if_block_12, create_if_block_22, create_else_block2];
+  const if_block_creators = [
+    create_if_block2,
+    create_if_block_12,
+    create_if_block_22,
+    create_if_block_32,
+    create_else_block2
+  ];
   const if_blocks = [];
   function select_block_type_3(ctx2, dirty) {
     if (
-      /*$displayedFiles*/
-      ctx2[4].length === 0 && /*$searchQuery*/
-      ctx2[7] !== ""
+      /*$searchFilters*/
+      ctx2[5].cf.length === 0 && /*$searchFilters*/
+      ctx2[5].nf.length === 0 && /*$searchQuery*/
+      ctx2[7] === "" && /*$folderName*/
+      ctx2[6].length === 0 && /*$displayedFiles*/
+      ctx2[4].length === 0
     )
       return 0;
     if (
-      /*$displayedFiles*/
-      ctx2[4].length === 0 && /*$folderName*/
-      ctx2[6].length > 0
+      /*$folderName*/
+      ctx2[6].length > 0 && /*$displayedFiles*/
+      ctx2[4].length === 0
     )
       return 1;
+    if (
+      /*$searchFilters*/
+      (ctx2[5].cf.length > 0 || /*$searchFilters*/
+      ctx2[5].nf.length > 0) && /*$displayedFiles*/
+      ctx2[4].length === 0
+    )
+      return 2;
     if (
       /*$displayedFiles*/
       ctx2[4].length === 0
     )
-      return 2;
-    return 3;
+      return 3;
+    return 4;
   }
   current_block_type_index = select_block_type_3(ctx, [-1, -1, -1]);
   if_block2 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
@@ -8906,7 +8943,7 @@ function instance2($$self, $$props, $$invalidate) {
     240 | $$self.$$.dirty[1] & /*$allAllowedFiles*/
     16) {
       $:
-        $$invalidate(15, totalNotesCount = $searchQuery === "" && $folderName.length > 0 && $searchFilters.cf.length === 0 && $searchFilters.nf.length === 0 ? `${$allAllowedFiles.length}` : `${$displayedFiles.length} / ${get_store_value(plugin).app.vault.getMarkdownFiles().length}`);
+        $$invalidate(15, totalNotesCount = $searchQuery === "" && $folderName.length === 0 && $searchFilters.cf.length === 0 && $searchFilters.nf.length === 0 ? `${$allAllowedFiles.length}` : `${$displayedFiles.length} / ${get_store_value(plugin).app.vault.getMarkdownFiles().length}`);
     }
     if ($$self.$$.dirty[0] & /*$showActionBar*/
     8) {

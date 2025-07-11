@@ -32,7 +32,7 @@
     "kanban": true
   },
   "showToolbarInFileMenu": true,
-  "showToolbarInOther": "graph notes-explorer card-browser-view mx-url-video task-genius-view",
+  "showToolbarInOther": "graph notes-explorer card-browser-view mx-url-video task-genius-view webviewer",
   "toolbarProp": "notetoolbar",
   "toolbars": [
     {
@@ -178,6 +178,47 @@
             "type": "command"
           },
           "tooltip": "Open Command Palette (Ctrl + P)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "165f63b8-d544-4b42-9113-85f1b0500aa7",
+          "hasCommand": false,
+          "icon": "lucide-file-edit",
+          "inGallery": false,
+          "label": "",
+          "link": "Create new note",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "file-explorer:new-file",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Create New Note (Ctrl + N)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -2009,12 +2050,12 @@
           }
         }
       },
-      "updated": "2025-07-10T23:09:47.223Z",
+      "updated": "2025-07-11T00:03:27.163Z",
       "hasCommand": true
     }
   ],
   "version": 20250313.1,
-  "whatsnew_version": "1.24",
+  "whatsnew_version": "1.25",
   "recentFiles": [
     "Hotkeys/Hotkeys.md",
     "Templates/Templates.md",

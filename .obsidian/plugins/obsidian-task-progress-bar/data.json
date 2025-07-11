@@ -45,11 +45,11 @@
   "autoCompleteParent": true,
   "markParentInProgressWhenPartiallyComplete": true,
   "taskStatuses": {
-    "completed": "x|X",
-    "inProgress": ">|/",
+    "completed": "x",
+    "inProgress": "/",
     "abandoned": "-",
-    "planned": "?",
-    "notStarted": " "
+    "planned": ">|?",
+    "notStarted": " |!|r"
   },
   "countOtherStatusesAs": "notStarted",
   "excludeTaskMarks": "",
@@ -57,23 +57,29 @@
   "onlyCountTaskMarks": "x|X|>|/",
   "enableTaskStatusSwitcher": true,
   "enableCustomTaskMarks": true,
-  "enableTextMarkInSourceMode": false,
-  "enableCycleCompleteStatus": false,
+  "enableTextMarkInSourceMode": true,
+  "enableCycleCompleteStatus": true,
   "taskStatusCycle": [
-    "Not Started",
-    "In Progress",
-    "Completed",
-    "Abandoned",
-    "Planned"
+    "I Gotta Do This!",
+    "Don't Know",
+    "Learning",
+    "Looking",
+    "Review",
+    "Question",
+    "Done & Knowing"
   ],
   "taskStatusMarks": {
-    "Not Started": " ",
-    "In Progress": "/",
-    "Completed": "x",
-    "Abandoned": "-",
-    "Planned": "?"
+    "Review": "r",
+    "Don't Know": "-",
+    "Learning": "/",
+    "Looking": ">",
+    "Question": "?",
+    "Done & Knowing": "x",
+    "I Gotta Do This!": " "
   },
-  "excludeMarksFromCycle": [],
+  "excludeMarksFromCycle": [
+    "Important"
+  ],
   "enableTaskGeniusIcons": true,
   "enablePriorityPicker": false,
   "enablePriorityKeyboardShortcuts": false,
@@ -87,12 +93,12 @@
     "enableTaskGutter": true
   },
   "completedTaskMover": {
-    "enableCompletedTaskMover": false,
+    "enableCompletedTaskMover": true,
     "taskMarkerType": "date",
     "versionMarker": "version 1.0",
     "dateMarker": "archived on {{date}}",
     "customMarker": "moved {{DATE:YYYY-MM-DD HH:mm}}",
-    "treatAbandonedAsCompleted": false,
+    "treatAbandonedAsCompleted": true,
     "completeAllMovedTasks": true,
     "withCurrentFileLink": true,
     "enableAutoMove": false,
@@ -265,21 +271,45 @@
   },
   "viewConfiguration": [
     {
-      "id": "projects",
-      "name": "Projects",
-      "icon": "folders",
+      "id": "calendar",
+      "name": "Calendar",
+      "icon": "calendar",
       "type": "default",
       "visible": true,
       "hideCompletedAndAbandonedTasks": false,
       "filterRules": {},
-      "filterBlanks": false
+      "filterBlanks": false,
+      "specificConfig": {
+        "viewType": "calendar",
+        "hideWeekends": false
+      },
+      "sortCriteria": []
+    },
+    {
+      "id": "kanban",
+      "name": "Kanban",
+      "icon": "kanban",
+      "type": "default",
+      "visible": true,
+      "hideCompletedAndAbandonedTasks": false,
+      "filterRules": {},
+      "filterBlanks": false,
+      "specificConfig": {
+        "viewType": "kanban",
+        "showCheckbox": true,
+        "hideEmptyColumns": false,
+        "defaultSortField": "priority",
+        "defaultSortOrder": "desc",
+        "groupBy": "status"
+      },
+      "sortCriteria": []
     },
     {
       "id": "quadrant",
       "name": "Matrix",
       "icon": "layout-grid",
       "type": "default",
-      "visible": true,
+      "visible": false,
       "hideCompletedAndAbandonedTasks": false,
       "filterRules": {},
       "filterBlanks": false,
@@ -304,56 +334,50 @@
           "urgentNotImportant": "#ffc107",
           "notUrgentNotImportant": "#6c757d"
         }
+      },
+      "sortCriteria": []
+    },
+    {
+      "id": "gantt",
+      "name": "Plan",
+      "icon": "chart-gantt",
+      "type": "default",
+      "visible": false,
+      "hideCompletedAndAbandonedTasks": false,
+      "filterRules": {},
+      "filterBlanks": false,
+      "specificConfig": {
+        "viewType": "gantt",
+        "showTaskLabels": true,
+        "useMarkdownRenderer": true
       }
+    },
+    {
+      "id": "projects",
+      "name": "Projects",
+      "icon": "folders",
+      "type": "default",
+      "visible": false,
+      "hideCompletedAndAbandonedTasks": false,
+      "filterRules": {},
+      "filterBlanks": false
     },
     {
       "id": "habit",
       "name": "Habit",
       "icon": "calendar-clock",
       "type": "default",
-      "visible": true,
+      "visible": false,
       "hideCompletedAndAbandonedTasks": false,
       "filterRules": {},
       "filterBlanks": false
-    },
-    {
-      "id": "kanban",
-      "name": "Status",
-      "icon": "kanban",
-      "type": "default",
-      "visible": true,
-      "hideCompletedAndAbandonedTasks": false,
-      "filterRules": {},
-      "filterBlanks": false,
-      "specificConfig": {
-        "viewType": "kanban",
-        "showCheckbox": true,
-        "hideEmptyColumns": false,
-        "defaultSortField": "priority",
-        "defaultSortOrder": "desc",
-        "groupBy": "status"
-      }
-    },
-    {
-      "id": "calendar",
-      "name": "Events",
-      "icon": "calendar",
-      "type": "default",
-      "visible": true,
-      "hideCompletedAndAbandonedTasks": false,
-      "filterRules": {},
-      "filterBlanks": false,
-      "specificConfig": {
-        "viewType": "calendar",
-        "hideWeekends": false
-      }
     },
     {
       "id": "inbox",
       "name": "Inbox",
       "icon": "inbox",
       "type": "default",
-      "visible": true,
+      "visible": false,
       "hideCompletedAndAbandonedTasks": true,
       "filterRules": {},
       "filterBlanks": false
@@ -436,21 +460,6 @@
       "filterBlanks": false
     },
     {
-      "id": "gantt",
-      "name": "Plan",
-      "icon": "chart-gantt",
-      "type": "default",
-      "visible": false,
-      "hideCompletedAndAbandonedTasks": false,
-      "filterRules": {},
-      "filterBlanks": false,
-      "specificConfig": {
-        "viewType": "gantt",
-        "showTaskLabels": true,
-        "useMarkdownRenderer": true
-      }
-    },
-    {
       "id": "tags",
       "name": "Tags",
       "icon": "tag",
@@ -485,7 +494,7 @@
         "id": "reward-series-episode",
         "name": "Watch an episode of a favorite series",
         "occurrence": "rare",
-        "inventory": 20
+        "inventory": 18
       },
       {
         "id": "reward-champagne-project",
@@ -517,7 +526,7 @@
         "chance": 5
       }
     ],
-    "showRewardType": "modal"
+    "showRewardType": "notice"
   },
   "habit": {
     "enableHabits": true,
@@ -527,7 +536,7 @@
     "enableSavedFilters": true,
     "savedConfigs": []
   },
-  "sortTasks": true,
+  "sortTasks": false,
   "sortCriteria": [
     {
       "field": "completed",
@@ -547,10 +556,10 @@
     }
   ],
   "autoDateManager": {
-    "enabled": false,
+    "enabled": true,
     "manageCompletedDate": true,
     "manageStartDate": true,
-    "manageCancelledDate": true,
+    "manageCancelledDate": false,
     "completedDateFormat": "YYYY-MM-DD",
     "startDateFormat": "YYYY-MM-DD",
     "cancelledDateFormat": "YYYY-MM-DD",
@@ -573,7 +582,7 @@
     "defaultEventColor": "#3b82f6"
   },
   "timelineSidebar": {
-    "enableTimelineSidebar": true,
+    "enableTimelineSidebar": false,
     "autoOpenOnStartup": false,
     "showCompletedTasks": true,
     "focusModeByDefault": false,

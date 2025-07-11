@@ -46,6 +46,16 @@
               "icon": "globe-2",
               "title": "Obsidian - Sharpen your thinking"
             }
+          },
+          {
+            "id": "2c96c6978f26b7db",
+            "type": "leaf",
+            "state": {
+              "type": "task-genius-view",
+              "state": {},
+              "icon": "calendar",
+              "title": "Calendar"
+            }
           }
         ],
         "currentTab": 1
@@ -171,16 +181,6 @@
               "icon": "lucide-archive",
               "title": "All properties"
             }
-          },
-          {
-            "id": "4e4a7215ac46703b",
-            "type": "leaf",
-            "state": {
-              "type": "tg-timeline-sidebar-view",
-              "state": {},
-              "icon": "calendar-clock",
-              "title": "Timeline"
-            }
           }
         ]
       }
@@ -211,13 +211,16 @@
   "lastOpenFiles": [
     "sync.ffs_lock",
     "Hotkeys/Hotkeys.md",
+    "Untitled.md",
+    "QuickCapture.md",
+    "Hotkeys/Hotkeys.canvas",
+    "sync.ffs_db.128b.ffs_tmp",
     "Obsidian - Sharpen your thinking.md",
     "Hotkeys/Templates/Matrix/Matrix.md",
     "Hotkeys/Templates/Embed Link.md",
     "Hotkeys/Templates/Templates.md",
     "Hotkeys/2025-ave-vault.png",
     "Hotkeys/Functional Thinking.md",
-    "Hotkeys/Hotkeys.canvas",
     "Hotkeys/Templates/Matrix/Matrix.base",
     "sync.ffs_db.a479.ffs_tmp",
     "sync.ffs_db.b076.ffs_tmp",
@@ -227,11 +230,9 @@
     "Hotkeys/Templates/Matrix/Untitled/Untitled.md",
     "Hotkeys/Templates/Matrix/Untitled",
     "Hotkeys/Templates/Matrix",
-    "sync.ffs_db.a576.ffs_tmp",
     "Hotkeys/Templates/Matrix/Matrix-1.png",
     "Hotkeys/Hotkeys 1.canvas",
     "Hotkeys/Hotkeys 1.md",
-    "Untitled.md",
     "Untitled 1.md",
     "Hotkeys/Hotkeys 1 1.md",
     "Templates 1/Templates.md",
@@ -252,7 +253,6 @@
     "Animuuu/i love you dearly.md",
     "Untitled/Untitled.md",
     "Untitled/Untitled 1.md",
-    "Untitled/Untitled 2.md",
     "nene-chan/mpc-be64_n1uxSRv9ip.png",
     "nene-chan/thorium_NobQS4Wmuf.png",
     "nene-chan/thorium_t6jnrYk27d.png",

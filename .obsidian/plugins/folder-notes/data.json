@@ -47,7 +47,11 @@
     "disableCollapseIcon": true,
     "alwaysCollapse": false,
     "autoSync": true,
-    "allowDragAndDrop": true
+    "allowDragAndDrop": true,
+    "hideLinkList": true,
+    "hideFolderOverview": false,
+    "useActualLinks": false,
+    "fmtpIntegration": false
   },
   "useSubmenus": true,
   "syncMove": true,
@@ -108,5 +112,6 @@
   "persistentSettingsTab": {
     "afterRestart": true,
     "afterChangingTab": true
-  }
+  },
+  "firstTimeInsertOverview": true
 }

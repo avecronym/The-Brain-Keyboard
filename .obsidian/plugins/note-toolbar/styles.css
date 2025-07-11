@@ -1731,6 +1731,9 @@ body:not(.is-mobile):not(.is-focused), .workspace-leaf:not(.mod-active) {
         border-radius: var(--cg-nt-menu-item-border-radius);
         color: var(--cg-nt-menu-item-text-color);
         font-size: var(--cg-nt-menu-item-font-size);
+        &:hover {
+            background-color: var(--cg-nt-menu-item-bg-color-hover);
+        }
         &.is-label {
             font-size: var(--font-ui-small);
             color: var(--text-muted);
@@ -2213,7 +2216,8 @@ input[type="text"].note-toolbar-setting-error,
 .note-toolbar-setting-callout-container,
 .note-toolbar-setting-contexts-container,
 .note-toolbar-setting-items-container,
-.note-toolbar-setting-mappings-container {
+.note-toolbar-setting-mappings-container,
+.note-toolbar-setting-rules-container {
     padding-top: 0.75em;
     & .setting-item {
         .is-phone & {
@@ -2710,6 +2714,28 @@ input[type="text"].note-toolbar-setting-error,
         display: none;
     }
     & .setting-item-control {
+        .is-mobile & {
+            margin-top: 0 !important;
+        }
+    }
+}
+
+.note-toolbar-setting-subfield-advanced-container {
+    width: 100%;
+}
+
+.note-toolbar-setting-subfield-advanced {
+    align-items: center !important;
+    display: flex;
+    flex-direction: row !important;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    & .setting-item-info {
+        display: initial !important;
+    }
+    & .setting-item-control {
+        align-items: flex-end !important;
+        width: auto !important;
         .is-mobile & {
             margin-top: 0 !important;
         }
@@ -3341,10 +3367,16 @@ input[type="text"].note-toolbar-setting-error,
     }
 }
 
-.note-toolbar-setting-modal-phone-inset-fix {
+.note-toolbar-setting-modal-phone-top-inset-fix {
     .is-phone & {
         /* fix/workaround for Obsidian v1.5.11 bug: tall modals opened from settings have an inaccessible close button */
         top: var(--safe-area-inset-top);
+    }
+}
+
+.note-toolbar-setting-modal-phone-bottom-inset-fix {
+    .is-phone & {
+        padding-bottom: var(--safe-area-inset-bottom);
     }
 }
 
