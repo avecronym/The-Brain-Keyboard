@@ -46,16 +46,6 @@
               "icon": "globe-2",
               "title": "Obsidian - Sharpen your thinking"
             }
-          },
-          {
-            "id": "2c96c6978f26b7db",
-            "type": "leaf",
-            "state": {
-              "type": "task-genius-view",
-              "state": {},
-              "icon": "calendar",
-              "title": "Calendar"
-            }
           }
         ],
         "currentTab": 1
@@ -148,7 +138,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 269.5026054382324
+    "width": 260.5026054382324
   },
   "right": {
     "id": "f9f4603b38a69ba0",
@@ -181,12 +171,22 @@
               "icon": "lucide-archive",
               "title": "All properties"
             }
+          },
+          {
+            "id": "a5f86aaeec393c07",
+            "type": "leaf",
+            "state": {
+              "type": "Strange New Worlds",
+              "state": {},
+              "icon": "file-digit",
+              "title": "Strange New Worlds"
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 321.5
+    "width": 311.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -209,8 +209,9 @@
   },
   "active": "83507d38494334e2",
   "lastOpenFiles": [
-    "sync.ffs_lock",
     "Hotkeys/Hotkeys.md",
+    "sync.ffs_db.be32.ffs_tmp",
+    "sync.ffs_lock",
     "Untitled.md",
     "QuickCapture.md",
     "Hotkeys/Hotkeys.canvas",
@@ -229,7 +230,6 @@
     "Hotkeys/Matrix 1.base",
     "Hotkeys/Templates/Matrix/Untitled/Untitled.md",
     "Hotkeys/Templates/Matrix/Untitled",
-    "Hotkeys/Templates/Matrix",
     "Hotkeys/Templates/Matrix/Matrix-1.png",
     "Hotkeys/Hotkeys 1.canvas",
     "Hotkeys/Hotkeys 1.md",

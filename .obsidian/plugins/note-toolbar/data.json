@@ -206,6 +206,126 @@
           }
         },
         {
+          "uuid": "08bdd6d1-0216-4b65-8f23-b067a7904b89",
+          "hasCommand": false,
+          "icon": "lucide-file-search",
+          "inGallery": false,
+          "label": "",
+          "link": "Search: Search in all files",
+          "linkAttr": {
+            "commandId": "global-search:open",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Search Panel (Alt + F)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "88860574-0a34-4ebd-ab2b-00178d82eefa",
+          "hasCommand": false,
+          "icon": "lucide-file-search",
+          "inGallery": false,
+          "label": "",
+          "link": "Quick switcher: Open quick switcher",
+          "linkAttr": {
+            "commandId": "switcher:open",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Quick Switcher (Quick switcher) (Ctrl + Alt + Q)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "9eface6c-243a-4ddd-b4d0-eb350dd284e4",
+          "hasCommand": false,
+          "icon": "lucide-file-search",
+          "inGallery": false,
+          "label": "",
+          "link": "Simple CanvaSearch: Open CanvaSearch modal",
+          "linkAttr": {
+            "commandId": "simple-canvasearch:open-canvasearch-modal",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Search on Canvas File (Ctrl + Alt + F)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
           "uuid": "165f63b8-d544-4b42-9113-85f1b0500aa7",
           "hasCommand": false,
           "icon": "lucide-file-edit",
@@ -771,6 +891,46 @@
           }
         },
         {
+          "uuid": "de4cd8e7-24d0-4a50-af0a-32a663c43604",
+          "hasCommand": false,
+          "icon": "lucide-link-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Strange New Worlds: Toggle active state of SNW plugin on/off",
+          "linkAttr": {
+            "commandId": "obsidian42-strange-new-worlds:SNW-ToggleActiveState",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Show outer links (Strange New Worlds)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
           "uuid": "7aafd4e5-e0f1-4dc0-8fc0-bac6092557a9",
           "hasCommand": false,
           "icon": "broken-link",
@@ -1089,6 +1249,46 @@
           "inGallery": false
         },
         {
+          "uuid": "13f92e5e-de2b-47e9-a210-b358aa4ff18e",
+          "label": "",
+          "icon": "lucide-layout-dashboard",
+          "link": "Canvas Explorer: Add Note",
+          "linkAttr": {
+            "commandId": "canvas-explorer:add-note",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Place Fileinto Canvas (Canvas Explorer)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
           "uuid": "e2bf922a-db92-4543-b5fa-f914b83f3af6",
           "label": "",
           "icon": "lucide-lock-keyhole",
@@ -1243,46 +1443,6 @@
             }
           },
           "inGallery": false
-        },
-        {
-          "uuid": "08bdd6d1-0216-4b65-8f23-b067a7904b89",
-          "hasCommand": false,
-          "icon": "lucide-file-search",
-          "inGallery": false,
-          "label": "",
-          "link": "Quick switcher: Open quick switcher",
-          "linkAttr": {
-            "commandId": "switcher:open",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Open Quick Switcher (Quick switcher) (Ctrl + Alt + Q)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
         },
         {
           "uuid": "743af5ad-e008-4752-92b6-8032933928a6",
@@ -2050,7 +2210,7 @@
           }
         }
       },
-      "updated": "2025-07-11T00:03:27.163Z",
+      "updated": "2025-07-11T02:17:37.642Z",
       "hasCommand": true
     }
   ],
