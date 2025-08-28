@@ -24,35 +24,35 @@
         "link": true
       },
       {
-        "name": "Shortlisted",
-        "defaultView": "Small Cards",
-        "link": true
-      },
-      {
-        "name": "Drafting",
-        "defaultView": "Detailed Cards",
-        "link": true
-      },
-      {
         "name": "Focus",
         "defaultView": "Simple Cards",
         "link": true
       },
       {
-        "name": "Final",
+        "name": "Cancelled",
+        "defaultView": "Detailed Cards",
+        "link": true
+      },
+      {
+        "name": "Archived",
         "defaultView": "Small Cards",
         "link": true
       }
     ],
     "hidden": [
       {
-        "name": "Archived",
+        "name": "Drafting",
+        "defaultView": "Detailed Cards",
+        "link": true
+      },
+      {
+        "name": "Shortlisted",
         "defaultView": "Small Cards",
         "link": true
       },
       {
-        "name": "Cancelled",
-        "defaultView": "Detailed Cards",
+        "name": "Final",
+        "defaultView": "Small Cards",
         "link": true
       }
     ]

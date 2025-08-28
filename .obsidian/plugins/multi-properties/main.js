@@ -21,10 +21,7 @@ var __copyProps = (to, from, except, desc) => {
   return to;
 };
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
-var __publicField = (obj, key, value) => {
-  __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
-  return value;
-};
+var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
 
 // src/main.ts
 var main_exports = {};
@@ -66,7 +63,7 @@ var globals = typeof window !== "undefined" ? window : typeof globalThis !== "un
 );
 
 // node_modules/svelte/src/runtime/internal/ResizeObserverSingleton.js
-var ResizeObserverSingleton = class {
+var ResizeObserverSingleton = class _ResizeObserverSingleton {
   /** @param {ResizeObserverOptions} options */
   constructor(options) {
     /**
@@ -105,7 +102,7 @@ var ResizeObserverSingleton = class {
     return (_a = this._observer) != null ? _a : this._observer = new ResizeObserver((entries) => {
       var _a2;
       for (const entry of entries) {
-        ResizeObserverSingleton.entries.set(entry.target, entry);
+        _ResizeObserverSingleton.entries.set(entry.target, entry);
         (_a2 = this._listeners.get(entry.target)) == null ? void 0 : _a2(entry);
       }
     });
@@ -134,8 +131,7 @@ function append_styles(target, style_sheet_id, styles) {
   }
 }
 function get_root_for_style(node) {
-  if (!node)
-    return document;
+  if (!node) return document;
   const root = node.getRootNode ? node.getRootNode() : node.ownerDocument;
   if (root && /** @type {ShadowRoot} */
   root.host) {
@@ -164,8 +160,7 @@ function detach(node) {
 }
 function destroy_each(iterations, detaching) {
   for (let i = 0; i < iterations.length; i += 1) {
-    if (iterations[i])
-      iterations[i].d(detaching);
+    if (iterations[i]) iterations[i].d(detaching);
   }
 }
 function element(name) {
@@ -191,18 +186,15 @@ function prevent_default(fn) {
   };
 }
 function attr(node, attribute, value) {
-  if (value == null)
-    node.removeAttribute(attribute);
-  else if (node.getAttribute(attribute) !== value)
-    node.setAttribute(attribute, value);
+  if (value == null) node.removeAttribute(attribute);
+  else if (node.getAttribute(attribute) !== value) node.setAttribute(attribute, value);
 }
 function children(element2) {
   return Array.from(element2.childNodes);
 }
 function set_data(text2, data) {
   data = "" + data;
-  if (text2.data === data)
-    return;
+  if (text2.data === data) return;
   text2.data = /** @type {string} */
   data;
 }
@@ -242,8 +234,7 @@ function set_current_component(component) {
   current_component = component;
 }
 function get_current_component() {
-  if (!current_component)
-    throw new Error("Function called outside component initialization");
+  if (!current_component) throw new Error("Function called outside component initialization");
   return current_component;
 }
 function onMount(fn) {
@@ -302,8 +293,7 @@ function flush() {
     set_current_component(null);
     dirty_components.length = 0;
     flushidx = 0;
-    while (binding_callbacks.length)
-      binding_callbacks.pop()();
+    while (binding_callbacks.length) binding_callbacks.pop()();
     for (let i = 0; i < render_callbacks.length; i += 1) {
       const callback = render_callbacks[i];
       if (!seen_callbacks.has(callback)) {
@@ -363,14 +353,12 @@ function transition_in(block, local) {
 }
 function transition_out(block, local, detach2, callback) {
   if (block && block.o) {
-    if (outroing.has(block))
-      return;
+    if (outroing.has(block)) return;
     outroing.add(block);
     outros.c.push(() => {
       outroing.delete(block);
       if (callback) {
-        if (detach2)
-          block.d(1);
+        if (detach2) block.d(1);
         callback();
       }
     });
@@ -394,8 +382,7 @@ function update_keyed_each(old_blocks, dirty, get_key, dynamic, ctx, list, looku
   let n = list.length;
   let i = o;
   const old_indexes = {};
-  while (i--)
-    old_indexes[old_blocks[i].key] = i;
+  while (i--) old_indexes[old_blocks[i].key] = i;
   const new_blocks = [];
   const new_lookup = /* @__PURE__ */ new Map();
   const deltas = /* @__PURE__ */ new Map();
@@ -412,8 +399,7 @@ function update_keyed_each(old_blocks, dirty, get_key, dynamic, ctx, list, looku
       updates.push(() => block.p(child_ctx, dirty));
     }
     new_lookup.set(key, new_blocks[i] = block);
-    if (key in old_indexes)
-      deltas.set(key, Math.abs(i - old_indexes[key]));
+    if (key in old_indexes) deltas.set(key, Math.abs(i - old_indexes[key]));
   }
   const will_move = /* @__PURE__ */ new Set();
   const did_move = /* @__PURE__ */ new Set();
@@ -450,11 +436,9 @@ function update_keyed_each(old_blocks, dirty, get_key, dynamic, ctx, list, looku
   }
   while (o--) {
     const old_block = old_blocks[o];
-    if (!new_lookup.has(old_block.key))
-      destroy(old_block, lookup);
+    if (!new_lookup.has(old_block.key)) destroy(old_block, lookup);
   }
-  while (n)
-    insert2(new_blocks[n - 1]);
+  while (n) insert2(new_blocks[n - 1]);
   run_all(updates);
   return new_blocks;
 }
@@ -564,10 +548,8 @@ function init(component, options, instance6, create_fragment6, not_equal, props,
   $$.ctx = instance6 ? instance6(component, options.props || {}, (i, ret, ...rest) => {
     const value = rest.length ? rest[0] : ret;
     if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
-      if (!$$.skip_bound && $$.bound[i])
-        $$.bound[i](value);
-      if (ready)
-        make_dirty(component, i);
+      if (!$$.skip_bound && $$.bound[i]) $$.bound[i](value);
+      if (ready) make_dirty(component, i);
     }
     return ret;
   }) : [];
@@ -584,8 +566,7 @@ function init(component, options, instance6, create_fragment6, not_equal, props,
     } else {
       $$.fragment && $$.fragment.c();
     }
-    if (options.intro)
-      transition_in(component.$$.fragment);
+    if (options.intro) transition_in(component.$$.fragment);
     mount_component(component, options.target, options.anchor);
     end_hydrating();
     flush();
@@ -639,6 +620,12 @@ if (typeof HTMLElement === "function") {
           this.$$l_u.delete(listener);
         }
       }
+      if (this.$$l[type]) {
+        const idx = this.$$l[type].indexOf(listener);
+        if (idx >= 0) {
+          this.$$l[type].splice(idx, 1);
+        }
+      }
     }
     async connectedCallback() {
       this.$$cn = true;
@@ -670,7 +657,7 @@ if (typeof HTMLElement === "function") {
           };
         };
         await Promise.resolve();
-        if (!this.$$cn) {
+        if (!this.$$cn || this.$$c) {
           return;
         }
         const $$slots = {};
@@ -684,6 +671,12 @@ if (typeof HTMLElement === "function") {
           const name = this.$$g_p(attribute.name);
           if (!(name in this.$$d)) {
             this.$$d[name] = get_custom_element_value(name, attribute.value, this.$$p_d, "toProp");
+          }
+        }
+        for (const key in this.$$p_d) {
+          if (!(key in this.$$d) && this[key] !== void 0) {
+            this.$$d[key] = this[key];
+            delete this[key];
           }
         }
         this.$$c = new this.$$ctor({
@@ -731,8 +724,7 @@ if (typeof HTMLElement === "function") {
     // and setting attributes through setAttribute etc, this is helpful
     attributeChangedCallback(attr2, _oldValue, newValue) {
       var _a;
-      if (this.$$r)
-        return;
+      if (this.$$r) return;
       attr2 = this.$$g_p(attr2);
       this.$$d[attr2] = get_custom_element_value(attr2, newValue, this.$$p_d, "toProp");
       (_a = this.$$c) == null ? void 0 : _a.$set({ [attr2]: this.$$d[attr2] });
@@ -740,7 +732,7 @@ if (typeof HTMLElement === "function") {
     disconnectedCallback() {
       this.$$cn = false;
       Promise.resolve().then(() => {
-        if (!this.$$cn) {
+        if (!this.$$cn && this.$$c) {
           this.$$c.$destroy();
           this.$$c = void 0;
         }
@@ -778,6 +770,7 @@ function get_custom_element_value(prop, value, props_definition, transform) {
         return value && JSON.parse(value);
       case "Boolean":
         return value;
+      // conversion already handled above
       case "Number":
         return value != null ? +value : value;
       default:
@@ -823,8 +816,7 @@ var SvelteComponent = class {
     callbacks.push(callback);
     return () => {
       const index = callbacks.indexOf(callback);
-      if (index !== -1)
-        callbacks.splice(index, 1);
+      if (index !== -1) callbacks.splice(index, 1);
     };
   }
   /**
@@ -963,11 +955,10 @@ function create_fragment(ctx) {
       if (
         /*optionVal*/
         ctx[7] === void 0
-      )
-        add_render_callback(() => (
-          /*select_change_handler*/
-          ctx[12].call(select)
-        ));
+      ) add_render_callback(() => (
+        /*select_change_handler*/
+        ctx[12].call(select)
+      ));
       attr(input0, "id", "name-input");
       attr(input0, "class", "name-input flex-obj svelte-gwxj8w");
       attr(input0, "type", "text");
@@ -1186,18 +1177,12 @@ function instance($$self, $$props, $$invalidate) {
     $$invalidate(1, valueVal);
   }
   $$self.$$set = ($$props2) => {
-    if ("isFirst" in $$props2)
-      $$invalidate(2, isFirst = $$props2.isFirst);
-    if ("removeInput" in $$props2)
-      $$invalidate(3, removeInput = $$props2.removeInput);
-    if ("id" in $$props2)
-      $$invalidate(4, id = $$props2.id);
-    if ("typeVal" in $$props2)
-      $$invalidate(10, typeVal = $$props2.typeVal);
-    if ("nameVal" in $$props2)
-      $$invalidate(0, nameVal = $$props2.nameVal);
-    if ("valueVal" in $$props2)
-      $$invalidate(1, valueVal = $$props2.valueVal);
+    if ("isFirst" in $$props2) $$invalidate(2, isFirst = $$props2.isFirst);
+    if ("removeInput" in $$props2) $$invalidate(3, removeInput = $$props2.removeInput);
+    if ("id" in $$props2) $$invalidate(4, id = $$props2.id);
+    if ("typeVal" in $$props2) $$invalidate(10, typeVal = $$props2.typeVal);
+    if ("nameVal" in $$props2) $$invalidate(0, nameVal = $$props2.nameVal);
+    if ("valueVal" in $$props2) $$invalidate(1, valueVal = $$props2.valueVal);
   };
   return [
     nameVal,
@@ -1394,9 +1379,9 @@ function add_css2(target) {
 }
 function get_each_context2(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[22] = list[i];
-  child_ctx[23] = list;
-  child_ctx[24] = i;
+  child_ctx[23] = list[i];
+  child_ctx[24] = list;
+  child_ctx[25] = i;
   return child_ctx;
 }
 function create_each_block2(key_1, ctx) {
@@ -1404,33 +1389,37 @@ function create_each_block2(key_1, ctx) {
   let propinput;
   let updating_typeVal;
   let updating_nameVal;
+  let updating_valueVal;
   let current;
   function propinput_typeVal_binding(value) {
     ctx[15](
       value,
       /*input*/
-      ctx[22]
+      ctx[23]
     );
   }
   function propinput_nameVal_binding(value) {
     ctx[16](
       value,
       /*input*/
-      ctx[22]
+      ctx[23]
+    );
+  }
+  function propinput_valueVal_binding(value) {
+    ctx[17](
+      value,
+      /*input*/
+      ctx[23]
     );
   }
   let propinput_props = {
     isFirst: (
       /*input*/
-      ctx[22].isFirst
+      ctx[23].isFirst
     ),
     id: (
       /*input*/
-      ctx[22].id
-    ),
-    valueVal: (
-      /*input*/
-      ctx[22].valueDef
+      ctx[23].id
     ),
     removeInput: (
       /*removeInput*/
@@ -1439,21 +1428,29 @@ function create_each_block2(key_1, ctx) {
   };
   if (
     /*input*/
-    ctx[22].typeDef !== void 0
+    ctx[23].typeDef !== void 0
   ) {
     propinput_props.typeVal = /*input*/
-    ctx[22].typeDef;
+    ctx[23].typeDef;
   }
   if (
     /*input*/
-    ctx[22].nameDef !== void 0
+    ctx[23].nameDef !== void 0
   ) {
     propinput_props.nameVal = /*input*/
-    ctx[22].nameDef;
+    ctx[23].nameDef;
+  }
+  if (
+    /*input*/
+    ctx[23].valueDef !== void 0
+  ) {
+    propinput_props.valueVal = /*input*/
+    ctx[23].valueDef;
   }
   propinput = new AddPropInput_default({ props: propinput_props });
   binding_callbacks.push(() => bind(propinput, "typeVal", propinput_typeVal_binding));
   binding_callbacks.push(() => bind(propinput, "nameVal", propinput_nameVal_binding));
+  binding_callbacks.push(() => bind(propinput, "valueVal", propinput_valueVal_binding));
   return {
     key: key_1,
     first: null,
@@ -1471,36 +1468,36 @@ function create_each_block2(key_1, ctx) {
       ctx = new_ctx;
       const propinput_changes = {};
       if (dirty & /*inputEls*/
-      32)
-        propinput_changes.isFirst = /*input*/
-        ctx[22].isFirst;
+      32) propinput_changes.isFirst = /*input*/
+      ctx[23].isFirst;
       if (dirty & /*inputEls*/
-      32)
-        propinput_changes.id = /*input*/
-        ctx[22].id;
-      if (dirty & /*inputEls*/
-      32)
-        propinput_changes.valueVal = /*input*/
-        ctx[22].valueDef;
+      32) propinput_changes.id = /*input*/
+      ctx[23].id;
       if (!updating_typeVal && dirty & /*inputEls*/
       32) {
         updating_typeVal = true;
         propinput_changes.typeVal = /*input*/
-        ctx[22].typeDef;
+        ctx[23].typeDef;
         add_flush_callback(() => updating_typeVal = false);
       }
       if (!updating_nameVal && dirty & /*inputEls*/
       32) {
         updating_nameVal = true;
         propinput_changes.nameVal = /*input*/
-        ctx[22].nameDef;
+        ctx[23].nameDef;
         add_flush_callback(() => updating_nameVal = false);
+      }
+      if (!updating_valueVal && dirty & /*inputEls*/
+      32) {
+        updating_valueVal = true;
+        propinput_changes.valueVal = /*input*/
+        ctx[23].valueDef;
+        add_flush_callback(() => updating_valueVal = false);
       }
       propinput.$set(propinput_changes);
     },
     i(local) {
-      if (current)
-        return;
+      if (current) return;
       transition_in(propinput.$$.fragment, local);
       current = true;
     },
@@ -1557,7 +1554,7 @@ function create_fragment2(ctx) {
   );
   const get_key = (ctx2) => (
     /*input*/
-    ctx2[22].id
+    ctx2[23].id
   );
   for (let i = 0; i < each_value.length; i += 1) {
     let child_ctx = get_each_context2(ctx, each_value, i);
@@ -1658,7 +1655,7 @@ function create_fragment2(ctx) {
       append(form, t16);
       append(form, div5);
       append(div5, button);
-      ctx[18](form);
+      ctx[19](form);
       current = true;
       if (!mounted) {
         dispose = [
@@ -1672,7 +1669,7 @@ function create_fragment2(ctx) {
             a,
             "click",
             /*click_handler*/
-            ctx[17]
+            ctx[18]
           ),
           listen(
             button,
@@ -1690,19 +1687,17 @@ function create_fragment2(ctx) {
     },
     p(ctx2, [dirty]) {
       if (!current || dirty & /*alertText*/
-      16)
-        set_data(
-          t2,
-          /*alertText*/
-          ctx2[4]
-        );
+      16) set_data(
+        t2,
+        /*alertText*/
+        ctx2[4]
+      );
       if (!current || dirty & /*delimiter*/
-      2)
-        set_data(
-          t7,
-          /*delimiter*/
-          ctx2[1]
-        );
+      2) set_data(
+        t7,
+        /*delimiter*/
+        ctx2[1]
+      );
       if (!current || dirty & /*overwrite*/
       1) {
         input_1.checked = /*overwrite*/
@@ -1720,8 +1715,7 @@ function create_fragment2(ctx) {
       }
     },
     i(local) {
-      if (current)
-        return;
+      if (current) return;
       for (let i = 0; i < each_value.length; i += 1) {
         transition_in(each_blocks[i]);
       }
@@ -1741,7 +1735,7 @@ function create_fragment2(ctx) {
       for (let i = 0; i < each_blocks.length; i += 1) {
         each_blocks[i].d();
       }
-      ctx[18](null);
+      ctx[19](null);
       mounted = false;
       run_all(dispose);
     }
@@ -1784,19 +1778,15 @@ function instance2($$self, $$props, $$invalidate) {
       $$invalidate(5, inputEls = inputEls.filter((input) => input.id !== id));
       yield tick();
       let inputs = formEl.querySelectorAll("input");
-      if (!inputs)
-        return;
+      if (!inputs) return;
       inputs[inputs.length - 2].focus();
     });
   }
   function checkDuplicateNames() {
     let set = /* @__PURE__ */ new Set();
-    for (let input of inputEls)
-      set.add(input.nameDef);
-    if (set.size < inputEls.length)
-      return true;
-    else
-      return false;
+    for (let input of inputEls) set.add(input.nameDef);
+    if (set.size < inputEls.length) return true;
+    else return false;
   }
   function runError(errorText) {
     $$invalidate(4, alertText = errorText);
@@ -1810,12 +1800,9 @@ function instance2($$self, $$props, $$invalidate) {
     let obj = /* @__PURE__ */ new Map();
     let inputs = formEl.querySelectorAll('input[name^="name[]"]');
     inputs.forEach((input) => {
-      if (!(input.nextElementSibling instanceof HTMLInputElement))
-        return;
-      if (!(input.previousElementSibling instanceof HTMLSelectElement))
-        return;
-      if (!(input.previousElementSibling.children[0] instanceof HTMLOptionElement))
-        return;
+      if (!(input.nextElementSibling instanceof HTMLInputElement)) return;
+      if (!(input.previousElementSibling instanceof HTMLSelectElement)) return;
+      if (!(input.previousElementSibling.children[0] instanceof HTMLOptionElement)) return;
       let name = input.value;
       if (name === "") {
         input.reportValidity();
@@ -1831,8 +1818,7 @@ function instance2($$self, $$props, $$invalidate) {
           value = str.split(delimiter);
         }
       }
-      if (value === "")
-        value = null;
+      if (value === "") value = null;
       let inputType = input.previousElementSibling.children[0].innerText.toLowerCase();
       let propObj = {
         type: inputType,
@@ -1842,8 +1828,7 @@ function instance2($$self, $$props, $$invalidate) {
       };
       obj.set(name, propObj);
     });
-    if (obj.size < inputs.length)
-      return;
+    if (obj.size < inputs.length) return;
     console.log(obj);
     submission(obj);
   }
@@ -1868,6 +1853,12 @@ function instance2($$self, $$props, $$invalidate) {
       $$invalidate(5, inputEls);
     }
   }
+  function propinput_valueVal_binding(value, input) {
+    if ($$self.$$.not_equal(input.valueDef, value)) {
+      input.valueDef = value;
+      $$invalidate(5, inputEls);
+    }
+  }
   const click_handler = () => addInputs([{ type: "text", name: "", value: "" }]);
   function form_binding($$value) {
     binding_callbacks[$$value ? "unshift" : "push"](() => {
@@ -1876,16 +1867,11 @@ function instance2($$self, $$props, $$invalidate) {
     });
   }
   $$self.$$set = ($$props2) => {
-    if ("submission" in $$props2)
-      $$invalidate(10, submission = $$props2.submission);
-    if ("overwrite" in $$props2)
-      $$invalidate(0, overwrite = $$props2.overwrite);
-    if ("delimiter" in $$props2)
-      $$invalidate(1, delimiter = $$props2.delimiter);
-    if ("defaultProps" in $$props2)
-      $$invalidate(11, defaultProps = $$props2.defaultProps);
-    if ("changeBool" in $$props2)
-      $$invalidate(12, changeBool = $$props2.changeBool);
+    if ("submission" in $$props2) $$invalidate(10, submission = $$props2.submission);
+    if ("overwrite" in $$props2) $$invalidate(0, overwrite = $$props2.overwrite);
+    if ("delimiter" in $$props2) $$invalidate(1, delimiter = $$props2.delimiter);
+    if ("defaultProps" in $$props2) $$invalidate(11, defaultProps = $$props2.defaultProps);
+    if ("changeBool" in $$props2) $$invalidate(12, changeBool = $$props2.changeBool);
   };
   return [
     overwrite,
@@ -1905,6 +1891,7 @@ function instance2($$self, $$props, $$invalidate) {
     div2_binding,
     propinput_typeVal_binding,
     propinput_nameVal_binding,
+    propinput_valueVal_binding,
     click_handler,
     form_binding
   ];
@@ -1976,12 +1963,10 @@ function create_each_block3(ctx) {
     p(ctx2, dirty) {
       if (dirty & /*props*/
       1 && t0_value !== (t0_value = /*propName*/
-      ctx2[7] + ""))
-        set_data(t0, t0_value);
+      ctx2[7] + "")) set_data(t0, t0_value);
       if (dirty & /*props*/
       1 && t2_value !== (t2_value = /*prop*/
-      ctx2[8].data + ""))
-        set_data(t2, t2_value);
+      ctx2[8].data + "")) set_data(t2, t2_value);
     },
     d(detaching) {
       if (detaching) {
@@ -2066,15 +2051,13 @@ function create_fragment3(ctx) {
             if (is_function(
               /*cancel*/
               ctx[2]
-            ))
-              ctx[2].apply(this, arguments);
+            )) ctx[2].apply(this, arguments);
           }),
           listen(form, "submit", prevent_default(function() {
             if (is_function(
               /*submission*/
               ctx[1]
-            ))
-              ctx[1].apply(this, arguments);
+            )) ctx[1].apply(this, arguments);
           }))
         ];
         mounted = true;
@@ -2133,14 +2116,10 @@ function instance3($$self, $$props, $$invalidate) {
     });
   }
   $$self.$$set = ($$props2) => {
-    if ("props" in $$props2)
-      $$invalidate(0, props = $$props2.props);
-    if ("overwrite" in $$props2)
-      $$invalidate(5, overwrite = $$props2.overwrite);
-    if ("submission" in $$props2)
-      $$invalidate(1, submission = $$props2.submission);
-    if ("cancel" in $$props2)
-      $$invalidate(2, cancel = $$props2.cancel);
+    if ("props" in $$props2) $$invalidate(0, props = $$props2.props);
+    if ("overwrite" in $$props2) $$invalidate(5, overwrite = $$props2.overwrite);
+    if ("submission" in $$props2) $$invalidate(1, submission = $$props2.submission);
+    if ("cancel" in $$props2) $$invalidate(2, cancel = $$props2.cancel);
   };
   return [props, submission, cancel, btnCancel, msg, overwrite, button1_binding];
 }
@@ -2382,8 +2361,7 @@ function create_each_block4(ctx) {
       }
       if (dirty & /*inputs*/
       8 && t1_value !== (t1_value = /*input*/
-      ctx[14].name + ""))
-        set_data(t1, t1_value);
+      ctx[14].name + "")) set_data(t1, t1_value);
     },
     d(detaching) {
       if (detaching) {
@@ -2509,12 +2487,11 @@ function create_fragment4(ctx) {
     },
     p(ctx2, [dirty]) {
       if (dirty & /*alertText*/
-      4)
-        set_data(
-          t2,
-          /*alertText*/
-          ctx2[2]
-        );
+      4) set_data(
+        t2,
+        /*alertText*/
+        ctx2[2]
+      );
       if (dirty & /*inputs, onCheckboxChange*/
       24) {
         each_value = ensure_array_like(
@@ -2539,8 +2516,7 @@ function create_fragment4(ctx) {
       }
       if (dirty & /*isMaxChecked*/
       1 && t9_value !== (t9_value = /*isMaxChecked*/
-      ctx2[0] ? "Uncheck All" : "Check All"))
-        set_data(t9, t9_value);
+      ctx2[0] ? "Uncheck All" : "Check All")) set_data(t9, t9_value);
     },
     i: noop,
     o: noop,
@@ -2605,21 +2581,17 @@ function instance4($$self, $$props, $$invalidate) {
   }
   const change_handler = (event) => onCheckboxChange(event);
   $$self.$$set = ($$props2) => {
-    if ("names" in $$props2)
-      $$invalidate(7, names = $$props2.names);
-    if ("submission" in $$props2)
-      $$invalidate(8, submission = $$props2.submission);
+    if ("names" in $$props2) $$invalidate(7, names = $$props2.names);
+    if ("submission" in $$props2) $$invalidate(8, submission = $$props2.submission);
   };
   $$self.$$.update = () => {
     if ($$self.$$.dirty & /*checkCount, names*/
     640) {
-      $:
-        $$invalidate(0, isMaxChecked = checkCount >= names.length);
+      $: $$invalidate(0, isMaxChecked = checkCount >= names.length);
     }
     if ($$self.$$.dirty & /*isMaxChecked*/
     1) {
-      $:
-        console.log(isMaxChecked);
+      $: console.log(isMaxChecked);
     }
   };
   return [
@@ -2678,8 +2650,7 @@ function create_each_block5(ctx) {
     p(ctx2, dirty) {
       if (dirty & /*names*/
       1 && t0_value !== (t0_value = /*name*/
-      ctx2[6] + ""))
-        set_data(t0, t0_value);
+      ctx2[6] + "")) set_data(t0, t0_value);
     },
     d(detaching) {
       if (detaching) {
@@ -2758,15 +2729,13 @@ function create_fragment5(ctx) {
             if (is_function(
               /*cancel*/
               ctx[2]
-            ))
-              ctx[2].apply(this, arguments);
+            )) ctx[2].apply(this, arguments);
           }),
           listen(form, "submit", prevent_default(function() {
             if (is_function(
               /*submission*/
               ctx[1]
-            ))
-              ctx[1].apply(this, arguments);
+            )) ctx[1].apply(this, arguments);
           }))
         ];
         mounted = true;
@@ -2826,12 +2795,9 @@ function instance5($$self, $$props, $$invalidate) {
     });
   }
   $$self.$$set = ($$props2) => {
-    if ("names" in $$props2)
-      $$invalidate(0, names = $$props2.names);
-    if ("submission" in $$props2)
-      $$invalidate(1, submission = $$props2.submission);
-    if ("cancel" in $$props2)
-      $$invalidate(2, cancel = $$props2.cancel);
+    if ("names" in $$props2) $$invalidate(0, names = $$props2.names);
+    if ("submission" in $$props2) $$invalidate(1, submission = $$props2.submission);
+    if ("cancel" in $$props2) $$invalidate(2, cancel = $$props2.cancel);
   };
   return [names, submission, cancel, btnCancel, word, button1_binding];
 }
@@ -2917,7 +2883,10 @@ function addProperties(app, file, props, overwrite) {
   let propCache = app.metadataCache.getAllPropertyInfos();
   app.fileManager.processFrontMatter(file, (frontmatter) => {
     for (const [key, value] of props) {
-      console.log(value);
+      if (key === "tags" && !frontmatter.hasOwnProperty("tags") && !Array.isArray(value.data)) {
+        frontmatter[key] = [value.data];
+        continue;
+      }
       if (!frontmatter[key] || overwrite) {
         frontmatter[key] = value.data;
         continue;
@@ -2925,10 +2894,8 @@ function addProperties(app, file, props, overwrite) {
       let type1 = value.type;
       let type2 = propCache[key.toLowerCase()].type;
       if (canBeAppended(type1, type2)) {
-        if (frontmatter[key] === value.data)
-          continue;
-        if (!value.data)
-          continue;
+        if (frontmatter[key] === value.data) continue;
+        if (!value.data) continue;
         let arr = mergeIntoArrays(frontmatter[key], value.data);
         frontmatter[key] = arr;
         continue;
@@ -2957,8 +2924,7 @@ function removeProperties(app, file, props) {
 }
 function canBeAppended(str1, str2) {
   let arr = ["number", "date", "datetime", "checkbox"];
-  if (arr.includes(str1) || arr.includes(str2))
-    return false;
+  if (arr.includes(str1) || arr.includes(str2)) return false;
   return true;
 }
 function mergeIntoArrays(...args) {
@@ -3119,8 +3085,7 @@ var MultiPropPlugin = class extends import_obsidian6.Plugin {
           `${this.settings.defaultPropPath}.md`
         );
         let tmp = this.readYamlProperties(file);
-        if (tmp === void 0)
-          throw Error("Undefined path.");
+        if (tmp === void 0) throw Error("Undefined path.");
         defaultProps = tmp;
       } catch (e) {
         new import_obsidian6.Notice(

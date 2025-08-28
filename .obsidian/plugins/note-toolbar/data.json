@@ -10,7 +10,7 @@
   "folderMappings": [
     {
       "folder": "*",
-      "toolbar": "46da96a4-76b7-4736-ae56-f18d663244dd"
+      "toolbar": "9813b039-9139-4564-b81f-9d64c26f9679"
     }
   ],
   "icon": "circle-ellipsis",
@@ -32,7 +32,7 @@
     "kanban": true
   },
   "showToolbarInFileMenu": true,
-  "showToolbarInOther": "graph notes-explorer card-browser-view mx-url-video task-genius-view webviewer",
+  "showToolbarInOther": "graph notes-explorer card-browser-view mx-url-video mx-file-video task-genius-view webviewer",
   "toolbarProp": "notetoolbar",
   "toolbars": [
     {
@@ -40,8 +40,9 @@
       "customClasses": "",
       "defaultStyles": [
         "even",
-        "sticky",
-        "wide"
+        "wide",
+        "tab",
+        "center"
       ],
       "items": [
         {
@@ -50,14 +51,55 @@
           "icon": "lucide-search-slash",
           "inGallery": false,
           "label": "",
-          "link": "Note Toolbar: Open: Ave's Tools",
+          "link": "Note Toolbar: Quick toolbars",
           "linkAttr": {
             "commandCheck": false,
-            "commandId": "note-toolbar:open-toolbar-46da96a4-76b7-4736-ae56-f18d663244dd",
+            "commandId": "note-toolbar:open-toolbar-suggester",
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Open Toolbar Menu (Note Toolbar) (Ctrl + M)",
+          "tooltip": "Switch Between Toolbars (Note Toolbar) (Ctrl + M)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "00cdabcf-f27b-4f23-bbdd-1068856fb715",
+          "hasCommand": false,
+          "icon": "lucide-search-slash",
+          "inGallery": false,
+          "label": "",
+          "link": "Note Toolbar: Toolbar settings",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "note-toolbar:open-toolbar-settings",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Edit Toolbar Menu (Note Toolbar) (Ctrl + Alt + M)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -178,6 +220,47 @@
             "type": "command"
           },
           "tooltip": "Open Command Palette (Ctrl + P)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "3642320e-3539-4510-8f2f-20a40c0162f9",
+          "hasCommand": false,
+          "icon": "lucide-blocks",
+          "inGallery": false,
+          "label": "",
+          "link": "Notes Explorer: Open in main window",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "notes-explorer:view-in-main-window",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open main window to show all notes (Notes Explorer)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -452,14 +535,55 @@
           "icon": "lucide-check-square-2",
           "inGallery": false,
           "label": "",
-          "link": "Task Genius: Quick capture (Global)",
+          "link": "Task Genius: Toggle quick capture panel in editor (Globally)",
           "linkAttr": {
             "commandCheck": false,
-            "commandId": "obsidian-task-progress-bar:global-quick-capture",
+            "commandId": "obsidian-task-progress-bar:toggle-quick-capture-globally",
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Quickly Capture Checkbox (Task Genius) (Ctrl + B)",
+          "tooltip": "Quickly Capture Checkbox in Editor (Task Genius) (Ctrl + B)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "878e1cb7-29da-40f6-b651-364f301bc34b",
+          "hasCommand": false,
+          "icon": "lucide-check-square-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Task Genius: Quick Capture",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "obsidian-task-progress-bar:quick-capture",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Quickly Capture Checkbox (Task Genius) (Ctrl + Shift + B)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -971,46 +1095,6 @@
           }
         },
         {
-          "uuid": "b031eab9-bae7-42e3-b3cb-2b97262ad3e2",
-          "hasCommand": false,
-          "icon": "lucide-file-symlink",
-          "inGallery": false,
-          "label": "",
-          "link": "PDF++: Copy link to selection or annotation",
-          "linkAttr": {
-            "commandId": "pdf-plus:copy-link-to-selection",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Copy link to selection (PDF++) (Ctrl + Shift + K)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
-        },
-        {
           "uuid": "88c97415-3df8-445f-bda0-4b20b2eea261",
           "hasCommand": false,
           "icon": "lucide-table-properties",
@@ -1258,7 +1342,7 @@
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Place Fileinto Canvas (Canvas Explorer)",
+          "tooltip": "Place File into Canvas (Canvas Explorer)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -2192,7 +2276,7 @@
         }
       ],
       "mobileStyles": [],
-      "name": "Ave's Tools",
+      "name": "Keyboard's Tools (Legacy)",
       "position": {
         "desktop": {
           "allViews": {
@@ -2210,8 +2294,2855 @@
           }
         }
       },
-      "updated": "2025-07-11T02:17:37.642Z",
+      "updated": "2025-08-28T04:58:09.743Z",
       "hasCommand": true
+    },
+    {
+      "uuid": "8cf4f756-66a8-49bd-ac43-f898dc341ddc",
+      "customClasses": "",
+      "defaultStyles": [
+        "even",
+        "wide",
+        "tab",
+        "center"
+      ],
+      "hasCommand": false,
+      "items": [
+        {
+          "uuid": "b4576e43-573f-4cf0-88c1-cc666e28385f",
+          "hasCommand": false,
+          "icon": "lucide-search-slash",
+          "inGallery": false,
+          "label": "",
+          "link": "Note Toolbar: Toolbar settings",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "note-toolbar:open-toolbar-settings",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Edit Toolbar Menu (Note Toolbar) (Ctrl + Alt + M)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "d23e7bbb-1e57-4316-86a0-3db0cd2df4c9",
+          "hasCommand": false,
+          "icon": "lucide-folder-search-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Notes Explorer: Open in main window",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "notes-explorer:view-in-main-window",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Main Window (Notes Explorer) (Alt + Shift + P)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "ac88ca5a-69c2-4955-bbf0-f66fe1ed1758",
+          "label": "",
+          "icon": "lucide-text-search",
+          "link": "Project Browser: Open",
+          "linkAttr": {
+            "commandId": "project-browser:open-project-browser",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Vault Menu (Project Browser) (Ctrl + Alt + P)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "dc29182b-4236-4bf0-9248-aab70c6d0cf1",
+          "hasCommand": false,
+          "icon": "lucide-terminal",
+          "inGallery": false,
+          "label": "",
+          "link": "Command palette: Open command palette",
+          "linkAttr": {
+            "commandId": "command-palette:open",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Command Palette (Ctrl + P)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "f8ec57e3-813b-4aa6-8d05-e8f0f2db3174",
+          "hasCommand": false,
+          "icon": "lucide-blocks",
+          "inGallery": false,
+          "label": "",
+          "link": "Notes Explorer: Open in main window",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "notes-explorer:view-in-main-window",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open main window to show all notes (Notes Explorer)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "978cbe51-a21e-4f68-8de4-be2c0cd340bd",
+          "hasCommand": false,
+          "icon": "lucide-file-search",
+          "inGallery": false,
+          "label": "",
+          "link": "Search: Search in all files",
+          "linkAttr": {
+            "commandId": "global-search:open",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Search Panel (Alt + F)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "61c69a09-1e14-4bb1-99df-c7c3b03ba1e7",
+          "hasCommand": false,
+          "icon": "lucide-file-search",
+          "inGallery": false,
+          "label": "",
+          "link": "Quick switcher: Open quick switcher",
+          "linkAttr": {
+            "commandId": "switcher:open",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Quick Switcher (Quick switcher) (Ctrl + Alt + Q)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "0b43baad-c1c7-4bdf-83cd-ea3cb0f113d2",
+          "hasCommand": false,
+          "icon": "lucide-file-edit",
+          "inGallery": false,
+          "label": "",
+          "link": "Create new note",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "file-explorer:new-file",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Create New Note (Ctrl + N)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "42ce59fc-ab04-460e-a2ed-3def2064e5c8",
+          "label": "",
+          "icon": "lucide-check-circle-2",
+          "link": "Cycle bullet/checkbox",
+          "linkAttr": {
+            "commandId": "editor:cycle-list-checklist",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Add Bullet Point or Checkbox (Alt + A)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "d09df1da-0b92-47e1-9586-efe35b0db995",
+          "hasCommand": false,
+          "icon": "lucide-check-square-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Toggle checkbox status",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "editor:toggle-checklist-status",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Toggle checkbox status (Alt + S)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "1d6c5706-45aa-4214-a847-f6defc07077e",
+          "hasCommand": false,
+          "icon": "lucide-check-square-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Task Genius: Toggle quick capture panel in editor (Globally)",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "obsidian-task-progress-bar:toggle-quick-capture-globally",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Quickly Capture Checkbox in Editor (Task Genius) (Ctrl + B)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "16f76ce8-1967-48d6-af67-3c741ba6d8f5",
+          "hasCommand": false,
+          "icon": "lucide-check-square-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Task Genius: Quick Capture",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "obsidian-task-progress-bar:quick-capture",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Quickly Capture Checkbox (Task Genius) (Ctrl + Shift + B)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "3e1beebc-d6c3-4b04-b17e-289735c42fe7",
+          "hasCommand": false,
+          "icon": "lucide-check-square-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Task Genius: Move task to another file",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "obsidian-task-progress-bar:move-task-to-file",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Move List of Tasks to Note (Task Genius) (Alt + B)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "f5e05d64-853f-4ccf-a3ea-8f442a25c225",
+          "hasCommand": false,
+          "icon": "lucide-check-square-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Task Genius: Open Task Genius view",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "obsidian-task-progress-bar:open-task-genius-view",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Task Genius View (Task Genius) (Ctrl + Shift + B)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "7527652e-0fe6-464d-beba-99745293d5b7",
+          "label": "",
+          "icon": "lucide-feather",
+          "link": "Natural Language Dates: Insert the current date and time",
+          "linkAttr": {
+            "commandId": "nldates-obsidian:nlp-now",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Write a Diary Entry or Timestamp a Note and/or Card (Alt + W)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "7710c983-3d0b-4f42-91b4-f4665beab08b",
+          "label": "",
+          "icon": "lucide-link-2",
+          "link": "Carry-Forward: Copy link to line (default link text)",
+          "linkAttr": {
+            "commandId": "obsidian-carry-forward:carry-line-forward-link-only",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Create and Carry Link anywhere (Carry-Forward) (Alt + E)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "86fad114-dec1-4c82-99bc-b1edbc99d27f",
+          "hasCommand": false,
+          "icon": "lucide-link-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Create List of Notes: List files and folders",
+          "linkAttr": {
+            "commandId": "create-note-list:create-note-list-files-folders",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Link every note (and folder) (Create List of Notes) (Ctrl + L)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "bb951080-eca7-4d12-b169-e230ddfe7159",
+          "hasCommand": false,
+          "icon": "lucide-link-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Folder notes: Insert folder overview",
+          "linkAttr": {
+            "commandId": "folder-notes:insert-folder-overview",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Link both Notes and Media Files (Folder Notes) (Ctrl + Alt + L)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "d91b4057-342b-4527-8ac3-6f7206d2e64a",
+          "label": "",
+          "icon": "lucide-folder-edit",
+          "link": "Folder notes: Create folder note with a new folder for the active note in the current folder",
+          "linkAttr": {
+            "commandId": "folder-notes:create-folder-note",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Turn into folder note (Folder notes) (Alt + D)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "0deff326-5579-4685-939d-10089985ae7d",
+          "hasCommand": false,
+          "icon": "lucide-folder-pen",
+          "inGallery": false,
+          "label": "",
+          "link": "Folder notes: Create markdown folder note for current folder of active note",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "folder-notes:create-folder-note-for-current-folder",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Create Note for Folder Note (Folder Note) (Ctrl + D)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "58e3b665-6589-4291-92ed-7559b19381ae",
+          "label": "",
+          "icon": "lucide-layout-dashboard",
+          "link": "Link Exploder: Create Canvas From File Links",
+          "linkAttr": {
+            "commandId": "link-exploder:link-exploder-canvas-builder",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Turn Note into Canvas (Link Exploder) (Ctrl + Alt + E)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "a2d0d8c3-1a29-4135-a7f2-1602c1d2baef",
+          "label": "",
+          "icon": "lucide-layout-dashboard",
+          "link": "Canvas Explorer: Add Note",
+          "linkAttr": {
+            "commandId": "canvas-explorer:add-note",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Place File into Canvas (Canvas Explorer)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "da6376b4-6be8-41f8-bfb6-e49184a17bfc",
+          "label": "",
+          "icon": "lucide-file-plus",
+          "link": "Note Refactor: Extract selection to new note - first line as file name",
+          "linkAttr": {
+            "commandId": "note-refactor-obsidian:app:extract-selection-first-line",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Turn a Bullet Point into a Note (Note Refactor) (Ctrl + Alt + A)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "d1b836fb-ab35-4501-b1f0-c0a830f4bf5c",
+          "label": "",
+          "icon": "lucide-file-up",
+          "link": "Move current file to another folder",
+          "linkAttr": {
+            "commandId": "file-explorer:move-file",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Move Note to (Move current file to another folder) (Ctrl + Q)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "6b609f0f-77f6-4bc9-a4eb-3cd6460ba609",
+          "label": "",
+          "icon": "lucide-notepad-text",
+          "link": "Paste Link: Paste URL as plain text",
+          "linkAttr": {
+            "commandId": "paste-link:paste-as-plain-text",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Paste URL without naming (Paste Link) (Alt + P)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "31da60a4-c539-4de6-ad26-0a5c78f5c7d9",
+          "label": "",
+          "icon": "lucide-book-marked",
+          "link": "PDF++: Create dummy file for external PDF",
+          "linkAttr": {
+            "commandId": "pdf-plus:create-dummy",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "PDF Opener (Alt + K)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "232859ef-aead-481b-88a6-0093a540c3a3",
+          "label": "",
+          "icon": "lucide-file-down",
+          "link": "Local File Interface: Import local files",
+          "linkAttr": {
+            "commandId": "obsidian-local-file-interface-plugin:local-file-interface-import",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Import Files (Local File Interface) (Alt + Shift + K)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "f237a653-3eb2-4d6e-8c1b-b6660e429cf7",
+          "hasCommand": false,
+          "icon": "lucide-wallpaper",
+          "inGallery": false,
+          "label": "",
+          "link": "Change theme",
+          "linkAttr": {
+            "commandId": "theme:switch",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Change Vault Theme (Ctrl + Shift + O)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "eff83ba0-a5c3-451e-8357-5e4dea47b51c",
+          "hasCommand": false,
+          "icon": "lucide-wrench",
+          "inGallery": false,
+          "label": "",
+          "link": "Open settings",
+          "linkAttr": {
+            "commandId": "app:open-settings",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Settings Page (Ctrl + ,)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "2e9f674e-ac6a-41e4-bd7f-3e3a4cce2e9b",
+          "label": "",
+          "icon": "open-vault",
+          "link": "Quick Switcher++: Open in Vaults Mode",
+          "linkAttr": {
+            "commandId": "darlal-switcher-plus:switcher-plus:open-vaults",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Switch between one Vault to another (Ctrl + Alt + O)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        }
+      ],
+      "mobileStyles": [],
+      "name": "Keyboard's Tools (Simplified Mobile)",
+      "position": {
+        "desktop": {
+          "allViews": {
+            "position": "top"
+          }
+        },
+        "mobile": {
+          "allViews": {
+            "position": "top"
+          }
+        },
+        "tablet": {
+          "allViews": {
+            "position": "top"
+          }
+        }
+      },
+      "updated": "2025-08-28T04:57:17.873Z"
+    },
+    {
+      "uuid": "9813b039-9139-4564-b81f-9d64c26f9679",
+      "customClasses": "",
+      "defaultStyles": [
+        "even",
+        "wide",
+        "tab",
+        "center"
+      ],
+      "hasCommand": false,
+      "items": [
+        {
+          "uuid": "5549adf9-643a-4a4c-aaf6-e8be66ae5b23",
+          "hasCommand": false,
+          "icon": "lucide-search-slash",
+          "inGallery": false,
+          "label": "",
+          "link": "Note Toolbar: Quick toolbars",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "note-toolbar:open-toolbar-suggester",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Switch between Toolbars (Note Toolbar) (Ctrl + M)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "8eb59663-28a8-4b31-ad0b-a35567a4f643",
+          "hasCommand": false,
+          "icon": "lucide-search-slash",
+          "inGallery": false,
+          "label": "",
+          "link": "Note Toolbar: Toolbar settings",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "note-toolbar:open-toolbar-settings",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Edit Toolbar Menu (Note Toolbar) (Ctrl + Alt + M)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "8428a915-9c06-4c56-a3e9-46d22e4b165f",
+          "hasCommand": false,
+          "icon": "lucide-folder-search-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Notes Explorer: Open in main window",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "notes-explorer:view-in-main-window",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Main Window (Notes Explorer) (Alt + Shift + P)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "508374fa-a4fd-498e-b09e-e80e105cb9bc",
+          "label": "",
+          "icon": "lucide-text-search",
+          "link": "Project Browser: Open",
+          "linkAttr": {
+            "commandId": "project-browser:open-project-browser",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Vault Menu (Project Browser) (Ctrl + Alt + P)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "e58e5ffd-de35-4a8d-bbe8-997be53f21fe",
+          "hasCommand": false,
+          "icon": "lucide-terminal",
+          "inGallery": false,
+          "label": "",
+          "link": "Command palette: Open command palette",
+          "linkAttr": {
+            "commandId": "command-palette:open",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Command Palette (Ctrl + P)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "7b8d4ba5-c07b-4296-b9a2-49b01e722957",
+          "hasCommand": false,
+          "icon": "lucide-blocks",
+          "inGallery": false,
+          "label": "",
+          "link": "Notes Explorer: Open in main window",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "notes-explorer:view-in-main-window",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open main window to show all notes (Notes Explorer)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "8180ebfa-2380-4cc8-92f1-46b580779bd6",
+          "hasCommand": false,
+          "icon": "lucide-file-search",
+          "inGallery": false,
+          "label": "",
+          "link": "Search: Search in all files",
+          "linkAttr": {
+            "commandId": "global-search:open",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Search Panel (Alt + F)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "f3dc6840-754c-476d-8361-d52fa4ea0685",
+          "hasCommand": false,
+          "icon": "lucide-file-search",
+          "inGallery": false,
+          "label": "",
+          "link": "Quick switcher: Open quick switcher",
+          "linkAttr": {
+            "commandId": "switcher:open",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Quick Switcher (Quick switcher) (Ctrl + Alt + Q)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "27c325a5-e7fc-4279-8422-580dd1580db2",
+          "hasCommand": false,
+          "icon": "lucide-file-edit",
+          "inGallery": false,
+          "label": "",
+          "link": "Create new note",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "file-explorer:new-file",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Create New Note (Ctrl + N)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "4f4d251f-00a7-40c7-a53e-7896b4b7205e",
+          "label": "",
+          "icon": "lucide-check-circle-2",
+          "link": "Cycle bullet/checkbox",
+          "linkAttr": {
+            "commandId": "editor:cycle-list-checklist",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Add Bullet Point or Checkbox (Alt + A)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "9ad645f1-fc2a-43a1-b386-872a48314569",
+          "hasCommand": false,
+          "icon": "lucide-check-square-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Toggle checkbox status",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "editor:toggle-checklist-status",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Toggle checkbox status (Alt + S)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "c11c69f9-48b4-451a-b9c0-b60a006840ec",
+          "hasCommand": false,
+          "icon": "lucide-check-square-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Task Genius: Toggle quick capture panel in editor (Globally)",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "obsidian-task-progress-bar:toggle-quick-capture-globally",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Quickly Capture Checkbox in Editor (Task Genius) (Ctrl + B)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "b9cc6d0a-b5bb-4041-a21b-fa1b224d9728",
+          "hasCommand": false,
+          "icon": "lucide-check-square-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Task Genius: Quick Capture",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "obsidian-task-progress-bar:quick-capture",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Quickly Capture Checkbox (Task Genius) (Ctrl + Shift + B)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "93de8239-49de-4b2e-94e9-36ad16488d32",
+          "hasCommand": false,
+          "icon": "lucide-check-square-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Task Genius: Move task to another file",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "obsidian-task-progress-bar:move-task-to-file",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Move List of Tasks to Note (Task Genius) (Alt + B)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "ac2cc235-0ca8-4dc9-b79c-fc8852fdee12",
+          "hasCommand": false,
+          "icon": "lucide-check-square-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Task Genius: Open Task Genius view",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "obsidian-task-progress-bar:open-task-genius-view",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Task Genius View (Task Genius) (Ctrl + Shift + B)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "a1c1eedc-3185-403d-8e45-3d2f869d95cf",
+          "label": "",
+          "icon": "lucide-feather",
+          "link": "Natural Language Dates: Insert the current date and time",
+          "linkAttr": {
+            "commandId": "nldates-obsidian:nlp-now",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Write a Diary Entry or Timestamp a Note and/or Card (Alt + W)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "06b98ab2-178a-47cb-9567-d0e4c4a44e64",
+          "label": "",
+          "icon": "lucide-link-2",
+          "link": "Carry-Forward: Copy link to line (default link text)",
+          "linkAttr": {
+            "commandId": "obsidian-carry-forward:carry-line-forward-link-only",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Create and Carry Link anywhere (Carry-Forward) (Alt + E)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "ad8f1257-ba8d-47cb-a8da-313179216329",
+          "hasCommand": false,
+          "icon": "lucide-link-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Create List of Notes: List files and folders",
+          "linkAttr": {
+            "commandId": "create-note-list:create-note-list-files-folders",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Link every note (and folder) (Create List of Notes) (Ctrl + L)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "3f12ffef-60f3-4d14-a6af-0558e9dff2c9",
+          "hasCommand": false,
+          "icon": "lucide-link-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Better File Link: Add File Link",
+          "linkAttr": {
+            "commandId": "obsidian-file-link:add-file-link",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Link Media File(s) (Better File Link) (Alt + L)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "05c180da-ed2f-4b7f-967a-8c6e682b7673",
+          "hasCommand": false,
+          "icon": "lucide-link-2",
+          "inGallery": false,
+          "label": "",
+          "link": "Folder notes: Insert folder overview",
+          "linkAttr": {
+            "commandId": "folder-notes:insert-folder-overview",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Link both Notes and Media Files (Folder Notes) (Ctrl + Alt + L)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "acbdf8b1-64f0-47dc-a5ef-c86e319fd029",
+          "label": "",
+          "icon": "lucide-folder-edit",
+          "link": "Folder notes: Create folder note with a new folder for the active note in the current folder",
+          "linkAttr": {
+            "commandId": "folder-notes:create-folder-note",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Turn into folder note (Folder notes) (Alt + D)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "c0e25b52-ff72-4d10-a75d-a724f5a9cdae",
+          "hasCommand": false,
+          "icon": "lucide-folder-pen",
+          "inGallery": false,
+          "label": "",
+          "link": "Folder notes: Create markdown folder note for current folder of active note",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "folder-notes:create-folder-note-for-current-folder",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Create Note for Folder Note (Folder Note) (Ctrl + D)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "d1cb339f-7985-41ab-991a-e6afeccf1b2e",
+          "label": "",
+          "icon": "lucide-layout-dashboard",
+          "link": "Link Exploder: Create Canvas From File Links",
+          "linkAttr": {
+            "commandId": "link-exploder:link-exploder-canvas-builder",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Turn Note into Canvas (Link Exploder) (Ctrl + Alt + E)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "2ad65a9d-eee7-473e-8267-17da93ebc101",
+          "label": "",
+          "icon": "lucide-layout-dashboard",
+          "link": "Canvas Explorer: Add Note",
+          "linkAttr": {
+            "commandId": "canvas-explorer:add-note",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Place File into Canvas (Canvas Explorer)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "a793720e-5fde-470d-b8b1-e3e2053d2120",
+          "label": "",
+          "icon": "lucide-file-plus",
+          "link": "Note Refactor: Extract selection to new note - first line as file name",
+          "linkAttr": {
+            "commandId": "note-refactor-obsidian:app:extract-selection-first-line",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Turn a Bullet Point into a Note (Note Refactor) (Ctrl + Alt + A)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "71945c3d-3ef7-488b-93cf-000e1811e0a5",
+          "label": "",
+          "icon": "lucide-file-up",
+          "link": "Move current file to another folder",
+          "linkAttr": {
+            "commandId": "file-explorer:move-file",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Move Note to (Move current file to another folder) (Ctrl + Q)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "bbac90af-6844-4363-a7ad-f235dfaa0785",
+          "label": "",
+          "icon": "lucide-notepad-text",
+          "link": "Paste Link: Paste URL as plain text",
+          "linkAttr": {
+            "commandId": "paste-link:paste-as-plain-text",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Paste URL without naming (Paste Link) (Alt + P)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "64e1bf1e-8684-4b59-872a-dfaa772d223c",
+          "label": "",
+          "icon": "lucide-file-video",
+          "link": "Media Extended: Open media",
+          "linkAttr": {
+            "commandId": "media-extended:open-media-switcher",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Video File (Media Extended) (Ctrl + K)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "7f1138e1-f735-4ac8-897b-7f27be30fb2f",
+          "label": "",
+          "icon": "lucide-app-window",
+          "link": "Web viewer: Open web viewer",
+          "linkAttr": {
+            "commandId": "webviewer:open",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open the Web (Web Viewer) (Ctrl + J)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "2d37b597-2428-4f91-a77a-ca1705d1a157",
+          "hasCommand": false,
+          "icon": "lucide-search",
+          "inGallery": false,
+          "label": "",
+          "link": "Web viewer: Search the web",
+          "linkAttr": {
+            "commandId": "webviewer:search",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": " Search the web (Web Viewer) (Ctrl + J)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "a47f3955-569c-468d-b46b-731d9eba24c2",
+          "label": "",
+          "icon": "lucide-book-marked",
+          "link": "PDF++: Create dummy file for external PDF",
+          "linkAttr": {
+            "commandId": "pdf-plus:create-dummy",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "PDF Opener (Alt + K)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "1b025049-e00f-49a7-9f76-5e2018620b90",
+          "label": "",
+          "icon": "lucide-timer",
+          "link": "Media Extended: Take timestamp",
+          "linkAttr": {
+            "commandId": "media-extended:take-timestamp",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Timestamp (Media Extended) (Ctrl + S)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "fbb7e71f-8259-4c4b-8260-18f449428396",
+          "label": "",
+          "icon": "lucide-camera",
+          "link": "Media Extended: Save screenshot in media note",
+          "linkAttr": {
+            "commandId": "media-extended:save-screenshot-media-note",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Screenshot a part of a video (Media Extended) (Alt + Shift + S)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "be4329b3-e157-4d20-8807-6f465ee8dbcd",
+          "label": "",
+          "icon": "lucide-file-down",
+          "link": "Local File Interface: Import local files",
+          "linkAttr": {
+            "commandId": "obsidian-local-file-interface-plugin:local-file-interface-import",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Import Files (Local File Interface) (Alt + Shift + K)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "fd698b02-a8cc-4ec5-8930-2bb51aad436a",
+          "hasCommand": false,
+          "icon": "lucide-wallpaper",
+          "inGallery": false,
+          "label": "",
+          "link": "Change theme",
+          "linkAttr": {
+            "commandId": "theme:switch",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Change Vault Theme (Ctrl + Shift + O)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "58229b93-5d70-4df6-9593-6cebd5649c86",
+          "hasCommand": false,
+          "icon": "lucide-wrench",
+          "inGallery": false,
+          "label": "",
+          "link": "Open settings",
+          "linkAttr": {
+            "commandId": "app:open-settings",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Open Settings Page (Ctrl + ,)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "afff1cbc-5bbc-4a83-b3ce-3d8cf942b2c1",
+          "label": "",
+          "icon": "open-vault",
+          "link": "Quick Switcher++: Open in Vaults Mode",
+          "linkAttr": {
+            "commandId": "darlal-switcher-plus:switcher-plus:open-vaults",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Switch between one Vault to another (Ctrl + Alt + O)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "1bd879da-7a10-4fa0-9e23-3766114c2692",
+          "label": "",
+          "icon": "open-vault",
+          "link": "Tray: Relaunch Obsidian",
+          "linkAttr": {
+            "commandId": "tray:relaunch-app",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Relaunch Vault (Alt + O)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "60e3b0c7-4873-4b8f-b132-76068891bf0d",
+          "label": "",
+          "icon": "vault",
+          "link": "Tray: Close Vault",
+          "linkAttr": {
+            "commandId": "tray:close-vault",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Close Vault (Ctrl + O)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        }
+      ],
+      "mobileStyles": [],
+      "name": "Keyboard's Tools (Simplified)",
+      "position": {
+        "desktop": {
+          "allViews": {
+            "position": "top"
+          }
+        },
+        "mobile": {
+          "allViews": {
+            "position": "top"
+          }
+        },
+        "tablet": {
+          "allViews": {
+            "position": "top"
+          }
+        }
+      },
+      "updated": "2025-08-28T04:55:26.645Z"
     }
   ],
   "version": 20250313.1,

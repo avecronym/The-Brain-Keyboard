@@ -230,6 +230,11 @@ var ExistingFolderNoteModal = class extends import_obsidian.Modal {
 // src/template.ts
 var import_obsidian2 = require("obsidian");
 async function applyTemplate(plugin, file, leaf, templatePath) {
+  const fileContent = await plugin.app.vault.read(file).catch((err) => {
+    console.error(`Error reading file ${file.path}:`, err);
+  });
+  if (fileContent !== "")
+    return;
   const templateFile = templatePath ? plugin.app.vault.getAbstractFileByPath(templatePath) : null;
   if (templateFile && templateFile instanceof import_obsidian2.TFile) {
     try {
@@ -3779,11 +3784,17 @@ var TemplateSuggest = class extends import_obsidian21.AbstractInputSuggest {
     if ((!templateFolder || templateFolder.trim() === "") && !templaterPlugin) {
       files = this.plugin.app.vault.getFiles().filter((file) => file.path.toLowerCase().includes(lower_input_str));
     } else {
-      let folder;
+      let folder = null;
       if (templaterPlugin) {
         folder = this.plugin.app.vault.getAbstractFileByPath((_b = (_a = templaterPlugin.plugin) == null ? void 0 : _a.settings) == null ? void 0 : _b.templates_folder);
+        if (!(folder instanceof import_obsidian21.TFolder)) {
+          return [{ path: "", name: "You need to set the Templates folder in the Templater settings first." }];
+        }
       } else {
         folder = this.plugin.app.vault.getAbstractFileByPath(templateFolder);
+      }
+      if (!(folder instanceof import_obsidian21.TFolder)) {
+        return [];
       }
       import_obsidian21.Vault.recurseChildren(folder, (file) => {
         if (file instanceof import_obsidian21.TFile && file.path.toLowerCase().includes(lower_input_str)) {
@@ -8109,6 +8120,9 @@ var FolderNotesPlugin = class extends import_obsidian48.Plugin {
     this.tabManager = new TabManager(this);
     this.tabManager.updateTabs();
     this.registerDomEvent(document, "click", (evt) => {
+      this.handleFileExplorerClick(evt);
+    }, true);
+    this.registerDomEvent(document, "auxclick", (evt) => {
       this.handleFileExplorerClick(evt);
     }, true);
     const fileExplorerPlugin = this.app.internalPlugins.getEnabledPluginById("file-explorer");

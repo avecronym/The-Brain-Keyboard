@@ -5,7 +5,6 @@
   "link-exploder",
   "nldates-obsidian",
   "note-refactor-obsidian",
-  "obsidian-note-autocreator",
   "inline-encrypter",
   "obsidian-file-link",
   "paste-link",
@@ -34,9 +33,10 @@
   "media-extended",
   "copy-note",
   "obsidian-checkbox3states-plugin",
-  "notes-explorer",
   "folder-notes",
   "obsidian-task-progress-bar",
   "obsidian42-strange-new-worlds",
-  "canvas-explorer"
+  "canvas-explorer",
+  "obsidian-note-autocreator",
+  "notes-explorer"
 ]

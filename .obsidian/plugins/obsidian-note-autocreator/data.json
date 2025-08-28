@@ -11,5 +11,7 @@
   "templateTriggerSymbol": "$",
   "defaultTemplaterTemplate": "",
   "quickAddTriggerSymbol": "€",
-  "defaultQuickAddTemplate": ""
+  "defaultQuickAddTemplate": "",
+  "enabledFolders": [],
+  "triggerHeaderAsAliasSymbol": "!"
 }

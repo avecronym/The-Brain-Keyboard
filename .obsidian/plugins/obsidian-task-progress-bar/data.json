@@ -42,6 +42,10 @@
   "hideProgressBarFolders": "",
   "hideProgressBarMetadata": "hide-progress-bar",
   "showProgressBarBasedOnHeading": "",
+  "projectViewDefaultMode": "list",
+  "projectTreeAutoExpand": false,
+  "projectTreeShowEmptyFolders": false,
+  "projectPathSeparator": "/",
   "autoCompleteParent": true,
   "markParentInProgressWhenPartiallyComplete": true,
   "taskStatuses": {
@@ -217,13 +221,16 @@
     "tasks": "area",
     "dataview": "area"
   },
+  "fileMetadataInheritance": {
+    "enabled": true,
+    "inheritFromFrontmatter": false,
+    "inheritFromFrontmatterForSubtasks": false
+  },
   "projectConfig": {
     "enableEnhancedProject": true,
     "pathMappings": [],
     "metadataConfig": {
       "metadataKey": "project",
-      "inheritFromFrontmatter": false,
-      "inheritFromFrontmatterForSubtasks": false,
       "enabled": false
     },
     "configFile": {
@@ -262,6 +269,7 @@
   "focusHeading": "",
   "enableView": true,
   "enableInlineEditor": true,
+  "enableDynamicMetadataPositioning": true,
   "defaultViewMode": "list",
   "globalFilterRules": {
     "advancedFilter": {
@@ -482,7 +490,7 @@
   ],
   "reviewSettings": {},
   "rewards": {
-    "enableRewards": true,
+    "enableRewards": false,
     "rewardItems": [
       {
         "id": "reward-tea",
@@ -603,5 +611,90 @@
         "enabled": true
       }
     ]
+  },
+  "onCompletion": {
+    "enableOnCompletion": true,
+    "defaultArchiveFile": "Archive/Completed Tasks.md",
+    "defaultArchiveSection": "Completed Tasks",
+    "showAdvancedOptions": false
+  },
+  "timeParsing": {
+    "enabled": true,
+    "supportedLanguages": [
+      "en",
+      "zh"
+    ],
+    "dateKeywords": {
+      "start": [
+        "start",
+        "begin",
+        "from",
+        "starting",
+        "begins",
+        "开始",
+        "从",
+        "起始",
+        "起",
+        "始于",
+        "自"
+      ],
+      "due": [
+        "due",
+        "deadline",
+        "by",
+        "until",
+        "before",
+        "expires",
+        "ends",
+        "截止",
+        "到期",
+        "之前",
+        "期限",
+        "最晚",
+        "结束",
+        "终止",
+        "完成于"
+      ],
+      "scheduled": [
+        "scheduled",
+        "on",
+        "at",
+        "planned",
+        "set for",
+        "arranged",
+        "安排",
+        "计划",
+        "在",
+        "定于",
+        "预定",
+        "约定",
+        "设定"
+      ]
+    },
+    "removeOriginalText": true,
+    "perLineProcessing": true,
+    "realTimeReplacement": true
+  },
+  "taskTimer": {
+    "enabled": false,
+    "metadataDetection": {
+      "frontmatter": "task-timer",
+      "folders": [],
+      "tags": [
+        "timer",
+        "tracked"
+      ]
+    },
+    "timeFormat": "{h}hrs {m}mins",
+    "blockRefPrefix": "timer"
+  },
+  "enableCustomDateFormats": false,
+  "customDateFormats": [],
+  "onboarding": {
+    "completed": false,
+    "version": "9.7.2",
+    "configMode": "beginner",
+    "skipOnboarding": true,
+    "completedAt": ""
   }
 }

@@ -1,9 +1,0 @@
-{
-	"nodes":[
-		{"id":"4229f7646e1901e8","x":440,"y":-179,"width":400,"height":819,"color":"1","type":"file","file":"Hotkeys/Hotkeys.md"},
-		{"id":"d0ae2263f62909ad","x":960,"y":-179,"width":400,"height":819,"color":"5","type":"file","file":"Hotkeys/Functional Thinking.md"}
-	],
-	"edges":[
-		{"id":"7e7cd199e14d62da","fromNode":"4229f7646e1901e8","fromSide":"right","toNode":"d0ae2263f62909ad","toSide":"left","fromEnd":"arrow"}
-	]
-}

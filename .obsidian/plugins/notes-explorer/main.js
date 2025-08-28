@@ -583,10 +583,10 @@ __export(main_exports, {
   default: () => NotesExplorerPlugin3
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian13 = require("obsidian");
+var import_obsidian15 = require("obsidian");
 
 // src/settings.ts
-var import_obsidian4 = require("obsidian");
+var import_obsidian5 = require("obsidian");
 
 // src/services/SimpleMultiSuggestor.ts
 var import_obsidian = require("obsidian");
@@ -619,6 +619,7 @@ function getSimpleFolderSuggestions(app2) {
 }
 
 // src/icons.ts
+var import_obsidian2 = require("obsidian");
 var pluginIcon = "book-copy";
 var leftSideArrow = "arrow-left-to-line";
 var rightSideArrow = "arrow-right-to-line";
@@ -628,6 +629,37 @@ var fileOpenIcon = "file-symlink";
 var pageNavigationDockIcon = "dock";
 var filtersIcon = "sliders-horizontal";
 var viewShareIcon = "share-2";
+var sortIcon = (element2) => {
+  (0, import_obsidian2.setIcon)(element2, "arrow-down-wide-narrow");
+};
+var refreshIcon = (element2) => {
+  (0, import_obsidian2.setIcon)(element2, "refresh-ccw");
+};
+var cumpulsoryFilterIcon = (element2) => {
+  (0, import_obsidian2.setIcon)(element2, "lock-keyhole");
+};
+var normalFilterIcon = (element2) => {
+  (0, import_obsidian2.setIcon)(element2, "lock-open");
+};
+var closeCircleIcon = (element2) => {
+  (0, import_obsidian2.setIcon)(element2, "circle-x");
+};
+var filtersPanelIcon = (element2) => {
+  (0, import_obsidian2.setIcon)(element2, filtersIcon);
+};
+var viewShareButtonIcon = (element2) => {
+  (0, import_obsidian2.setIcon)(element2, viewShareIcon);
+};
+var findExpandIcon = (element2) => {
+  (0, import_obsidian2.setIcon)(element2, "search");
+};
+var findCloseIcon = (element2) => {
+  (0, import_obsidian2.setIcon)(element2, "search-x");
+};
+var vaultRootIcon = (element2) => {
+  (0, import_obsidian2.setIcon)(element2, "house");
+};
+var folderIconSVG = `<svg fill="#228BE6" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="100%" height="100%"><path d="M 8.5 8 C 6.0324991 8 4 10.032499 4 12.5 L 4 36.40625 L 4.015625 36.40625 C 3.9865145 38.276932 5.5083888 40 7.5019531 40 L 36.546875 40 C 38.416875 40 40.10278 38.832994 40.759766 37.082031 L 45.767578 23.75 L 45.767578 23.746094 C 46.62354 21.501657 44.900814 19 42.498047 19 L 42 19 L 42 17.5 C 42 15.032499 39.967501 13 37.5 13 L 24.042969 13 L 19.574219 9.2753906 A 1.50015 1.50015 0 0 0 19.572266 9.2753906 C 18.584102 8.4521105 17.339162 8 16.052734 8 L 8.5 8 z M 8.5 11 L 16.052734 11 C 16.638307 11 17.202555 11.205358 17.652344 11.580078 L 22.539062 15.652344 A 1.50015 1.50015 0 0 0 23.5 16 L 37.5 16 C 38.346499 16 39 16.653501 39 17.5 L 39 19 L 13.453125 19 C 11.583125 19 9.8972196 20.167006 9.2402344 21.917969 L 7 27.882812 L 7 12.5 C 7 11.653501 7.6535009 11 8.5 11 z M 13.453125 22 L 42.498047 22 C 42.897907 22 43.107444 22.305152 42.964844 22.677734 A 1.50015 1.50015 0 0 0 42.960938 22.6875 L 37.951172 36.027344 C 37.730157 36.616381 37.176875 37 36.546875 37 L 7.5019531 37 C 7.1042373 37 6.8935735 36.697099 7.0332031 36.326172 A 1.50015 1.50015 0 0 0 7.0351562 36.324219 L 12.048828 22.972656 C 12.269843 22.383619 12.823125 22 13.453125 22 z"/></svg>`;
 var buyMeCoffeeSVGIcon = `
 <svg width="180" height="80" viewBox="0 0 545 153" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 24.48C0 10.9601 10.9601 0 24.48 0H520.2C533.72 0 544.68 10.9601 544.68 24.48V128.52C544.68 142.04 533.72 153 520.2 153H24.48C10.9601 153 0 142.04 0 128.52V24.48Z" fill="#FFDD00"/>
@@ -3057,6 +3089,15 @@ function end_hydrating() {
 function append(target, node) {
   target.appendChild(node);
 }
+function append_styles(target, style_sheet_id, styles) {
+  const append_styles_to = get_root_for_style(target);
+  if (!append_styles_to.getElementById(style_sheet_id)) {
+    const style = element("style");
+    style.id = style_sheet_id;
+    style.textContent = styles;
+    append_stylesheet(append_styles_to, style);
+  }
+}
 function get_root_for_style(node) {
   if (!node)
     return document;
@@ -3117,12 +3158,6 @@ function listen(node, event, handler, options) {
 function prevent_default(fn) {
   return function(event) {
     event.preventDefault();
-    return fn.call(this, event);
-  };
-}
-function stop_propagation(fn) {
-  return function(event) {
-    event.stopPropagation();
     return fn.call(this, event);
   };
 }
@@ -3243,28 +3278,6 @@ function get_current_component() {
 function onMount(fn) {
   get_current_component().$$.on_mount.push(fn);
 }
-function afterUpdate(fn) {
-  get_current_component().$$.after_update.push(fn);
-}
-function createEventDispatcher() {
-  const component = get_current_component();
-  return (type, detail, { cancelable = false } = {}) => {
-    const callbacks = component.$$.callbacks[type];
-    if (callbacks) {
-      const event = custom_event(
-        /** @type {string} */
-        type,
-        detail,
-        { cancelable }
-      );
-      callbacks.slice().forEach((fn) => {
-        fn.call(component, event);
-      });
-      return !event.defaultPrevented;
-    }
-    return true;
-  };
-}
 
 // node_modules/svelte/src/runtime/internal/scheduler.js
 var dirty_components = [];
@@ -3278,6 +3291,10 @@ function schedule_update() {
     update_scheduled = true;
     resolved_promise.then(flush);
   }
+}
+function tick() {
+  schedule_update();
+  return resolved_promise;
 }
 function add_render_callback(fn) {
   render_callbacks.push(fn);
@@ -3526,12 +3543,16 @@ function create_bidirectional_transition(node, fn, params, intro) {
 function ensure_array_like(array_like_or_iterator) {
   return (array_like_or_iterator == null ? void 0 : array_like_or_iterator.length) !== void 0 ? array_like_or_iterator : Array.from(array_like_or_iterator);
 }
+function destroy_block(block, lookup) {
+  block.d(1);
+  lookup.delete(block.key);
+}
 function outro_and_destroy_block(block, lookup) {
   transition_out(block, 1, 1, () => {
     lookup.delete(block.key);
   });
 }
-function update_keyed_each(old_blocks, dirty, get_key, dynamic, ctx, list, lookup, node, destroy2, create_each_block2, next, get_context) {
+function update_keyed_each(old_blocks, dirty, get_key, dynamic, ctx, list, lookup, node, destroy2, create_each_block3, next, get_context) {
   let o = old_blocks.length;
   let n = list.length;
   let i = o;
@@ -3548,7 +3569,7 @@ function update_keyed_each(old_blocks, dirty, get_key, dynamic, ctx, list, looku
     const key = get_key(child_ctx);
     let block = lookup.get(key);
     if (!block) {
-      block = create_each_block2(key, child_ctx);
+      block = create_each_block3(key, child_ctx);
       block.c();
     } else if (dynamic) {
       updates.push(() => block.p(child_ctx, dirty));
@@ -3670,7 +3691,7 @@ function make_dirty(component, i) {
   }
   component.$$.dirty[i / 31 | 0] |= 1 << i % 31;
 }
-function init(component, options, instance3, create_fragment3, not_equal, props, append_styles = null, dirty = [-1]) {
+function init(component, options, instance4, create_fragment4, not_equal, props, append_styles2 = null, dirty = [-1]) {
   const parent_component = current_component;
   set_current_component(component);
   const $$ = component.$$ = {
@@ -3694,9 +3715,9 @@ function init(component, options, instance3, create_fragment3, not_equal, props,
     skip_bound: false,
     root: options.target || parent_component.$$.root
   };
-  append_styles && append_styles($$.root);
+  append_styles2 && append_styles2($$.root);
   let ready = false;
-  $$.ctx = instance3 ? instance3(component, options.props || {}, (i, ret, ...rest) => {
+  $$.ctx = instance4 ? instance4(component, options.props || {}, (i, ret, ...rest) => {
     const value = rest.length ? rest[0] : ret;
     if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
       if (!$$.skip_bound && $$.bound[i])
@@ -3709,7 +3730,7 @@ function init(component, options, instance3, create_fragment3, not_equal, props,
   $$.update();
   ready = true;
   run_all($$.before_update);
-  $$.fragment = create_fragment3 ? create_fragment3($$.ctx) : false;
+  $$.fragment = create_fragment4 ? create_fragment4($$.ctx) : false;
   if (options.target) {
     if (options.hydrate) {
       start_hydrating();
@@ -4082,22 +4103,28 @@ function derived(stores, fn, initial_value) {
 }
 
 // src/store.ts
-var import_obsidian3 = require("obsidian");
+var import_obsidian4 = require("obsidian");
 
 // src/utils/GeneralHelpers.ts
-var import_obsidian2 = require("obsidian");
+var import_obsidian3 = require("obsidian");
 function refreshView() {
   store_default.files.set(get_store_value(allAllowedFiles));
 }
-var isFileEmpty = async (file) => {
+var pullContentWithoutFrontmatter = async (file) => {
   const content = await file.vault.cachedRead(file);
-  const frontMatter = (0, import_obsidian2.getFrontMatterInfo)(content).exists ? (0, import_obsidian2.getFrontMatterInfo)(content).frontmatter : "";
+  const frontMatter = (0, import_obsidian3.getFrontMatterInfo)(content).exists ? (0, import_obsidian3.getFrontMatterInfo)(content).frontmatter : "";
   const contentWithoutfrontmatter = content.replace(`---
 ${frontMatter}---`, "").trim();
-  if (file.path.includes("Archived")) {
-  }
-  return contentWithoutfrontmatter.length === 0;
+  return contentWithoutfrontmatter;
 };
+function isValidRegExp(str) {
+  try {
+    new RegExp(str);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
 
 // src/store.ts
 var app = writable();
@@ -4109,6 +4136,7 @@ var files = writable([]);
 var folderName = writable([]);
 var viewIsVisible = writable(false);
 var skipNextTransition = writable(true);
+var renderOnFileUpdate = writable(false);
 var refreshSignal = writable(false);
 var refreshOnResize = writable(false);
 var showActionBar = writable(true);
@@ -4120,6 +4148,9 @@ var excludedFilesCount = writable(0);
 function checkFilterForFile(fstr, filterType, file) {
   var _a;
   const [type, val] = fstr.split(/:\s*(.*)/).map((str) => str.trim());
+  if (file instanceof import_obsidian4.TFolder) {
+    return true;
+  }
   switch (type) {
     case "file":
       if (file.basename.includes(val))
@@ -4129,13 +4160,14 @@ function checkFilterForFile(fstr, filterType, file) {
       if ((_a = file.parent) == null ? void 0 : _a.path.includes(val))
         return true;
       break;
-    case "tag":
-      const tags = (0, import_obsidian3.getAllTags)(
+    case "tag": {
+      const tags = (0, import_obsidian4.getAllTags)(
         get_store_value(appCache).getFileCache(file)
       );
       if (tags == null ? void 0 : tags.includes(val))
         return true;
       break;
+    }
     case "content":
       get_store_value(app).vault.cachedRead(file).then((content) => {
         if (content.includes(val)) {
@@ -4159,6 +4191,12 @@ function checkFilterForFile(fstr, filterType, file) {
       if (file.stat.mtime > new Date(val).getTime())
         return true;
       break;
+    case "regex": {
+      const regex = new RegExp(val);
+      if (regex.test(file.path))
+        return true;
+      break;
+    }
     default:
       if (fstr.startsWith(`["`) && fstr.endsWith("]")) {
         const frontMatterKeyFromFilter = fstr.slice(1, -1).split(":")[0].trim().replaceAll(`"`, ``);
@@ -4209,30 +4247,39 @@ var allAllowedFiles = derived(
   [settings, folderName, searchFilters],
   ([$settings, $folderName, $searchFilters]) => {
     let allFiles = [];
-    if ($folderName.length === 0) {
+    if ($folderName.length === 0 && !$settings.showFolderCards) {
       allFiles = get_store_value(app).vault.getMarkdownFiles();
-    } else {
+    } else if ($folderName.length > 0) {
       const folder = get_store_value(app).vault.getAbstractFileByPath($folderName[0].path);
-      if (folder instanceof import_obsidian3.TFolder) {
+      if (folder instanceof import_obsidian4.TFolder) {
         if ($settings.showSubFolders) {
           const collectFiles = (currentFolder) => {
             currentFolder.children.forEach((child) => {
-              if (child instanceof import_obsidian3.TFile && child.extension === "md") {
+              if (child instanceof import_obsidian4.TFile && child.extension === "md") {
                 allFiles.push(child);
-              } else if (child instanceof import_obsidian3.TFolder) {
+              } else if (child instanceof import_obsidian4.TFolder) {
                 collectFiles(child);
               }
             });
           };
           collectFiles(folder);
+        } else if ($settings.showFolderCards) {
+          allFiles = folder.children.filter(
+            (child) => child instanceof import_obsidian4.TFolder || child instanceof import_obsidian4.TFile && child.extension === "md"
+          );
         } else {
           allFiles = folder.children.filter(
-            (child) => child instanceof import_obsidian3.TFile && child.extension === "md"
+            (child) => child instanceof import_obsidian4.TFile && child.extension === "md"
           );
         }
       }
+    } else {
+      const rootFolder = get_store_value(app).vault.getRoot();
+      allFiles = rootFolder.children.filter(
+        (child) => child instanceof import_obsidian4.TFolder || child instanceof import_obsidian4.TFile && child.extension === "md"
+      );
     }
-    let filesAfterRemovingExcludedFolders = allFiles.filter((file) => {
+    const filesAfterRemovingExcludedFolders = allFiles.filter((file) => {
       return !$settings.excludedFolders.some(
         (excludeFolder) => file.path.startsWith(excludeFolder)
       );
@@ -4264,7 +4311,7 @@ var allAllowedFiles = derived(
       finalFilteredFiles = Array.from(cumpulsoryFilteredFilesSet);
     }
     if ($searchFilters.nf.length > 0) {
-      let normalFilteredFilesSet = /* @__PURE__ */ new Set();
+      const normalFilteredFilesSet = /* @__PURE__ */ new Set();
       $searchFilters.nf.forEach((fstr) => {
         finalFilteredFiles.forEach((file) => {
           if (checkFilterForFile(fstr, "nf", file)) {
@@ -4290,12 +4337,16 @@ var sortedFiles = derived([files], ([$files]) => {
     ["Created (newest first)" /* CreatedDesc */]: (a, b) => b.stat.ctime - a.stat.ctime
   };
   const sortFunction = sortMethods[(_a = get_store_value(settings)) == null ? void 0 : _a.defaultSort] || (() => 0);
-  return [...$files].filter((file) => !file.path.endsWith(".excalidraw.md")).sort((a, b) => comparePinned(a, b) || sortFunction(a, b));
+  const folders = $files.filter((file) => file instanceof import_obsidian4.TFolder);
+  const filesOnly = $files.filter((file) => file instanceof import_obsidian4.TFile);
+  const sortedFolders = [...folders].sort((a, b) => a.name.localeCompare(b.name));
+  const sortedFilesOnly = [...filesOnly].filter((file) => !file.path.endsWith(".excalidraw.md")).sort((a, b) => comparePinned(a, b) || sortFunction(a, b));
+  return [...sortedFolders, ...sortedFilesOnly];
 });
 var searchQuery = writable("");
 var preparedSearch = derived(
   searchQuery,
-  ($searchQuery) => $searchQuery ? (0, import_obsidian3.prepareFuzzySearch)($searchQuery) : null
+  ($searchQuery) => $searchQuery ? (0, import_obsidian4.prepareFuzzySearch)($searchQuery) : null
 );
 var searchResultFiles = derived(
   [preparedSearch, sortedFiles],
@@ -4304,15 +4355,21 @@ var searchResultFiles = derived(
       set($sortedFiles);
       return;
     }
+    const filesOnly = $sortedFiles.filter((file) => file instanceof import_obsidian4.TFile);
     Promise.all(
-      $sortedFiles.map(async (file) => {
+      filesOnly.map(async (file) => {
         const content = await file.vault.cachedRead(file);
         return [$preparedSearch(content), $preparedSearch(file.name)];
       })
     ).then((searchResults) => {
       set(
         $sortedFiles.filter((file, index2) => {
-          const [contentMatch, nameMatch] = searchResults[index2];
+          if (file instanceof import_obsidian4.TFolder)
+            return true;
+          const fileIndex = filesOnly.indexOf(file);
+          if (fileIndex === -1)
+            return false;
+          const [contentMatch, nameMatch] = searchResults[fileIndex];
           return contentMatch && contentMatch.score > -4 || nameMatch && nameMatch.score > -4;
         })
       );
@@ -4322,14 +4379,16 @@ var searchResultFiles = derived(
 );
 var createFilteredFiles = () => readable([], (set) => {
   const unsubscribe = sortedFiles.subscribe(async ($sortedFiles) => {
+    const folders = $sortedFiles.filter((file) => file instanceof import_obsidian4.TFolder);
+    const filesOnly = $sortedFiles.filter((file) => file instanceof import_obsidian4.TFile);
     const nonEmptyFiles = [];
-    for (const file of $sortedFiles) {
-      const emptiness = await isFileEmpty(file);
-      if (get_store_value(settings).showEmptyNotes || !emptiness) {
+    for (const file of filesOnly) {
+      const emptiness = await pullContentWithoutFrontmatter(file);
+      if (get_store_value(settings).showEmptyNotes || emptiness !== "") {
         nonEmptyFiles.push(file);
       }
     }
-    set(nonEmptyFiles);
+    set([...folders, ...nonEmptyFiles]);
   });
   return unsubscribe;
 });
@@ -4384,7 +4443,7 @@ var displayedFilesCount = derived(
 );
 var allTags = derived([appCache], ([$appCache]) => {
   const tags = $appCache.vault.getMarkdownFiles().map(
-    (file) => (0, import_obsidian3.getAllTags)($appCache.getFileCache(file)) || []
+    (file) => (0, import_obsidian4.getAllTags)($appCache.getFileCache(file)) || []
   ).flat();
   const tagCounts = tags.reduce(
     (acc, tag) => {
@@ -4413,6 +4472,7 @@ var store_default = {
   filteredFiles,
   viewIsVisible,
   skipNextTransition,
+  renderOnFileUpdate,
   refreshSignal,
   refreshOnResize,
   allTags,
@@ -4453,9 +4513,10 @@ var DEFAULT_SETTINGS = {
   pagesView: true,
   cardsPerPage: 100,
   clickMode: "single",
-  searchHistoryEntries: []
+  searchHistoryEntries: [],
+  showFolderCards: false
 };
-var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
+var NotesExplorerSettingsTab = class extends import_obsidian5.PluginSettingTab {
   constructor(app2, plugin2) {
     super(app2, plugin2);
     this.allPickrs = [];
@@ -4475,13 +4536,13 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
     this.navEl.createEl("p", {
       text: "Configure the settings for the Notes Explorer plugin."
     });
-    new import_obsidian4.Setting(containerEl).setName("Launch on start").setDesc("Open the notes explorer board when Obsidian starts").addToggle(
+    new import_obsidian5.Setting(containerEl).setName("Launch on start").setDesc("Open the notes explorer board when Obsidian starts").addToggle(
       (toggle) => toggle.setValue(this.plugin.settings.launchOnStart).onChange(async (value) => {
         get_store_value(settings).launchOnStart = value;
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Page view mode").setDesc(
+    new import_obsidian5.Setting(containerEl).setName("Page view mode").setDesc(
       "Show cards into multiple pages instead of contineous scrolling."
     ).addToggle(
       (toggle) => toggle.setValue(this.plugin.settings.pagesView).onChange(async (value) => {
@@ -4490,7 +4551,7 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
         cardsPerPageSetting.setDisabled(!value);
       })
     );
-    const cardsPerPageSetting = new import_obsidian4.Setting(containerEl).setName("Cards per page").setDesc(
+    const cardsPerPageSetting = new import_obsidian5.Setting(containerEl).setName("Cards per page").setDesc(
       "Enter the number of cards you want to see on per page. Find the best number which gives you smooth experience."
     ).addText(
       (text2) => {
@@ -4501,14 +4562,14 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
           } else if (!isNaN(parseInt(value))) {
             this.plugin.settings.cardsPerPage = parseInt(value);
           } else {
-            new import_obsidian4.Notice("Invalid number");
+            new import_obsidian5.Notice("Invalid number");
             return;
           }
           await this.plugin.saveSettings();
         });
       }
     ).setDisabled(!this.plugin.settings.pagesView);
-    new import_obsidian4.Setting(containerEl).setName("Click mode").setDesc(
+    new import_obsidian5.Setting(containerEl).setName("Click mode").setDesc(
       "Select whether to use single click or double click on the card to open the note."
     ).addDropdown(
       (dropdown) => dropdown.addOptions({
@@ -4519,7 +4580,7 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Open note layout").setDesc("Select how should the parent note be opened from the card.").addDropdown(
+    new import_obsidian5.Setting(containerEl).setName("Open note layout").setDesc("Select how should the parent note be opened from the card.").addDropdown(
       (dropdown) => dropdown.addOptions({
         ["right" /* Right */]: "Open note on right side",
         ["tab" /* NewTab */]: "Open note in new tab",
@@ -4530,7 +4591,7 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Deleted files").setDesc("What happens to a file after you delete it.").addDropdown(
+    new import_obsidian5.Setting(containerEl).setName("Deleted files").setDesc("What happens to a file after you delete it.").addDropdown(
       (dropdown) => dropdown.addOptions({
         ["system" /* System */]: "Move to system trash",
         ["trash" /* Trash */]: "Move to vault trash folder (.trash)"
@@ -4539,7 +4600,7 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Note's content interactions").setDesc(
+    new import_obsidian5.Setting(containerEl).setName("Note's content interactions").setDesc(
       "Enable this feature if you like to have in-card interactions, such as opening internal links and getting hover preview. \nNOTE : Obsidian restart required for this setting to take effect."
     ).addToggle(
       (toggle) => toggle.setValue(this.plugin.settings.contentInteractions).onChange(async (value) => {
@@ -4547,7 +4608,7 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Open board on folder click").setDesc(
+    new import_obsidian5.Setting(containerEl).setName("Open board on folder click").setDesc(
       "Enable this if you want to open the notes explorer board with all the notes from a folder, when you will click on the folder from file explorer. You also have same option using right-click menu, if you dont like this feature.\nNOTE : Obsidian restart required for this setting to take effect."
     ).addToggle(
       (toggle) => toggle.setValue(this.plugin.settings.openViewOnFolderClick).onChange(async (value) => {
@@ -4555,18 +4616,18 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Cards ui").setHeading();
-    new import_obsidian4.Setting(containerEl).setName("Gutter size").setDesc("Set the size of the gutter between cards").addText(
+    new import_obsidian5.Setting(containerEl).setName("Cards ui").setHeading();
+    new import_obsidian5.Setting(containerEl).setName("Gutter size").setDesc("Set the size of the gutter between cards").addText(
       (text2) => text2.setPlaceholder("eg.: 20").setValue(this.plugin.settings.gutterSize.toString()).onChange(async (value) => {
         if (isNaN(parseInt(value))) {
-          new import_obsidian4.Notice("Invalid number");
+          new import_obsidian5.Notice("Invalid number");
           return;
         }
         this.plugin.settings.gutterSize = parseInt(value);
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Surrounding gutters").setDesc(
+    new import_obsidian5.Setting(containerEl).setName("Surrounding gutters").setDesc(
       "Enable this option to have gutters on the left and right side of the board, in addition to the gutters between cards."
     ).addToggle(
       (toggle) => toggle.setValue(this.plugin.settings.enableSurroundingGutters).onChange(async (value) => {
@@ -4574,7 +4635,7 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Title display mode").setDesc("Select what you want to see at the top of each card.").addDropdown(
+    new import_obsidian5.Setting(containerEl).setName("Title display mode").setDesc("Select what you want to see at the top of each card.").addDropdown(
       (dropdown) => dropdown.addOptions({
         ["Both" /* Both */]: "Both title and filename",
         ["Title" /* Title */]: "Title only",
@@ -4584,17 +4645,17 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Minimum card width").setDesc("Cards will not be smaller than this width (in pixels)").addText(
+    new import_obsidian5.Setting(containerEl).setName("Minimum card width").setDesc("Cards will not be smaller than this width (in pixels)").addText(
       (text2) => text2.setPlaceholder("eg.: 200").setValue(this.plugin.settings.minCardWidth.toString()).onChange(async (value) => {
         if (isNaN(parseInt(value))) {
-          new import_obsidian4.Notice("Invalid number");
+          new import_obsidian5.Notice("Invalid number");
           return;
         }
         this.plugin.settings.minCardWidth = parseInt(value);
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Fixed card height").setDesc(
+    new import_obsidian5.Setting(containerEl).setName("Fixed card height").setDesc(
       "Set a fixed height for the card in pixels (leave blank for no restriction). All cards will take a fixed height regardless of how many maximum lines you have set or if the note contains any image, etc. This setting will help you to get a gallery view instead of a masonry view."
     ).addText(
       (text2) => {
@@ -4605,14 +4666,14 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
           } else if (!isNaN(parseInt(value))) {
             this.plugin.settings.fixedCardHeight = parseInt(value);
           } else {
-            new import_obsidian4.Notice("Invalid number");
+            new import_obsidian5.Notice("Invalid number");
             return;
           }
           await this.plugin.saveSettings();
         });
       }
     );
-    new import_obsidian4.Setting(containerEl).setName("Maximum number of lines").setDesc(
+    new import_obsidian5.Setting(containerEl).setName("Maximum number of lines").setDesc(
       "Set the maximum number of lines to be rendered in card from the note. Default : 20 lines"
     ).addText(
       (text2) => {
@@ -4623,20 +4684,20 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
           } else if (!isNaN(parseInt(value))) {
             this.plugin.settings.maxLines = parseInt(value);
           } else {
-            new import_obsidian4.Notice("Invalid number");
+            new import_obsidian5.Notice("Invalid number");
             return;
           }
           await this.plugin.saveSettings();
         });
       }
     );
-    new import_obsidian4.Setting(containerEl).setName("Show delete button").setDesc("Disable this option to remove the delete button.").addToggle(
+    new import_obsidian5.Setting(containerEl).setName("Show delete button").setDesc("Disable this option to remove the delete button.").addToggle(
       (toggle) => toggle.setValue(this.plugin.settings.showDeleteButton).onChange(async (value) => {
         this.plugin.settings.showDeleteButton = value;
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Note's metadata").setDesc(
+    new import_obsidian5.Setting(containerEl).setName("Note's metadata").setDesc(
       "Select the property of the note that you want to see in the cards footer. If selected the 'frontmatter' option, enter the frontmatter-tag in the below text input box."
     ).addDropdown(
       (dropdown) => dropdown.addOptions({
@@ -4653,7 +4714,7 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
         );
       })
     );
-    const frontmatterTagSetting = new import_obsidian4.Setting(containerEl).setName("Frontmatter tag").setDesc("Enter the name of the frontmatter tag to display its value.").addText(
+    const frontmatterTagSetting = new import_obsidian5.Setting(containerEl).setName("Frontmatter tag").setDesc("Enter the name of the frontmatter tag to display its value.").addText(
       (text2) => text2.setPlaceholder("eg.: author").setValue(this.plugin.settings.frontmatterTag || "").onChange(async (value) => {
         this.plugin.settings.frontmatterTag = value;
         await this.plugin.saveSettings();
@@ -4661,7 +4722,7 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
     ).setDisabled(
       this.plugin.settings.noteMetadata !== "frontmatter" /* Frontmatter */
     );
-    new import_obsidian4.Setting(containerEl).setName("Footer always visible").setDesc(
+    new import_obsidian5.Setting(containerEl).setName("Footer always visible").setDesc(
       "Disable this option to hide the note's metadata from showing in the card's footer. Visible only on mouse hover."
     ).addToggle(
       (toggle) => toggle.setValue(this.plugin.settings.metadataVisibility).onChange(async (value) => {
@@ -4669,8 +4730,8 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Tag color indicator").setHeading();
-    new import_obsidian4.Setting(containerEl).setName("Which tags to read").setDesc(
+    new import_obsidian5.Setting(containerEl).setName("Tag color indicator").setHeading();
+    new import_obsidian5.Setting(containerEl).setName("Which tags to read").setDesc(
       "Whether to read the tags from content or frontmatter. If selected frontmatter then create a property 'tags'."
     ).addDropdown(
       (dropdown) => dropdown.addOptions({
@@ -4682,7 +4743,7 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Indicator type").setDesc(
+    new import_obsidian5.Setting(containerEl).setName("Indicator type").setDesc(
       "Select whether you want the cards background color as the tag color or cards sidebars. With background options sometimes few elements of your note might not be properly visible due to the theme you are using, in that case use the sidbar option."
     ).addDropdown(
       (dropdown) => dropdown.addOptions({
@@ -4731,7 +4792,7 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
           attr: { "data-tag-name": tag.name }
         });
         let rgbaInput;
-        new import_obsidian4.Setting(row).setClass("notes-explorer-tag-container-tag-row-element").addButton(
+        new import_obsidian5.Setting(row).setClass("notes-explorer-tag-container-tag-row-element").addButton(
           (drag) => drag.setTooltip("Hold and drag").setIcon("grip-horizontal").setClass("notes-explorer-tag-container-tag-row-drag").buttonEl.setCssStyles({
             backgroundColor: this.plugin.settings.tagColorIndicatorType === "background" /* background */ ? tag.color : "",
             border: this.plugin.settings.tagColorIndicatorType === "sidebars" /* sidebars */ ? `1px solid ${tag.color}` : ""
@@ -4801,7 +4862,7 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
       });
     };
     renderCardColorsSettings();
-    new import_obsidian4.Setting(containerEl).addButton(
+    new import_obsidian5.Setting(containerEl).addButton(
       (button) => button.setButtonText("Add tag color").setCta().onClick(async () => {
         const newTag = {
           name: "",
@@ -4813,8 +4874,8 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
         this.display();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Exclude folders").setHeading();
-    new import_obsidian4.Setting(containerEl).setName("Folder name").setDesc(
+    new import_obsidian5.Setting(containerEl).setName("Exclude folders").setHeading();
+    new import_obsidian5.Setting(containerEl).setName("Folder name").setDesc(
       "Enter the complete folder path and click on save to exclude all notes from this folder from the board. You can also apply filters to board notes from sub-folders from the board filter menu."
     ).addText((text2) => {
       text2.setPlaceholder("Enter folder path").onChange((value) => {
@@ -4823,7 +4884,7 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
       const inputEl = text2.inputEl;
       const suggestionContent = getSimpleFolderSuggestions(this.app);
       const onSelectCallback = async (selectedPath) => {
-        const folderInput = (0, import_obsidian4.normalizePath)(selectedPath);
+        const folderInput = (0, import_obsidian5.normalizePath)(selectedPath);
         if (folderInput && !this.plugin.settings.excludedFolders.includes(folderInput)) {
           this.plugin.settings.excludedFolders.push(folderInput);
           this.plugin.saveSettings();
@@ -4840,7 +4901,7 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
       );
     }).addButton(
       (button) => button.setButtonText("Add").setCta().onClick(() => {
-        const folderInput = (0, import_obsidian4.normalizePath)(this.tempFolderName);
+        const folderInput = (0, import_obsidian5.normalizePath)(this.tempFolderName);
         if (folderInput && !this.plugin.settings.excludedFolders.includes(folderInput)) {
           this.plugin.settings.excludedFolders.push(folderInput);
           this.plugin.saveSettings();
@@ -4848,7 +4909,7 @@ var NotesExplorerSettingsTab = class extends import_obsidian4.PluginSettingTab {
         }
       })
     );
-    const folderIcon = (element2) => (0, import_obsidian4.setIcon)(element2, "folder");
+    const folderIcon = (element2) => (0, import_obsidian5.setIcon)(element2, "folder");
     const excludeFolderContainer = containerEl.createDiv({
       cls: "notes-explorer-exclude-folders-list"
     });
@@ -4999,7 +5060,7 @@ var kofiButton = (link, img) => {
 };
 
 // src/view.ts
-var import_obsidian12 = require("obsidian");
+var import_obsidian14 = require("obsidian");
 
 // node_modules/svelte/src/runtime/internal/disclose-version/index.js
 if (typeof window !== "undefined")
@@ -5035,7 +5096,7 @@ function __awaiter(thisArg, _arguments, P, generator) {
 }
 
 // src/components/Root.svelte
-var import_obsidian11 = require("obsidian");
+var import_obsidian13 = require("obsidian");
 
 // node_modules/svelte/src/runtime/easing/index.js
 function cubicOut(t) {
@@ -5260,11 +5321,11 @@ MiniMasonry.prototype.destroy = function() {
 };
 
 // src/components/Card.svelte
-var import_obsidian8 = require("obsidian");
+var import_obsidian10 = require("obsidian");
 
 // src/modals/DeleteConfirmationModal.ts
-var import_obsidian5 = require("obsidian");
-var DeleteConfirmationModal = class extends import_obsidian5.Modal {
+var import_obsidian6 = require("obsidian");
+var DeleteConfirmationModal = class extends import_obsidian6.Modal {
   constructor({
     app: app2,
     mssg,
@@ -5335,10 +5396,10 @@ var openDeleteConfirmationModal = async (app2) => {
 };
 
 // src/modals/NoteViewerModal.ts
-var import_obsidian7 = require("obsidian");
+var import_obsidian8 = require("obsidian");
 
 // src/services/MarkdownUIRenderer.ts
-var import_obsidian6 = require("obsidian");
+var import_obsidian7 = require("obsidian");
 function markdownButtonHoverPreviewEvent(app2, event, containerEl, filePath) {
   if (!event.ctrlKey)
     return;
@@ -5360,7 +5421,7 @@ function hookMarkdownLinkMouseEventHandlers(plugin2, containerEl, sourcePath, fi
         plugin2.app.workspace.openLinkText(
           linktext,
           sourcePath,
-          import_obsidian6.Keymap.isModEvent(evt)
+          import_obsidian7.Keymap.isModEvent(evt)
         );
       }
     });
@@ -5381,7 +5442,7 @@ function hookMarkdownLinkMouseEventHandlers(plugin2, containerEl, sourcePath, fi
   });
 }
 async function obsidianMarkdownRenderer(app2, text2, element2, path, obsidianComponent) {
-  await import_obsidian6.MarkdownRenderer.render(app2, text2, element2, path, obsidianComponent);
+  await import_obsidian7.MarkdownRenderer.render(app2, text2, element2, path, obsidianComponent);
 }
 function renderMarkdownUI(plugin2, obsidianComponent, text2, element2, path) {
   if (!obsidianComponent) {
@@ -5396,7 +5457,7 @@ function renderMarkdownUI(plugin2, obsidianComponent, text2, element2, path) {
 }
 
 // src/modals/NoteViewerModal.ts
-var NoteViewerModal = class extends import_obsidian7.Modal {
+var NoteViewerModal = class extends import_obsidian8.Modal {
   constructor(plugin2, file) {
     super(plugin2.app);
     this.plugin = plugin2;
@@ -5416,10 +5477,10 @@ var NoteViewerModal = class extends import_obsidian7.Modal {
     const openButton = buttonContainer.createEl("button", {
       text: "Open Note"
     });
-    (0, import_obsidian7.setIcon)(openButton, fileOpenIcon);
+    (0, import_obsidian8.setIcon)(openButton, fileOpenIcon);
     openButton.onclick = async (evt) => await this.openNote(evt);
     const closeButton = buttonContainer.createEl("button", { text: "Close" });
-    (0, import_obsidian7.setIcon)(closeButton, cancelIcon);
+    (0, import_obsidian8.setIcon)(closeButton, cancelIcon);
     closeButton.onclick = () => this.close();
     const contentArea = contentEl.createDiv("note-modal-content");
     const fileContent = this.file ? await this.plugin.app.vault.cachedRead(this.file) : "Error Loading Note";
@@ -5438,14 +5499,353 @@ var NoteViewerModal = class extends import_obsidian7.Modal {
   editNote() {
   }
   async openNote(evt) {
-    const newLeaf = this.plugin.app.workspace.getLeaf(import_obsidian7.Keymap.isModEvent(evt));
+    const newLeaf = this.plugin.app.workspace.getLeaf(import_obsidian8.Keymap.isModEvent(evt));
     await newLeaf.openFile(this.file);
     this.close();
   }
 };
 
+// src/components/FolderCardContent.svelte
+var import_obsidian9 = require("obsidian");
+function add_css(target) {
+  append_styles(target, "svelte-gucvgh", ".folder-card-content.svelte-gucvgh.svelte-gucvgh{display:flex;flex-direction:column;align-items:flex-start;width:100%;height:100%;padding:5px !important;padding-inline:2px !important}.folder-card-top.svelte-gucvgh.svelte-gucvgh{display:flex;flex-direction:row;align-items:center;width:100%;padding:0.5em;box-sizing:border-box;background:var(--background-modifier-cover);border:1px solid var(--code-comment);border-radius:0.5rem}.folder-name.svelte-gucvgh.svelte-gucvgh{flex:1;font-weight:bold;overflow:hidden;text-overflow:ellipsis;font-size:1.4rem}.folder-children.svelte-gucvgh.svelte-gucvgh{flex:1;padding:0.5em}.folder-children.svelte-gucvgh>ul.svelte-gucvgh{padding-inline:20px;margin:0}.folder-children-title.svelte-gucvgh.svelte-gucvgh{font-weight:bold;margin-bottom:0.25em}.folder-child.svelte-gucvgh.svelte-gucvgh{display:flex;flex-direction:row;align-content:center;align-items:center;gap:0.5rem}.folder-icon.svelte-gucvgh.svelte-gucvgh{flex:1;display:flex;justify-content:flex-end;align-items:flex-start;height:100%;max-width:25%}");
+}
+function get_each_context(ctx, list, i) {
+  const child_ctx = ctx.slice();
+  child_ctx[8] = list[i];
+  return child_ctx;
+}
+function create_else_block(ctx) {
+  let div;
+  let fileIcon_action;
+  let mounted;
+  let dispose;
+  return {
+    c() {
+      div = element("div");
+      attr(div, "class", "child-file-icon");
+    },
+    m(target, anchor) {
+      insert(target, div, anchor);
+      if (!mounted) {
+        dispose = action_destroyer(fileIcon_action = /*fileIcon*/
+        ctx[1].call(null, div));
+        mounted = true;
+      }
+    },
+    d(detaching) {
+      if (detaching) {
+        detach(div);
+      }
+      mounted = false;
+      dispose();
+    }
+  };
+}
+function create_if_block(ctx) {
+  let div;
+  let folderIcon_action;
+  let mounted;
+  let dispose;
+  return {
+    c() {
+      div = element("div");
+      attr(div, "class", "child-folder-icon");
+    },
+    m(target, anchor) {
+      insert(target, div, anchor);
+      if (!mounted) {
+        dispose = action_destroyer(folderIcon_action = /*folderIcon*/
+        ctx[2].call(null, div));
+        mounted = true;
+      }
+    },
+    d(detaching) {
+      if (detaching) {
+        detach(div);
+      }
+      mounted = false;
+      dispose();
+    }
+  };
+}
+function create_each_block(ctx) {
+  let li;
+  let span;
+  let t0;
+  let t1_value = (
+    /*child*/
+    (ctx[8].name.length > Math.floor(
+      /*$settings*/
+      ctx[3].minCardWidth / 8
+    ) ? (
+      /*child*/
+      ctx[8].name.slice(0, Math.floor(
+        /*$settings*/
+        ctx[3].minCardWidth / 8
+      )) + "..."
+    ) : (
+      /*child*/
+      ctx[8].name
+    )) + ""
+  );
+  let t1;
+  let t2;
+  function select_block_type(ctx2, dirty) {
+    if (
+      /*child*/
+      ctx2[8] instanceof import_obsidian9.TFolder
+    )
+      return create_if_block;
+    return create_else_block;
+  }
+  let current_block_type = select_block_type(ctx, -1);
+  let if_block = current_block_type(ctx);
+  return {
+    c() {
+      li = element("li");
+      span = element("span");
+      if_block.c();
+      t0 = space();
+      t1 = text(t1_value);
+      t2 = space();
+      attr(span, "class", "child-icon");
+      attr(li, "class", "folder-child svelte-gucvgh");
+    },
+    m(target, anchor) {
+      insert(target, li, anchor);
+      append(li, span);
+      if_block.m(span, null);
+      append(li, t0);
+      append(li, t1);
+      append(li, t2);
+    },
+    p(ctx2, dirty) {
+      if (current_block_type !== (current_block_type = select_block_type(ctx2, dirty))) {
+        if_block.d(1);
+        if_block = current_block_type(ctx2);
+        if (if_block) {
+          if_block.c();
+          if_block.m(span, null);
+        }
+      }
+      if (dirty & /*folder, $settings*/
+      9 && t1_value !== (t1_value = /*child*/
+      (ctx2[8].name.length > Math.floor(
+        /*$settings*/
+        ctx2[3].minCardWidth / 8
+      ) ? (
+        /*child*/
+        ctx2[8].name.slice(0, Math.floor(
+          /*$settings*/
+          ctx2[3].minCardWidth / 8
+        )) + "..."
+      ) : (
+        /*child*/
+        ctx2[8].name
+      )) + ""))
+        set_data(t1, t1_value);
+    },
+    d(detaching) {
+      if (detaching) {
+        detach(li);
+      }
+      if_block.d();
+    }
+  };
+}
+function create_fragment(ctx) {
+  var _a;
+  let div5;
+  let div2;
+  let div0;
+  let t0_value = (
+    /*folder*/
+    (ctx[0].name.length > 45 ? (
+      /*folder*/
+      ctx[0].name.slice(0, 45) + "..."
+    ) : (
+      /*folder*/
+      ctx[0].name
+    )) + ""
+  );
+  let t0;
+  let t1;
+  let div1;
+  let t2;
+  let div4;
+  let div3;
+  let t4;
+  let ul;
+  let each_value = ensure_array_like(
+    /*folder*/
+    ctx[0].children.slice(
+      0,
+      /*$settings*/
+      (_a = ctx[3].maxLines) != null ? _a : (
+        /*folder*/
+        ctx[0].children.length
+      )
+    )
+  );
+  let each_blocks = [];
+  for (let i = 0; i < each_value.length; i += 1) {
+    each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+  }
+  return {
+    c() {
+      div5 = element("div");
+      div2 = element("div");
+      div0 = element("div");
+      t0 = text(t0_value);
+      t1 = space();
+      div1 = element("div");
+      t2 = space();
+      div4 = element("div");
+      div3 = element("div");
+      div3.textContent = "Children";
+      t4 = space();
+      ul = element("ul");
+      for (let i = 0; i < each_blocks.length; i += 1) {
+        each_blocks[i].c();
+      }
+      attr(div0, "class", "folder-name svelte-gucvgh");
+      attr(div1, "class", "folder-icon svelte-gucvgh");
+      attr(div2, "class", "folder-card-top svelte-gucvgh");
+      attr(div3, "class", "folder-children-title svelte-gucvgh");
+      attr(ul, "class", "svelte-gucvgh");
+      attr(div4, "class", "folder-children svelte-gucvgh");
+      attr(div5, "class", "folder-card-content svelte-gucvgh");
+    },
+    m(target, anchor) {
+      insert(target, div5, anchor);
+      append(div5, div2);
+      append(div2, div0);
+      append(div0, t0);
+      append(div2, t1);
+      append(div2, div1);
+      ctx[6](div1);
+      append(div5, t2);
+      append(div5, div4);
+      append(div4, div3);
+      append(div4, t4);
+      append(div4, ul);
+      for (let i = 0; i < each_blocks.length; i += 1) {
+        if (each_blocks[i]) {
+          each_blocks[i].m(ul, null);
+        }
+      }
+    },
+    p(ctx2, [dirty]) {
+      var _a2;
+      if (dirty & /*folder*/
+      1 && t0_value !== (t0_value = /*folder*/
+      (ctx2[0].name.length > 45 ? (
+        /*folder*/
+        ctx2[0].name.slice(0, 45) + "..."
+      ) : (
+        /*folder*/
+        ctx2[0].name
+      )) + ""))
+        set_data(t0, t0_value);
+      if (dirty & /*folder, $settings, Math*/
+      9) {
+        each_value = ensure_array_like(
+          /*folder*/
+          ctx2[0].children.slice(
+            0,
+            /*$settings*/
+            (_a2 = ctx2[3].maxLines) != null ? _a2 : (
+              /*folder*/
+              ctx2[0].children.length
+            )
+          )
+        );
+        let i;
+        for (i = 0; i < each_value.length; i += 1) {
+          const child_ctx = get_each_context(ctx2, each_value, i);
+          if (each_blocks[i]) {
+            each_blocks[i].p(child_ctx, dirty);
+          } else {
+            each_blocks[i] = create_each_block(child_ctx);
+            each_blocks[i].c();
+            each_blocks[i].m(ul, null);
+          }
+        }
+        for (; i < each_blocks.length; i += 1) {
+          each_blocks[i].d(1);
+        }
+        each_blocks.length = each_value.length;
+      }
+    },
+    i: noop,
+    o: noop,
+    d(detaching) {
+      if (detaching) {
+        detach(div5);
+      }
+      ctx[6](null);
+      destroy_each(each_blocks, detaching);
+    }
+  };
+}
+function instance($$self, $$props, $$invalidate) {
+  let childrenNames;
+  let $settings;
+  component_subscribe($$self, settings, ($$value) => $$invalidate(3, $settings = $$value));
+  var _a;
+  let { folder } = $$props;
+  let folderIconDiv;
+  const fileIcon = (element2) => {
+    (0, import_obsidian9.setIcon)(element2, "file");
+  };
+  const folderIcon = (element2) => {
+    (0, import_obsidian9.setIcon)(element2, "folder");
+  };
+  onMount(() => {
+    if (folderIconDiv) {
+      $$invalidate(4, folderIconDiv.innerHTML = folderIconSVG, folderIconDiv);
+    }
+  });
+  function div1_binding($$value) {
+    binding_callbacks[$$value ? "unshift" : "push"](() => {
+      folderIconDiv = $$value;
+      $$invalidate(4, folderIconDiv);
+    });
+  }
+  $$self.$$set = ($$props2) => {
+    if ("folder" in $$props2)
+      $$invalidate(0, folder = $$props2.folder);
+  };
+  $$self.$$.update = () => {
+    if ($$self.$$.dirty & /*folder, $settings, _a*/
+    41) {
+      $:
+        childrenNames = folder.children.slice(0, $$invalidate(5, _a = $settings.maxLines) !== null && _a !== void 0 ? _a : folder.children.length).map((child) => {
+          const charWidth = 8;
+          const maxLen = Math.floor($settings.minCardWidth / charWidth);
+          return child.name.length > maxLen ? child.name.slice(0, maxLen) + "..." : child.name;
+        });
+    }
+  };
+  return [folder, fileIcon, folderIcon, $settings, folderIconDiv, _a, div1_binding];
+}
+var FolderCardContent = class extends SvelteComponent {
+  constructor(options) {
+    super();
+    init(this, options, instance, create_fragment, safe_not_equal, { folder: 0, fileIcon: 1, folderIcon: 2 }, add_css);
+  }
+  get fileIcon() {
+    return this.$$.ctx[1];
+  }
+  get folderIcon() {
+    return this.$$.ctx[2];
+  }
+};
+var FolderCardContent_default = FolderCardContent;
+
 // src/components/Card.svelte
-function create_if_block_4(ctx) {
+function create_if_block_5(ctx) {
   let div1;
   let div0;
   let t_value = (
@@ -5479,6 +5879,185 @@ function create_if_block_4(ctx) {
     }
   };
 }
+function create_if_block2(ctx) {
+  let div3;
+  let div2;
+  let t0;
+  let div1;
+  let t1;
+  let div0;
+  let t2_value = (
+    /*getFooterMetadata*/
+    ctx[20]() + ""
+  );
+  let t2;
+  let div0_title_value;
+  let t3;
+  let div3_class_value;
+  let mounted;
+  let dispose;
+  function select_block_type(ctx2, dirty) {
+    if (
+      /*pinned*/
+      ctx2[4]
+    )
+      return create_if_block_4;
+    return create_else_block_1;
+  }
+  let current_block_type = select_block_type(ctx, [-1, -1]);
+  let if_block0 = current_block_type(ctx);
+  function select_block_type_1(ctx2, dirty) {
+    if (
+      /*$settings*/
+      ctx2[1].noteMetadata === "folderName" && /*file*/
+      ctx2[0].parent != null && /*file*/
+      ctx2[0].parent.path !== "/"
+    )
+      return create_if_block_2;
+    if (
+      /*$settings*/
+      ctx2[1].noteMetadata === "folderName"
+    )
+      return create_if_block_3;
+  }
+  let current_block_type_1 = select_block_type_1(ctx, [-1, -1]);
+  let if_block1 = current_block_type_1 && current_block_type_1(ctx);
+  function select_block_type_2(ctx2, dirty) {
+    if (
+      /*$settings*/
+      ctx2[1].showDeleteButton
+    )
+      return create_if_block_1;
+    return create_else_block2;
+  }
+  let current_block_type_2 = select_block_type_2(ctx, [-1, -1]);
+  let if_block2 = current_block_type_2(ctx);
+  return {
+    c() {
+      div3 = element("div");
+      div2 = element("div");
+      if_block0.c();
+      t0 = space();
+      div1 = element("div");
+      if (if_block1)
+        if_block1.c();
+      t1 = space();
+      div0 = element("div");
+      t2 = text(t2_value);
+      t3 = space();
+      if_block2.c();
+      attr(div0, "class", "card-footer-text");
+      attr(div0, "title", div0_title_value = /*file*/
+      ctx[0] && /*file*/
+      ctx[0].parent ? (
+        /*file*/
+        ctx[0].parent.path
+      ) : "");
+      attr(div0, "role", "tooltip");
+      attr(
+        div1,
+        "class",
+        /*footerMetadataClass*/
+        ctx[7]
+      );
+      attr(div2, "class", "card-footer");
+      attr(div3, "class", div3_class_value = /*$settings*/
+      ctx[1].metadataVisibility ? "card-footer-parent-active" : "card-footer-parent");
+      attr(div3, "role", "presentation");
+    },
+    m(target, anchor) {
+      insert(target, div3, anchor);
+      append(div3, div2);
+      if_block0.m(div2, null);
+      append(div2, t0);
+      append(div2, div1);
+      if (if_block1)
+        if_block1.m(div1, null);
+      append(div1, t1);
+      append(div1, div0);
+      append(div0, t2);
+      append(div2, t3);
+      if_block2.m(div2, null);
+      ctx[23](div3);
+      if (!mounted) {
+        dispose = listen(
+          div3,
+          "mouseenter",
+          /*mouseenter_handler*/
+          ctx[24]
+        );
+        mounted = true;
+      }
+    },
+    p(ctx2, dirty) {
+      if (current_block_type === (current_block_type = select_block_type(ctx2, dirty)) && if_block0) {
+        if_block0.p(ctx2, dirty);
+      } else {
+        if_block0.d(1);
+        if_block0 = current_block_type(ctx2);
+        if (if_block0) {
+          if_block0.c();
+          if_block0.m(div2, t0);
+        }
+      }
+      if (current_block_type_1 !== (current_block_type_1 = select_block_type_1(ctx2, dirty))) {
+        if (if_block1)
+          if_block1.d(1);
+        if_block1 = current_block_type_1 && current_block_type_1(ctx2);
+        if (if_block1) {
+          if_block1.c();
+          if_block1.m(div1, t1);
+        }
+      }
+      if (dirty[0] & /*file*/
+      1 && div0_title_value !== (div0_title_value = /*file*/
+      ctx2[0] && /*file*/
+      ctx2[0].parent ? (
+        /*file*/
+        ctx2[0].parent.path
+      ) : "")) {
+        attr(div0, "title", div0_title_value);
+      }
+      if (dirty[0] & /*footerMetadataClass*/
+      128) {
+        attr(
+          div1,
+          "class",
+          /*footerMetadataClass*/
+          ctx2[7]
+        );
+      }
+      if (current_block_type_2 === (current_block_type_2 = select_block_type_2(ctx2, dirty)) && if_block2) {
+        if_block2.p(ctx2, dirty);
+      } else {
+        if_block2.d(1);
+        if_block2 = current_block_type_2(ctx2);
+        if (if_block2) {
+          if_block2.c();
+          if_block2.m(div2, null);
+        }
+      }
+      if (dirty[0] & /*$settings*/
+      2 && div3_class_value !== (div3_class_value = /*$settings*/
+      ctx2[1].metadataVisibility ? "card-footer-parent-active" : "card-footer-parent")) {
+        attr(div3, "class", div3_class_value);
+      }
+    },
+    d(detaching) {
+      if (detaching) {
+        detach(div3);
+      }
+      if_block0.d();
+      if (if_block1) {
+        if_block1.d();
+      }
+      if_block2.d();
+      ctx[23](null);
+      mounted = false;
+      dispose();
+    }
+  };
+}
 function create_else_block_1(ctx) {
   let button;
   let pinButton_action;
@@ -5488,6 +6067,7 @@ function create_else_block_1(ctx) {
     c() {
       button = element("button");
       attr(button, "class", "clickable-icon");
+      attr(button, "aria-label", "Pin file");
       toggle_class(
         button,
         "is-active",
@@ -5501,7 +6081,7 @@ function create_else_block_1(ctx) {
         dispose = [
           action_destroyer(pinButton_action = /*pinButton*/
           ctx[10].call(null, button)),
-          listen(button, "click", stop_propagation(
+          listen(button, "click", prevent_default(
             /*togglePin*/
             ctx[17]
           ))
@@ -5529,7 +6109,7 @@ function create_else_block_1(ctx) {
     }
   };
 }
-function create_if_block_3(ctx) {
+function create_if_block_4(ctx) {
   let button;
   let pinnedIcon_action;
   let mounted;
@@ -5538,6 +6118,7 @@ function create_if_block_3(ctx) {
     c() {
       button = element("button");
       attr(button, "class", "clickable-icon");
+      attr(button, "aria-label", "Unpin file");
     },
     m(target, anchor) {
       insert(target, button, anchor);
@@ -5545,7 +6126,7 @@ function create_if_block_3(ctx) {
         dispose = [
           action_destroyer(pinnedIcon_action = /*pinnedIcon*/
           ctx[15].call(null, button)),
-          listen(button, "click", stop_propagation(
+          listen(button, "click", prevent_default(
             /*togglePin*/
             ctx[17]
           ))
@@ -5563,7 +6144,7 @@ function create_if_block_3(ctx) {
     }
   };
 }
-function create_if_block_2(ctx) {
+function create_if_block_3(ctx) {
   let span;
   let vaultIcon_action;
   let mounted;
@@ -5589,7 +6170,7 @@ function create_if_block_2(ctx) {
     }
   };
 }
-function create_if_block_1(ctx) {
+function create_if_block_2(ctx) {
   let span;
   let folderIcon_action;
   let mounted;
@@ -5615,7 +6196,7 @@ function create_if_block_1(ctx) {
     }
   };
 }
-function create_else_block(ctx) {
+function create_else_block2(ctx) {
   let button;
   let blankIcon_action;
   let mounted;
@@ -5624,6 +6205,7 @@ function create_else_block(ctx) {
     c() {
       button = element("button");
       attr(button, "class", "clickable-icon");
+      attr(button, "aria-label", "nothing");
     },
     m(target, anchor) {
       insert(target, button, anchor);
@@ -5643,7 +6225,7 @@ function create_else_block(ctx) {
     }
   };
 }
-function create_if_block(ctx) {
+function create_if_block_1(ctx) {
   let button;
   let trashIcon_action;
   let mounted;
@@ -5652,6 +6234,7 @@ function create_if_block(ctx) {
     c() {
       button = element("button");
       attr(button, "class", "clickable-icon");
+      attr(button, "aria-label", "Delete file");
     },
     m(target, anchor) {
       insert(target, button, anchor);
@@ -5659,7 +6242,7 @@ function create_if_block(ctx) {
         dispose = [
           action_destroyer(trashIcon_action = /*trashIcon*/
           ctx[11].call(null, button)),
-          listen(button, "click", stop_propagation(
+          listen(button, "click", prevent_default(
             /*trashFile*/
             ctx[18]
           ))
@@ -5677,148 +6260,64 @@ function create_if_block(ctx) {
     }
   };
 }
-function create_fragment(ctx) {
-  let div5;
+function create_fragment2(ctx) {
+  let div1;
   let t0;
   let div0;
   let div0_style_value;
   let t1;
-  let div4;
-  let div3;
-  let t2;
-  let div2;
-  let t3;
-  let div1;
-  let t4_value = (
-    /*getFooterMetadata*/
-    ctx[20]() + ""
-  );
-  let t4;
-  let div1_title_value;
-  let t5;
-  let div4_class_value;
   let mounted;
   let dispose;
   let if_block0 = (
     /*displayFilename*/
-    ctx[9] && create_if_block_4(ctx)
+    ctx[9] && /*file*/
+    ctx[0] instanceof import_obsidian10.TFile && create_if_block_5(ctx)
   );
-  function select_block_type(ctx2, dirty) {
-    if (
-      /*pinned*/
-      ctx2[4]
-    )
-      return create_if_block_3;
-    return create_else_block_1;
-  }
-  let current_block_type = select_block_type(ctx, [-1, -1]);
-  let if_block1 = current_block_type(ctx);
-  function select_block_type_1(ctx2, dirty) {
-    if (
-      /*$settings*/
-      ctx2[1].noteMetadata === "folderName" && /*file*/
-      ctx2[0].parent != null && /*file*/
-      ctx2[0].parent.path !== "/"
-    )
-      return create_if_block_1;
-    if (
-      /*$settings*/
-      ctx2[1].noteMetadata === "folderName"
-    )
-      return create_if_block_2;
-  }
-  let current_block_type_1 = select_block_type_1(ctx, [-1, -1]);
-  let if_block2 = current_block_type_1 && current_block_type_1(ctx);
-  function select_block_type_2(ctx2, dirty) {
-    if (
-      /*$settings*/
-      ctx2[1].showDeleteButton
-    )
-      return create_if_block;
-    return create_else_block;
-  }
-  let current_block_type_2 = select_block_type_2(ctx, [-1, -1]);
-  let if_block3 = current_block_type_2(ctx);
+  let if_block1 = (
+    /*file*/
+    ctx[0] instanceof import_obsidian10.TFile && create_if_block2(ctx)
+  );
   return {
     c() {
-      div5 = element("div");
+      div1 = element("div");
       if (if_block0)
         if_block0.c();
       t0 = space();
       div0 = element("div");
       t1 = space();
-      div4 = element("div");
-      div3 = element("div");
-      if_block1.c();
-      t2 = space();
-      div2 = element("div");
-      if (if_block2)
-        if_block2.c();
-      t3 = space();
-      div1 = element("div");
-      t4 = text(t4_value);
-      t5 = space();
-      if_block3.c();
+      if (if_block1)
+        if_block1.c();
       attr(div0, "class", "card-content");
       attr(div0, "style", div0_style_value = "padding-inline: " + /*$settings*/
       (ctx[1].tagColorIndicatorType === "background" ? "8px" : "4px") + "; " + /*$settings*/
       (ctx[1].fixedCardHeight ? "overflow-y: clip;" : ""));
       attr(div0, "role", "presentation");
-      attr(div1, "class", "card-footer-text");
-      attr(div1, "title", div1_title_value = /*file*/
-      ctx[0] && /*file*/
-      ctx[0].parent ? (
-        /*file*/
-        ctx[0].parent.path
-      ) : "");
-      attr(div1, "role", "tooltip");
+      attr(div1, "class", "card");
       attr(
-        div2,
-        "class",
-        /*footerMetadataClass*/
-        ctx[7]
-      );
-      attr(div3, "class", "card-footer");
-      attr(div4, "class", div4_class_value = /*$settings*/
-      ctx[1].metadataVisibility ? "card-footer-parent-active" : "card-footer-parent");
-      attr(div4, "role", "presentation");
-      attr(div5, "class", "card");
-      attr(
-        div5,
+        div1,
         "style",
         /*cardStyle*/
         ctx[5]
       );
-      attr(div5, "role", "link");
-      attr(div5, "tabindex", "0");
+      attr(div1, "role", "link");
+      attr(div1, "tabindex", "0");
       toggle_class(
-        div5,
+        div1,
         "skip-transition",
         /*$skipNextTransition*/
         ctx[8]
       );
     },
     m(target, anchor) {
-      insert(target, div5, anchor);
+      insert(target, div1, anchor);
       if (if_block0)
-        if_block0.m(div5, null);
-      append(div5, t0);
-      append(div5, div0);
-      ctx[21](div0);
-      append(div5, t1);
-      append(div5, div4);
-      append(div4, div3);
-      if_block1.m(div3, null);
-      append(div3, t2);
-      append(div3, div2);
-      if (if_block2)
-        if_block2.m(div2, null);
-      append(div2, t3);
-      append(div2, div1);
-      append(div1, t4);
-      append(div3, t5);
-      if_block3.m(div3, null);
-      ctx[22](div4);
+        if_block0.m(div1, null);
+      append(div1, t0);
+      append(div1, div0);
+      ctx[22](div0);
+      append(div1, t1);
+      if (if_block1)
+        if_block1.m(div1, null);
       if (!mounted) {
         dispose = [
           listen(div0, "click", prevent_default(function() {
@@ -5848,13 +6347,7 @@ function create_fragment(ctx) {
                 /*openFile*/
                 ctx[19]
               ) : null).apply(this, arguments);
-          })),
-          listen(
-            div4,
-            "mouseenter",
-            /*mouseenter_handler*/
-            ctx[23]
-          )
+          }))
         ];
         mounted = true;
       }
@@ -5863,71 +6356,45 @@ function create_fragment(ctx) {
       ctx = new_ctx;
       if (
         /*displayFilename*/
-        ctx[9]
-      )
-        if_block0.p(ctx, dirty);
+        ctx[9] && /*file*/
+        ctx[0] instanceof import_obsidian10.TFile
+      ) {
+        if (if_block0) {
+          if_block0.p(ctx, dirty);
+        } else {
+          if_block0 = create_if_block_5(ctx);
+          if_block0.c();
+          if_block0.m(div1, t0);
+        }
+      } else if (if_block0) {
+        if_block0.d(1);
+        if_block0 = null;
+      }
       if (dirty[0] & /*$settings*/
       2 && div0_style_value !== (div0_style_value = "padding-inline: " + /*$settings*/
       (ctx[1].tagColorIndicatorType === "background" ? "8px" : "4px") + "; " + /*$settings*/
       (ctx[1].fixedCardHeight ? "overflow-y: clip;" : ""))) {
         attr(div0, "style", div0_style_value);
       }
-      if (current_block_type === (current_block_type = select_block_type(ctx, dirty)) && if_block1) {
-        if_block1.p(ctx, dirty);
-      } else {
-        if_block1.d(1);
-        if_block1 = current_block_type(ctx);
-        if (if_block1) {
-          if_block1.c();
-          if_block1.m(div3, t2);
-        }
-      }
-      if (current_block_type_1 !== (current_block_type_1 = select_block_type_1(ctx, dirty))) {
-        if (if_block2)
-          if_block2.d(1);
-        if_block2 = current_block_type_1 && current_block_type_1(ctx);
-        if (if_block2) {
-          if_block2.c();
-          if_block2.m(div2, t3);
-        }
-      }
-      if (dirty[0] & /*file*/
-      1 && div1_title_value !== (div1_title_value = /*file*/
-      ctx[0] && /*file*/
-      ctx[0].parent ? (
+      if (
         /*file*/
-        ctx[0].parent.path
-      ) : "")) {
-        attr(div1, "title", div1_title_value);
-      }
-      if (dirty[0] & /*footerMetadataClass*/
-      128) {
-        attr(
-          div2,
-          "class",
-          /*footerMetadataClass*/
-          ctx[7]
-        );
-      }
-      if (current_block_type_2 === (current_block_type_2 = select_block_type_2(ctx, dirty)) && if_block3) {
-        if_block3.p(ctx, dirty);
-      } else {
-        if_block3.d(1);
-        if_block3 = current_block_type_2(ctx);
-        if (if_block3) {
-          if_block3.c();
-          if_block3.m(div3, null);
+        ctx[0] instanceof import_obsidian10.TFile
+      ) {
+        if (if_block1) {
+          if_block1.p(ctx, dirty);
+        } else {
+          if_block1 = create_if_block2(ctx);
+          if_block1.c();
+          if_block1.m(div1, null);
         }
-      }
-      if (dirty[0] & /*$settings*/
-      2 && div4_class_value !== (div4_class_value = /*$settings*/
-      ctx[1].metadataVisibility ? "card-footer-parent-active" : "card-footer-parent")) {
-        attr(div4, "class", div4_class_value);
+      } else if (if_block1) {
+        if_block1.d(1);
+        if_block1 = null;
       }
       if (dirty[0] & /*cardStyle*/
       32) {
         attr(
-          div5,
+          div1,
           "style",
           /*cardStyle*/
           ctx[5]
@@ -5936,7 +6403,7 @@ function create_fragment(ctx) {
       if (dirty[0] & /*$skipNextTransition*/
       256) {
         toggle_class(
-          div5,
+          div1,
           "skip-transition",
           /*$skipNextTransition*/
           ctx[8]
@@ -5947,50 +6414,49 @@ function create_fragment(ctx) {
     o: noop,
     d(detaching) {
       if (detaching) {
-        detach(div5);
+        detach(div1);
       }
       if (if_block0)
         if_block0.d();
-      ctx[21](null);
-      if_block1.d();
-      if (if_block2) {
-        if_block2.d();
-      }
-      if_block3.d();
       ctx[22](null);
+      if (if_block1)
+        if_block1.d();
       mounted = false;
       run_all(dispose);
     }
   };
 }
-function instance($$self, $$props, $$invalidate) {
+function instance2($$self, $$props, $$invalidate) {
   let cardStyle;
   let footerMetadataClass;
   let clickHandler;
+  let $renderOnFileUpdate;
   let $settings;
   let $app;
   let $appCache;
   let $plugin;
   let $view;
   let $skipNextTransition;
+  component_subscribe($$self, renderOnFileUpdate, ($$value) => $$invalidate(26, $renderOnFileUpdate = $$value));
   component_subscribe($$self, settings, ($$value) => $$invalidate(1, $settings = $$value));
-  component_subscribe($$self, app, ($$value) => $$invalidate(25, $app = $$value));
-  component_subscribe($$self, appCache, ($$value) => $$invalidate(26, $appCache = $$value));
-  component_subscribe($$self, plugin, ($$value) => $$invalidate(27, $plugin = $$value));
-  component_subscribe($$self, view, ($$value) => $$invalidate(28, $view = $$value));
+  component_subscribe($$self, app, ($$value) => $$invalidate(27, $app = $$value));
+  component_subscribe($$self, appCache, ($$value) => $$invalidate(28, $appCache = $$value));
+  component_subscribe($$self, plugin, ($$value) => $$invalidate(29, $plugin = $$value));
+  component_subscribe($$self, view, ($$value) => $$invalidate(30, $view = $$value));
   component_subscribe($$self, skipNextTransition, ($$value) => $$invalidate(8, $skipNextTransition = $$value));
   let { file } = $$props;
+  let { updateLayoutNextTick } = $$props;
   let displayFilename = $settings.displayTitle !== "Title" /* Title */;
   let contentDiv;
   let footerDiv;
   let pinned;
   let backgroundColor = "";
-  const pinButton = (element2) => (0, import_obsidian8.setIcon)(element2, "pin");
-  const trashIcon = (element2) => (0, import_obsidian8.setIcon)(element2, "trash");
-  const folderIcon = (element2) => (0, import_obsidian8.setIcon)(element2, "folder");
-  const blankIcon = (element2) => (0, import_obsidian8.setIcon)(element2, "blank");
-  const vaultIcon = (element2) => (0, import_obsidian8.setIcon)(element2, "vault");
-  const pinnedIcon = (element2) => (0, import_obsidian8.setIcon)(element2, "circle-stop");
+  const pinButton = (element2) => (0, import_obsidian10.setIcon)(element2, "pin");
+  const trashIcon = (element2) => (0, import_obsidian10.setIcon)(element2, "trash");
+  const folderIcon = (element2) => (0, import_obsidian10.setIcon)(element2, "folder");
+  const blankIcon = (element2) => (0, import_obsidian10.setIcon)(element2, "blank");
+  const vaultIcon = (element2) => (0, import_obsidian10.setIcon)(element2, "vault");
+  const pinnedIcon = (element2) => (0, import_obsidian10.setIcon)(element2, "circle-stop");
   const truncateContent = (content, maxLiness) => {
     content = content.replace(/^---[\s\S]*?---\n?/, "");
     content = content.replace(/%%[\s\S]*?%%\n?/g, "");
@@ -5998,7 +6464,10 @@ function instance($$self, $$props, $$invalidate) {
     const truncatedLines = lines.slice(0, maxLiness);
     return truncatedLines.join("\n").trim();
   };
-  const postProcessRenderedContent = (element2) => {
+  const postProcessRenderedContent = (element2, context) => {
+    if (context.sourcePath !== file.path) {
+      return;
+    }
     if ($settings.displayTitle === "Filename" /* Filename */) {
       const firstChild = element2.firstElementChild;
       if ((firstChild === null || firstChild === void 0 ? void 0 : firstChild.tagName) === "H1") {
@@ -6010,20 +6479,40 @@ function instance($$self, $$props, $$invalidate) {
     });
   };
   const renderNoteCard = (el) => __awaiter(void 0, void 0, void 0, function* () {
-    const fileEmptyCondition = yield isFileEmpty(file);
-    if (!fileEmptyCondition) {
-      const maxLiness = $settings.maxLines || 20;
-      const content = yield file.vault.cachedRead(file);
-      const truncatedContent = truncateContent(content, maxLiness);
-      yield obsidianMarkdownRenderer($app, truncatedContent, el, file.path, $view);
-      postProcessRenderedContent(el);
-      if ($settings.contentInteractions) {
-        hookMarkdownLinkMouseEventHandlers($plugin, el, file.path, file.path);
+    if (el == null) {
+      console.warn("Element is null, cannot render note card.");
+      return;
+    }
+    if (file instanceof import_obsidian10.TFile) {
+      const sanitizedFileContent = yield pullContentWithoutFrontmatter(file);
+      if (sanitizedFileContent !== "") {
+        const maxLines = $settings.maxLines || 20;
+        const truncatedContent = sanitizedFileContent.split("\n").length > ($settings.maxLines || 20) ? truncateContent(sanitizedFileContent, maxLines) + "\n\n..." : sanitizedFileContent + "\n\n";
+        import_obsidian10.MarkdownPreviewRenderer.registerPostProcessor(postProcessRenderedContent);
+        yield obsidianMarkdownRenderer($app, truncatedContent, el, file.path, $view);
+        import_obsidian10.MarkdownPreviewRenderer.unregisterPostProcessor(postProcessRenderedContent);
+        if ($settings.contentInteractions) {
+          hookMarkdownLinkMouseEventHandlers($plugin, el, file.path, file.path);
+        }
+      } else {
+        el.createEl("div", {
+          text: "File is empty",
+          cls: "card-content-empty"
+        });
       }
+    } else if (file instanceof import_obsidian10.TFolder) {
+      const folderContent = document.createElement("div");
+      folderContent.className = "card-content-folder";
+      el.appendChild(folderContent);
+      new FolderCardContent_default({
+        target: folderContent,
+        props: { folder: file }
+      });
     } else {
+      console.warn("Unsupported file type for rendering:", file);
       el.createEl("div", {
-        text: "File is empty",
-        cls: "card-content-empty"
+        text: "Unsupported file type",
+        cls: "card-content-unsupported"
       });
     }
   });
@@ -6036,6 +6525,7 @@ function instance($$self, $$props, $$invalidate) {
       $settings.pinnedFiles = pinned ? $settings.pinnedFiles.filter((f) => f !== file.path) : [...$settings.pinnedFiles, file.path],
       $settings
     );
+    refreshView();
   });
   const trashFile = () => __awaiter(void 0, void 0, void 0, function* () {
     const modalAnswer = yield openDeleteConfirmationModal($app);
@@ -6044,56 +6534,65 @@ function instance($$self, $$props, $$invalidate) {
         yield file.vault.trash(file, $settings.deleteFileMode === "trash" ? false : true);
       } catch (error) {
         console.error("trashFile : Error deleting the file:", error);
+        new import_obsidian10.Notice(`Error deleting the file: An error occurred while trying to delete the file: ${file.path}. Please check the console for more details.`);
       }
     }
   });
   const openFile = (evt) => __awaiter(void 0, void 0, void 0, function* () {
     var _a, _b, _c, _d, _e, _f;
-    const layoutEntries = Object.entries($app.workspace.getLayout());
-    const mainEntry = layoutEntries.find(([key]) => key === "main");
-    const children2 = mainEntry && ((_b = (_a = mainEntry[1]) === null || _a === void 0 ? void 0 : _a.children[0]) === null || _b === void 0 ? void 0 : _b.children) || [];
-    const hasNotesExplorer = children2.some((child) => {
-      var _a2;
-      return child.type === "leaf" && ((_a2 = child.state) === null || _a2 === void 0 ? void 0 : _a2.type) === "notes-explorer";
-    });
-    if ($settings.openNoteLayout === "modal") {
-      const modal = new NoteViewerModal($plugin, file);
-      modal.open();
-      return;
-    } else if ($settings.openNoteLayout === "right") {
-      if (mainEntry) {
-        if (((_d = (_c = mainEntry[1]) === null || _c === void 0 ? void 0 : _c.children) === null || _d === void 0 ? void 0 : _d.length) > 1) {
-          const newLeaf = $app.workspace.getLeaf(import_obsidian8.Keymap.isModEvent(evt));
-          yield newLeaf.openFile(file);
-        } else {
-          yield $app.workspace.getLeaf("split", "vertical").openFile(file);
-        }
-      }
-      return;
-    } else if ($settings.openNoteLayout === "sameTab") {
-      if (hasNotesExplorer) {
-        if (mainEntry && ((_f = (_e = mainEntry[1]) === null || _e === void 0 ? void 0 : _e.children) === null || _f === void 0 ? void 0 : _f.length) > 1) {
-          const newLeaf = $app.workspace.getLeaf(import_obsidian8.Keymap.isModEvent(evt));
-          yield newLeaf.openFile(file);
-        } else {
-          yield $app.workspace.getLeaf("split", "vertical").openFile(file);
+    if (file instanceof import_obsidian10.TFolder) {
+      store_default.folderName.set([file]);
+    } else if (file instanceof import_obsidian10.TFile) {
+      const layoutEntries = Object.entries($app.workspace.getLayout());
+      const mainEntry = layoutEntries.find(([key]) => key === "main");
+      const children2 = mainEntry && ((_b = (_a = mainEntry[1]) === null || _a === void 0 ? void 0 : _a.children[0]) === null || _b === void 0 ? void 0 : _b.children) || [];
+      const hasNotesExplorer = children2.some((child) => {
+        var _a2;
+        return child.type === "leaf" && ((_a2 = child.state) === null || _a2 === void 0 ? void 0 : _a2.type) === "notes-explorer";
+      });
+      if ($settings.openNoteLayout === "modal") {
+        const modal = new NoteViewerModal($plugin, file);
+        modal.open();
+        return;
+      } else if ($settings.openNoteLayout === "right") {
+        if (mainEntry) {
+          if (((_d = (_c = mainEntry[1]) === null || _c === void 0 ? void 0 : _c.children) === null || _d === void 0 ? void 0 : _d.length) > 1) {
+            const newLeaf = $app.workspace.getLeaf(import_obsidian10.Keymap.isModEvent(evt));
+            yield newLeaf.openFile(file);
+          } else {
+            yield $app.workspace.getLeaf("split", "vertical").openFile(file);
+          }
         }
         return;
-      } else {
-        const newLeaf = $app.workspace.getLeaf(import_obsidian8.Keymap.isModEvent(evt));
-        yield newLeaf.openFile(file);
+      } else if ($settings.openNoteLayout === "sameTab") {
+        if (hasNotesExplorer) {
+          if (mainEntry && ((_f = (_e = mainEntry[1]) === null || _e === void 0 ? void 0 : _e.children) === null || _f === void 0 ? void 0 : _f.length) > 1) {
+            const newLeaf = $app.workspace.getLeaf(import_obsidian10.Keymap.isModEvent(evt));
+            yield newLeaf.openFile(file);
+          } else {
+            yield $app.workspace.getLeaf("split", "vertical").openFile(file);
+          }
+          return;
+        } else {
+          const newLeaf = $app.workspace.getLeaf(import_obsidian10.Keymap.isModEvent(evt));
+          yield newLeaf.openFile(file);
+        }
+        return;
+      } else if ($settings.openNoteLayout === "tab") {
+        yield $app.workspace.getLeaf("tab").openFile(file);
+        return;
+      } else if ($settings.openNoteLayout === "window") {
+        yield $app.workspace.getLeaf("window").openFile(file);
+        return;
       }
-      return;
-    } else if ($settings.openNoteLayout === "tab") {
-      yield $app.workspace.getLeaf("tab").openFile(file);
-      return;
-    } else if ($settings.openNoteLayout === "window") {
-      yield $app.workspace.getLeaf("window").openFile(file);
-      return;
     }
   });
   const updateTagColorIndicator = () => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
+    if (file instanceof import_obsidian10.TFolder) {
+      backgroundColor = "";
+      return;
+    }
     if (contentDiv && $settings.tagPositionForCardColor === "content" /* content */) {
       const content = yield file.vault.cachedRead(file);
       for (let tag of $settings.tagColors) {
@@ -6115,7 +6614,7 @@ function instance($$self, $$props, $$invalidate) {
         }
       }
     } else {
-      const tags = (0, import_obsidian8.getAllTags)($appCache.getFileCache(file)) || [];
+      const tags = (0, import_obsidian10.getAllTags)($appCache.getFileCache(file)) || [];
       for (let tag of $settings.tagColors) {
         if (tags.includes(`#${tag.name.replace("#", "")}`)) {
           backgroundColor = tag.color;
@@ -6126,6 +6625,9 @@ function instance($$self, $$props, $$invalidate) {
   });
   function getFooterMetadata() {
     var _a, _b, _c, _d;
+    if (!(file instanceof import_obsidian10.TFile)) {
+      return "Not a file";
+    }
     const metadataType = $settings.noteMetadata;
     switch (metadataType) {
       case "fileName":
@@ -6161,17 +6663,19 @@ function instance($$self, $$props, $$invalidate) {
     }
     return style;
   }
-  const dispatch2 = createEventDispatcher();
-  onMount(() => __awaiter(void 0, void 0, void 0, function* () {
-    yield renderNoteCard(contentDiv);
-    yield updateTagColorIndicator();
-    $$invalidate(5, cardStyle = calculateStyle());
-    dispatch2("loaded");
-  }));
-  afterUpdate(() => {
-    updateTagColorIndicator().then(() => {
+  onMount(() => {
+    (() => __awaiter(void 0, void 0, void 0, function* () {
+      yield renderNoteCard(contentDiv);
+      updateTagColorIndicator();
       $$invalidate(5, cardStyle = calculateStyle());
-    });
+      yield updateLayoutNextTick();
+      if ($renderOnFileUpdate) {
+        store_default.skipNextTransition.set(true);
+      } else {
+        store_default.skipNextTransition.set(false);
+      }
+    }))();
+    return () => updateLayoutNextTick();
   });
   function div0_binding($$value) {
     binding_callbacks[$$value ? "unshift" : "push"](() => {
@@ -6179,7 +6683,7 @@ function instance($$self, $$props, $$invalidate) {
       $$invalidate(2, contentDiv);
     });
   }
-  function div4_binding($$value) {
+  function div3_binding($$value) {
     binding_callbacks[$$value ? "unshift" : "push"](() => {
       footerDiv = $$value;
       $$invalidate(3, footerDiv);
@@ -6189,6 +6693,8 @@ function instance($$self, $$props, $$invalidate) {
   $$self.$$set = ($$props2) => {
     if ("file" in $$props2)
       $$invalidate(0, file = $$props2.file);
+    if ("updateLayoutNextTick" in $$props2)
+      $$invalidate(21, updateLayoutNextTick = $$props2.updateLayoutNextTick);
   };
   $$self.$$.update = () => {
     if ($$self.$$.dirty[0] & /*$settings, file*/
@@ -6231,21 +6737,22 @@ function instance($$self, $$props, $$invalidate) {
     trashFile,
     openFile,
     getFooterMetadata,
+    updateLayoutNextTick,
     div0_binding,
-    div4_binding,
+    div3_binding,
     mouseenter_handler
   ];
 }
 var Card = class extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance, create_fragment, safe_not_equal, { file: 0 }, null, [-1, -1]);
+    init(this, options, instance2, create_fragment2, safe_not_equal, { file: 0, updateLayoutNextTick: 21 }, null, [-1, -1]);
   }
 };
 var Card_default = Card;
 
 // src/services/SearchFiltersMultiSuggestor.ts
-var import_obsidian9 = require("obsidian");
+var import_obsidian11 = require("obsidian");
 
 // src/utils/SearchQueryHelpers.ts
 var initialPlaceholderSuggestionsMap = /* @__PURE__ */ new Map([
@@ -6260,7 +6767,8 @@ var initialPlaceholderSuggestionsMap = /* @__PURE__ */ new Map([
   [
     `["property": value]`,
     ` - Filter notes with YAML frontmatter. Eg. ["author": John Doe], ["date": BEFORE 2023-01-01], ["amount": > 100`
-  ]
+  ],
+  ["regex:", " - Filter notes by regex pattern. Eg. regex: /pattern/"]
 ]);
 function addToSearchHistory(entry) {
   const updatedSetting = get_store_value(settings);
@@ -6273,7 +6781,7 @@ function addToSearchHistory(entry) {
 }
 
 // src/services/SearchFiltersMultiSuggestor.ts
-var SearchFiltersMultiSuggestor = class extends import_obsidian9.AbstractInputSuggest {
+var SearchFiltersMultiSuggestor = class extends import_obsidian11.AbstractInputSuggest {
   constructor(inputEl, content, onSelectCb, app2) {
     super(app2, inputEl);
     this.inputEl = inputEl;
@@ -6300,6 +6808,7 @@ var SearchFiltersMultiSuggestor = class extends import_obsidian9.AbstractInputSu
         `modified-before:${initialPlaceholderSuggestionsMap.get("modified-before:")}`,
         `modified-after:${initialPlaceholderSuggestionsMap.get("modified-after:")}`,
         `["property": value]${initialPlaceholderSuggestionsMap.get(`["property": value]`)}`,
+        `regex:${initialPlaceholderSuggestionsMap.get("regex:")}`,
         "divider:History"
       ];
       initialPlaceholderSuggestions = [
@@ -6318,6 +6827,10 @@ var SearchFiltersMultiSuggestor = class extends import_obsidian9.AbstractInputSu
     } else if (inputStr.trim().startsWith("tag:")) {
       return [...this.content].filter(
         (tag) => tag.toLocaleLowerCase().includes(inputStr.toLocaleLowerCase().replace(/^tag: /, "")) && tag.startsWith("tag:")
+      );
+    } else if (inputStr.trim().startsWith("regex:")) {
+      return [...this.content].filter(
+        (regex) => regex.toLocaleLowerCase().includes(inputStr.toLocaleLowerCase().replace(/^regex:/, "")) && regex.startsWith("regex:")
       );
     } else if (inputStr.trim() === "[]" || inputStr.trim().startsWith('["')) {
       return [...this.content].filter(
@@ -6354,7 +6867,7 @@ var SearchFiltersMultiSuggestor = class extends import_obsidian9.AbstractInputSu
       div.style.fontWeight = "bold";
       div.style.borderBottom = "1px solid var(--background-modifier-border)";
       div.style.pointerEvents = "none";
-    } else if (content.startsWith("file:") || content.startsWith("tag:") || content.startsWith("parent:") || content.startsWith("content:")) {
+    } else if (content.startsWith("file:") || content.startsWith("tag:") || content.startsWith("parent:") || content.startsWith("content:") || content.startsWith("regex:")) {
       const label = content.split(":")[0];
       const span = el.createSpan({ text: label });
       Object.assign(span.style, labelStyle);
@@ -6391,7 +6904,6 @@ var SearchFiltersMultiSuggestor = class extends import_obsidian9.AbstractInputSu
       } catch (error) {
       }
     }
-    const oldSearchContent = this.inputEl.value;
     let finalSearchContent = content;
     if (content.trim() === `file:${initialPlaceholderSuggestionsMap.get("file:")}`) {
       finalSearchContent = `file: `;
@@ -6413,6 +6925,12 @@ var SearchFiltersMultiSuggestor = class extends import_obsidian9.AbstractInputSu
       this.inputEl.focus();
     } else if (content.trim() === `content:${initialPlaceholderSuggestionsMap.get("content:")}`) {
       finalSearchContent = `content: `;
+      this.inputEl.value = finalSearchContent;
+      this.close();
+      this.inputEl.blur();
+      this.inputEl.focus();
+    } else if (content.trim() === `regex:${initialPlaceholderSuggestionsMap.get("regex:")}`) {
+      finalSearchContent = `regex: //`;
       this.inputEl.value = finalSearchContent;
       this.close();
       this.inputEl.blur();
@@ -6466,7 +6984,7 @@ var SearchFiltersMultiSuggestor = class extends import_obsidian9.AbstractInputSu
     } else if (content.startsWith("divider:")) {
       return;
     } else {
-      if (content.startsWith("file:") || content.startsWith("parent:") || content.startsWith("tag:") || content.startsWith("content:") || content.startsWith("created-before:") || content.startsWith("created-after:") || content.startsWith("modified-before:") || content.startsWith("modified-after:")) {
+      if (content.startsWith("file:") || content.startsWith("parent:") || content.startsWith("tag:") || content.startsWith("content:") || content.startsWith("created-before:") || content.startsWith("created-after:") || content.startsWith("modified-before:") || content.startsWith("modified-after:") || content.startsWith("regex:")) {
         this.inputEl.blur();
         this.onSelectCb(content);
         this.inputEl.value = "";
@@ -6509,11 +7027,11 @@ var SearchFiltersMultiSuggestor = class extends import_obsidian9.AbstractInputSu
   }
 };
 function getFolderSuggestions(app2) {
-  const folders = app2.vault.getAllLoadedFiles().filter((f) => f instanceof import_obsidian9.TFolder && f.path !== "/").map((f) => `parent: ${f.path}`);
+  const folders = app2.vault.getAllLoadedFiles().filter((f) => f instanceof import_obsidian11.TFolder && f.path !== "/").map((f) => `parent: ${f.path}`);
   return folders;
 }
 function getFileSuggestions(app2) {
-  const files2 = app2.vault.getAllLoadedFiles().filter((f) => f instanceof import_obsidian9.TFile && f.extension === "md").map((f) => `file: ${f.path}`);
+  const files2 = app2.vault.getAllLoadedFiles().filter((f) => f instanceof import_obsidian11.TFile && f.extension === "md").map((f) => `file: ${f.path}`);
   return files2;
 }
 function getTagSuggestions(app2) {
@@ -6522,10 +7040,10 @@ function getTagSuggestions(app2) {
   return tagsArray;
 }
 function getYAMLPropertySuggestions(app2) {
-  const allFiles = app2.vault.getAllLoadedFiles().filter((f) => f instanceof import_obsidian9.TFile && f.extension === "md");
+  const allFiles = app2.vault.getAllLoadedFiles().filter((f) => f instanceof import_obsidian11.TFile && f.extension === "md");
   const yamlPropertiesSet = /* @__PURE__ */ new Set();
   allFiles.forEach((file) => {
-    if (file instanceof import_obsidian9.TFile) {
+    if (file instanceof import_obsidian11.TFile) {
       const metadata = app2.metadataCache.getFileCache(file);
       if (metadata && metadata.frontmatter) {
         Object.keys(metadata.frontmatter).forEach((key) => {
@@ -6545,8 +7063,8 @@ function getYAMLPropertySuggestions(app2) {
 }
 
 // src/modals/NotesCountStatisticsModal.ts
-var import_obsidian10 = require("obsidian");
-var NotesCountStatisticsModal = class extends import_obsidian10.Modal {
+var import_obsidian12 = require("obsidian");
+var NotesCountStatisticsModal = class extends import_obsidian12.Modal {
   constructor(plugin2) {
     super(plugin2.app);
   }
@@ -6594,7 +7112,7 @@ var NotesCountStatisticsModal = class extends import_obsidian10.Modal {
 };
 
 // src/components/Root.svelte
-function get_each_context(ctx, list, i) {
+function get_each_context2(ctx, list, i) {
   const child_ctx = ctx.slice();
   child_ctx[57] = list[i];
   return child_ctx;
@@ -6616,15 +7134,15 @@ function get_each_context_3(ctx, list, i) {
   child_ctx[65] = i;
   return child_ctx;
 }
-function get_each_context_6(ctx, list, i) {
-  const child_ctx = ctx.slice();
-  child_ctx[69] = list[i];
-  return child_ctx;
-}
 function get_each_context_4(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[63] = list[i];
-  child_ctx[65] = i;
+  child_ctx[67] = list[i];
+  child_ctx[69] = i;
+  return child_ctx;
+}
+function get_each_context_8(ctx, list, i) {
+  const child_ctx = ctx.slice();
+  child_ctx[73] = list[i];
   return child_ctx;
 }
 function get_each_context_5(ctx, list, i) {
@@ -6633,19 +7151,137 @@ function get_each_context_5(ctx, list, i) {
   child_ctx[65] = i;
   return child_ctx;
 }
+function get_each_context_6(ctx, list, i) {
+  const child_ctx = ctx.slice();
+  child_ctx[63] = list[i];
+  child_ctx[65] = i;
+  return child_ctx;
+}
+function get_each_context_7(ctx, list, i) {
+  const child_ctx = ctx.slice();
+  child_ctx[67] = list[i];
+  child_ctx[69] = i;
+  return child_ctx;
+}
+function create_else_block_4(ctx) {
+  let div;
+  let findExpandIcon_action;
+  let mounted;
+  let dispose;
+  return {
+    c() {
+      div = element("div");
+      attr(div, "class", "icon-search");
+    },
+    m(target, anchor) {
+      insert(target, div, anchor);
+      if (!mounted) {
+        dispose = action_destroyer(findExpandIcon_action = findExpandIcon.call(null, div));
+        mounted = true;
+      }
+    },
+    d(detaching) {
+      if (detaching) {
+        detach(div);
+      }
+      mounted = false;
+      dispose();
+    }
+  };
+}
+function create_if_block_14(ctx) {
+  let div;
+  let findCloseIcon_action;
+  let mounted;
+  let dispose;
+  return {
+    c() {
+      div = element("div");
+      attr(div, "class", "icon-search-x");
+    },
+    m(target, anchor) {
+      insert(target, div, anchor);
+      if (!mounted) {
+        dispose = action_destroyer(findCloseIcon_action = findCloseIcon.call(null, div));
+        mounted = true;
+      }
+    },
+    d(detaching) {
+      if (detaching) {
+        detach(div);
+      }
+      mounted = false;
+      dispose();
+    }
+  };
+}
+function create_if_block_13(ctx) {
+  let div;
+  let searchInput_action;
+  let div_transition;
+  let current;
+  let mounted;
+  let dispose;
+  return {
+    c() {
+      div = element("div");
+      attr(div, "class", "action-bar__search");
+    },
+    m(target, anchor) {
+      insert(target, div, anchor);
+      current = true;
+      if (!mounted) {
+        dispose = action_destroyer(searchInput_action = /*searchInput*/
+        ctx[20].call(null, div));
+        mounted = true;
+      }
+    },
+    i(local) {
+      if (current)
+        return;
+      if (local) {
+        add_render_callback(() => {
+          if (!current)
+            return;
+          if (!div_transition)
+            div_transition = create_bidirectional_transition(div, slide, { duration: 250 }, true);
+          div_transition.run(1);
+        });
+      }
+      current = true;
+    },
+    o(local) {
+      if (local) {
+        if (!div_transition)
+          div_transition = create_bidirectional_transition(div, slide, { duration: 250 }, false);
+        div_transition.run(0);
+      }
+      current = false;
+    },
+    d(detaching) {
+      if (detaching) {
+        detach(div);
+      }
+      if (detaching && div_transition)
+        div_transition.end();
+      mounted = false;
+      dispose();
+    }
+  };
+}
 function create_else_block_2(ctx) {
   let div;
-  function select_block_type_1(ctx2, dirty) {
+  function select_block_type_2(ctx2, dirty) {
     if (
       /*$folderName*/
       ctx2[6].length > 0 || /*$searchFilters*/
-      ctx2[5].cf.length > 0 || /*$searchFilters*/
-      ctx2[5].nf.length > 0
+      ctx2[8].cf.length > 0 || /*$searchFilters*/
+      ctx2[8].nf.length > 0
     )
-      return create_if_block_7;
+      return create_if_block_9;
     return create_else_block_3;
   }
-  let current_block_type = select_block_type_1(ctx, [-1, -1, -1]);
+  let current_block_type = select_block_type_2(ctx, [-1, -1, -1]);
   let if_block = current_block_type(ctx);
   return {
     c() {
@@ -6658,7 +7294,7 @@ function create_else_block_2(ctx) {
       if_block.m(div, null);
     },
     p(ctx2, dirty) {
-      if (current_block_type === (current_block_type = select_block_type_1(ctx2, dirty)) && if_block) {
+      if (current_block_type === (current_block_type = select_block_type_2(ctx2, dirty)) && if_block) {
         if_block.p(ctx2, dirty);
       } else {
         if_block.d(1);
@@ -6677,7 +7313,7 @@ function create_else_block_2(ctx) {
     }
   };
 }
-function create_if_block_6(ctx) {
+function create_if_block_8(ctx) {
   let button;
   let button_class_value;
   let filtersPanelIcon_action;
@@ -6688,8 +7324,9 @@ function create_if_block_6(ctx) {
       button = element("button");
       attr(button, "class", button_class_value = "clickable-icon filters-toggle-button " + /*$folderName*/
       (ctx[6].length > 0 || /*$searchFilters*/
-      ctx[5].cf.length > 0 || /*$searchFilters*/
-      ctx[5].nf.length > 0 ? "filters-active" : ""));
+      ctx[8].cf.length > 0 || /*$searchFilters*/
+      ctx[8].nf.length > 0 ? "filters-active" : ""));
+      attr(button, "aria-label", "Toggle Filters Panel");
     },
     m(target, anchor) {
       insert(target, button, anchor);
@@ -6699,20 +7336,19 @@ function create_if_block_6(ctx) {
             button,
             "click",
             /*click_handler*/
-            ctx[37]
+            ctx[33]
           ),
-          action_destroyer(filtersPanelIcon_action = /*filtersPanelIcon*/
-          ctx[24].call(null, button))
+          action_destroyer(filtersPanelIcon_action = filtersPanelIcon.call(null, button))
         ];
         mounted = true;
       }
     },
     p(ctx2, dirty) {
       if (dirty[0] & /*$folderName, $searchFilters*/
-      96 && button_class_value !== (button_class_value = "clickable-icon filters-toggle-button " + /*$folderName*/
+      320 && button_class_value !== (button_class_value = "clickable-icon filters-toggle-button " + /*$folderName*/
       (ctx2[6].length > 0 || /*$searchFilters*/
-      ctx2[5].cf.length > 0 || /*$searchFilters*/
-      ctx2[5].nf.length > 0 ? "filters-active" : ""))) {
+      ctx2[8].cf.length > 0 || /*$searchFilters*/
+      ctx2[8].nf.length > 0 ? "filters-active" : ""))) {
         attr(button, "class", button_class_value);
       }
     },
@@ -6727,13 +7363,13 @@ function create_if_block_6(ctx) {
 }
 function create_else_block_3(ctx) {
   let div;
-  let each_value_6 = ensure_array_like(
+  let each_value_8 = ensure_array_like(
     /*$allTags*/
-    ctx[17]
+    ctx[18]
   );
   let each_blocks = [];
-  for (let i = 0; i < each_value_6.length; i += 1) {
-    each_blocks[i] = create_each_block_6(get_each_context_6(ctx, each_value_6, i));
+  for (let i = 0; i < each_value_8.length; i += 1) {
+    each_blocks[i] = create_each_block_8(get_each_context_8(ctx, each_value_8, i));
   }
   return {
     c() {
@@ -6752,20 +7388,19 @@ function create_else_block_3(ctx) {
       }
     },
     p(ctx2, dirty) {
-      if (dirty[0] & /*$allTags*/
-      131072 | dirty[1] & /*handleTagClick*/
-      2) {
-        each_value_6 = ensure_array_like(
+      if (dirty[0] & /*handleTagClick, $allTags*/
+      33816576) {
+        each_value_8 = ensure_array_like(
           /*$allTags*/
-          ctx2[17]
+          ctx2[18]
         );
         let i;
-        for (i = 0; i < each_value_6.length; i += 1) {
-          const child_ctx = get_each_context_6(ctx2, each_value_6, i);
+        for (i = 0; i < each_value_8.length; i += 1) {
+          const child_ctx = get_each_context_8(ctx2, each_value_8, i);
           if (each_blocks[i]) {
             each_blocks[i].p(child_ctx, dirty);
           } else {
-            each_blocks[i] = create_each_block_6(child_ctx);
+            each_blocks[i] = create_each_block_8(child_ctx);
             each_blocks[i].c();
             each_blocks[i].m(div, null);
           }
@@ -6773,7 +7408,7 @@ function create_else_block_3(ctx) {
         for (; i < each_blocks.length; i += 1) {
           each_blocks[i].d(1);
         }
-        each_blocks.length = each_value_6.length;
+        each_blocks.length = each_value_8.length;
       }
     },
     d(detaching) {
@@ -6784,29 +7419,29 @@ function create_else_block_3(ctx) {
     }
   };
 }
-function create_if_block_7(ctx) {
+function create_if_block_9(ctx) {
   let t0;
   let div;
   let t1;
   let if_block = (
     /*$folderName*/
-    ctx[6].length > 0 && create_if_block_8(ctx)
+    ctx[6].length > 0 && create_if_block_10(ctx)
   );
-  let each_value_5 = ensure_array_like(
+  let each_value_6 = ensure_array_like(
     /*$searchFilters*/
-    ctx[5].cf
+    ctx[8].cf
   );
   let each_blocks_1 = [];
-  for (let i = 0; i < each_value_5.length; i += 1) {
-    each_blocks_1[i] = create_each_block_5(get_each_context_5(ctx, each_value_5, i));
+  for (let i = 0; i < each_value_6.length; i += 1) {
+    each_blocks_1[i] = create_each_block_6(get_each_context_6(ctx, each_value_6, i));
   }
-  let each_value_4 = ensure_array_like(
+  let each_value_5 = ensure_array_like(
     /*$searchFilters*/
-    ctx[5].nf
+    ctx[8].nf
   );
   let each_blocks = [];
-  for (let i = 0; i < each_value_4.length; i += 1) {
-    each_blocks[i] = create_each_block_4(get_each_context_4(ctx, each_value_4, i));
+  for (let i = 0; i < each_value_5.length; i += 1) {
+    each_blocks[i] = create_each_block_5(get_each_context_5(ctx, each_value_5, i));
   }
   return {
     c() {
@@ -6848,7 +7483,7 @@ function create_if_block_7(ctx) {
         if (if_block) {
           if_block.p(ctx2, dirty);
         } else {
-          if_block = create_if_block_8(ctx2);
+          if_block = create_if_block_10(ctx2);
           if_block.c();
           if_block.m(t0.parentNode, t0);
         }
@@ -6856,20 +7491,19 @@ function create_if_block_7(ctx) {
         if_block.d(1);
         if_block = null;
       }
-      if (dirty[0] & /*removeFilter, $searchFilters*/
-      1073741856 | dirty[1] & /*moveFilter*/
-      1) {
-        each_value_5 = ensure_array_like(
+      if (dirty[0] & /*removeFilter, $searchFilters, moveFilter*/
+      25166080) {
+        each_value_6 = ensure_array_like(
           /*$searchFilters*/
-          ctx2[5].cf
+          ctx2[8].cf
         );
         let i;
-        for (i = 0; i < each_value_5.length; i += 1) {
-          const child_ctx = get_each_context_5(ctx2, each_value_5, i);
+        for (i = 0; i < each_value_6.length; i += 1) {
+          const child_ctx = get_each_context_6(ctx2, each_value_6, i);
           if (each_blocks_1[i]) {
             each_blocks_1[i].p(child_ctx, dirty);
           } else {
-            each_blocks_1[i] = create_each_block_5(child_ctx);
+            each_blocks_1[i] = create_each_block_6(child_ctx);
             each_blocks_1[i].c();
             each_blocks_1[i].m(div, t1);
           }
@@ -6877,22 +7511,21 @@ function create_if_block_7(ctx) {
         for (; i < each_blocks_1.length; i += 1) {
           each_blocks_1[i].d(1);
         }
-        each_blocks_1.length = each_value_5.length;
+        each_blocks_1.length = each_value_6.length;
       }
-      if (dirty[0] & /*removeFilter, $searchFilters*/
-      1073741856 | dirty[1] & /*moveFilter*/
-      1) {
-        each_value_4 = ensure_array_like(
+      if (dirty[0] & /*removeFilter, $searchFilters, moveFilter*/
+      25166080) {
+        each_value_5 = ensure_array_like(
           /*$searchFilters*/
-          ctx2[5].nf
+          ctx2[8].nf
         );
         let i;
-        for (i = 0; i < each_value_4.length; i += 1) {
-          const child_ctx = get_each_context_4(ctx2, each_value_4, i);
+        for (i = 0; i < each_value_5.length; i += 1) {
+          const child_ctx = get_each_context_5(ctx2, each_value_5, i);
           if (each_blocks[i]) {
             each_blocks[i].p(child_ctx, dirty);
           } else {
-            each_blocks[i] = create_each_block_4(child_ctx);
+            each_blocks[i] = create_each_block_5(child_ctx);
             each_blocks[i].c();
             each_blocks[i].m(div, null);
           }
@@ -6900,7 +7533,7 @@ function create_if_block_7(ctx) {
         for (; i < each_blocks.length; i += 1) {
           each_blocks[i].d(1);
         }
-        each_blocks.length = each_value_4.length;
+        each_blocks.length = each_value_5.length;
       }
     },
     d(detaching) {
@@ -6915,11 +7548,11 @@ function create_if_block_7(ctx) {
     }
   };
 }
-function create_each_block_6(ctx) {
+function create_each_block_8(ctx) {
   let button;
   let t0_value = (
     /*tag*/
-    ctx[69] + ""
+    ctx[73] + ""
   );
   let t0;
   let t1;
@@ -6941,15 +7574,15 @@ function create_each_block_6(ctx) {
           button,
           "click",
           /*handleTagClick*/
-          ctx[32]
+          ctx[25]
         );
         mounted = true;
       }
     },
     p(ctx2, dirty) {
       if (dirty[0] & /*$allTags*/
-      131072 && t0_value !== (t0_value = /*tag*/
-      ctx2[69] + ""))
+      262144 && t0_value !== (t0_value = /*tag*/
+      ctx2[73] + ""))
         set_data(t0, t0_value);
     },
     d(detaching) {
@@ -6961,70 +7594,251 @@ function create_each_block_6(ctx) {
     }
   };
 }
-function create_if_block_8(ctx) {
-  let div2;
-  let div0;
-  let t0_value = (
+function create_if_block_10(ctx) {
+  let div;
+  let t;
+  let each_blocks = [];
+  let each_1_lookup = /* @__PURE__ */ new Map();
+  let if_block = (
     /*$folderName*/
-    ctx[6][0].name + ""
+    ctx[6][0].path !== "/" && create_if_block_12(ctx)
   );
-  let t0;
-  let t1;
-  let div1;
+  let each_value_7 = ensure_array_like(
+    /*$folderName*/
+    ctx[6][0].path.split("/")
+  );
+  const get_key = (ctx2) => (
+    /*segment*/
+    ctx2[67]
+  );
+  for (let i = 0; i < each_value_7.length; i += 1) {
+    let child_ctx = get_each_context_7(ctx, each_value_7, i);
+    let key = get_key(child_ctx);
+    each_1_lookup.set(key, each_blocks[i] = create_each_block_7(key, child_ctx));
+  }
+  return {
+    c() {
+      div = element("div");
+      if (if_block)
+        if_block.c();
+      t = space();
+      for (let i = 0; i < each_blocks.length; i += 1) {
+        each_blocks[i].c();
+      }
+      attr(div, "class", "folder-label");
+    },
+    m(target, anchor) {
+      insert(target, div, anchor);
+      if (if_block)
+        if_block.m(div, null);
+      append(div, t);
+      for (let i = 0; i < each_blocks.length; i += 1) {
+        if (each_blocks[i]) {
+          each_blocks[i].m(div, null);
+        }
+      }
+    },
+    p(ctx2, dirty) {
+      if (
+        /*$folderName*/
+        ctx2[6][0].path !== "/"
+      ) {
+        if (if_block) {
+          if_block.p(ctx2, dirty);
+        } else {
+          if_block = create_if_block_12(ctx2);
+          if_block.c();
+          if_block.m(div, t);
+        }
+      } else if (if_block) {
+        if_block.d(1);
+        if_block = null;
+      }
+      if (dirty[0] & /*$folderName, handleFolderPathSegmentClick*/
+      268435520) {
+        each_value_7 = ensure_array_like(
+          /*$folderName*/
+          ctx2[6][0].path.split("/")
+        );
+        each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx2, each_value_7, each_1_lookup, div, destroy_block, create_each_block_7, null, get_each_context_7);
+      }
+    },
+    d(detaching) {
+      if (detaching) {
+        detach(div);
+      }
+      if (if_block)
+        if_block.d();
+      for (let i = 0; i < each_blocks.length; i += 1) {
+        each_blocks[i].d();
+      }
+    }
+  };
+}
+function create_if_block_12(ctx) {
   let button;
-  let closeIcon_action;
+  let vaultRootIcon_action;
+  let t0;
+  let span;
   let mounted;
   let dispose;
   return {
     c() {
-      div2 = element("div");
-      div0 = element("div");
-      t0 = text(t0_value);
-      t1 = space();
-      div1 = element("div");
       button = element("button");
-      set_style(div0, "align-content", "center");
-      attr(button, "class", "clickable-icon");
-      attr(div1, "class", "action-bar_folder_closeButton");
-      attr(div2, "class", "action-bar_folder");
+      t0 = space();
+      span = element("span");
+      span.textContent = ">";
+      attr(button, "class", "clickable-icon folder-label-close-button");
+      attr(button, "aria-label", "Clear Folder Filter and go to vault root");
+      attr(span, "class", "folder-path-separator");
     },
     m(target, anchor) {
-      insert(target, div2, anchor);
-      append(div2, div0);
-      append(div0, t0);
-      append(div2, t1);
-      append(div2, div1);
-      append(div1, button);
+      insert(target, button, anchor);
+      insert(target, t0, anchor);
+      insert(target, span, anchor);
       if (!mounted) {
         dispose = [
-          action_destroyer(closeIcon_action = /*closeIcon*/
-          ctx[20].call(null, button)),
+          action_destroyer(vaultRootIcon_action = vaultRootIcon.call(null, button)),
           listen(
             button,
             "click",
             /*clearFolderFilter*/
-            ctx[29]
+            ctx[22]
           )
         ];
         mounted = true;
       }
     },
-    p(ctx2, dirty) {
-      if (dirty[0] & /*$folderName*/
-      64 && t0_value !== (t0_value = /*$folderName*/
-      ctx2[6][0].name + ""))
-        set_data(t0, t0_value);
-    },
+    p: noop,
     d(detaching) {
       if (detaching) {
-        detach(div2);
+        detach(button);
+        detach(t0);
+        detach(span);
       }
       mounted = false;
       run_all(dispose);
     }
   };
 }
-function create_each_block_5(ctx) {
+function create_if_block_11(ctx) {
+  let span;
+  return {
+    c() {
+      span = element("span");
+      span.textContent = ">";
+      attr(span, "class", "folder-path-separator");
+    },
+    m(target, anchor) {
+      insert(target, span, anchor);
+    },
+    d(detaching) {
+      if (detaching) {
+        detach(span);
+      }
+    }
+  };
+}
+function create_each_block_7(key_1, ctx) {
+  let button;
+  let t0_value = (
+    /*segment*/
+    ctx[67] + ""
+  );
+  let t0;
+  let button_aria_label_value;
+  let t1;
+  let show_if = (
+    /*idx*/
+    ctx[69] < /*$folderName*/
+    ctx[6][0].path.split("/").length - 1
+  );
+  let if_block_anchor;
+  let mounted;
+  let dispose;
+  function click_handler_1() {
+    return (
+      /*click_handler_1*/
+      ctx[34](
+        /*idx*/
+        ctx[69]
+      )
+    );
+  }
+  let if_block = show_if && create_if_block_11(ctx);
+  return {
+    key: key_1,
+    first: null,
+    c() {
+      button = element("button");
+      t0 = text(t0_value);
+      t1 = space();
+      if (if_block)
+        if_block.c();
+      if_block_anchor = empty();
+      attr(button, "class", "folder-path-segment");
+      attr(button, "aria-label", button_aria_label_value = /*$folderName*/
+      ctx[6][0].path.split("/").length - 1 === /*idx*/
+      ctx[69] ? `You are in this folder` : `Go to ${/*segment*/
+      ctx[67]} subfolder`);
+      this.first = button;
+    },
+    m(target, anchor) {
+      insert(target, button, anchor);
+      append(button, t0);
+      insert(target, t1, anchor);
+      if (if_block)
+        if_block.m(target, anchor);
+      insert(target, if_block_anchor, anchor);
+      if (!mounted) {
+        dispose = listen(button, "click", click_handler_1);
+        mounted = true;
+      }
+    },
+    p(new_ctx, dirty) {
+      ctx = new_ctx;
+      if (dirty[0] & /*$folderName*/
+      64 && t0_value !== (t0_value = /*segment*/
+      ctx[67] + ""))
+        set_data(t0, t0_value);
+      if (dirty[0] & /*$folderName*/
+      64 && button_aria_label_value !== (button_aria_label_value = /*$folderName*/
+      ctx[6][0].path.split("/").length - 1 === /*idx*/
+      ctx[69] ? `You are in this folder` : `Go to ${/*segment*/
+      ctx[67]} subfolder`)) {
+        attr(button, "aria-label", button_aria_label_value);
+      }
+      if (dirty[0] & /*$folderName*/
+      64)
+        show_if = /*idx*/
+        ctx[69] < /*$folderName*/
+        ctx[6][0].path.split("/").length - 1;
+      if (show_if) {
+        if (if_block) {
+        } else {
+          if_block = create_if_block_11(ctx);
+          if_block.c();
+          if_block.m(if_block_anchor.parentNode, if_block_anchor);
+        }
+      } else if (if_block) {
+        if_block.d(1);
+        if_block = null;
+      }
+    },
+    d(detaching) {
+      if (detaching) {
+        detach(button);
+        detach(t1);
+        detach(if_block_anchor);
+      }
+      if (if_block)
+        if_block.d(detaching);
+      mounted = false;
+      dispose();
+    }
+  };
+}
+function create_each_block_6(ctx) {
   let div3;
   let button0;
   let cumpulsoryFilterIcon_action;
@@ -7048,19 +7862,19 @@ function create_each_block_5(ctx) {
   let closeCircleIcon_action;
   let mounted;
   let dispose;
-  function click_handler_1() {
+  function click_handler_2() {
     return (
-      /*click_handler_1*/
-      ctx[38](
+      /*click_handler_2*/
+      ctx[35](
         /*index*/
         ctx[65]
       )
     );
   }
-  function click_handler_2() {
+  function click_handler_3() {
     return (
-      /*click_handler_2*/
-      ctx[39](
+      /*click_handler_3*/
+      ctx[36](
         /*index*/
         ctx[65]
       )
@@ -7080,11 +7894,13 @@ function create_each_block_5(ctx) {
       t4 = space();
       button1 = element("button");
       attr(button0, "class", "toggle");
+      attr(button0, "aria-label", "Convert to Normal Filter");
       attr(button0, "title", "Convert to Normal Filter");
       attr(div0, "class", "filter-label-text-key");
       attr(div1, "class", "filter-label-text-value");
       attr(div2, "class", "filter-label-text");
       attr(button1, "class", "close");
+      attr(button1, "aria-label", "Remove Filter");
       attr(div3, "class", "filter-label cf");
     },
     m(target, anchor) {
@@ -7101,12 +7917,10 @@ function create_each_block_5(ctx) {
       append(div3, button1);
       if (!mounted) {
         dispose = [
-          listen(button0, "click", click_handler_1),
-          action_destroyer(cumpulsoryFilterIcon_action = /*cumpulsoryFilterIcon*/
-          ctx[21].call(null, button0)),
-          listen(button1, "click", click_handler_2),
-          action_destroyer(closeCircleIcon_action = /*closeCircleIcon*/
-          ctx[23].call(null, button1))
+          listen(button0, "click", click_handler_2),
+          action_destroyer(cumpulsoryFilterIcon_action = cumpulsoryFilterIcon.call(null, button0)),
+          listen(button1, "click", click_handler_3),
+          action_destroyer(closeCircleIcon_action = closeCircleIcon.call(null, button1))
         ];
         mounted = true;
       }
@@ -7114,13 +7928,13 @@ function create_each_block_5(ctx) {
     p(new_ctx, dirty) {
       ctx = new_ctx;
       if (dirty[0] & /*$searchFilters*/
-      32 && t1_value !== (t1_value = getFilterKeyText(
+      256 && t1_value !== (t1_value = getFilterKeyText(
         /*filter*/
         ctx[63]
       ) + ""))
         set_data(t1, t1_value);
       if (dirty[0] & /*$searchFilters*/
-      32 && t3_value !== (t3_value = getFilterValueText(
+      256 && t3_value !== (t3_value = getFilterValueText(
         /*filter*/
         ctx[63]
       ) + ""))
@@ -7135,7 +7949,7 @@ function create_each_block_5(ctx) {
     }
   };
 }
-function create_each_block_4(ctx) {
+function create_each_block_5(ctx) {
   let div3;
   let button0;
   let normalFilterIcon_action;
@@ -7160,19 +7974,19 @@ function create_each_block_4(ctx) {
   let t5;
   let mounted;
   let dispose;
-  function click_handler_3() {
+  function click_handler_4() {
     return (
-      /*click_handler_3*/
-      ctx[40](
+      /*click_handler_4*/
+      ctx[37](
         /*index*/
         ctx[65]
       )
     );
   }
-  function click_handler_4() {
+  function click_handler_5() {
     return (
-      /*click_handler_4*/
-      ctx[41](
+      /*click_handler_5*/
+      ctx[38](
         /*index*/
         ctx[65]
       )
@@ -7193,11 +8007,13 @@ function create_each_block_4(ctx) {
       button1 = element("button");
       t5 = space();
       attr(button0, "class", "toggle");
+      attr(button0, "aria-label", "Convert to Compulsory Filter");
       attr(button0, "title", "Convert to Compulsory Filter");
       attr(div0, "class", "filter-label-text-key");
       attr(div1, "class", "filter-label-text-value");
       attr(div2, "class", "filter-label-text");
       attr(button1, "class", "close");
+      attr(button1, "aria-label", "Remove Filter");
       attr(div3, "class", "filter-label nf");
     },
     m(target, anchor) {
@@ -7215,12 +8031,10 @@ function create_each_block_4(ctx) {
       append(div3, t5);
       if (!mounted) {
         dispose = [
-          listen(button0, "click", click_handler_3),
-          action_destroyer(normalFilterIcon_action = /*normalFilterIcon*/
-          ctx[22].call(null, button0)),
-          listen(button1, "click", click_handler_4),
-          action_destroyer(closeCircleIcon_action = /*closeCircleIcon*/
-          ctx[23].call(null, button1))
+          listen(button0, "click", click_handler_4),
+          action_destroyer(normalFilterIcon_action = normalFilterIcon.call(null, button0)),
+          listen(button1, "click", click_handler_5),
+          action_destroyer(closeCircleIcon_action = closeCircleIcon.call(null, button1))
         ];
         mounted = true;
       }
@@ -7228,13 +8042,13 @@ function create_each_block_4(ctx) {
     p(new_ctx, dirty) {
       ctx = new_ctx;
       if (dirty[0] & /*$searchFilters*/
-      32 && t1_value !== (t1_value = getFilterKeyText(
+      256 && t1_value !== (t1_value = getFilterKeyText(
         /*filter*/
         ctx[63]
       ) + ""))
         set_data(t1, t1_value);
       if (dirty[0] & /*$searchFilters*/
-      32 && t3_value !== (t3_value = getFilterValueText(
+      256 && t3_value !== (t3_value = getFilterValueText(
         /*filter*/
         ctx[63]
       ) + ""))
@@ -7268,12 +8082,13 @@ function create_else_block_12(ctx) {
       button1 = element("button");
       t1 = text(
         /*totalNotesCount*/
-        ctx[15]
+        ctx[16]
       );
       t2 = space();
       div0 = element("div");
       div0.textContent = "No Filters Applied";
       attr(button0, "class", "clickable-icon notes-explorer-view-share-button");
+      attr(button0, "aria-label", "Share View Link");
       attr(button1, "class", "clickable-icon count-label-button-small-screens");
       attr(div0, "class", "filter-section-small-screens-no-filters-message");
       attr(div1, "class", "filter-section-small-screens-no-filters");
@@ -7292,15 +8107,14 @@ function create_else_block_12(ctx) {
             button0,
             "click",
             /*copyViewLinkToClipboard*/
-            ctx[34]
+            ctx[27]
           ),
-          action_destroyer(viewShareButtonIcon_action = /*viewShareButtonIcon*/
-          ctx[25].call(null, button0)),
+          action_destroyer(viewShareButtonIcon_action = viewShareButtonIcon.call(null, button0)),
           listen(
             button1,
             "click",
             /*handleCountLabelBtn*/
-            ctx[33]
+            ctx[26]
           )
         ];
         mounted = true;
@@ -7308,11 +8122,11 @@ function create_else_block_12(ctx) {
     },
     p(ctx2, dirty) {
       if (dirty[0] & /*totalNotesCount*/
-      32768)
+      65536)
         set_data(
           t1,
           /*totalNotesCount*/
-          ctx2[15]
+          ctx2[16]
         );
     },
     d(detaching) {
@@ -7338,11 +8152,11 @@ function create_if_block_42(ctx) {
   let dispose;
   let if_block = (
     /*$folderName*/
-    ctx[6].length > 0 && create_if_block_5(ctx)
+    ctx[6].length > 0 && create_if_block_52(ctx)
   );
   let each_value_3 = ensure_array_like(
     /*$searchFilters*/
-    ctx[5].cf
+    ctx[8].cf
   );
   let each_blocks_1 = [];
   for (let i = 0; i < each_value_3.length; i += 1) {
@@ -7350,7 +8164,7 @@ function create_if_block_42(ctx) {
   }
   let each_value_2 = ensure_array_like(
     /*$searchFilters*/
-    ctx[5].nf
+    ctx[8].nf
   );
   let each_blocks = [];
   for (let i = 0; i < each_value_2.length; i += 1) {
@@ -7363,7 +8177,7 @@ function create_if_block_42(ctx) {
       button1 = element("button");
       t1 = text(
         /*totalNotesCount*/
-        ctx[15]
+        ctx[16]
       );
       t2 = space();
       if (if_block)
@@ -7378,6 +8192,7 @@ function create_if_block_42(ctx) {
         each_blocks[i].c();
       }
       attr(button0, "class", "clickable-icon notes-explorer-view-share-button");
+      attr(button0, "aria-label", "Share View Link");
       attr(button1, "class", "clickable-icon count-label-button-small-screens");
       attr(div, "class", "filter-section-small-screens-filter-labels");
     },
@@ -7408,15 +8223,14 @@ function create_if_block_42(ctx) {
             button0,
             "click",
             /*copyViewLinkToClipboard*/
-            ctx[34]
+            ctx[27]
           ),
-          action_destroyer(viewShareButtonIcon_action = /*viewShareButtonIcon*/
-          ctx[25].call(null, button0)),
+          action_destroyer(viewShareButtonIcon_action = viewShareButtonIcon.call(null, button0)),
           listen(
             button1,
             "click",
             /*handleCountLabelBtn*/
-            ctx[33]
+            ctx[26]
           )
         ];
         mounted = true;
@@ -7424,11 +8238,11 @@ function create_if_block_42(ctx) {
     },
     p(ctx2, dirty) {
       if (dirty[0] & /*totalNotesCount*/
-      32768)
+      65536)
         set_data(
           t1,
           /*totalNotesCount*/
-          ctx2[15]
+          ctx2[16]
         );
       if (
         /*$folderName*/
@@ -7437,7 +8251,7 @@ function create_if_block_42(ctx) {
         if (if_block) {
           if_block.p(ctx2, dirty);
         } else {
-          if_block = create_if_block_5(ctx2);
+          if_block = create_if_block_52(ctx2);
           if_block.c();
           if_block.m(t3.parentNode, t3);
         }
@@ -7445,12 +8259,11 @@ function create_if_block_42(ctx) {
         if_block.d(1);
         if_block = null;
       }
-      if (dirty[0] & /*removeFilter, $searchFilters*/
-      1073741856 | dirty[1] & /*moveFilter*/
-      1) {
+      if (dirty[0] & /*removeFilter, $searchFilters, moveFilter*/
+      25166080) {
         each_value_3 = ensure_array_like(
           /*$searchFilters*/
-          ctx2[5].cf
+          ctx2[8].cf
         );
         let i;
         for (i = 0; i < each_value_3.length; i += 1) {
@@ -7468,12 +8281,11 @@ function create_if_block_42(ctx) {
         }
         each_blocks_1.length = each_value_3.length;
       }
-      if (dirty[0] & /*removeFilter, $searchFilters*/
-      1073741856 | dirty[1] & /*moveFilter*/
-      1) {
+      if (dirty[0] & /*removeFilter, $searchFilters, moveFilter*/
+      25166080) {
         each_value_2 = ensure_array_like(
           /*$searchFilters*/
-          ctx2[5].nf
+          ctx2[8].nf
         );
         let i;
         for (i = 0; i < each_value_2.length; i += 1) {
@@ -7510,66 +8322,247 @@ function create_if_block_42(ctx) {
     }
   };
 }
-function create_if_block_5(ctx) {
-  let div2;
-  let div0;
-  let t0_value = (
+function create_if_block_52(ctx) {
+  let div;
+  let t;
+  let each_blocks = [];
+  let each_1_lookup = /* @__PURE__ */ new Map();
+  let if_block = (
     /*$folderName*/
-    ctx[6][0].name + ""
+    ctx[6][0].path !== "/" && create_if_block_7(ctx)
   );
-  let t0;
-  let t1;
-  let div1;
+  let each_value_4 = ensure_array_like(
+    /*$folderName*/
+    ctx[6][0].path.split("/")
+  );
+  const get_key = (ctx2) => (
+    /*segment*/
+    ctx2[67]
+  );
+  for (let i = 0; i < each_value_4.length; i += 1) {
+    let child_ctx = get_each_context_4(ctx, each_value_4, i);
+    let key = get_key(child_ctx);
+    each_1_lookup.set(key, each_blocks[i] = create_each_block_4(key, child_ctx));
+  }
+  return {
+    c() {
+      div = element("div");
+      if (if_block)
+        if_block.c();
+      t = space();
+      for (let i = 0; i < each_blocks.length; i += 1) {
+        each_blocks[i].c();
+      }
+      attr(div, "class", "folder-label");
+    },
+    m(target, anchor) {
+      insert(target, div, anchor);
+      if (if_block)
+        if_block.m(div, null);
+      append(div, t);
+      for (let i = 0; i < each_blocks.length; i += 1) {
+        if (each_blocks[i]) {
+          each_blocks[i].m(div, null);
+        }
+      }
+    },
+    p(ctx2, dirty) {
+      if (
+        /*$folderName*/
+        ctx2[6][0].path !== "/"
+      ) {
+        if (if_block) {
+          if_block.p(ctx2, dirty);
+        } else {
+          if_block = create_if_block_7(ctx2);
+          if_block.c();
+          if_block.m(div, t);
+        }
+      } else if (if_block) {
+        if_block.d(1);
+        if_block = null;
+      }
+      if (dirty[0] & /*$folderName, handleFolderPathSegmentClick*/
+      268435520) {
+        each_value_4 = ensure_array_like(
+          /*$folderName*/
+          ctx2[6][0].path.split("/")
+        );
+        each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx2, each_value_4, each_1_lookup, div, destroy_block, create_each_block_4, null, get_each_context_4);
+      }
+    },
+    d(detaching) {
+      if (detaching) {
+        detach(div);
+      }
+      if (if_block)
+        if_block.d();
+      for (let i = 0; i < each_blocks.length; i += 1) {
+        each_blocks[i].d();
+      }
+    }
+  };
+}
+function create_if_block_7(ctx) {
   let button;
-  let closeIcon_action;
+  let vaultRootIcon_action;
+  let t0;
+  let span;
   let mounted;
   let dispose;
   return {
     c() {
-      div2 = element("div");
-      div0 = element("div");
-      t0 = text(t0_value);
-      t1 = space();
-      div1 = element("div");
       button = element("button");
-      set_style(div0, "align-content", "center");
-      attr(button, "class", "clickable-icon");
-      attr(div1, "class", "filter-section-small-screens-folder-label-closeButton");
-      attr(div2, "class", "filter-section-small-screens-folder-label");
+      t0 = space();
+      span = element("span");
+      span.textContent = ">";
+      attr(button, "class", "clickable-icon folder-label-close-button");
+      attr(button, "aria-label", "Clear Folder Filter and go to vault root");
+      attr(span, "class", "folder-path-separator");
     },
     m(target, anchor) {
-      insert(target, div2, anchor);
-      append(div2, div0);
-      append(div0, t0);
-      append(div2, t1);
-      append(div2, div1);
-      append(div1, button);
+      insert(target, button, anchor);
+      insert(target, t0, anchor);
+      insert(target, span, anchor);
       if (!mounted) {
         dispose = [
-          action_destroyer(closeIcon_action = /*closeIcon*/
-          ctx[20].call(null, button)),
+          action_destroyer(vaultRootIcon_action = vaultRootIcon.call(null, button)),
           listen(
             button,
             "click",
             /*clearFolderFilter*/
-            ctx[29]
+            ctx[22]
           )
         ];
         mounted = true;
       }
     },
-    p(ctx2, dirty) {
-      if (dirty[0] & /*$folderName*/
-      64 && t0_value !== (t0_value = /*$folderName*/
-      ctx2[6][0].name + ""))
-        set_data(t0, t0_value);
-    },
+    p: noop,
     d(detaching) {
       if (detaching) {
-        detach(div2);
+        detach(button);
+        detach(t0);
+        detach(span);
       }
       mounted = false;
       run_all(dispose);
+    }
+  };
+}
+function create_if_block_6(ctx) {
+  let span;
+  return {
+    c() {
+      span = element("span");
+      span.textContent = ">";
+      attr(span, "class", "folder-path-separator");
+    },
+    m(target, anchor) {
+      insert(target, span, anchor);
+    },
+    d(detaching) {
+      if (detaching) {
+        detach(span);
+      }
+    }
+  };
+}
+function create_each_block_4(key_1, ctx) {
+  let button;
+  let t0_value = (
+    /*segment*/
+    ctx[67] + ""
+  );
+  let t0;
+  let button_aria_label_value;
+  let t1;
+  let show_if = (
+    /*idx*/
+    ctx[69] < /*$folderName*/
+    ctx[6][0].path.split("/").length - 1
+  );
+  let if_block_anchor;
+  let mounted;
+  let dispose;
+  function click_handler_6() {
+    return (
+      /*click_handler_6*/
+      ctx[40](
+        /*idx*/
+        ctx[69]
+      )
+    );
+  }
+  let if_block = show_if && create_if_block_6(ctx);
+  return {
+    key: key_1,
+    first: null,
+    c() {
+      button = element("button");
+      t0 = text(t0_value);
+      t1 = space();
+      if (if_block)
+        if_block.c();
+      if_block_anchor = empty();
+      attr(button, "class", "folder-path-segment");
+      attr(button, "aria-label", button_aria_label_value = /*$folderName*/
+      ctx[6][0].path.split("/").length - 1 === /*idx*/
+      ctx[69] ? `You are in this folder` : `Go to ${/*segment*/
+      ctx[67]} subfolder`);
+      this.first = button;
+    },
+    m(target, anchor) {
+      insert(target, button, anchor);
+      append(button, t0);
+      insert(target, t1, anchor);
+      if (if_block)
+        if_block.m(target, anchor);
+      insert(target, if_block_anchor, anchor);
+      if (!mounted) {
+        dispose = listen(button, "click", click_handler_6);
+        mounted = true;
+      }
+    },
+    p(new_ctx, dirty) {
+      ctx = new_ctx;
+      if (dirty[0] & /*$folderName*/
+      64 && t0_value !== (t0_value = /*segment*/
+      ctx[67] + ""))
+        set_data(t0, t0_value);
+      if (dirty[0] & /*$folderName*/
+      64 && button_aria_label_value !== (button_aria_label_value = /*$folderName*/
+      ctx[6][0].path.split("/").length - 1 === /*idx*/
+      ctx[69] ? `You are in this folder` : `Go to ${/*segment*/
+      ctx[67]} subfolder`)) {
+        attr(button, "aria-label", button_aria_label_value);
+      }
+      if (dirty[0] & /*$folderName*/
+      64)
+        show_if = /*idx*/
+        ctx[69] < /*$folderName*/
+        ctx[6][0].path.split("/").length - 1;
+      if (show_if) {
+        if (if_block) {
+        } else {
+          if_block = create_if_block_6(ctx);
+          if_block.c();
+          if_block.m(if_block_anchor.parentNode, if_block_anchor);
+        }
+      } else if (if_block) {
+        if_block.d(1);
+        if_block = null;
+      }
+    },
+    d(detaching) {
+      if (detaching) {
+        detach(button);
+        detach(t1);
+        detach(if_block_anchor);
+      }
+      if (if_block)
+        if_block.d(detaching);
+      mounted = false;
+      dispose();
     }
   };
 }
@@ -7597,19 +8590,19 @@ function create_each_block_3(ctx) {
   let closeCircleIcon_action;
   let mounted;
   let dispose;
-  function click_handler_5() {
+  function click_handler_7() {
     return (
-      /*click_handler_5*/
-      ctx[43](
+      /*click_handler_7*/
+      ctx[41](
         /*index*/
         ctx[65]
       )
     );
   }
-  function click_handler_6() {
+  function click_handler_8() {
     return (
-      /*click_handler_6*/
-      ctx[44](
+      /*click_handler_8*/
+      ctx[42](
         /*index*/
         ctx[65]
       )
@@ -7629,11 +8622,13 @@ function create_each_block_3(ctx) {
       t4 = space();
       button1 = element("button");
       attr(button0, "class", "toggle");
+      attr(button0, "aria-label", "Convert to Normal Filter");
       attr(button0, "title", "Convert to Normal Filter");
       attr(div0, "class", "filter-label-text-key");
       attr(div1, "class", "filter-label-text-value");
       attr(div2, "class", "filter-label-text");
       attr(button1, "class", "close");
+      attr(button1, "aria-label", "Remove Filter");
       attr(div3, "class", "filter-label cf");
     },
     m(target, anchor) {
@@ -7650,12 +8645,10 @@ function create_each_block_3(ctx) {
       append(div3, button1);
       if (!mounted) {
         dispose = [
-          listen(button0, "click", click_handler_5),
-          action_destroyer(cumpulsoryFilterIcon_action = /*cumpulsoryFilterIcon*/
-          ctx[21].call(null, button0)),
-          listen(button1, "click", click_handler_6),
-          action_destroyer(closeCircleIcon_action = /*closeCircleIcon*/
-          ctx[23].call(null, button1))
+          listen(button0, "click", click_handler_7),
+          action_destroyer(cumpulsoryFilterIcon_action = cumpulsoryFilterIcon.call(null, button0)),
+          listen(button1, "click", click_handler_8),
+          action_destroyer(closeCircleIcon_action = closeCircleIcon.call(null, button1))
         ];
         mounted = true;
       }
@@ -7663,13 +8656,13 @@ function create_each_block_3(ctx) {
     p(new_ctx, dirty) {
       ctx = new_ctx;
       if (dirty[0] & /*$searchFilters*/
-      32 && t1_value !== (t1_value = getFilterKeyText(
+      256 && t1_value !== (t1_value = getFilterKeyText(
         /*filter*/
         ctx[63]
       ) + ""))
         set_data(t1, t1_value);
       if (dirty[0] & /*$searchFilters*/
-      32 && t3_value !== (t3_value = getFilterValueText(
+      256 && t3_value !== (t3_value = getFilterValueText(
         /*filter*/
         ctx[63]
       ) + ""))
@@ -7709,19 +8702,19 @@ function create_each_block_2(ctx) {
   let t5;
   let mounted;
   let dispose;
-  function click_handler_7() {
+  function click_handler_9() {
     return (
-      /*click_handler_7*/
-      ctx[45](
+      /*click_handler_9*/
+      ctx[43](
         /*index*/
         ctx[65]
       )
     );
   }
-  function click_handler_8() {
+  function click_handler_10() {
     return (
-      /*click_handler_8*/
-      ctx[46](
+      /*click_handler_10*/
+      ctx[44](
         /*index*/
         ctx[65]
       )
@@ -7742,11 +8735,13 @@ function create_each_block_2(ctx) {
       button1 = element("button");
       t5 = space();
       attr(button0, "class", "toggle");
+      attr(button0, "aria-label", "Convert to Compulsory Filter");
       attr(button0, "title", "Convert to Compulsory Filter");
       attr(div0, "class", "filter-label-text-key");
       attr(div1, "class", "filter-label-text-value");
       attr(div2, "class", "filter-label-text");
       attr(button1, "class", "close");
+      attr(button1, "aria-label", "Remove Filter");
       attr(div3, "class", "filter-label nf");
     },
     m(target, anchor) {
@@ -7764,12 +8759,10 @@ function create_each_block_2(ctx) {
       append(div3, t5);
       if (!mounted) {
         dispose = [
-          listen(button0, "click", click_handler_7),
-          action_destroyer(normalFilterIcon_action = /*normalFilterIcon*/
-          ctx[22].call(null, button0)),
-          listen(button1, "click", click_handler_8),
-          action_destroyer(closeCircleIcon_action = /*closeCircleIcon*/
-          ctx[23].call(null, button1))
+          listen(button0, "click", click_handler_9),
+          action_destroyer(normalFilterIcon_action = normalFilterIcon.call(null, button0)),
+          listen(button1, "click", click_handler_10),
+          action_destroyer(closeCircleIcon_action = closeCircleIcon.call(null, button1))
         ];
         mounted = true;
       }
@@ -7777,13 +8770,13 @@ function create_each_block_2(ctx) {
     p(new_ctx, dirty) {
       ctx = new_ctx;
       if (dirty[0] & /*$searchFilters*/
-      32 && t1_value !== (t1_value = getFilterKeyText(
+      256 && t1_value !== (t1_value = getFilterKeyText(
         /*filter*/
         ctx[63]
       ) + ""))
         set_data(t1, t1_value);
       if (dirty[0] & /*$searchFilters*/
-      32 && t3_value !== (t3_value = getFilterValueText(
+      256 && t3_value !== (t3_value = getFilterValueText(
         /*filter*/
         ctx[63]
       ) + ""))
@@ -7798,19 +8791,32 @@ function create_each_block_2(ctx) {
     }
   };
 }
-function create_else_block2(ctx) {
+function create_else_block3(ctx) {
   let each_blocks = [];
   let each_1_lookup = /* @__PURE__ */ new Map();
   let each_1_anchor;
   let current;
   let each_value_1 = ensure_array_like(
     /*$displayedFiles*/
-    ctx[4]
+    ctx[7]
   );
-  const get_key = (ctx2) => (
-    /*file*/
-    ctx2[60].path
-  );
+  const get_key = (ctx2) => {
+    var _a, _b;
+    return (
+      /*file*/
+      ctx2[60].path + "-" + ("stat" in /*file*/
+      ctx2[60] ? (
+        /*file*/
+        (_b = (_a = ctx2[60].stat) == null ? void 0 : _a.mtime) != null ? _b : (
+          /*file*/
+          ctx2[60].name
+        )
+      ) : (
+        /*file*/
+        ctx2[60].name
+      ))
+    );
+  };
   for (let i = 0; i < each_value_1.length; i += 1) {
     let child_ctx = get_each_context_1(ctx, each_value_1, i);
     let key = get_key(child_ctx);
@@ -7833,11 +8839,11 @@ function create_else_block2(ctx) {
       current = true;
     },
     p(ctx2, dirty) {
-      if (dirty[0] & /*$displayedFiles, notesGrid*/
-      272) {
+      if (dirty[0] & /*$displayedFiles, updateLayoutNextTick*/
+      136) {
         each_value_1 = ensure_array_like(
           /*$displayedFiles*/
-          ctx2[4]
+          ctx2[7]
         );
         group_outros();
         each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx2, each_value_1, each_1_lookup, each_1_anchor.parentNode, outro_and_destroy_block, create_each_block_1, each_1_anchor, get_each_context_1);
@@ -7914,7 +8920,7 @@ function create_if_block_22(ctx) {
     }
   };
 }
-function create_if_block_12(ctx) {
+function create_if_block_15(ctx) {
   let div;
   let t0;
   let t1_value = (
@@ -7926,15 +8932,21 @@ function create_if_block_12(ctx) {
   let br0;
   let br1;
   let t3;
+  let br2;
+  let br3;
+  let t4;
   return {
     c() {
       div = element("div");
-      t0 = text('No files found in the folder "');
+      t0 = text('No files found at the root of the folder : "');
       t1 = text(t1_value);
-      t2 = text('". ');
+      t2 = text('".\n      ');
       br0 = element("br");
       br1 = element("br");
-      t3 = text("Either\n      the folder is empty or you probably have added this folder or its parent\n      folder to excluded folder in settings.");
+      t3 = text("\n      Either the folder is empty or you probably have added this folder or its parent\n      folder to excluded folder in settings.\n      ");
+      br2 = element("br");
+      br3 = element("br");
+      t4 = text('\n      If you want to see its children folder files, you can enable the "Read sub-folders"\n      from the top right menu.');
       attr(div, "class", "no-files-message");
     },
     m(target, anchor) {
@@ -7945,6 +8957,9 @@ function create_if_block_12(ctx) {
       append(div, br0);
       append(div, br1);
       append(div, t3);
+      append(div, br2);
+      append(div, br3);
+      append(div, t4);
     },
     p(ctx2, dirty) {
       if (dirty[0] & /*$folderName*/
@@ -7961,7 +8976,7 @@ function create_if_block_12(ctx) {
     }
   };
 }
-function create_if_block2(ctx) {
+function create_if_block3(ctx) {
   let div2;
   return {
     c() {
@@ -7986,15 +9001,18 @@ function create_each_block_1(key_1, ctx) {
   let first;
   let card;
   let current;
-  card = new Card_default({ props: { file: (
-    /*file*/
-    ctx[60]
-  ) } });
-  card.$on(
-    "loaded",
-    /*loaded_handler*/
-    ctx[47]
-  );
+  card = new Card_default({
+    props: {
+      file: (
+        /*file*/
+        ctx[60]
+      ),
+      updateLayoutNextTick: (
+        /*updateLayoutNextTick*/
+        ctx[3]
+      )
+    }
+  });
   return {
     key: key_1,
     first: null,
@@ -8012,7 +9030,7 @@ function create_each_block_1(key_1, ctx) {
       ctx = new_ctx;
       const card_changes = {};
       if (dirty[0] & /*$displayedFiles*/
-      16)
+      128)
         card_changes.file = /*file*/
         ctx[60];
       card.$set(card_changes);
@@ -8035,7 +9053,7 @@ function create_each_block_1(key_1, ctx) {
     }
   };
 }
-function create_each_block(ctx) {
+function create_each_block2(ctx) {
   let button;
   let t_value = (
     /*page*/
@@ -8044,10 +9062,10 @@ function create_each_block(ctx) {
   let t;
   let mounted;
   let dispose;
-  function click_handler_9() {
+  function click_handler_11() {
     return (
-      /*click_handler_9*/
-      ctx[49](
+      /*click_handler_11*/
+      ctx[46](
         /*page*/
         ctx[57]
       )
@@ -8069,18 +9087,18 @@ function create_each_block(ctx) {
       insert(target, button, anchor);
       append(button, t);
       if (!mounted) {
-        dispose = listen(button, "click", click_handler_9);
+        dispose = listen(button, "click", click_handler_11);
         mounted = true;
       }
     },
     p(new_ctx, dirty) {
       ctx = new_ctx;
       if (dirty[0] & /*$totalPages*/
-      65536 && t_value !== (t_value = /*page*/
+      131072 && t_value !== (t_value = /*page*/
       ctx[57] + ""))
         set_data(t, t_value);
       if (dirty[0] & /*currentPageLocal, $totalPages*/
-      67584) {
+      133120) {
         toggle_class(
           button,
           "active",
@@ -8099,271 +9117,301 @@ function create_each_block(ctx) {
     }
   };
 }
-function create_fragment2(ctx) {
-  let div4;
+function create_fragment3(ctx) {
   let div3;
   let div2;
+  let div1;
   let div0;
   let button0;
   let refreshIcon_action;
   let t0;
   let button1;
-  let sortIcon_action;
+  let viewShareButtonIcon_action;
   let t1;
-  let div1;
-  let searchInput_action;
-  let t2;
   let button2;
+  let sortIcon_action;
+  let t2;
+  let button3;
+  let button3_aria_label_value;
   let t3;
   let t4;
-  let button3;
-  let viewShareButtonIcon_action;
+  let button4;
   let t5;
   let t6;
-  let div5;
-  let div5_transition;
   let t7;
-  let div6;
-  let current_block_type_index;
-  let if_block2;
+  let div4;
+  let div4_transition;
   let t8;
-  let div7;
-  let button4;
+  let div5;
+  let current_block_type_index;
+  let if_block4;
   let t9;
-  let button4_disabled_value;
-  let t10;
-  let t11;
+  let div6;
   let button5;
-  let t12;
+  let t10;
   let button5_disabled_value;
+  let t11;
+  let t12;
+  let button6;
+  let t13;
+  let button6_disabled_value;
   let current;
   let mounted;
   let dispose;
   function select_block_type(ctx2, dirty) {
     if (
-      /*screenWidth*/
-      ctx2[12] <= 1200
+      /*showSearchInput*/
+      ctx2[14]
     )
-      return create_if_block_6;
-    return create_else_block_2;
+      return create_if_block_14;
+    return create_else_block_4;
   }
   let current_block_type = select_block_type(ctx, [-1, -1, -1]);
   let if_block0 = current_block_type(ctx);
-  function select_block_type_2(ctx2, dirty) {
+  let if_block1 = (
+    /*showSearchInput*/
+    ctx[14] && create_if_block_13(ctx)
+  );
+  function select_block_type_1(ctx2, dirty) {
+    if (
+      /*screenWidth*/
+      ctx2[12] <= 1200
+    )
+      return create_if_block_8;
+    return create_else_block_2;
+  }
+  let current_block_type_1 = select_block_type_1(ctx, [-1, -1, -1]);
+  let if_block2 = current_block_type_1(ctx);
+  function select_block_type_3(ctx2, dirty) {
     if (
       /*$folderName*/
       ctx2[6].length > 0 || /*$searchFilters*/
-      ctx2[5].cf.length > 0 || /*$searchFilters*/
-      ctx2[5].nf.length > 0
+      ctx2[8].cf.length > 0 || /*$searchFilters*/
+      ctx2[8].nf.length > 0
     )
       return create_if_block_42;
     return create_else_block_12;
   }
-  let current_block_type_1 = select_block_type_2(ctx, [-1, -1, -1]);
-  let if_block1 = current_block_type_1(ctx);
+  let current_block_type_2 = select_block_type_3(ctx, [-1, -1, -1]);
+  let if_block3 = current_block_type_2(ctx);
   const if_block_creators = [
-    create_if_block2,
-    create_if_block_12,
+    create_if_block3,
+    create_if_block_15,
     create_if_block_22,
     create_if_block_32,
-    create_else_block2
+    create_else_block3
   ];
   const if_blocks = [];
-  function select_block_type_3(ctx2, dirty) {
+  function select_block_type_4(ctx2, dirty) {
     if (
       /*$searchFilters*/
-      ctx2[5].cf.length === 0 && /*$searchFilters*/
-      ctx2[5].nf.length === 0 && /*$searchQuery*/
-      ctx2[7] === "" && /*$folderName*/
+      ctx2[8].cf.length === 0 && /*$searchFilters*/
+      ctx2[8].nf.length === 0 && /*$searchQuery*/
+      ctx2[5] === "" && /*$folderName*/
       ctx2[6].length === 0 && /*$displayedFiles*/
-      ctx2[4].length === 0
+      ctx2[7].length === 0
     )
       return 0;
     if (
       /*$folderName*/
       ctx2[6].length > 0 && /*$displayedFiles*/
-      ctx2[4].length === 0
+      ctx2[7].length === 0
     )
       return 1;
     if (
       /*$searchFilters*/
-      (ctx2[5].cf.length > 0 || /*$searchFilters*/
-      ctx2[5].nf.length > 0) && /*$displayedFiles*/
-      ctx2[4].length === 0
+      (ctx2[8].cf.length > 0 || /*$searchFilters*/
+      ctx2[8].nf.length > 0) && /*$displayedFiles*/
+      ctx2[7].length === 0
     )
       return 2;
     if (
       /*$displayedFiles*/
-      ctx2[4].length === 0
+      ctx2[7].length === 0
     )
       return 3;
     return 4;
   }
-  current_block_type_index = select_block_type_3(ctx, [-1, -1, -1]);
-  if_block2 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+  current_block_type_index = select_block_type_4(ctx, [-1, -1, -1]);
+  if_block4 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
   let each_value = ensure_array_like(Array(
     /*$totalPages*/
-    ctx[16]
+    ctx[17]
   ).fill(0).map(func));
   let each_blocks = [];
   for (let i = 0; i < each_value.length; i += 1) {
-    each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    each_blocks[i] = create_each_block2(get_each_context2(ctx, each_value, i));
   }
   return {
     c() {
-      div4 = element("div");
       div3 = element("div");
       div2 = element("div");
+      div1 = element("div");
       div0 = element("div");
       button0 = element("button");
       t0 = space();
       button1 = element("button");
       t1 = space();
-      div1 = element("div");
-      t2 = space();
       button2 = element("button");
-      t3 = text(
-        /*totalNotesCount*/
-        ctx[15]
-      );
-      t4 = space();
+      t2 = space();
       button3 = element("button");
-      t5 = space();
       if_block0.c();
-      t6 = space();
-      div5 = element("div");
-      if_block1.c();
-      t7 = space();
-      div6 = element("div");
-      if_block2.c();
-      t8 = space();
-      div7 = element("div");
+      t3 = space();
+      if (if_block1)
+        if_block1.c();
+      t4 = space();
       button4 = element("button");
-      t9 = text("Previous");
-      t10 = space();
+      t5 = text(
+        /*totalNotesCount*/
+        ctx[16]
+      );
+      t6 = space();
+      if_block2.c();
+      t7 = space();
+      div4 = element("div");
+      if_block3.c();
+      t8 = space();
+      div5 = element("div");
+      if_block4.c();
+      t9 = space();
+      div6 = element("div");
+      button5 = element("button");
+      t10 = text("Previous");
+      t11 = space();
       for (let i = 0; i < each_blocks.length; i += 1) {
         each_blocks[i].c();
       }
-      t11 = space();
-      button5 = element("button");
-      t12 = text("Next");
+      t12 = space();
+      button6 = element("button");
+      t13 = text("Next");
       attr(button0, "class", "clickable-icon refresh-button");
-      attr(button1, "class", "clickable-icon sort-button");
+      attr(button0, "aria-label", "Refresh View");
+      attr(button1, "class", "clickable-icon notes-explorer-view-share-button-desktop");
+      attr(button1, "aria-label", "Share View Link");
+      attr(button2, "class", "clickable-icon sort-button");
+      attr(button2, "aria-label", "Sort Notes");
       attr(div0, "class", "action-bar_buttons");
-      attr(div1, "class", "action-bar__search");
-      attr(button2, "class", "clickable-icon count-label-button");
-      attr(button3, "class", "notes-explorer-view-share-button-desktop");
-      attr(div2, "class", "action-bar-right-section");
-      attr(div3, "class", "action-bar");
+      attr(button3, "class", "clickable-icon searchFieldToggleBtn");
+      attr(button3, "aria-label", button3_aria_label_value = /*showSearchInput*/
+      ctx[14] ? "Clear Search Query" : "Search Tasks");
+      attr(button4, "class", "clickable-icon count-label-button");
+      attr(button4, "aria-label", "Notes Count Statistics");
+      attr(div1, "class", "action-bar-right-section");
+      attr(div2, "class", "action-bar");
       attr(
-        div4,
+        div3,
         "class",
         /*actionBarStyle*/
-        ctx[14]
+        ctx[15]
       );
-      attr(div5, "class", "filter-section-small-screens responsive");
+      attr(div4, "class", "filter-section-small-screens responsive");
       toggle_class(
-        div5,
+        div4,
         "visible",
         /*showFilters*/
         ctx[13]
       );
-      attr(div6, "class", "cards-container");
+      attr(div5, "class", "cards-container");
       set_style(
-        div6,
+        div5,
         "--columns",
         /*columns*/
         ctx[10]
       );
       set_style(
-        div6,
+        div5,
         "padding-top",
         /*$showActionBar*/
-        ctx[3] ? "4em" : "0"
+        ctx[4] ? "4em" : "0"
       );
-      button4.disabled = button4_disabled_value = /*currentPageLocal*/
-      ctx[11] === 1;
       button5.disabled = button5_disabled_value = /*currentPageLocal*/
+      ctx[11] === 1;
+      button6.disabled = button6_disabled_value = /*currentPageLocal*/
       ctx[11] === /*$totalPages*/
-      ctx[16];
-      attr(div7, "class", "page-bar");
+      ctx[17];
+      attr(div6, "class", "page-bar");
     },
     m(target, anchor) {
-      insert(target, div4, anchor);
-      append(div4, div3);
+      insert(target, div3, anchor);
       append(div3, div2);
-      append(div2, div0);
+      append(div2, div1);
+      append(div1, div0);
       append(div0, button0);
       append(div0, t0);
       append(div0, button1);
-      append(div2, t1);
-      append(div2, div1);
-      append(div2, t2);
-      append(div2, button2);
-      append(button2, t3);
-      append(div2, t4);
-      append(div2, button3);
-      append(div3, t5);
-      if_block0.m(div3, null);
-      ctx[42](div3);
-      insert(target, t6, anchor);
-      insert(target, div5, anchor);
-      if_block1.m(div5, null);
+      append(div0, t1);
+      append(div0, button2);
+      append(div1, t2);
+      append(div1, button3);
+      if_block0.m(button3, null);
+      append(div1, t3);
+      if (if_block1)
+        if_block1.m(div1, null);
+      append(div1, t4);
+      append(div1, button4);
+      append(button4, t5);
+      append(div2, t6);
+      if_block2.m(div2, null);
+      ctx[39](div2);
       insert(target, t7, anchor);
-      insert(target, div6, anchor);
-      if_blocks[current_block_type_index].m(div6, null);
-      ctx[48](div6);
+      insert(target, div4, anchor);
+      if_block3.m(div4, null);
       insert(target, t8, anchor);
-      insert(target, div7, anchor);
-      append(div7, button4);
-      append(button4, t9);
-      append(div7, t10);
+      insert(target, div5, anchor);
+      if_blocks[current_block_type_index].m(div5, null);
+      ctx[45](div5);
+      insert(target, t9, anchor);
+      insert(target, div6, anchor);
+      append(div6, button5);
+      append(button5, t10);
+      append(div6, t11);
       for (let i = 0; i < each_blocks.length; i += 1) {
         if (each_blocks[i]) {
-          each_blocks[i].m(div7, null);
+          each_blocks[i].m(div6, null);
         }
       }
-      append(div7, t11);
-      append(div7, button5);
-      append(button5, t12);
+      append(div6, t12);
+      append(div6, button6);
+      append(button6, t13);
       current = true;
       if (!mounted) {
         dispose = [
-          action_destroyer(refreshIcon_action = /*refreshIcon*/
-          ctx[19].call(null, button0)),
+          action_destroyer(refreshIcon_action = refreshIcon.call(null, button0)),
           listen(button0, "click", refreshView),
-          action_destroyer(sortIcon_action = /*sortIcon*/
-          ctx[18].call(null, button1)),
           listen(
             button1,
             "click",
-            /*sortMenu*/
-            ctx[28]
+            /*copyViewLinkToClipboard*/
+            ctx[27]
           ),
-          action_destroyer(searchInput_action = /*searchInput*/
-          ctx[27].call(null, div1)),
+          action_destroyer(viewShareButtonIcon_action = viewShareButtonIcon.call(null, button1)),
+          action_destroyer(sortIcon_action = sortIcon.call(null, button2)),
           listen(
             button2,
             "click",
-            /*handleCountLabelBtn*/
-            ctx[33]
+            /*sortMenu*/
+            ctx[21]
           ),
           listen(
             button3,
             "click",
-            /*copyViewLinkToClipboard*/
-            ctx[34]
+            /*toggleSearchInput*/
+            ctx[29]
           ),
-          action_destroyer(viewShareButtonIcon_action = /*viewShareButtonIcon*/
-          ctx[25].call(null, button3)),
           listen(
             button4,
+            "click",
+            /*handleCountLabelBtn*/
+            ctx[26]
+          ),
+          listen(
+            button5,
             "click",
             /*previousPage*/
             ctx[2]
           ),
           listen(
-            button5,
+            button6,
             "click",
             /*nextPage*/
             ctx[1]
@@ -8373,53 +9421,88 @@ function create_fragment2(ctx) {
       }
     },
     p(ctx2, dirty) {
-      if (!current || dirty[0] & /*totalNotesCount*/
-      32768)
-        set_data(
-          t3,
-          /*totalNotesCount*/
-          ctx2[15]
-        );
-      if (current_block_type === (current_block_type = select_block_type(ctx2, dirty)) && if_block0) {
-        if_block0.p(ctx2, dirty);
-      } else {
+      if (current_block_type !== (current_block_type = select_block_type(ctx2, dirty))) {
         if_block0.d(1);
         if_block0 = current_block_type(ctx2);
         if (if_block0) {
           if_block0.c();
-          if_block0.m(div3, null);
+          if_block0.m(button3, null);
+        }
+      }
+      if (!current || dirty[0] & /*showSearchInput*/
+      16384 && button3_aria_label_value !== (button3_aria_label_value = /*showSearchInput*/
+      ctx2[14] ? "Clear Search Query" : "Search Tasks")) {
+        attr(button3, "aria-label", button3_aria_label_value);
+      }
+      if (
+        /*showSearchInput*/
+        ctx2[14]
+      ) {
+        if (if_block1) {
+          if (dirty[0] & /*showSearchInput*/
+          16384) {
+            transition_in(if_block1, 1);
+          }
+        } else {
+          if_block1 = create_if_block_13(ctx2);
+          if_block1.c();
+          transition_in(if_block1, 1);
+          if_block1.m(div1, t4);
+        }
+      } else if (if_block1) {
+        group_outros();
+        transition_out(if_block1, 1, 1, () => {
+          if_block1 = null;
+        });
+        check_outros();
+      }
+      if (!current || dirty[0] & /*totalNotesCount*/
+      65536)
+        set_data(
+          t5,
+          /*totalNotesCount*/
+          ctx2[16]
+        );
+      if (current_block_type_1 === (current_block_type_1 = select_block_type_1(ctx2, dirty)) && if_block2) {
+        if_block2.p(ctx2, dirty);
+      } else {
+        if_block2.d(1);
+        if_block2 = current_block_type_1(ctx2);
+        if (if_block2) {
+          if_block2.c();
+          if_block2.m(div2, null);
         }
       }
       if (!current || dirty[0] & /*actionBarStyle*/
-      16384) {
+      32768) {
         attr(
-          div4,
+          div3,
           "class",
           /*actionBarStyle*/
-          ctx2[14]
+          ctx2[15]
         );
       }
-      if (current_block_type_1 === (current_block_type_1 = select_block_type_2(ctx2, dirty)) && if_block1) {
-        if_block1.p(ctx2, dirty);
+      if (current_block_type_2 === (current_block_type_2 = select_block_type_3(ctx2, dirty)) && if_block3) {
+        if_block3.p(ctx2, dirty);
       } else {
-        if_block1.d(1);
-        if_block1 = current_block_type_1(ctx2);
-        if (if_block1) {
-          if_block1.c();
-          if_block1.m(div5, null);
+        if_block3.d(1);
+        if_block3 = current_block_type_2(ctx2);
+        if (if_block3) {
+          if_block3.c();
+          if_block3.m(div4, null);
         }
       }
       if (!current || dirty[0] & /*showFilters*/
       8192) {
         toggle_class(
-          div5,
+          div4,
           "visible",
           /*showFilters*/
           ctx2[13]
         );
       }
       let previous_block_index = current_block_type_index;
-      current_block_type_index = select_block_type_3(ctx2, dirty);
+      current_block_type_index = select_block_type_4(ctx2, dirty);
       if (current_block_type_index === previous_block_index) {
         if_blocks[current_block_type_index].p(ctx2, dirty);
       } else {
@@ -8428,20 +9511,20 @@ function create_fragment2(ctx) {
           if_blocks[previous_block_index] = null;
         });
         check_outros();
-        if_block2 = if_blocks[current_block_type_index];
-        if (!if_block2) {
-          if_block2 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx2);
-          if_block2.c();
+        if_block4 = if_blocks[current_block_type_index];
+        if (!if_block4) {
+          if_block4 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx2);
+          if_block4.c();
         } else {
-          if_block2.p(ctx2, dirty);
+          if_block4.p(ctx2, dirty);
         }
-        transition_in(if_block2, 1);
-        if_block2.m(div6, null);
+        transition_in(if_block4, 1);
+        if_block4.m(div5, null);
       }
       if (!current || dirty[0] & /*columns*/
       1024) {
         set_style(
-          div6,
+          div5,
           "--columns",
           /*columns*/
           ctx2[10]
@@ -8450,34 +9533,34 @@ function create_fragment2(ctx) {
       const style_changed = dirty[0] & /*columns*/
       1024;
       if (dirty[0] & /*$showActionBar, columns*/
-      1032 || style_changed) {
+      1040 || style_changed) {
         set_style(
-          div6,
+          div5,
           "padding-top",
           /*$showActionBar*/
-          ctx2[3] ? "4em" : "0"
+          ctx2[4] ? "4em" : "0"
         );
       }
       if (!current || dirty[0] & /*currentPageLocal*/
-      2048 && button4_disabled_value !== (button4_disabled_value = /*currentPageLocal*/
+      2048 && button5_disabled_value !== (button5_disabled_value = /*currentPageLocal*/
       ctx2[11] === 1)) {
-        button4.disabled = button4_disabled_value;
+        button5.disabled = button5_disabled_value;
       }
       if (dirty[0] & /*currentPageLocal, $totalPages, goToPage*/
-      67176448) {
+      657408) {
         each_value = ensure_array_like(Array(
           /*$totalPages*/
-          ctx2[16]
+          ctx2[17]
         ).fill(0).map(func));
         let i;
         for (i = 0; i < each_value.length; i += 1) {
-          const child_ctx = get_each_context(ctx2, each_value, i);
+          const child_ctx = get_each_context2(ctx2, each_value, i);
           if (each_blocks[i]) {
             each_blocks[i].p(child_ctx, dirty);
           } else {
-            each_blocks[i] = create_each_block(child_ctx);
+            each_blocks[i] = create_each_block2(child_ctx);
             each_blocks[i].c();
-            each_blocks[i].m(div7, t11);
+            each_blocks[i].m(div6, t12);
           }
         }
         for (; i < each_blocks.length; i += 1) {
@@ -8486,53 +9569,58 @@ function create_fragment2(ctx) {
         each_blocks.length = each_value.length;
       }
       if (!current || dirty[0] & /*currentPageLocal, $totalPages*/
-      67584 && button5_disabled_value !== (button5_disabled_value = /*currentPageLocal*/
+      133120 && button6_disabled_value !== (button6_disabled_value = /*currentPageLocal*/
       ctx2[11] === /*$totalPages*/
-      ctx2[16])) {
-        button5.disabled = button5_disabled_value;
+      ctx2[17])) {
+        button6.disabled = button6_disabled_value;
       }
     },
     i(local) {
       if (current)
         return;
+      transition_in(if_block1);
       if (local) {
         add_render_callback(() => {
           if (!current)
             return;
-          if (!div5_transition)
-            div5_transition = create_bidirectional_transition(div5, slide, {}, true);
-          div5_transition.run(1);
+          if (!div4_transition)
+            div4_transition = create_bidirectional_transition(div4, slide, {}, true);
+          div4_transition.run(1);
         });
       }
-      transition_in(if_block2);
+      transition_in(if_block4);
       current = true;
     },
     o(local) {
+      transition_out(if_block1);
       if (local) {
-        if (!div5_transition)
-          div5_transition = create_bidirectional_transition(div5, slide, {}, false);
-        div5_transition.run(0);
+        if (!div4_transition)
+          div4_transition = create_bidirectional_transition(div4, slide, {}, false);
+        div4_transition.run(0);
       }
-      transition_out(if_block2);
+      transition_out(if_block4);
       current = false;
     },
     d(detaching) {
       if (detaching) {
-        detach(div4);
-        detach(t6);
-        detach(div5);
+        detach(div3);
         detach(t7);
-        detach(div6);
+        detach(div4);
         detach(t8);
-        detach(div7);
+        detach(div5);
+        detach(t9);
+        detach(div6);
       }
       if_block0.d();
-      ctx[42](null);
-      if_block1.d();
-      if (detaching && div5_transition)
-        div5_transition.end();
+      if (if_block1)
+        if_block1.d();
+      if_block2.d();
+      ctx[39](null);
+      if_block3.d();
+      if (detaching && div4_transition)
+        div4_transition.end();
       if_blocks[current_block_type_index].d();
-      ctx[48](null);
+      ctx[45](null);
       destroy_each(each_blocks, detaching);
       mounted = false;
       run_all(dispose);
@@ -8540,79 +9628,54 @@ function create_fragment2(ctx) {
   };
 }
 function getFilterKeyText(filter) {
+  var _a;
   if (filter.startsWith(`["`)) {
     return filter;
   } else {
-    return `${filter.split(":")[0].trim()}: `;
+    return `${(_a = filter.split(":")[0]) === null || _a === void 0 ? void 0 : _a.trim()}: `;
   }
 }
 function getFilterValueText(filter) {
+  var _a;
   if (filter.startsWith(`["`)) {
     return "";
   } else {
-    return filter.split(":")[1].trim();
+    return (_a = filter.split(":")[1]) === null || _a === void 0 ? void 0 : _a.trim();
   }
 }
 var func = (_, i) => i + 1;
-function instance2($$self, $$props, $$invalidate) {
+function instance3($$self, $$props, $$invalidate) {
   let totalNotesCount;
   let actionBarStyle;
   let $showActionBar;
-  let $refreshOnResize;
-  let $settings;
+  let $searchQuery;
   let $skipNextTransition;
-  let $viewIsVisible;
+  let $settings;
+  let $folderName;
   let $displayedFiles;
   let $allAllowedFiles;
   let $searchFilters;
-  let $folderName;
-  let $searchQuery;
   let $plugin;
   let $totalPages;
   let $currentPage;
   let $allTags;
-  component_subscribe($$self, showActionBar, ($$value) => $$invalidate(3, $showActionBar = $$value));
-  component_subscribe($$self, refreshOnResize, ($$value) => $$invalidate(51, $refreshOnResize = $$value));
-  component_subscribe($$self, settings, ($$value) => $$invalidate(52, $settings = $$value));
-  component_subscribe($$self, skipNextTransition, ($$value) => $$invalidate(53, $skipNextTransition = $$value));
-  component_subscribe($$self, viewIsVisible, ($$value) => $$invalidate(54, $viewIsVisible = $$value));
-  component_subscribe($$self, displayedFiles, ($$value) => $$invalidate(4, $displayedFiles = $$value));
-  component_subscribe($$self, allAllowedFiles, ($$value) => $$invalidate(35, $allAllowedFiles = $$value));
-  component_subscribe($$self, searchFilters, ($$value) => $$invalidate(5, $searchFilters = $$value));
+  component_subscribe($$self, showActionBar, ($$value) => $$invalidate(4, $showActionBar = $$value));
+  component_subscribe($$self, searchQuery, ($$value) => $$invalidate(5, $searchQuery = $$value));
+  component_subscribe($$self, skipNextTransition, ($$value) => $$invalidate(52, $skipNextTransition = $$value));
+  component_subscribe($$self, settings, ($$value) => $$invalidate(53, $settings = $$value));
   component_subscribe($$self, folderName, ($$value) => $$invalidate(6, $folderName = $$value));
-  component_subscribe($$self, searchQuery, ($$value) => $$invalidate(7, $searchQuery = $$value));
-  component_subscribe($$self, plugin, ($$value) => $$invalidate(55, $plugin = $$value));
-  component_subscribe($$self, totalPages, ($$value) => $$invalidate(16, $totalPages = $$value));
-  component_subscribe($$self, currentPage, ($$value) => $$invalidate(36, $currentPage = $$value));
-  component_subscribe($$self, allTags, ($$value) => $$invalidate(17, $allTags = $$value));
+  component_subscribe($$self, displayedFiles, ($$value) => $$invalidate(7, $displayedFiles = $$value));
+  component_subscribe($$self, allAllowedFiles, ($$value) => $$invalidate(31, $allAllowedFiles = $$value));
+  component_subscribe($$self, searchFilters, ($$value) => $$invalidate(8, $searchFilters = $$value));
+  component_subscribe($$self, plugin, ($$value) => $$invalidate(54, $plugin = $$value));
+  component_subscribe($$self, totalPages, ($$value) => $$invalidate(17, $totalPages = $$value));
+  component_subscribe($$self, currentPage, ($$value) => $$invalidate(32, $currentPage = $$value));
+  component_subscribe($$self, allTags, ($$value) => $$invalidate(18, $allTags = $$value));
+  var _a;
   let { cardsContainer } = $$props;
   let notesGrid;
   let viewContent;
   let columns;
-  const sortIcon = (element2) => {
-    (0, import_obsidian11.setIcon)(element2, "arrow-down-wide-narrow");
-  };
-  const refreshIcon = (element2) => {
-    (0, import_obsidian11.setIcon)(element2, "refresh-ccw");
-  };
-  const closeIcon = (element2) => {
-    (0, import_obsidian11.setIcon)(element2, "x");
-  };
-  const cumpulsoryFilterIcon = (element2) => {
-    (0, import_obsidian11.setIcon)(element2, "lock-keyhole");
-  };
-  const normalFilterIcon = (element2) => {
-    (0, import_obsidian11.setIcon)(element2, "lock-open");
-  };
-  const closeCircleIcon = (element2) => {
-    (0, import_obsidian11.setIcon)(element2, "circle-x");
-  };
-  const filtersPanelIcon = (element2) => {
-    (0, import_obsidian11.setIcon)(element2, filtersIcon);
-  };
-  const viewShareButtonIcon = (element2) => {
-    (0, import_obsidian11.setIcon)(element2, viewShareIcon);
-  };
   let currentPageLocal = 1;
   function goToPage(page) {
     store_default.currentPage.set(page);
@@ -8627,19 +9690,21 @@ function instance2($$self, $$props, $$invalidate) {
       goToPage(currentPageLocal - 1);
   }
   let activeSuggest = null;
+  let searchInputEl = null;
   function searchInput(el) {
-    var _a;
-    const search = new import_obsidian11.SearchComponent(el);
+    var _a2;
+    const search = new import_obsidian13.SearchComponent(el);
+    search.clearButtonEl.style.display = "none";
     search.addRightDecorator((rightDecoratorEl) => {
       const sortButton = document.createElement("button");
       sortButton.className = "clickable-icon";
-      (0, import_obsidian11.setIcon)(sortButton, "search");
+      (0, import_obsidian13.setIcon)(sortButton, "search");
       sortButton.addEventListener("click", () => set_store_value(searchQuery, $searchQuery = search.inputEl.value, $searchQuery));
       rightDecoratorEl.appendChild(sortButton);
     });
     search.setClass("action-bar__search-input");
-    const inputEl = search.inputEl;
-    const appInstance = (_a = get_store_value(plugin)) === null || _a === void 0 ? void 0 : _a.app;
+    searchInputEl = search.inputEl;
+    const appInstance = (_a2 = get_store_value(plugin)) === null || _a2 === void 0 ? void 0 : _a2.app;
     const fileSuggestions = new Set(getFileSuggestions(appInstance));
     const tagSuggestions = new Set(getTagSuggestions(appInstance));
     const parentSuggestions = new Set(getFolderSuggestions(appInstance));
@@ -8653,9 +9718,9 @@ function instance2($$self, $$props, $$invalidate) {
     const updateSuggestions = (value) => {
       if (!appInstance)
         return;
-      if (!activeSuggest) {
+      if (!activeSuggest && searchInputEl != null) {
         activeSuggest = new SearchFiltersMultiSuggestor(
-          inputEl,
+          searchInputEl,
           finalSuggestions,
           (selected) => {
             if (!selected)
@@ -8667,72 +9732,77 @@ function instance2($$self, $$props, $$invalidate) {
                 nf: [...oldSearchFilters.nf, selected]
               });
             } else {
-              new import_obsidian11.Notice("The filter is already added to the view.");
+              new import_obsidian13.Notice("The filter is already added to the view.");
             }
             addToSearchHistory(selected);
           },
           appInstance
         );
-        inputEl.blur();
-        activeSuggest.getSuggestions(inputEl.value);
-        inputEl.focus();
-      } else {
-        activeSuggest.getSuggestions(inputEl.value);
+        if (searchInputEl)
+          searchInputEl.blur();
+        activeSuggest.getSuggestions(searchInputEl.value);
+        searchInputEl.focus();
+      } else if (activeSuggest && searchInputEl != null) {
+        activeSuggest.getSuggestions(searchInputEl.value);
       }
     };
-    inputEl.addEventListener("click", () => {
-      if (activeSuggest) {
-        activeSuggest.getSuggestions(inputEl.value);
+    searchInputEl.addEventListener("click", () => {
+      if (activeSuggest && searchInputEl != null) {
+        activeSuggest.getSuggestions(searchInputEl.value);
       } else {
-        updateSuggestions(inputEl.value);
+        updateSuggestions();
       }
     });
-    inputEl.addEventListener("input", () => {
-      if (inputEl.value.trim() === "") {
+    searchInputEl.addEventListener("input", () => {
+      if (searchInputEl && searchInputEl.value.trim() === "") {
         set_store_value(searchQuery, $searchQuery = "", $searchQuery);
       } else {
-        updateSuggestions(inputEl.value);
       }
     });
-    search.clearButtonEl.addEventListener("click", (e) => {
-      set_store_value(searchQuery, $searchQuery = "", $searchQuery);
-    });
-    inputEl.addEventListener("keydown", (e) => {
+    searchInputEl.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
-        const inputVal = inputEl.value.trim();
+        const inputVal = searchInputEl ? searchInputEl.value.trim() : "";
         if (!inputVal)
           return;
         addToSearchHistory(inputVal);
-        const regex = /^\[.*:.*\]$/;
-        if (regex.test(inputVal) || /^file:\s*\S+$/.test(inputVal) || /^parent:\s*\S+$/.test(inputVal) || /^tag:\s*\S+$/.test(inputVal) || /^content:\s*\S+$/.test(inputVal) || /^created-before:\s*\S+$/.test(inputVal) || /^created-after:\s*\S+$/.test(inputVal) || /^modified-before:\s*\S+$/.test(inputVal) || /^modified-after:\s*\S+$/.test(inputVal)) {
+        const yamlPropertyRegexPattern = /^\[.*:.*\]$/;
+        if (yamlPropertyRegexPattern.test(inputVal) || /^file:\s*\S+$/.test(inputVal) || /^parent:\s*\S+$/.test(inputVal) || /^tag:\s*\S+$/.test(inputVal) || /^content:\s*\S+$/.test(inputVal) || /^created-before:\s*\S+$/.test(inputVal) || /^created-after:\s*\S+$/.test(inputVal) || /^modified-before:\s*\S+$/.test(inputVal) || /^modified-after:\s*\S+$/.test(inputVal) || /^regex:\s*\S+$/.test(inputVal)) {
           const oldSearchFilters = get_store_value(searchFilters);
           if (!oldSearchFilters.cf.includes(inputVal) && !oldSearchFilters.nf.includes(inputVal)) {
-            store_default.searchFilters.set({
-              cf: oldSearchFilters.cf,
-              nf: [...oldSearchFilters.nf, inputVal]
-            });
-            inputEl.value = "";
+            if (/^regex:\s*\S+:\s*\S+$/.test(inputVal) && !isValidRegExp(inputVal.split(":")[1].trim())) {
+              new import_obsidian13.Notice("Invalid regular expression in filter.");
+              return;
+            } else {
+              store_default.searchFilters.set({
+                cf: oldSearchFilters.cf,
+                nf: [...oldSearchFilters.nf, inputVal]
+              });
+              if (searchInputEl) {
+                searchInputEl.value = "";
+              }
+            }
           } else {
-            new import_obsidian11.Notice("The filter is already added to the view.");
+            new import_obsidian13.Notice("The filter is already added to the view.");
           }
         } else {
           set_store_value(searchQuery, $searchQuery = inputVal, $searchQuery);
         }
-        inputEl.blur();
+        if (searchInputEl)
+          searchInputEl.blur();
       }
     });
   }
   function sortMenu(event) {
-    const sortMenu2 = new import_obsidian11.Menu();
-    sortMenu2.addItem((item) => {
-      item.setTitle("Sorting filters");
-      item.setIcon("clock-arrow-down");
-      item.setIsLabel(true);
+    const sortMenu2 = new import_obsidian13.Menu();
+    sortMenu2.addItem((item2) => {
+      item2.setTitle("Sorting filters");
+      item2.setIcon("clock-arrow-down");
+      item2.setIsLabel(true);
     });
-    sortMenu2.addItem((item) => {
-      item.setTitle("Filename (A-Z)");
-      item.setChecked($settings.defaultSort == "Title (A-Z)" /* NameAsc */);
-      item.onClick(() => __awaiter(this, void 0, void 0, function* () {
+    sortMenu2.addItem((item2) => {
+      item2.setTitle("Filename (A-Z)");
+      item2.setChecked($settings.defaultSort == "Title (A-Z)" /* NameAsc */);
+      item2.onClick(() => __awaiter(this, void 0, void 0, function* () {
         store_default.settings.update((s) => {
           s.defaultSort = "Title (A-Z)" /* NameAsc */;
           return s;
@@ -8740,10 +9810,10 @@ function instance2($$self, $$props, $$invalidate) {
         yield $plugin.saveSettings();
       }));
     });
-    sortMenu2.addItem((item) => {
-      item.setTitle("Filename(Z-A)");
-      item.setChecked($settings.defaultSort == "Title (Z-A)" /* NameDesc */);
-      item.onClick(() => __awaiter(this, void 0, void 0, function* () {
+    sortMenu2.addItem((item2) => {
+      item2.setTitle("Filename(Z-A)");
+      item2.setChecked($settings.defaultSort == "Title (Z-A)" /* NameDesc */);
+      item2.onClick(() => __awaiter(this, void 0, void 0, function* () {
         store_default.settings.update((s) => {
           s.defaultSort = "Title (Z-A)" /* NameDesc */;
           return s;
@@ -8752,10 +9822,10 @@ function instance2($$self, $$props, $$invalidate) {
       }));
     });
     sortMenu2.addSeparator();
-    sortMenu2.addItem((item) => {
-      item.setTitle("Edited (newest first)");
-      item.setChecked($settings.defaultSort == "Edited (newest first)" /* EditedDesc */);
-      item.onClick(() => __awaiter(this, void 0, void 0, function* () {
+    sortMenu2.addItem((item2) => {
+      item2.setTitle("Edited (newest first)");
+      item2.setChecked($settings.defaultSort == "Edited (newest first)" /* EditedDesc */);
+      item2.onClick(() => __awaiter(this, void 0, void 0, function* () {
         store_default.settings.update((s) => {
           s.defaultSort = "Edited (newest first)" /* EditedDesc */;
           return s;
@@ -8763,10 +9833,10 @@ function instance2($$self, $$props, $$invalidate) {
         yield $plugin.saveSettings();
       }));
     });
-    sortMenu2.addItem((item) => {
-      item.setTitle("Edited (oldest first)");
-      item.setChecked($settings.defaultSort == "Edited (oldest first)" /* EditedAsc */);
-      item.onClick(() => __awaiter(this, void 0, void 0, function* () {
+    sortMenu2.addItem((item2) => {
+      item2.setTitle("Edited (oldest first)");
+      item2.setChecked($settings.defaultSort == "Edited (oldest first)" /* EditedAsc */);
+      item2.onClick(() => __awaiter(this, void 0, void 0, function* () {
         store_default.settings.update((s) => {
           s.defaultSort = "Edited (oldest first)" /* EditedAsc */;
           return s;
@@ -8775,10 +9845,10 @@ function instance2($$self, $$props, $$invalidate) {
       }));
     });
     sortMenu2.addSeparator();
-    sortMenu2.addItem((item) => {
-      item.setTitle("Created (newest first)");
-      item.setChecked($settings.defaultSort == "Created (newest first)" /* CreatedDesc */);
-      item.onClick(() => __awaiter(this, void 0, void 0, function* () {
+    sortMenu2.addItem((item2) => {
+      item2.setTitle("Created (newest first)");
+      item2.setChecked($settings.defaultSort == "Created (newest first)" /* CreatedDesc */);
+      item2.onClick(() => __awaiter(this, void 0, void 0, function* () {
         store_default.settings.update((s) => {
           s.defaultSort = "Created (newest first)" /* CreatedDesc */;
           return s;
@@ -8786,10 +9856,10 @@ function instance2($$self, $$props, $$invalidate) {
         yield $plugin.saveSettings();
       }));
     });
-    sortMenu2.addItem((item) => {
-      item.setTitle("Created (oldest first)");
-      item.setChecked($settings.defaultSort == "Created (oldest first)" /* CreatedAsc */);
-      item.onClick(() => __awaiter(this, void 0, void 0, function* () {
+    sortMenu2.addItem((item2) => {
+      item2.setTitle("Created (oldest first)");
+      item2.setChecked($settings.defaultSort == "Created (oldest first)" /* CreatedAsc */);
+      item2.onClick(() => __awaiter(this, void 0, void 0, function* () {
         store_default.settings.update((s) => {
           s.defaultSort = "Created (oldest first)" /* CreatedAsc */;
           return s;
@@ -8798,30 +9868,39 @@ function instance2($$self, $$props, $$invalidate) {
       }));
     });
     sortMenu2.addSeparator();
-    sortMenu2.addItem((item) => {
-      item.setTitle("File filters");
-      item.setIcon("file-question");
-      item.setIsLabel(true);
+    sortMenu2.addItem((item2) => {
+      item2.setTitle("File filters");
+      item2.setIcon("file-question");
+      item2.setIsLabel(true);
     });
-    sortMenu2.addItem((item) => {
-      item.setTitle("Show empty notes");
-      item.setChecked($settings.showEmptyNotes);
-      item.onClick(() => __awaiter(this, void 0, void 0, function* () {
+    sortMenu2.addItem((item2) => {
+      item2.setTitle("Show empty notes");
+      item2.setChecked($settings.showEmptyNotes);
+      item2.onClick(() => __awaiter(this, void 0, void 0, function* () {
         set_store_value(settings, $settings.showEmptyNotes = !$settings.showEmptyNotes, $settings);
       }));
     });
     sortMenu2.addSeparator();
-    sortMenu2.addItem((item) => {
-      item.setTitle("Folder filters");
-      item.setIcon("folder-tree");
-      item.setIsLabel(true);
+    sortMenu2.addItem((item2) => {
+      item2.setTitle("Folder filters");
+      item2.setIcon("folder-tree");
+      item2.setIsLabel(true);
     });
-    sortMenu2.addItem((item) => {
-      item.setTitle("Read sub-folders");
-      item.setChecked($settings.showSubFolders);
-      item.onClick(() => {
+    sortMenu2.addItem((item2) => {
+      item2.setTitle("Enable folder view");
+      item2.setChecked($settings.showFolderCards);
+      item2.onClick(() => {
+        set_store_value(settings, $settings.showFolderCards = !$settings.showFolderCards, $settings);
+        set_store_value(settings, $settings.showSubFolders = false, $settings);
+      });
+    });
+    sortMenu2.addItem((item2) => {
+      item2.setTitle("Read sub-folders");
+      item2.setChecked($settings.showSubFolders && !$settings.showFolderCards);
+      item2.onClick(() => {
         set_store_value(settings, $settings.showSubFolders = !$settings.showSubFolders, $settings);
       });
+      item2.setDisabled($settings.showFolderCards || $folderName.length === 0);
     });
     sortMenu2.showAtMouseEvent(event);
   }
@@ -8831,25 +9910,28 @@ function instance2($$self, $$props, $$invalidate) {
   }
   function removeFilter(index2, type) {
     store_default.searchFilters.update((filters) => {
-      filters[type].splice(index2, 1);
+      var _a2;
+      (_a2 = filters[type]) === null || _a2 === void 0 ? void 0 : _a2.splice(index2, 1);
       return Object.assign({}, filters);
     });
   }
   function moveFilter(index2, type) {
     searchFilters.update((filters) => {
-      const item = filters[type].splice(index2, 1)[0];
+      var _a2;
+      const item2 = (_a2 = filters[type]) === null || _a2 === void 0 ? void 0 : _a2.splice(index2, 1)[0];
       const otherType = type === "cf" ? "nf" : "cf";
-      filters[otherType].push(item);
+      filters[otherType].push(item2);
       return Object.assign({}, filters);
     });
   }
   function handleTagClick(event) {
     store_default.searchFilters.update((filters) => {
       const tag = event.target.textContent || "";
-      if (!filters.cf.includes(tag) && !filters.nf.includes(tag)) {
-        filters.nf.push(tag);
+      const tagFilter = `tag: ${tag}`;
+      if (!filters.cf.includes(tagFilter) && !filters.nf.includes(tagFilter)) {
+        filters.cf.push(tagFilter);
       } else {
-        new import_obsidian11.Notice("The tag is already added to the view.");
+        new import_obsidian13.Notice("The tag is already added to the view.");
       }
       return Object.assign({}, filters);
     });
@@ -8862,23 +9944,39 @@ function instance2($$self, $$props, $$invalidate) {
     const viewLink = get_store_value(plugin).getViewShareLink();
     navigator.clipboard.writeText(viewLink).then(
       () => {
-        new import_obsidian11.Notice("Notes Explorer view link copied to clipboard!");
+        new import_obsidian13.Notice("Notes Explorer view link copied to clipboard!");
       },
       (err) => {
         console.error("Failed to copy view link: ", err);
-        new import_obsidian11.Notice("Failed to copy view link.");
+        new import_obsidian13.Notice("Failed to copy view link.");
       }
     );
   }
+  function handleFolderPathSegmentClick(idx) {
+    var _a2;
+    if (idx === $folderName[0].path.split("/").length - 1) {
+      return;
+    }
+    const folderSegments = $folderName[0].path.split("/");
+    const newPath = folderSegments.slice(0, idx + 1).join("/");
+    const appInstance = (_a2 = get_store_value(plugin)) === null || _a2 === void 0 ? void 0 : _a2.app;
+    const normalizedNewFolderPath = (0, import_obsidian13.normalizePath)(newPath);
+    const folder = appInstance === null || appInstance === void 0 ? void 0 : appInstance.vault.getAbstractFileByPath(normalizedNewFolderPath);
+    if (folder && folder instanceof import_obsidian13.TFolder) {
+      store_default.folderName.set([folder]);
+      refreshView();
+    }
+  }
   onMount(() => {
     $$invalidate(10, columns = Math.floor(viewContent.clientWidth / $settings.minCardWidth) + 1);
-    $$invalidate(8, notesGrid = new MiniMasonry({
+    notesGrid = new MiniMasonry({
       container: cardsContainer,
       baseWidth: $settings.minCardWidth,
       gutter: $settings.gutterSize,
       surroundingGutter: $settings.enableSurroundingGutters,
-      ultimateGutter: 20
-    }));
+      ultimateGutter: 20,
+      wedge: true
+    });
     notesGrid.layout();
     window.addEventListener("resize", handleResize);
     return () => {
@@ -8886,20 +9984,50 @@ function instance2($$self, $$props, $$invalidate) {
       window.removeEventListener("resize", handleResize);
     };
   });
-  afterUpdate((0, import_obsidian11.debounce)(() => __awaiter(void 0, void 0, void 0, function* () {
-    if (!$viewIsVisible) {
-      set_store_value(skipNextTransition, $skipNextTransition = true, $skipNextTransition);
-      return;
-    }
-    notesGrid.layout();
-    set_store_value(skipNextTransition, $skipNextTransition = false, $skipNextTransition);
-    if ($refreshOnResize || $settings) {
+  let lastLayout = /* @__PURE__ */ new Date();
+  let pendingLayout = null;
+  const debouncedLayout = () => {
+    return new Promise((resolve) => {
+      if (lastLayout.getTime() + 100 > (/* @__PURE__ */ new Date()).getTime() && pendingLayout === null) {
+        pendingLayout = setTimeout(
+          () => {
+            notesGrid.layout();
+            set_store_value(skipNextTransition, $skipNextTransition = false, $skipNextTransition);
+            lastLayout = /* @__PURE__ */ new Date();
+            pendingLayout = null;
+            resolve();
+          },
+          lastLayout.getTime() + 100 - (/* @__PURE__ */ new Date()).getTime()
+        );
+        return;
+      }
       notesGrid.layout();
-      set_store_value(refreshOnResize, $refreshOnResize = false, $refreshOnResize);
-    }
-  })));
+      set_store_value(skipNextTransition, $skipNextTransition = false, $skipNextTransition);
+      lastLayout = /* @__PURE__ */ new Date();
+      resolve();
+    });
+  };
+  const updateLayoutNextTick = () => __awaiter(void 0, void 0, void 0, function* () {
+    yield tick();
+    return yield debouncedLayout();
+  });
+  files.subscribe(() => {
+    store_default.renderOnFileUpdate.set(true);
+    updateLayoutNextTick();
+  });
   let screenWidth = window.innerWidth;
   let showFilters = false;
+  let showSearchInput = false;
+  function toggleSearchInput() {
+    $$invalidate(14, showSearchInput = !showSearchInput);
+    if (!showSearchInput) {
+      set_store_value(searchQuery, $searchQuery = "", $searchQuery);
+      activeSuggest = null;
+      searchInputEl === null || searchInputEl === void 0 ? void 0 : searchInputEl.blur();
+    } else {
+      searchInputEl === null || searchInputEl === void 0 ? void 0 : searchInputEl.focus();
+    }
+  }
   const handleResize = () => {
     $$invalidate(12, screenWidth = window.innerWidth);
     if (screenWidth > 1200) {
@@ -8907,77 +10035,71 @@ function instance2($$self, $$props, $$invalidate) {
     }
   };
   const click_handler = () => $$invalidate(13, showFilters = !showFilters);
-  const click_handler_1 = (index2) => moveFilter(index2, "cf");
-  const click_handler_2 = (index2) => removeFilter(index2, "cf");
-  const click_handler_3 = (index2) => moveFilter(index2, "nf");
-  const click_handler_4 = (index2) => removeFilter(index2, "nf");
-  function div3_binding($$value) {
+  const click_handler_1 = (idx) => handleFolderPathSegmentClick(idx);
+  const click_handler_2 = (index2) => moveFilter(index2, "cf");
+  const click_handler_3 = (index2) => removeFilter(index2, "cf");
+  const click_handler_4 = (index2) => moveFilter(index2, "nf");
+  const click_handler_5 = (index2) => removeFilter(index2, "nf");
+  function div2_binding($$value) {
     binding_callbacks[$$value ? "unshift" : "push"](() => {
       viewContent = $$value;
       $$invalidate(9, viewContent);
     });
   }
-  const click_handler_5 = (index2) => moveFilter(index2, "cf");
-  const click_handler_6 = (index2) => removeFilter(index2, "cf");
-  const click_handler_7 = (index2) => moveFilter(index2, "nf");
-  const click_handler_8 = (index2) => removeFilter(index2, "nf");
-  const loaded_handler = () => notesGrid.layout();
-  function div6_binding($$value) {
+  const click_handler_6 = (idx) => handleFolderPathSegmentClick(idx);
+  const click_handler_7 = (index2) => moveFilter(index2, "cf");
+  const click_handler_8 = (index2) => removeFilter(index2, "cf");
+  const click_handler_9 = (index2) => moveFilter(index2, "nf");
+  const click_handler_10 = (index2) => removeFilter(index2, "nf");
+  function div5_binding($$value) {
     binding_callbacks[$$value ? "unshift" : "push"](() => {
       cardsContainer = $$value;
       $$invalidate(0, cardsContainer);
     });
   }
-  const click_handler_9 = (page) => goToPage(page);
+  const click_handler_11 = (page) => goToPage(page);
   $$self.$$set = ($$props2) => {
     if ("cardsContainer" in $$props2)
       $$invalidate(0, cardsContainer = $$props2.cardsContainer);
   };
   $$self.$$.update = () => {
     if ($$self.$$.dirty[1] & /*$currentPage*/
-    32) {
+    2) {
       $:
         $$invalidate(11, currentPageLocal = $currentPage);
     }
-    if ($$self.$$.dirty[0] & /*$searchQuery, $folderName, $searchFilters, $displayedFiles*/
-    240 | $$self.$$.dirty[1] & /*$allAllowedFiles*/
-    16) {
+    if ($$self.$$.dirty[0] & /*$searchQuery, $folderName, $searchFilters, $displayedFiles, _a*/
+    1073742304 | $$self.$$.dirty[1] & /*$allAllowedFiles*/
+    1) {
       $:
-        $$invalidate(15, totalNotesCount = $searchQuery === "" && $folderName.length === 0 && $searchFilters.cf.length === 0 && $searchFilters.nf.length === 0 ? `${$allAllowedFiles.length}` : `${$displayedFiles.length} / ${get_store_value(plugin).app.vault.getMarkdownFiles().length}`);
+        $$invalidate(16, totalNotesCount = $searchQuery === "" && $folderName.length === 0 && $searchFilters.cf.length === 0 && $searchFilters.nf.length === 0 ? `${$allAllowedFiles.length}` : `${$displayedFiles.length} / ${$$invalidate(30, _a = get_store_value(plugin).app.vault.getMarkdownFiles()) === null || _a === void 0 ? void 0 : _a.length}`);
     }
     if ($$self.$$.dirty[0] & /*$showActionBar*/
-    8) {
+    16) {
       $:
-        $$invalidate(14, actionBarStyle = $showActionBar ? "action-bar-parent" : "action-bar-parent action-bar-parent-hide");
+        $$invalidate(15, actionBarStyle = $showActionBar ? "action-bar-parent" : "action-bar-parent action-bar-parent-hide");
     }
   };
   return [
     cardsContainer,
     nextPage,
     previousPage,
+    updateLayoutNextTick,
     $showActionBar,
+    $searchQuery,
+    $folderName,
     $displayedFiles,
     $searchFilters,
-    $folderName,
-    $searchQuery,
-    notesGrid,
     viewContent,
     columns,
     currentPageLocal,
     screenWidth,
     showFilters,
+    showSearchInput,
     actionBarStyle,
     totalNotesCount,
     $totalPages,
     $allTags,
-    sortIcon,
-    refreshIcon,
-    closeIcon,
-    cumpulsoryFilterIcon,
-    normalFilterIcon,
-    closeCircleIcon,
-    filtersPanelIcon,
-    viewShareButtonIcon,
     goToPage,
     searchInput,
     sortMenu,
@@ -8987,6 +10109,9 @@ function instance2($$self, $$props, $$invalidate) {
     handleTagClick,
     handleCountLabelBtn,
     copyViewLinkToClipboard,
+    handleFolderPathSegmentClick,
+    toggleSearchInput,
+    _a,
     $allAllowedFiles,
     $currentPage,
     click_handler,
@@ -8994,14 +10119,15 @@ function instance2($$self, $$props, $$invalidate) {
     click_handler_2,
     click_handler_3,
     click_handler_4,
-    div3_binding,
     click_handler_5,
+    div2_binding,
     click_handler_6,
     click_handler_7,
     click_handler_8,
-    loaded_handler,
-    div6_binding,
-    click_handler_9
+    click_handler_9,
+    click_handler_10,
+    div5_binding,
+    click_handler_11
   ];
 }
 var Root = class extends SvelteComponent {
@@ -9010,13 +10136,14 @@ var Root = class extends SvelteComponent {
     init(
       this,
       options,
-      instance2,
-      create_fragment2,
+      instance3,
+      create_fragment3,
       safe_not_equal,
       {
         cardsContainer: 0,
         nextPage: 1,
-        previousPage: 2
+        previousPage: 2,
+        updateLayoutNextTick: 3
       },
       null,
       [-1, -1, -1]
@@ -9028,17 +10155,20 @@ var Root = class extends SvelteComponent {
   get previousPage() {
     return this.$$.ctx[2];
   }
+  get updateLayoutNextTick() {
+    return this.$$.ctx[3];
+  }
 };
 var Root_default = Root;
 
 // src/view.ts
 var PLUGIN_VIEW_TYPE = "notes-explorer";
-var NotesExplorerView = class extends import_obsidian12.ItemView {
-  constructor(plugin2, settings3, leaf) {
+var NotesExplorerView = class extends import_obsidian14.ItemView {
+  constructor(plugin2, settings2, leaf) {
     super(leaf);
     this.statusBarEl = null;
     this.plugin = plugin2;
-    this.settings = settings3;
+    this.settings = settings2;
     this.svelteRoot = null;
     this.viewContent = this.containerEl.children[1];
     this.icon = pluginIcon;
@@ -9073,6 +10203,12 @@ var NotesExplorerView = class extends import_obsidian12.ItemView {
     });
     this.renderMoreOnScroll();
   }
+  onResize() {
+    if (this.svelteRoot && this.svelteRoot.updateLayoutNextTick) {
+      store_default.renderOnFileUpdate.set(false);
+      this.svelteRoot.updateLayoutNextTick();
+    }
+  }
   async onClose() {
     store_default.viewIsVisible.set(false);
     store_default.searchQuery.set("");
@@ -9089,14 +10225,14 @@ var NotesExplorerView = class extends import_obsidian12.ItemView {
         if (!this.app.workspace.layoutReady) {
           return;
         }
-        if (file instanceof import_obsidian12.TFile && file.extension === "md") {
+        if (file instanceof import_obsidian14.TFile && file.extension === "md") {
           store_default.files.update((files2) => files2 == null ? void 0 : files2.concat(file));
         }
       })
     );
     this.registerEvent(
       this.app.vault.on("delete", async (file) => {
-        if (file instanceof import_obsidian12.TFile && file.extension === "md") {
+        if (file instanceof import_obsidian14.TFile && file.extension === "md") {
           store_default.files.update(
             (files2) => files2 == null ? void 0 : files2.filter((f) => f.path !== file.path)
           );
@@ -9105,7 +10241,7 @@ var NotesExplorerView = class extends import_obsidian12.ItemView {
     );
     this.registerEvent(
       this.app.vault.on("modify", async (file) => {
-        if (file instanceof import_obsidian12.TFile && file.extension === "md") {
+        if (file instanceof import_obsidian14.TFile && file.extension === "md") {
           store_default.files.update(
             (files2) => files2 == null ? void 0 : files2.map((f) => f.path === file.path ? file : f)
           );
@@ -9116,7 +10252,7 @@ var NotesExplorerView = class extends import_obsidian12.ItemView {
       this.app.vault.on(
         "rename",
         async (file, oldPath) => {
-          if (file instanceof import_obsidian12.TFile && file.extension === "md") {
+          if (file instanceof import_obsidian14.TFile && file.extension === "md") {
             store_default.files.update(
               (files2) => files2 == null ? void 0 : files2.map((f) => f.path === oldPath ? file : f)
             );
@@ -9125,16 +10261,10 @@ var NotesExplorerView = class extends import_obsidian12.ItemView {
       )
     );
     this.app.workspace.on("resize", () => {
-      store_default.refreshOnResize.set(true);
-    });
-    this.app.workspace.on("active-leaf-change", () => {
-      var _a;
-      const rootLeaf = this.app.workspace.getMostRecentLeaf(
-        this.app.workspace.rootSplit
-      );
-      store_default.viewIsVisible.set(
-        ((_a = rootLeaf == null ? void 0 : rootLeaf.view) == null ? void 0 : _a.getViewType()) === PLUGIN_VIEW_TYPE
-      );
+      store_default.renderOnFileUpdate.set(false);
+      if (this.svelteRoot && this.svelteRoot.updateLayoutNextTick) {
+        this.svelteRoot.updateLayoutNextTick();
+      }
     });
   }
   getAllFiles() {
@@ -9169,7 +10299,7 @@ var NotesExplorerView = class extends import_obsidian12.ItemView {
         const leftArrowButton = this.statusBarEl.createEl("span", {
           cls: "notes-explorer-status-bar-button"
         });
-        (0, import_obsidian12.setIcon)(leftArrowButton, leftSideArrow);
+        (0, import_obsidian14.setIcon)(leftArrowButton, leftSideArrow);
         leftArrowButton.addEventListener("click", () => {
           if (get_store_value(currentPage) > 1) {
             store_default.currentPage.set(get_store_value(currentPage) - 1);
@@ -9193,7 +10323,7 @@ var NotesExplorerView = class extends import_obsidian12.ItemView {
         const rightArrowButton = this.statusBarEl.createEl("span", {
           cls: "notes-explorer-status-bar-button"
         });
-        (0, import_obsidian12.setIcon)(rightArrowButton, rightSideArrow);
+        (0, import_obsidian14.setIcon)(rightArrowButton, rightSideArrow);
         rightArrowButton.addEventListener("click", () => {
           if (get_store_value(currentPage) < get_store_value(totalPages)) {
             store_default.currentPage.set(get_store_value(currentPage) + 1);
@@ -9239,7 +10369,7 @@ var NotesExplorerView = class extends import_obsidian12.ItemView {
 };
 
 // main.ts
-var NotesExplorerPlugin3 = class extends import_obsidian13.Plugin {
+var NotesExplorerPlugin3 = class extends import_obsidian15.Plugin {
   constructor() {
     super(...arguments);
     this.settings = Object.assign({}, DEFAULT_SETTINGS);
@@ -9301,7 +10431,7 @@ var NotesExplorerPlugin3 = class extends import_obsidian13.Plugin {
       this.registerDomEvent(document, "click", async (evt) => {
         const elemTarget = evt.target;
         const Tfolder = this.setByFolderElement(elemTarget);
-        if (Tfolder && Tfolder instanceof import_obsidian13.TFolder) {
+        if (Tfolder && Tfolder instanceof import_obsidian15.TFolder) {
           await this.openAllFilesInFolder(Tfolder);
         }
       });
@@ -9312,13 +10442,18 @@ var NotesExplorerPlugin3 = class extends import_obsidian13.Plugin {
       this.app.workspace.on("file-menu", (menu, file, source, leaf) => {
         if (source === "link-context-menu")
           return;
-        if (file instanceof import_obsidian13.TFolder) {
-          menu.addItem((item) => {
-            item.setTitle("Open folder in notes explorer").setIcon(pluginIcon).onClick(() => this.openAllFilesInFolder(file));
+        if (file instanceof import_obsidian15.TFolder) {
+          menu.addItem((item2) => {
+            item2.setTitle("Open folder in notes explorer").setIcon(pluginIcon).onClick(() => this.openAllFilesInFolder(file));
           });
         }
       })
     );
+    this.app.workspace.on("editor-menu", (menu, editor) => {
+      const token = editor.getClickableTokenAt(editor.getCursor());
+      if ((token == null ? void 0 : token.type) === "tag")
+        this.setupMenu(menu, token.text);
+    });
   }
   async registerCommands() {
     this.addCommand({
@@ -9387,7 +10522,7 @@ var NotesExplorerPlugin3 = class extends import_obsidian13.Plugin {
     return this.app.vault.getAbstractFileByPath(folderPath);
   }
   async openAllFilesInFolder(folder) {
-    if (folder instanceof import_obsidian13.TFolder) {
+    if (folder instanceof import_obsidian15.TFolder) {
       store_default.folderName.set([folder]);
     }
     await this.activateView("main");
@@ -9421,6 +10556,24 @@ var NotesExplorerPlugin3 = class extends import_obsidian13.Plugin {
         store_default.viewIsVisible.set(true);
       }
     );
+  }
+  setupMenu(menu, tagName, isHierarchy = false) {
+    if (tagName) {
+      menu.addItem(
+        item("open-notes-explorer", pluginIcon, "Open notes explorer", (e) => {
+          this.openNotesExplorerWithTag(tagName);
+          e.preventDefault();
+        })
+      );
+    }
+    this.app.workspace.trigger("notes-explorer:contextmenu", menu, tagName);
+  }
+  openNotesExplorerWithTag(tagName) {
+    store_default.searchFilters.update((filters) => {
+      filters.cf.push(`tag: ${tagName}`);
+      return filters;
+    });
+    this.activateView("main");
   }
   // async openTagInCardsView(tagName: string) {
   //   try {
@@ -9460,6 +10613,13 @@ var NotesExplorerPlugin3 = class extends import_obsidian13.Plugin {
   //   return String(error);
   // }
 };
+function item(section, icon, title, click) {
+  return (i) => {
+    i.setIcon(icon).setTitle(title).onClick(click);
+    if (section)
+      i.setSection(section);
+  };
+}
 /*! Bundled license information:
 
 @simonwep/pickr/dist/pickr.min.js:

@@ -541,14 +541,6 @@
       "key": "Enter"
     }
   ],
-  "note-toolbar:open-toolbar-46da96a4-76b7-4736-ae56-f18d663244dd": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "M"
-    }
-  ],
   "notes-explorer:view-in-main-window": [
     {
       "modifiers": [
@@ -565,15 +557,6 @@
         "Mod"
       ],
       "key": "L"
-    }
-  ],
-  "obsidian-task-progress-bar:open-task-genius-view": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "B"
     }
   ],
   "obsidian-task-progress-bar:global-quick-capture": [
@@ -608,6 +591,40 @@
         "Mod"
       ],
       "key": "B"
+    }
+  ],
+  "obsidian-task-progress-bar:toggle-quick-capture-globally": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "B"
+    }
+  ],
+  "obsidian-task-progress-bar:quick-capture": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "B"
+    }
+  ],
+  "note-toolbar:open-toolbar-suggester": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "M"
+    }
+  ],
+  "note-toolbar:open-toolbar-settings": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "M"
     }
   ]
 }

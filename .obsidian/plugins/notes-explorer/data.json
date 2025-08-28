@@ -4,12 +4,12 @@
   "enableSurroundingGutters": false,
   "fixedCardHeight": null,
   "maxLines": null,
-  "launchOnStart": true,
+  "launchOnStart": false,
   "showDeleteButton": true,
   "displayTitle": "Both",
   "showEmptyNotes": false,
   "showSubFolders": false,
-  "contentInteractions": false,
+  "contentInteractions": true,
   "noteMetadata": "folderName",
   "frontmatterTag": null,
   "metadataVisibility": true,
@@ -25,5 +25,6 @@
   "pagesView": true,
   "cardsPerPage": 100,
   "clickMode": "single",
-  "searchHistoryEntries": []
+  "searchHistoryEntries": [],
+  "showFolderCards": false
 }
