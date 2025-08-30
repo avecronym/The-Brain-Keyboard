@@ -1,0 +1,10 @@
+{
+	"id": "todo-txt",
+	"name": "Todo.txt",
+	"version": "1.0.3",
+	"minAppVersion": "0.15.0",
+	"description": "Powerful yet simple task management in the portable Todo.txt format, with smart filtering and a modern interface.",
+	"author": "Mahmudul",
+	"authorUrl": "https://github.com/SearchMahmudul",
+	"isDesktopOnly": false
+}

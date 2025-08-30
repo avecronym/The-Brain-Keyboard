@@ -575,24 +575,6 @@
       "key": "B"
     }
   ],
-  "obsidian-task-progress-bar:force-reindex-tasks": [
-    {
-      "modifiers": [
-        "Alt",
-        "Shift"
-      ],
-      "key": "B"
-    }
-  ],
-  "obsidian-task-progress-bar:move-direct-incompleted-subtasks-to-file": [
-    {
-      "modifiers": [
-        "Alt",
-        "Mod"
-      ],
-      "key": "B"
-    }
-  ],
   "obsidian-task-progress-bar:toggle-quick-capture-globally": [
     {
       "modifiers": [

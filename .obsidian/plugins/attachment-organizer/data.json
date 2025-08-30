@@ -1,0 +1,22 @@
+{
+  "attachmentFolder": "/",
+  "attachmentExtensions": "png,jpg,jpeg,gif,bmp,svg,mp3,wav,mp4,mov,pdf,mkv",
+  "confirmPurge": true,
+  "ignoreFolders": "",
+  "autoOrganizeMode": "date",
+  "customPattern": "{{type}}/{{year}}-{{month}}",
+  "ocrEnabled": false,
+  "ocrApiKey": "",
+  "ocrModel": "gemini-1.5-flash",
+  "ocrWatchFolder": "assets/attachments",
+  "ocrOutputFolder": "assets/attachments/ocr",
+  "ocrAutoProcess": true,
+  "ocrAutoProcessNewFiles": true,
+  "ocrAutoProcessModifiedFiles": true,
+  "ocrProcessedField": "ocr-processed",
+  "ocrPrompt": "Extract all text from this image/document. Provide the text content clearly and accurately.",
+  "ocrTemplate": "# OCR Result for {{filename}}\n\n**Source:** ![[{{filename}}]]\n**Processed:** {{date}}\n**Status:** {{status}}\n\n## Extracted Text\n\n{{content}}",
+  "ocrBatchSize": 1,
+  "ocrMaxFileSize": 10485760,
+  "ocrForceReprocess": false
+}

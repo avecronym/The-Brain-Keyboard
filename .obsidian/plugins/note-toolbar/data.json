@@ -32,7 +32,7 @@
     "kanban": true
   },
   "showToolbarInFileMenu": true,
-  "showToolbarInOther": "graph notes-explorer card-browser-view mx-url-video mx-file-video task-genius-view webviewer",
+  "showToolbarInOther": "graph notes-explorer card-browser-view mx-url-video mx-file-video task-genius-view webviewer todo-txt-view",
   "toolbarProp": "notetoolbar",
   "toolbars": [
     {
@@ -530,19 +530,19 @@
           }
         },
         {
-          "uuid": "11ab3c86-4643-41ed-a20e-2845324a6b8f",
+          "uuid": "f57d2bed-ce84-44db-84b8-5ddb5a92fe9b",
           "hasCommand": false,
-          "icon": "lucide-check-square-2",
+          "icon": "lucide-check-square",
           "inGallery": false,
           "label": "",
-          "link": "Task Genius: Toggle quick capture panel in editor (Globally)",
+          "link": "Todo.txt: Add task",
           "linkAttr": {
             "commandCheck": false,
-            "commandId": "obsidian-task-progress-bar:toggle-quick-capture-globally",
+            "commandId": "todo-txt:add-task",
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Quickly Capture Checkbox in Editor (Task Genius) (Ctrl + B)",
+          "tooltip": "Add Task to list (Todo.txt)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -571,224 +571,19 @@
           }
         },
         {
-          "uuid": "878e1cb7-29da-40f6-b651-364f301bc34b",
+          "uuid": "83eacb7b-e774-4f72-b9fa-9496184b0b53",
           "hasCommand": false,
-          "icon": "lucide-check-square-2",
+          "icon": "lucide-check-square",
           "inGallery": false,
           "label": "",
-          "link": "Task Genius: Quick Capture",
+          "link": "Todo.txt: Create new file",
           "linkAttr": {
             "commandCheck": false,
-            "commandId": "obsidian-task-progress-bar:quick-capture",
+            "commandId": "todo-txt:create-new-file",
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Quickly Capture Checkbox (Task Genius) (Ctrl + Shift + B)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "uuid": "1f6f5a63-61dc-4d68-b9f0-e65424ddcbd0",
-          "hasCommand": false,
-          "icon": "lucide-check-square-2",
-          "inGallery": false,
-          "label": "",
-          "link": "Task Genius: Move task to another file",
-          "linkAttr": {
-            "commandCheck": false,
-            "commandId": "obsidian-task-progress-bar:move-task-to-file",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Move List of Tasks to Note (Task Genius) (Alt + B)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "uuid": "3e14c7a9-5058-4a91-9144-afab95edb05e",
-          "hasCommand": false,
-          "icon": "lucide-check-square-2",
-          "inGallery": false,
-          "label": "",
-          "link": "Task Genius: Move direct incomplete subtasks to another file",
-          "linkAttr": {
-            "commandCheck": false,
-            "commandId": "obsidian-task-progress-bar:move-direct-incompleted-subtasks-to-file",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Move Incomplete List of Tasks to Note (Task Genius) (Ctrl + Alt + B)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "uuid": "6557f2e3-3b45-4080-b65b-6e0872c44601",
-          "hasCommand": false,
-          "icon": "lucide-check-square-2",
-          "inGallery": false,
-          "label": "",
-          "link": "Task Genius: Open Task Genius view",
-          "linkAttr": {
-            "commandCheck": false,
-            "commandId": "obsidian-task-progress-bar:open-task-genius-view",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Open Task Genius View (Task Genius) (Ctrl + Shift + B)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "uuid": "19d230db-d805-4601-b547-98ee369d3f48",
-          "hasCommand": false,
-          "icon": "lucide-check-square-2",
-          "inGallery": false,
-          "label": "",
-          "link": "Task Genius: Refresh task index",
-          "linkAttr": {
-            "commandCheck": false,
-            "commandId": "obsidian-task-progress-bar:refresh-task-index",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Refresh List of Tasks (Task Genius)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "uuid": "8e555bf3-34c7-43e4-afae-81f10a827349",
-          "hasCommand": false,
-          "icon": "lucide-check-square-2",
-          "inGallery": false,
-          "label": "",
-          "link": "Task Genius: Force reindex all tasks",
-          "linkAttr": {
-            "commandCheck": false,
-            "commandId": "obsidian-task-progress-bar:force-reindex-tasks",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Hard Refresh List of All Tasks (Task Genius)",
+          "tooltip": "Make a New Task list (Todo.txt)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -1607,6 +1402,46 @@
           "inGallery": false
         },
         {
+          "uuid": "093a7702-3022-45cb-8e29-a08192bd10b4",
+          "label": "",
+          "icon": "lucide-folder-output",
+          "link": "Attachment Organizer: Move attachments between folders",
+          "linkAttr": {
+            "commandId": "attachment-organizer:move-attachments-between-folders",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Move Notes to another folder (Attachment Organizer)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
           "uuid": "7efc9bf7-8b52-4de2-9fd5-bc25774f915e",
           "hasCommand": false,
           "icon": "lucide-copy-plus",
@@ -2294,7 +2129,7 @@
           }
         }
       },
-      "updated": "2025-08-28T04:58:09.743Z",
+      "updated": "2025-08-30T04:58:06.004Z",
       "hasCommand": true
     },
     {
@@ -2714,170 +2549,6 @@
           }
         },
         {
-          "uuid": "1d6c5706-45aa-4214-a847-f6defc07077e",
-          "hasCommand": false,
-          "icon": "lucide-check-square-2",
-          "inGallery": false,
-          "label": "",
-          "link": "Task Genius: Toggle quick capture panel in editor (Globally)",
-          "linkAttr": {
-            "commandCheck": false,
-            "commandId": "obsidian-task-progress-bar:toggle-quick-capture-globally",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Quickly Capture Checkbox in Editor (Task Genius) (Ctrl + B)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "uuid": "16f76ce8-1967-48d6-af67-3c741ba6d8f5",
-          "hasCommand": false,
-          "icon": "lucide-check-square-2",
-          "inGallery": false,
-          "label": "",
-          "link": "Task Genius: Quick Capture",
-          "linkAttr": {
-            "commandCheck": false,
-            "commandId": "obsidian-task-progress-bar:quick-capture",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Quickly Capture Checkbox (Task Genius) (Ctrl + Shift + B)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "uuid": "3e1beebc-d6c3-4b04-b17e-289735c42fe7",
-          "hasCommand": false,
-          "icon": "lucide-check-square-2",
-          "inGallery": false,
-          "label": "",
-          "link": "Task Genius: Move task to another file",
-          "linkAttr": {
-            "commandCheck": false,
-            "commandId": "obsidian-task-progress-bar:move-task-to-file",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Move List of Tasks to Note (Task Genius) (Alt + B)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "uuid": "f5e05d64-853f-4ccf-a3ea-8f442a25c225",
-          "hasCommand": false,
-          "icon": "lucide-check-square-2",
-          "inGallery": false,
-          "label": "",
-          "link": "Task Genius: Open Task Genius view",
-          "linkAttr": {
-            "commandCheck": false,
-            "commandId": "obsidian-task-progress-bar:open-task-genius-view",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Open Task Genius View (Task Genius) (Ctrl + Shift + B)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
-        },
-        {
           "uuid": "7527652e-0fe6-464d-beba-99745293d5b7",
           "label": "",
           "icon": "lucide-feather",
@@ -3010,6 +2681,47 @@
             "type": "command"
           },
           "tooltip": "Link both Notes and Media Files (Folder Notes) (Ctrl + Alt + L)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "c33e8f50-b56f-4acf-a8b7-9a684bfb948c",
+          "hasCommand": false,
+          "icon": "lucide-folder-tree",
+          "inGallery": false,
+          "label": "",
+          "link": "Attachment Organizer: Move attachments between folders",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "attachment-organizer:move-attachments-between-folders",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Move files between folders (Attachment Organizer)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -3517,6 +3229,128 @@
           },
           "inGallery": false,
           "hasCommand": false
+        },
+        {
+          "uuid": "1f4a4999-bb04-43fb-a46f-478653e341f9",
+          "hasCommand": false,
+          "icon": "lucide-check-square",
+          "inGallery": false,
+          "label": "",
+          "link": "Todo.txt: Add task",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "todo-txt:add-task",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Add Task to list (Todo.txt)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "53179884-c65d-42b1-a2ef-8e01f66f0461",
+          "hasCommand": false,
+          "icon": "lucide-check-square",
+          "inGallery": false,
+          "label": "",
+          "link": "Todo.txt: Create new file",
+          "linkAttr": {
+            "commandCheck": false,
+            "commandId": "todo-txt:create-new-file",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Make a New Task list (Todo.txt)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "uuid": "874cc105-9c73-4e0d-8a47-5e768b5c9a09",
+          "label": "",
+          "icon": "lucide-folder-output",
+          "link": "Attachment Organizer: Move attachments between folders",
+          "linkAttr": {
+            "commandId": "attachment-organizer:move-attachments-between-folders",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Move Notes to another folder (Attachment Organizer)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
         }
       ],
       "mobileStyles": [],
@@ -3538,7 +3372,7 @@
           }
         }
       },
-      "updated": "2025-08-28T04:57:17.873Z"
+      "updated": "2025-08-30T04:57:27.882Z"
     },
     {
       "uuid": "9813b039-9139-4564-b81f-9d64c26f9679",
@@ -3998,19 +3832,19 @@
           }
         },
         {
-          "uuid": "c11c69f9-48b4-451a-b9c0-b60a006840ec",
+          "uuid": "babd912e-3c40-46ea-ad54-73ddcb629e3b",
           "hasCommand": false,
-          "icon": "lucide-check-square-2",
+          "icon": "lucide-check-square",
           "inGallery": false,
           "label": "",
-          "link": "Task Genius: Toggle quick capture panel in editor (Globally)",
+          "link": "Todo.txt: Add task",
           "linkAttr": {
             "commandCheck": false,
-            "commandId": "obsidian-task-progress-bar:toggle-quick-capture-globally",
+            "commandId": "todo-txt:add-task",
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Quickly Capture Checkbox in Editor (Task Genius) (Ctrl + B)",
+          "tooltip": "Add Task to list (Todo.txt)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -4039,101 +3873,19 @@
           }
         },
         {
-          "uuid": "b9cc6d0a-b5bb-4041-a21b-fa1b224d9728",
+          "uuid": "90a9565d-bb89-4ee9-8b8d-b82b99701d5c",
           "hasCommand": false,
-          "icon": "lucide-check-square-2",
+          "icon": "lucide-check-square",
           "inGallery": false,
           "label": "",
-          "link": "Task Genius: Quick Capture",
+          "link": "Todo.txt: Create new file",
           "linkAttr": {
             "commandCheck": false,
-            "commandId": "obsidian-task-progress-bar:quick-capture",
+            "commandId": "todo-txt:create-new-file",
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Quickly Capture Checkbox (Task Genius) (Ctrl + Shift + B)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "uuid": "93de8239-49de-4b2e-94e9-36ad16488d32",
-          "hasCommand": false,
-          "icon": "lucide-check-square-2",
-          "inGallery": false,
-          "label": "",
-          "link": "Task Genius: Move task to another file",
-          "linkAttr": {
-            "commandCheck": false,
-            "commandId": "obsidian-task-progress-bar:move-task-to-file",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Move List of Tasks to Note (Task Genius) (Alt + B)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "uuid": "ac2cc235-0ca8-4dc9-b79c-fc8852fdee12",
-          "hasCommand": false,
-          "icon": "lucide-check-square-2",
-          "inGallery": false,
-          "label": "",
-          "link": "Task Genius: Open Task Genius view",
-          "linkAttr": {
-            "commandCheck": false,
-            "commandId": "obsidian-task-progress-bar:open-task-genius-view",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Open Task Genius View (Task Genius) (Ctrl + Shift + B)",
+          "tooltip": "Make a New Task list (Todo.txt)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -4443,86 +4195,6 @@
           }
         },
         {
-          "uuid": "d1cb339f-7985-41ab-991a-e6afeccf1b2e",
-          "label": "",
-          "icon": "lucide-layout-dashboard",
-          "link": "Link Exploder: Create Canvas From File Links",
-          "linkAttr": {
-            "commandId": "link-exploder:link-exploder-canvas-builder",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Turn Note into Canvas (Link Exploder) (Ctrl + Alt + E)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          },
-          "inGallery": false,
-          "hasCommand": false
-        },
-        {
-          "uuid": "2ad65a9d-eee7-473e-8267-17da93ebc101",
-          "label": "",
-          "icon": "lucide-layout-dashboard",
-          "link": "Canvas Explorer: Add Note",
-          "linkAttr": {
-            "commandId": "canvas-explorer:add-note",
-            "hasVars": false,
-            "type": "command"
-          },
-          "tooltip": "Place File into Canvas (Canvas Explorer)",
-          "visibility": {
-            "desktop": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "mobile": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            },
-            "tablet": {
-              "allViews": {
-                "components": [
-                  "icon",
-                  "label"
-                ]
-              }
-            }
-          },
-          "inGallery": false,
-          "hasCommand": false
-        },
-        {
           "uuid": "a793720e-5fde-470d-b8b1-e3e2053d2120",
           "label": "",
           "icon": "lucide-file-plus",
@@ -4603,16 +4275,96 @@
           "hasCommand": false
         },
         {
-          "uuid": "bbac90af-6844-4363-a7ad-f235dfaa0785",
+          "uuid": "6858ffbd-8a69-4443-915a-fb6b78b665de",
           "label": "",
-          "icon": "lucide-notepad-text",
-          "link": "Paste Link: Paste URL as plain text",
+          "icon": "lucide-folder-output",
+          "link": "Attachment Organizer: Move attachments between folders",
           "linkAttr": {
-            "commandId": "paste-link:paste-as-plain-text",
+            "commandId": "attachment-organizer:move-attachments-between-folders",
             "hasVars": false,
             "type": "command"
           },
-          "tooltip": "Paste URL without naming (Paste Link) (Alt + P)",
+          "tooltip": "Move Notes to another folder (Attachment Organizer)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "d1cb339f-7985-41ab-991a-e6afeccf1b2e",
+          "label": "",
+          "icon": "lucide-layout-dashboard",
+          "link": "Link Exploder: Create Canvas From File Links",
+          "linkAttr": {
+            "commandId": "link-exploder:link-exploder-canvas-builder",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Turn Note into Canvas (Link Exploder) (Ctrl + Alt + E)",
+          "visibility": {
+            "desktop": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "mobile": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            },
+            "tablet": {
+              "allViews": {
+                "components": [
+                  "icon",
+                  "label"
+                ]
+              }
+            }
+          },
+          "inGallery": false,
+          "hasCommand": false
+        },
+        {
+          "uuid": "2ad65a9d-eee7-473e-8267-17da93ebc101",
+          "label": "",
+          "icon": "lucide-layout-dashboard",
+          "link": "Canvas Explorer: Add Note",
+          "linkAttr": {
+            "commandId": "canvas-explorer:add-note",
+            "hasVars": false,
+            "type": "command"
+          },
+          "tooltip": "Place File into Canvas (Canvas Explorer)",
           "visibility": {
             "desktop": {
               "allViews": {
@@ -5142,7 +4894,7 @@
           }
         }
       },
-      "updated": "2025-08-28T04:55:26.645Z"
+      "updated": "2025-08-30T05:20:20.453Z"
     }
   ],
   "version": 20250313.1,

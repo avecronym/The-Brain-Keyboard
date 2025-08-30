@@ -19,12 +19,10 @@
   "url-into-selection",
   "note-toolbar",
   "obsidian-local-file-interface-plugin",
-  "map-of-content",
   "tray",
   "obsidian-outliner",
   "better-search-views",
   "image-converter",
-  "obsidian-image-toolkit",
   "project-browser",
   "obsidian-languagetool-plugin",
   "multi-properties",
@@ -34,9 +32,11 @@
   "copy-note",
   "obsidian-checkbox3states-plugin",
   "folder-notes",
-  "obsidian-task-progress-bar",
   "obsidian42-strange-new-worlds",
   "canvas-explorer",
   "obsidian-note-autocreator",
-  "notes-explorer"
+  "notes-explorer",
+  "todo-txt",
+  "obsidian42-brat",
+  "attachment-organizer"
 ]

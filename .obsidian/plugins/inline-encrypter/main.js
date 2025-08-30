@@ -27,16 +27,39 @@ __export(main_exports, {
   default: () => InlineEncrypterPlugin
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian5 = require("obsidian");
+var import_obsidian6 = require("obsidian");
+
+// src/Settings.ts
+var import_obsidian = require("obsidian");
+var DEFAULT_SETTINGS = {
+  autoCopy: false
+};
+var InlineEncrypterSettingTab = class extends import_obsidian.PluginSettingTab {
+  constructor(app, plugin) {
+    super(app, plugin);
+    this.plugin = plugin;
+  }
+  display() {
+    const { containerEl } = this;
+    containerEl.empty();
+    new import_obsidian.Setting(containerEl).setName("Auto copy secret to clipboard").setDesc("Copy secret to clipboard automatically").addToggle(
+      (toggle) => toggle.setValue(this.plugin.settings.autoCopy).onChange(async (value) => {
+        this.plugin.settings.autoCopy = value;
+        await this.plugin.saveSettings();
+        this.display();
+      })
+    );
+  }
+};
 
 // src/ModalPassword.ts
-var import_obsidian = require("obsidian");
+var import_obsidian2 = require("obsidian");
 
 // src/Constants.ts
 var ENCRYPTED_CODE_PREFIX = "secret";
 
 // src/ModalPassword.ts
-var ModalPassword = class extends import_obsidian.Modal {
+var ModalPassword = class extends import_obsidian2.Modal {
   constructor(app, textType) {
     super(app);
     this.password = "";
@@ -51,7 +74,7 @@ var ModalPassword = class extends import_obsidian.Modal {
     } else {
       contentEl.createEl("h1", { text: "Enter password" });
     }
-    new import_obsidian.Setting(contentEl).setName("Password").addText((text) => {
+    new import_obsidian2.Setting(contentEl).setName("Password").addText((text) => {
       text.inputEl.type = "password";
       text.inputEl.addEventListener("keypress", (event) => {
         if (event.key === "Enter") {
@@ -60,7 +83,7 @@ var ModalPassword = class extends import_obsidian.Modal {
       });
       text.onChange((value) => this.password = value);
     });
-    new import_obsidian.Setting(contentEl).setName("Show password").addToggle(
+    new import_obsidian2.Setting(contentEl).setName("Show password").addToggle(
       (toggle) => toggle.setValue(false).onChange((value) => {
         const input = this.contentEl.querySelector("input");
         if (input) {
@@ -70,7 +93,7 @@ var ModalPassword = class extends import_obsidian.Modal {
     );
     if (this.textType === 1 /* PreEncrypted */) {
       contentEl.classList.add("inline-encrypter-encrypt-text-modal");
-      new import_obsidian.Setting(contentEl).setName("Text to encrypt").addTextArea((cb) => {
+      new import_obsidian2.Setting(contentEl).setName("Text to encrypt").addTextArea((cb) => {
         textArea = cb;
         cb.setValue(this.input);
         cb.inputEl.readOnly = false;
@@ -78,7 +101,7 @@ var ModalPassword = class extends import_obsidian.Modal {
         cb.inputEl.rows = 8;
       });
     }
-    new import_obsidian.Setting(contentEl).addButton((btn) => btn.setButtonText("OK").setCta().onClick(() => {
+    new import_obsidian2.Setting(contentEl).addButton((btn) => btn.setButtonText("OK").setCta().onClick(() => {
       if (this.textType === 1 /* PreEncrypted */) {
         this.input = textArea.getValue();
       }
@@ -204,14 +227,15 @@ var CryptoFactory = class {
 };
 
 // src/UiHelper.ts
-var import_obsidian3 = require("obsidian");
+var import_obsidian4 = require("obsidian");
 
 // src/ModalDecrypt.ts
-var import_obsidian2 = require("obsidian");
-var ModalDecrypt = class extends import_obsidian2.Modal {
-  constructor(app, text = "") {
+var import_obsidian3 = require("obsidian");
+var ModalDecrypt = class extends import_obsidian3.Modal {
+  constructor(app, text = "", autoCopy) {
     super(app);
     this.text = text;
+    this.autoCopy = autoCopy;
   }
   onOpen() {
     var _a;
@@ -220,20 +244,24 @@ var ModalDecrypt = class extends import_obsidian2.Modal {
     contentEl.classList.add("inline-encrypter-decrypt-modal");
     contentEl.createEl("h1", { text: "Decrypted secret" });
     let textArea;
-    const textVal = new import_obsidian2.Setting(contentEl).addTextArea((cb) => {
+    const textVal = new import_obsidian3.Setting(contentEl).addTextArea((cb) => {
       textArea = cb;
       cb.setValue(this.text);
       cb.inputEl.setSelectionRange(0, 0);
       cb.inputEl.readOnly = true;
       cb.inputEl.cols = 50;
       cb.inputEl.rows = 10;
+      if (this.autoCopy == true) {
+        navigator.clipboard.writeText(textArea.getValue());
+        new import_obsidian3.Notice("Secret copied");
+      }
     });
     (_a = textVal.settingEl.querySelector(".setting-item-info")) == null ? void 0 : _a.remove();
-    const buttons = new import_obsidian2.Setting(contentEl);
+    const buttons = new import_obsidian3.Setting(contentEl);
     buttons.addButton((cb) => {
       cb.setButtonText("Copy to clipboard").onClick((evt) => {
         navigator.clipboard.writeText(textArea.getValue());
-        new import_obsidian2.Notice("Secret copied");
+        new import_obsidian3.Notice("Secret copied");
       });
     });
   }
@@ -245,7 +273,7 @@ var ModalDecrypt = class extends import_obsidian2.Modal {
 
 // src/UiHelper.ts
 var UiHelper = class {
-  handleDecryptClick(app, event, input) {
+  handleDecryptClick(app, plugin, event, input) {
     event.preventDefault();
     const cryptoFactory = new CryptoFactory();
     const passModal = new ModalPassword(app, 0 /* Inline */);
@@ -256,10 +284,10 @@ var UiHelper = class {
       input = input.replace(ENCRYPTED_CODE_PREFIX, "").replace(/`/g, "").replace(/\s/g, "").replace(/\r?\n|\r/g, "");
       const output = await cryptoFactory.decryptFromBase64(input, passModal.password);
       if (output === null) {
-        new import_obsidian3.Notice("\u274C Decryption failed!");
+        new import_obsidian4.Notice("\u274C Decryption failed!");
         return;
       } else {
-        new ModalDecrypt(app, output).open();
+        new ModalDecrypt(app, output, plugin.settings.autoCopy).open();
       }
     };
     passModal.open();
@@ -275,7 +303,7 @@ var UiHelper = class {
 };
 
 // src/LivePreviewExtension.ts
-var import_obsidian4 = require("obsidian");
+var import_obsidian5 = require("obsidian");
 var import_view2 = require("@codemirror/view");
 var import_state = require("@codemirror/state");
 var import_language = require("@codemirror/language");
@@ -283,10 +311,11 @@ var import_language = require("@codemirror/language");
 // src/InlineWidget.ts
 var import_view = require("@codemirror/view");
 var InlineWidget = class extends import_view.WidgetType {
-  constructor(app, value) {
+  constructor(app, plugin, value) {
     super();
     this.app = app;
     this.value = value;
+    this.plugin = plugin;
   }
   toDOM(view) {
     const uiHelper = new UiHelper();
@@ -294,19 +323,19 @@ var InlineWidget = class extends import_view.WidgetType {
     div.addClass("inline-encrypter-lp-code");
     const a = div.createEl("a");
     a.addClass("inline-encrypter-code");
-    a.onClickEvent((event) => uiHelper.handleDecryptClick(this.app, event, this.value));
+    a.onClickEvent((event) => uiHelper.handleDecryptClick(this.app, this.plugin, event, this.value));
     return div;
   }
 };
 
 // src/LivePreviewExtension.ts
-var livePreviewExtension = (app) => import_view2.ViewPlugin.fromClass(
+var livePreviewExtension = (app, plugin) => import_view2.ViewPlugin.fromClass(
   class {
     constructor(view) {
       this.decorations = this.buildDecorations(view);
     }
     update(update) {
-      if (!update.state.field(import_obsidian4.editorLivePreviewField)) {
+      if (!update.state.field(import_obsidian5.editorLivePreviewField)) {
         this.decorations = import_view2.Decoration.none;
         return;
       }
@@ -317,7 +346,7 @@ var livePreviewExtension = (app) => import_view2.ViewPlugin.fromClass(
     destroy() {
     }
     buildDecorations(view) {
-      if (!view.state.field(import_obsidian4.editorLivePreviewField)) return import_view2.Decoration.none;
+      if (!view.state.field(import_obsidian5.editorLivePreviewField)) return import_view2.Decoration.none;
       const uiHelper = new UiHelper();
       const builder = new import_state.RangeSetBuilder();
       const selection = view.state.selection;
@@ -335,7 +364,7 @@ var livePreviewExtension = (app) => import_view2.ViewPlugin.fromClass(
                     node.from,
                     node.to,
                     import_view2.Decoration.replace({
-                      widget: new InlineWidget(app, value)
+                      widget: new InlineWidget(app, plugin, value)
                     })
                   );
                 }
@@ -353,15 +382,17 @@ var livePreviewExtension = (app) => import_view2.ViewPlugin.fromClass(
 );
 
 // src/main.ts
-var InlineEncrypterPlugin = class extends import_obsidian5.Plugin {
+var InlineEncrypterPlugin = class extends import_obsidian6.Plugin {
   constructor() {
     super(...arguments);
     this.cryptoFactory = new CryptoFactory();
   }
   async onload() {
+    await this.loadSettings();
+    this.addSettingTab(new InlineEncrypterSettingTab(this.app, this));
     this.registerMarkdownPostProcessor((el, ctx) => this.processEncryptedInlineCodeBlockProcessor(el, ctx));
     this.registerMarkdownCodeBlockProcessor(ENCRYPTED_CODE_PREFIX, (source, el, ctx) => this.processEncryptedCodeBlockProcessor(source, el, ctx));
-    this.registerEditorExtension(livePreviewExtension(this.app));
+    this.registerEditorExtension(livePreviewExtension(this.app, this));
     this.addCommand({
       id: "encrypt",
       name: "Encrypt selected text",
@@ -391,6 +422,12 @@ var InlineEncrypterPlugin = class extends import_obsidian5.Plugin {
   onunload() {
     console.log("Inline Encrypter plugin unloaded");
   }
+  async loadSettings() {
+    this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+  }
+  async saveSettings() {
+    await this.saveData(this.settings);
+  }
   async processInlineEncryptCommand(editor, codeBlockType, textType) {
     if (textType === 0 /* Inline */) {
       if (editor.somethingSelected()) {
@@ -408,13 +445,13 @@ var InlineEncrypterPlugin = class extends import_obsidian5.Plugin {
             editor.replaceSelection("```" + ENCRYPTED_CODE_PREFIX + "\n" + output + "\n```");
           }
           if (passModal.password.length === 0) {
-            new import_obsidian5.Notice("\u26A0\uFE0F Password is empty");
+            new import_obsidian6.Notice("\u26A0\uFE0F Password is empty");
           }
-          new import_obsidian5.Notice("\u2705 Text encrypted");
+          new import_obsidian6.Notice("\u2705 Text encrypted");
         };
         passModal.open();
       } else {
-        new import_obsidian5.Notice("\u274C No selected text for encryption");
+        new import_obsidian6.Notice("\u274C No selected text for encryption");
       }
     }
     if (textType === 1 /* PreEncrypted */) {
@@ -433,11 +470,11 @@ var InlineEncrypterPlugin = class extends import_obsidian5.Plugin {
             editor.replaceSelection("```" + ENCRYPTED_CODE_PREFIX + "\n" + output + "\n```");
           }
           if (passModal.password.length === 0) {
-            new import_obsidian5.Notice("\u26A0\uFE0F Password is empty");
+            new import_obsidian6.Notice("\u26A0\uFE0F Password is empty");
           }
-          new import_obsidian5.Notice("\u2705 Text encrypted");
+          new import_obsidian6.Notice("\u2705 Text encrypted");
         } else {
-          new import_obsidian5.Notice("\u274C No text for encryption");
+          new import_obsidian6.Notice("\u274C No text for encryption");
         }
       };
       passModal.open();
@@ -454,16 +491,16 @@ var InlineEncrypterPlugin = class extends import_obsidian5.Plugin {
         input = input.replace(ENCRYPTED_CODE_PREFIX, "").replace(/`/g, "").replace(/\s/g, "").replace(/\r?\n|\r/g, "");
         const output = await this.cryptoFactory.decryptFromBase64(input, passModal.password);
         if (output === null) {
-          new import_obsidian5.Notice("\u274C Decryption failed!");
+          new import_obsidian6.Notice("\u274C Decryption failed!");
           return;
         } else {
           editor.replaceSelection(output);
-          new import_obsidian5.Notice("\u2705 Text decrypted");
+          new import_obsidian6.Notice("\u2705 Text decrypted");
         }
       };
       passModal.open();
     } else {
-      new import_obsidian5.Notice("\u274C No selected text for decryption");
+      new import_obsidian6.Notice("\u274C No selected text for decryption");
     }
   }
   processEncryptedInlineCodeBlockProcessor(el, ctx) {
@@ -476,14 +513,14 @@ var InlineEncrypterPlugin = class extends import_obsidian5.Plugin {
         const uiHelper = new UiHelper();
         codeblock.innerText = "";
         codeblock.createEl("a", { cls: "inline-encrypter-code" });
-        codeblock.onClickEvent((event) => uiHelper.handleDecryptClick(this.app, event, text));
+        codeblock.onClickEvent((event) => uiHelper.handleDecryptClick(this.app, this, event, text));
       }
     }
   }
   processEncryptedCodeBlockProcessor(source, el, ctx) {
     const uiHelper = new UiHelper();
     const codeblock = el.createEl("a", { cls: "inline-encrypter-code" });
-    codeblock.onClickEvent((event) => uiHelper.handleDecryptClick(this.app, event, source));
+    codeblock.onClickEvent((event) => uiHelper.handleDecryptClick(this.app, this, event, source));
   }
 };
 

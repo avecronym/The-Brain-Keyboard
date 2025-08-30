@@ -1,0 +1,15 @@
+{
+  "todoFilePath": "Keyboard/Templates/Todo.txt",
+  "openOnStartup": false,
+  "sidebarCollapsed": false,
+  "startupFilter": "All",
+  "pinnedProjects": {
+    "Todo.txt": []
+  },
+  "projectIcons": {
+    "Todo.txt": {}
+  },
+  "allKnownProjects": {
+    "Todo.txt": []
+  }
+}

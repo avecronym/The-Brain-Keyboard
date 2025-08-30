@@ -1,0 +1,210 @@
+/* Modal styling for better mobile support */
+.attachment-organizer-modal {
+    padding: 16px;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.attachment-organizer-modal-header {
+    margin-bottom: 16px;
+}
+
+.attachment-organizer-warning-text {
+    color: var(--text-error);
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+.attachment-organizer-section-title {
+    font-size: 1em;
+    font-weight: 600;
+    margin: 8px 0;
+}
+
+/* File list styling with better mobile support */
+.attachment-organizer-file-section {
+    margin-bottom: 20px;
+}
+
+.attachment-organizer-file-list {
+    max-height: 40vh; /* Use viewport height for better mobile scaling */
+    overflow-y: auto;
+    margin-bottom: 16px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.attachment-organizer-file-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--background-modifier-border);
+    gap: 8px;
+}
+
+.attachment-organizer-file-item:last-child {
+    border-bottom: none;
+}
+
+.attachment-organizer-file-icon {
+    flex-shrink: 0;
+    font-size: 1.2em;
+    width: 24px;
+    text-align: center;
+}
+
+.attachment-organizer-file-path {
+    font-family: var(--font-monospace);
+    font-size: 0.9em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-grow: 1;
+}
+
+/* Button styling with better mobile support */
+.attachment-organizer-action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.attachment-organizer-button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    min-width: 80px;
+    text-align: center;
+    /* Ensure buttons are big enough for touch targets */
+    min-height: 40px;
+}
+
+.attachment-organizer-button-warning {
+    background-color: var(--background-modifier-error);
+    color: var(--text-on-accent);
+}
+
+/* Folder selection and input styling */
+.attachment-organizer-folder-section {
+    margin-bottom: 20px;
+}
+
+.attachment-organizer-folder-input {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--background-modifier-border);
+    background-color: var(--background-primary);
+    font-family: var(--font-monospace);
+    font-size: 0.9em;
+    margin-top: 8px;
+}
+
+.attachment-organizer-folder-input:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+    box-shadow: 0 0 0 2px rgba(var(--interactive-accent-rgb), 0.2);
+}
+
+.attachment-organizer-path-info {
+    padding: 12px;
+    background-color: var(--background-secondary);
+    border-radius: 6px;
+    margin: 8px 0 16px;
+}
+
+.attachment-organizer-path-example {
+    font-family: var(--font-monospace);
+    font-size: 0.9em;
+    word-break: break-all;
+}
+
+.attachment-organizer-success-text {
+    color: var(--text-success);
+    font-weight: 500;
+    margin: 8px 0;
+}
+
+.attachment-organizer-error-title {
+    color: var(--text-error);
+}
+
+.attachment-organizer-error-list {
+    max-height: 20vh;
+    overflow-y: auto;
+    margin: 8px 0;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    padding: 8px;
+}
+
+.attachment-organizer-error-item {
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--background-modifier-border);
+    font-family: var(--font-monospace);
+    font-size: 0.85em;
+    word-break: break-all;
+}
+
+.attachment-organizer-error-item:last-child {
+    border-bottom: none;
+}
+
+/* Media queries for small screens */
+@media screen and (max-width: 600px) {
+    .attachment-organizer-action-buttons {
+        flex-direction: column-reverse;
+        gap: 8px;
+    }
+    
+    .attachment-organizer-button {
+        width: 100%;
+        min-height: 44px; /* Even larger touch targets on small screens */
+    }
+    
+    .attachment-organizer-file-list {
+        max-height: 50vh; /* More space for the file list on mobile */
+    }
+}
+
+.attachment-organizer-file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.attachment-organizer-file-item:last-child {
+    border-bottom: none;
+}
+
+.attachment-organizer-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.attachment-organizer-action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.attachment-organizer-action-buttons button {
+    padding: 6px 12px;
+}
+
+.mod-warning .attachment-organizer {
+    color: var(--text-error);
+    border-color: var(--text-error);
+}
+
+.mod-warning:hover .attachment-organizer {
+    background-color: var(--text-error);
+    color: var(--text-on-accent);
+}
